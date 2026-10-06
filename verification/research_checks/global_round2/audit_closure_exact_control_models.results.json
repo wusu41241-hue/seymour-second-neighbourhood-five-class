@@ -1,0 +1,397 @@
+{
+  "status": "PASS",
+  "controls": [
+    {
+      "out": [
+        4,
+        4,
+        24,
+        32,
+        32,
+        3
+      ],
+      "Q": [
+        6,
+        4,
+        24,
+        48,
+        32,
+        3
+      ],
+      "T": [
+        30,
+        28,
+        56,
+        48,
+        32,
+        3
+      ],
+      "closureSteps": [
+        {
+          "kind": "weak",
+          "arcs": [
+            [
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "kind": "weak",
+          "arcs": [
+            [
+              3,
+              4,
+              4
+            ]
+          ]
+        }
+      ],
+      "reference": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "partialScore": 8,
+      "partialFeeds": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "partialMedianOrderCount": 6,
+      "finalScore": 13,
+      "finalFeeds": [
+        5
+      ],
+      "finalMedianOrderCount": 1,
+      "feed": 5,
+      "originalGaps": [
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        1
+      ],
+      "gOriginal": 1,
+      "gCompleted": -1,
+      "tOriginal": 2,
+      "originalFarHeads": [
+        3,
+        4
+      ],
+      "newFarSecondHeads": [
+        3,
+        4
+      ],
+      "remainingMissing": [
+        2
+      ],
+      "remainingMissingArcs": [],
+      "finalFar": [],
+      "goodVertices": [
+        2,
+        3,
+        4
+      ],
+      "goodSlack": 1
+    },
+    {
+      "out": [
+        6,
+        8,
+        8,
+        17,
+        1793,
+        80,
+        144,
+        48,
+        33,
+        65,
+        129
+      ],
+      "Q": [
+        6,
+        12,
+        8,
+        17,
+        1793,
+        80,
+        144,
+        48,
+        39,
+        71,
+        135
+      ],
+      "T": [
+        6,
+        28,
+        24,
+        17,
+        1793,
+        95,
+        159,
+        63,
+        1775,
+        1263,
+        239
+      ],
+      "closureSteps": [
+        {
+          "kind": "forced",
+          "arcs": [
+            [
+              8,
+              1,
+              0
+            ],
+            [
+              9,
+              1,
+              0
+            ],
+            [
+              10,
+              1,
+              0
+            ],
+            [
+              8,
+              2,
+              0
+            ],
+            [
+              9,
+              2,
+              0
+            ],
+            [
+              10,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "kind": "weak",
+          "arcs": [
+            [
+              1,
+              2,
+              2
+            ]
+          ]
+        }
+      ],
+      "reference": [
+        8,
+        9,
+        10,
+        5,
+        6,
+        7,
+        1,
+        2,
+        3,
+        4,
+        0
+      ],
+      "partialScore": 23,
+      "partialFeeds": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "partialMedianOrderCount": 6576,
+      "finalScore": 49,
+      "finalFeeds": [
+        0,
+        4
+      ],
+      "finalMedianOrderCount": 6,
+      "feed": 0,
+      "originalGaps": [
+        1,
+        -1,
+        -1,
+        -3,
+        -1,
+        -3,
+        -3,
+        -3,
+        -2,
+        -2,
+        -2
+      ],
+      "gOriginal": 1,
+      "gCompleted": 0,
+      "tOriginal": 4,
+      "originalFarHeads": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "newFarSecondHeads": [
+        4
+      ],
+      "remainingMissing": [
+        5,
+        6,
+        7
+      ],
+      "remainingMissingArcs": [
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          5
+        ]
+      ],
+      "finalFar": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "goodVertices": [
+        3,
+        4
+      ],
+      "goodSlack": 0
+    },
+    {
+      "out": [
+        30,
+        100,
+        168,
+        80,
+        130,
+        768,
+        1,
+        1,
+        1,
+        1
+      ],
+      "Q": [
+        30,
+        100,
+        168,
+        80,
+        130,
+        768,
+        1,
+        1,
+        513,
+        1
+      ],
+      "T": [
+        30,
+        1004,
+        1016,
+        1008,
+        994,
+        961,
+        897,
+        769,
+        513,
+        1
+      ],
+      "closureSteps": [
+        {
+          "kind": "weak",
+          "arcs": [
+            [
+              8,
+              9,
+              9
+            ]
+          ]
+        }
+      ],
+      "reference": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        0
+      ],
+      "partialScore": 16,
+      "partialFeeds": [
+        0,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9
+      ],
+      "partialMedianOrderCount": 738,
+      "finalScore": 40,
+      "finalFeeds": [
+        0
+      ],
+      "finalMedianOrderCount": 1,
+      "feed": 0,
+      "originalGaps": [
+        1,
+        -2,
+        -2,
+        -1,
+        -2,
+        1,
+        -3,
+        -3,
+        -3,
+        -3
+      ],
+      "gOriginal": 1,
+      "gCompleted": -1,
+      "tOriginal": 2,
+      "originalFarHeads": [
+        8,
+        9
+      ],
+      "newFarSecondHeads": [
+        8,
+        9
+      ],
+      "remainingMissing": [
+        5
+      ],
+      "remainingMissingArcs": [],
+      "finalFar": [],
+      "goodVertices": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "goodSlack": 1
+    }
+  ],
+  "scope": "Exact ordinary maximum forward scores by subset dynamic programming. Controls have ordinary Seymour vertices and are not conjecture counterexamples. Two sharp negative stable models, including a feed-local eta=2 model, and one sharp zero cycle model are independently checked."
+}

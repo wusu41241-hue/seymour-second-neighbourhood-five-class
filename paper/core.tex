@@ -1,0 +1,485 @@
+\section{Incoming-neighborhood pattern certificates}
+\label{sec:paper-incoming-certificates}
+
+We first give a certificate that depends on a small induced subgraph but
+controls second neighborhoods in the original graph. Throughout this section,
+$D$ is a finite nonempty oriented graph. Put
+\[
+ g_D(v)=|N_D^+(v)|-|N_D^{++}(v)|,
+\]
+where $N_D^{++}(v)$ consists of the vertices at directed distance exactly
+two from $v$. A vertex with $g_D(v)\leq0$ is called a Seymour vertex.
+No extremal or minimal-counterexample assumption is made in this section.
+
+\subsection{Patterns and the transfer theorem}
+
+Let $H$ be a finite nonempty oriented graph. Define its family of
+\emph{permitted incoming patterns} by
+\begin{equation}
+ \mathcal P(H)=\{P\subseteq V(H):
+           P\subseteq N_H^-(j)\text{ for some }j\in V(H)\}.
+ \label{eq:paper-pattern-family}
+\end{equation}
+In particular, the empty set belongs to $\mathcal P(H)$. For an arbitrary
+$P\subseteq V(H)$, write
+\[
+ R_H(P)=\{i\in V(H)\setminus P:
+                      N_H^+(i)\cap P\ne\varnothing\}.
+\]
+Thus $R_H(P)$ consists of the vertices outside $P$ that send an arc into
+$P$. If $\lambda$ is a nonnegative vector indexed by $V(H)$, use the
+notation $\lambda(S)=\sum_{i\in S}\lambda_i$.
+
+\begin{definition}[Pattern certificate]
+\label{def:paper-pattern-certificate}
+A pattern certificate for $H$ is a nonzero vector $\lambda\geq0$ such that
+\begin{equation}
+ \lambda(R_H(P))\geq\lambda(P)
+             \qquad\text{for every }P\in\mathcal P(H).
+ \label{eq:paper-pattern-inequalities}
+\end{equation}
+The inequalities are homogeneous, so a certificate may always be
+normalized by $\lambda(V(H))=1$.
+\end{definition}
+
+For a nonempty set $C\subseteq V(D)$, let $H=D[C]$ and associate to every
+original vertex $v$ the pattern
+\[
+ \Pi_C(v)=N_D^-(v)\cap C.
+\]
+We say that $C$ is \emph{incoming-covered} if
+\begin{equation}
+ \Pi_C(v)\in\mathcal P(H)\qquad(v\in V(D)).
+ \label{eq:paper-incoming-covered}
+\end{equation}
+The witness for this condition may depend on $v$; the condition does not
+require any particular orientation between $v$ and that witness.
+
+For clarity, let $\mathbf N_D$ denote the matrix with rows and columns
+indexed by $V(D)$ and entries
+\[
+ (\mathbf N_D)_{uv}=
+ \begin{cases}
+ -1,&v\in N_D^+(u),\\
+  1,&v\in N_D^{++}(u),\\
+  0,&\text{otherwise}.
+ \end{cases}
+\]
+The row sum at $u$ is $-g_D(u)$.
+
+\begin{theorem}[Transfer from an incoming-covered core]
+\label{thm:pattern-transfer}
+Let $C\subseteq V(D)$ be nonempty and incoming-covered, and put $H=D[C]$.
+If $\lambda$ is a pattern certificate for $H$, then its extension
+$\widehat\lambda$ by zero to $V(D)$ satisfies
+\[
+ \mathbf N_D^{\mathsf T}\widehat\lambda\geq0.
+\]
+Consequently some $c\in C$ with $\lambda_c>0$ is a Seymour vertex of $D$.
+\end{theorem}
+\begin{proof}
+Fix an original target $v$ and put $P=\Pi_C(v)$. The first predecessors of
+$v$ in $C$ are precisely the vertices of $P$. If $i\in R_H(P)$, choose
+$j\in N_H^+(i)\cap P$. Both arcs of the path $i\to j\to v$ are
+original arcs of $D$, and $i\notin P$ says that $i\to v$ is not an arc.
+Also $i\ne v$: otherwise $v\to j$ and $j\to v$ would form a digon.
+It follows that $v\in N_D^{++}(i)$.
+
+The total $\lambda$-mass of the core vertices that have $v$ as an exact
+second neighbor is therefore at least $\lambda(R_H(P))$. Since $P$ is
+permitted, this is at least $\lambda(P)$, the total mass of its core
+first predecessors. This proves the asserted matrix inequality at the
+column indexed by $v$.
+
+Summing over the columns gives
+\[
+ 0\leq\mathbf1^{\mathsf T}\mathbf N_D^{\mathsf T}\widehat\lambda
+       =-\sum_{c\in C}\lambda_c g_D(c).
+\]
+Since $\lambda$ is nonzero and nonnegative, not every vertex of its
+support can have positive gap.
+\end{proof}
+
+The certificate weights the possible sources in $C$. The neighborhoods
+and their cardinalities in the conclusion remain those of the unweighted
+original graph. In particular, vertices outside $C$ are retained as
+targets in every column of the transfer inequality.
+
+\subsection{Tournament cores}
+
+Tournament cores admit certificates of arbitrary order. We use the
+losing-density formulation underlying Fisher's proof for tournaments
+\cite{Fisher1996}. The short argument below also specifies the sign
+convention for the skew matrix.
+
+\begin{lemma}[A skew-game density]
+\label{lem:paper-skew-density}
+Let $B$ be a real skew-symmetric matrix. There is a nonnegative vector
+$\lambda$ with $\mathbf1^{\mathsf T}\lambda=1$ and $B\lambda\geq0$.
+\end{lemma}
+\begin{proof}
+Let $\Delta$ be the probability simplex of the appropriate dimension.
+Finite minimax gives
+\[
+ \max_{\lambda\in\Delta}\min_{p\in\Delta}p^{\mathsf T}B\lambda
+ =\min_{p\in\Delta}\max_{\lambda\in\Delta}p^{\mathsf T}B\lambda.
+\]
+The left-hand side is at most zero, by choosing $p=\lambda$ in the
+inner minimum. The right-hand side is at least zero, by choosing
+$\lambda=p$ in the inner maximum. Both values are therefore zero.
+A maximizing $\lambda$ satisfies $p^{\mathsf T}B\lambda\geq0$ for
+every $p\in\Delta$, and in particular for every coordinate vector.
+\end{proof}
+
+If $A_H$ is the adjacency matrix of a tournament $H$, put
+$B_H=A_H-A_H^{\mathsf T}$. A vector supplied by
+Lemma~\ref{lem:paper-skew-density} is called a losing density of $H$.
+At each vertex, its outgoing density is at least its incoming density.
+
+\begin{lemma}[Expansion of covered patterns in tournaments]
+\label{lem:paper-tournament-pattern-expansion}
+Every losing density of a nonempty tournament $H$ is a pattern certificate
+for $H$.
+\end{lemma}
+\begin{proof}
+Fix $P\subseteq N_H^-(j)$ and set
+\[
+ R=R_H(P),\qquad F=V(H)\setminus(P\cup R).
+\]
+The witness $j$ belongs to $F$, so $F$ is nonempty. Tournament
+completeness implies that every arc between $P$ and $F$ is directed from
+$P$ to $F$: a vertex of $F$ has no arc into $P$ by its definition.
+
+First suppose that $\lambda(F)>0$. Sum the nonnegative quantities
+$\lambda_i(B_H\lambda)_i$ over $i\in F$. The terms internal to $F$
+cancel by skew-symmetry. The contribution from pairs with the other
+endpoint in $P$ is $-\lambda(F)\lambda(P)$. The contribution from pairs
+with the other endpoint in $R$ is at most $\lambda(F)\lambda(R)$.
+Consequently
+\[
+ 0\leq\sum_{i\in F}\lambda_i(B_H\lambda)_i
+ \leq\lambda(F)\bigl(\lambda(R)-\lambda(P)\bigr),
+\]
+and division by $\lambda(F)$ proves the required inequality.
+
+If $\lambda(F)=0$, apply $(B_H\lambda)_j\geq0$ at any $j\in F$.
+The incoming mass at $j$ is at least $\lambda(P)$, whereas its outgoing
+mass is at most $\lambda(R)$. This again gives
+$\lambda(R)\geq\lambda(P)$. The argument also covers $P=\varnothing$.
+\end{proof}
+
+\begin{corollary}[Incoming-covered tournament cores]
+\label{cor:paper-tournament-core}
+If a nonempty incoming-covered set $C$ induces a tournament in $D$, then
+$C$ contains a Seymour vertex of $D$. More precisely, the zero extension
+of every losing density of $D[C]$ satisfies the matrix inequality in
+Theorem~\ref{thm:pattern-transfer}.
+\end{corollary}
+\begin{proof}
+Combine Lemmas~\ref{lem:paper-skew-density}
+and~\ref{lem:paper-tournament-pattern-expansion} with
+Theorem~\ref{thm:pattern-transfer}.
+\end{proof}
+
+\subsection{Maximal incoming classes and exact small-core certificates}
+
+Define an equivalence relation on $V(D)$ by
+\[
+ u\sim_D v\quad\Longleftrightarrow\quad N_D^-(u)=N_D^-(v).
+\]
+The equivalence classes are partially ordered by containment of their
+common incoming sets. We call them \emph{incoming classes}, and
+maximality will always refer to this inclusion order. Distinct members
+of one class cannot be adjacent, since an internal arc would put its tail
+in its own incoming set by equality of the two incoming neighborhoods.
+An incoming class need not have a common outgoing neighborhood.
+
+\begin{lemma}[Representative cores are incoming-covered]
+\label{lem:paper-maximal-representatives-covered}
+Choose one representative from each maximal incoming class of $D$, and
+let $C$ be the set of chosen vertices. Then $C$ is incoming-covered.
+\end{lemma}
+\begin{proof}
+For every $v\in V(D)$, finiteness of the inclusion poset gives a maximal
+class with representative $c$ such that
+$N_D^-(v)\subseteq N_D^-(c)$. Intersecting with $C$ gives
+\[
+ \Pi_C(v)\subseteq N_D^-(c)\cap C=N_{D[C]}^-(c).
+\]
+This is exactly the required condition.
+\end{proof}
+
+\begin{lemma}[Exact certificates for cores of order at most five]
+\label{lem:paper-exact-five-certificates}
+Every nonempty oriented graph of order at most five has a pattern
+certificate. A certificate can be chosen with integer entries in
+$\{0,1,3\}$.
+\end{lemma}
+\begin{proof}[Computer-assisted proof]
+The certificate data consist of one nonzero nonnegative integer vector
+for every labelled oriented graph of orders one through five. The
+encoding lists the unordered pairs
+\[
+ (0,1),(0,2),\ldots,(0,n-1),(1,2),\ldots,(n-2,n-1)
+\]
+in lexicographic order. The corresponding ternary digit is zero for a
+missing pair, one for the arc from the smaller endpoint to the larger
+endpoint, and two for the reverse arc. The first pair corresponds to
+the least significant digit. Thus the codes
+$0,\ldots,3^{\binom n2}-1$ cover every labelled oriented graph exactly
+once.
+
+For every code, the verifier reconstructs its adjacency matrix and checks
+that the supplied vector has length $n$, nonnegative integer entries, and
+positive sum. It then enumerates every subset $P\subseteq\{0,\ldots,n-1\}$.
+A subset is retained precisely when some $j$ satisfies $i\to j$ for
+every $i\in P$. For each retained subset, the verifier forms
+$R_H(P)$ directly from the reconstructed adjacency matrix and checks
+\eqref{eq:paper-pattern-inequalities} with integer arithmetic.
+
+The numbers of graph codes for $n=1,2,3,4,5$ are, respectively,
+\[
+ 1,\quad3,\quad27,\quad729,\quad59049.
+\]
+All $59809$ certificates pass all permitted-pattern inequalities. There
+are $522213$ such checks, of which $462404$ use a nonempty pattern.
+The largest integer entry is $3$, and the largest sum of entries is $9$.
+Among the order-five certificates, $59009$ are uniform on their supports
+and the remaining $40$ are nonuniform. This exhausts the finite assertion.
+
+The complete tables and verification sources accompany the manuscript.
+In particular, \texttt{verify\_core\_pattern\_certificates\_independent.js}
+reconstructs Boolean adjacency matrices and checks the inequalities
+without calling an optimization solver or using a generator's graph
+utilities. The integer tables, rather than a floating-point optimization
+result, are the certificates used in this proof.
+\end{proof}
+
+\begin{theorem}[An entire Seymour maximal class]
+\label{thm:core-five}
+Every finite nonempty oriented graph with at most five maximal incoming
+classes has a maximal incoming class all of whose vertices are Seymour
+vertices. There is no restriction on the total number of vertices or on
+the sizes of the classes.
+\end{theorem}
+\begin{proof}
+Suppose that no maximal incoming class consists entirely of Seymour
+vertices. Choose from each maximal class a vertex with positive gap,
+and let $C$ be the set of chosen representatives. Then $1\leq|C|\leq5$,
+and Lemma~\ref{lem:paper-maximal-representatives-covered} shows that
+$C$ is incoming-covered. Lemma~\ref{lem:paper-exact-five-certificates}
+supplies a pattern certificate for $D[C]$.
+Theorem~\ref{thm:pattern-transfer} consequently gives a Seymour vertex
+in $C$, contrary to the selection of all its members.
+\end{proof}
+
+\begin{corollary}
+\label{cor:paper-counterexample-six-incoming-classes}
+Every counterexample to Seymour's second neighborhood conjecture has at
+least six maximal incoming classes.
+\end{corollary}
+\begin{proof}
+An all-deficient graph has no Seymour vertex, so
+Theorem~\ref{thm:core-five} applies contrapositively.
+\end{proof}
+
+The role of the computation is confined to the finitely many cores in
+Lemma~\ref{lem:paper-exact-five-certificates}. The passage to arbitrary
+orders and arbitrary class sizes in Theorem~\ref{thm:core-five} uses the
+original-graph transfer theorem. It is not an enumeration of all graphs
+to which that theorem applies.
+
+\subsection{Strict duality and realization of an infeasible core}
+
+The pattern system also gives an equivalent formulation of the full
+conjecture. Its reverse implication requires a realization argument:
+infeasibility of a system on a core must yield an actual oriented graph
+with positive gap at every vertex.
+
+\begin{theorem}[Pattern feasibility and the second neighborhood conjecture]
+\label{thm:pattern-duality}
+The following statements are equivalent:
+\begin{enumerate}
+ \item Every finite nonempty oriented graph has a Seymour vertex.
+ \item Every finite nonempty oriented graph $H$ has a pattern certificate.
+\end{enumerate}
+More explicitly, if the normalized system
+\[
+ \lambda\geq0,\qquad \sum_i\lambda_i=1,\qquad
+ \lambda(R_H(P))\geq\lambda(P)\quad(P\in\mathcal P(H))
+\]
+is infeasible for some $H$, a finite all-deficient oriented graph can be
+constructed from $H$ and a rational strict dual solution.
+\end{theorem}
+\begin{proof}
+First assume statement~(2). For an arbitrary $D$, take the core to be
+$D$ itself. Its pattern at a target $v$ is the full set $N_D^-(v)$,
+which is permitted. Theorem~\ref{thm:pattern-transfer} yields a Seymour
+vertex, proving statement~(1).
+
+For the converse, suppose that the normalized system for a nonempty
+core $H$ is infeasible. For each permitted pattern, define the column
+vector
+\[
+ a_P(i)=\mathbf1_{i\in R_H(P)}-\mathbf1_{i\in P}.
+\]
+On the probability simplex $\Delta$ indexed by $V(H)$, the continuous
+function $\min_{P\in\mathcal P(H)}\lambda^{\mathsf T}a_P$ is strictly
+negative everywhere. Compactness therefore gives
+\begin{equation}
+ \max_{\lambda\in\Delta}
+       \min_{P\in\mathcal P(H)}\lambda^{\mathsf T}a_P<0.
+ \label{eq:paper-strict-dual-value}
+\end{equation}
+By finite minimax, there are nonnegative real pattern weights whose
+weighted sum of the $a_P$ has every coordinate strictly negative.
+They may be chosen rational: keep their zero coordinates equal to zero
+and approximate the positive coordinates sufficiently closely by
+positive rationals, using strictness of all the finitely many
+inequalities. Clearing denominators gives nonnegative integers $w_P$
+such that
+\begin{equation}
+ \gamma_i=\sum_{P\in\mathcal P(H)}w_P
+       \bigl(\mathbf1_{i\in P}-\mathbf1_{i\in R_H(P)}\bigr)>0
+       \qquad(i\in V(H)).
+ \label{eq:paper-positive-dual-gaps}
+\end{equation}
+
+For each permitted pattern $P$, choose a witness $j(P)$ with
+$P\subseteq N_H^-(j(P))$. Fix a positive integer $K$. The new graph
+$D_K$ has two kinds of vertices. For each $j\in V(H)$, it has a
+distinguished vertex $c_j$ with label $j$ and pattern $N_H^-(j)$.
+For each $P\in\mathcal P(H)$, it also has $K w_P$ vertices with
+pattern $P$ and label $j(P)$. Distinct vertices are retained when
+patterns or labels coincide. If $\ell(v)$ and $P(v)$ denote the label
+and pattern of a vertex, define
+\begin{equation}
+ v\to u\quad\Longleftrightarrow\quad \ell(v)\in P(u).
+ \label{eq:paper-pattern-realization-arcs}
+\end{equation}
+
+Every pattern satisfies $P(v)\subseteq N_H^-(\ell(v))$, so
+$\ell(v)\notin P(v)$; hence \eqref{eq:paper-pattern-realization-arcs}
+creates no loop. If both $v\to u$ and $u\to v$ held, the same
+containments would give both label arcs $\ell(v)\to\ell(u)$ and
+$\ell(u)\to\ell(v)$ in $H$. For unequal labels this is a digon,
+and for equal labels it is a loop. Thus $D_K$ is oriented. Its
+distinguished vertices induce exactly $H$.
+
+Consider any source $v$ with label $i$. Its first targets are exactly
+the vertices $u$ with $i\in P(u)$. We claim that its exact second
+targets are exactly those with $i\in R_H(P(u))$. Indeed, if
+$v\to x\to u$ and $i\notin P(u)$, put $j=\ell(x)$. The first
+arc and $P(x)\subseteq N_H^-(j)$ imply $i\to j$ in $H$, while
+the second arc says $j\in P(u)$. Thus $i\in R_H(P(u))$.
+Conversely, if $i\in R_H(P(u))$, choose
+$j\in N_H^+(i)\cap P(u)$. The distinguished vertex $c_j$ supplies
+the path $v\to c_j\to u$, and $i\notin P(u)$ excludes a first
+arc. The target cannot be $v$: since
+$P(v)\subseteq N_H^-(i)$, such a $j$ would give a digon $i\leftrightarrow j$
+in $H$.
+
+The extra pattern vertices therefore contribute $K\gamma_i$ to the
+gap of every source labelled $i$. The distinguished vertices contribute
+$g_H(i)$, because they supply exactly the first and exact second
+targets of $i$ in $H$. We have proved the identity
+\begin{equation}
+ g_{D_K}(v)=K\gamma_i+g_H(i)
+                    \qquad\text{whenever }\ell(v)=i.
+ \label{eq:paper-realization-gap}
+\end{equation}
+Choose $K$ so large that the right-hand side is positive for every
+$i\in V(H)$. This is possible by
+\eqref{eq:paper-positive-dual-gaps}. Then $D_K$ is a finite
+all-deficient oriented graph. Consequently statement~(1) rules out
+infeasibility for every $H$, proving statement~(2).
+\end{proof}
+
+\begin{corollary}[An equivalent whole-class formulation]
+\label{cor:paper-whole-class-equivalence}
+Seymour's second neighborhood conjecture is equivalent to the assertion
+that every finite nonempty oriented graph has a maximal incoming class
+consisting entirely of Seymour vertices.
+\end{corollary}
+\begin{proof}
+The whole-class assertion plainly implies the conjecture. Conversely,
+assume the conjecture, and hence universal pattern feasibility by
+Theorem~\ref{thm:pattern-duality}. If each maximal incoming class of
+$D$ contained a positive-gap vertex, choose one such representative
+from each class. Lemma~\ref{lem:paper-maximal-representatives-covered}
+and Theorem~\ref{thm:pattern-transfer} would give a Seymour vertex
+among these representatives, a contradiction.
+\end{proof}
+
+\subsection{Lifting through iterated representative cores}
+
+The representative operation can be repeated, and it preserves more
+than the existence of one Seymour vertex: a certificate at a later
+stage lifts to a certificate at every preceding stage.
+
+\begin{lemma}[Lifting a pattern certificate]
+\label{lem:core-lifting}
+Let $C$ contain one representative from each maximal incoming class of
+an oriented graph $H$, and put $K=H[C]$. The extension by zero of any
+pattern certificate for $K$ is a pattern certificate for $H$.
+\end{lemma}
+\begin{proof}
+Fix $P\subseteq N_H^-(v)$. Choose a representative $c\in C$ such
+that $N_H^-(v)\subseteq N_H^-(c)$. Then
+\[
+ P\cap C\subseteq N_K^-(c),
+ \qquad R_K(P\cap C)\subseteq R_H(P)\cap C.
+\]
+For the second inclusion, a vertex of $C$ outside $P\cap C$ is
+outside $P$, and an arc into $P\cap C$ is also an arc of $H$ into
+$P$. If $\lambda$ is the certificate on $C$ and
+$\widehat\lambda$ is its zero extension, it follows that
+\[
+ \widehat\lambda(R_H(P))
+ \geq\lambda(R_K(P\cap C))
+ \geq\lambda(P\cap C)
+ =\widehat\lambda(P).
+\]
+The lifted vector is nonnegative and nonzero, so it is a certificate.
+\end{proof}
+
+\begin{corollary}[Iterated-core sufficient conditions]
+\label{cor:paper-iterated-core-sufficient}
+Starting from $D$, repeatedly take the induced subgraph on one
+representative from each maximal incoming class of the current graph.
+If any resulting core has at most five vertices, or is a tournament
+of any order, then the original graph $D$ has a Seymour vertex in that
+core.
+\end{corollary}
+\begin{proof}
+The small-core certificate lemma or the tournament certificate lemma
+supplies a certificate at the specified stage. Apply
+Lemma~\ref{lem:core-lifting} successively in reverse order. This gives
+a certificate on $D$ supported in the specified core. Applying
+Theorem~\ref{thm:pattern-transfer} with the whole graph as its core
+gives an original Seymour vertex in that support.
+\end{proof}
+
+\begin{corollary}[Reduction to incomparable incoming neighborhoods]
+\label{cor:paper-terminal-incoming-core}
+Universal pattern feasibility, and therefore Seymour's second neighborhood
+conjecture, is equivalent to pattern feasibility for oriented graphs
+whose incoming neighborhoods are distinct and pairwise incomparable
+under inclusion.
+\end{corollary}
+\begin{proof}
+Whenever the representative operation reduces the vertex set, repeat
+it. The process terminates because the order decreases. If the
+operation no longer reduces the order, every incoming class is a
+singleton and every class is maximal. The incoming neighborhoods are
+therefore distinct and pairwise incomparable. A certificate for this
+terminal graph lifts to the original graph by
+Lemma~\ref{lem:core-lifting}. The reverse implication is immediate.
+\end{proof}
+
+This is an induced-subgraph reduction: it deletes vertices and does not
+add arcs. Its conclusion concerns the original neighborhoods of vertices
+in the final core. For a single chosen chain it does not assert that
+an entire original maximal incoming class consists of Seymour vertices;
+the whole-class conclusions above use representative selection under
+the negation of that stronger assertion.

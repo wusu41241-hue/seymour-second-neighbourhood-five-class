@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "counts": {
+    "coresByOrder": {
+      "1": 1,
+      "2": 3,
+      "3": 27,
+      "4": 729,
+      "5": 59049
+    },
+    "totalCores": 59809,
+    "patternChecks": 522213,
+    "nonuniformFiveCertificates": 40,
+    "maxWeight": 3,
+    "maxDenominator": 9,
+    "nonemptyPatternChecks": 462404
+  },
+  "hashes": [
+    {
+      "file": "incoming_core_certificates_n4.json",
+      "sha256": "b34056dbc1947c1149a6a12ac8a2f31fd579b89494908dc53a92f6bfcb5c7e18"
+    },
+    {
+      "file": "incoming_core_certificates_n5.json",
+      "sha256": "c9fe139b76a3866a7bf17e408d12f344823fa1a54fca306fd656139e601bfd5a"
+    }
+  ],
+  "constructionChecks": {
+    "graphs": 500,
+    "vertices": 6000,
+    "entireMaximalClassChecks": 500,
+    "graphsLargerThanFive": 500
+  },
+  "scope": "All 59,809 labelled oriented cores of orders 1..5 and every allowed pattern independently verified with nonnegative integer weights. No LP solver or floating arithmetic. Finite core certificate theorem applies to arbitrary-order containing graphs; it is not a full SNC proof. Labelled construction checks verify identities and the complete-Seymour-class conclusion, not a positive-gap counterexample."
+}

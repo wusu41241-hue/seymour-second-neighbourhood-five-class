@@ -1,0 +1,284 @@
+\section{Unit failure heads and safe retained completion arcs}
+\label{sec:unit-failure-sources}
+
+All reachability, convenience, protection, and failure sets in this
+section are defined in the original graph $D$.
+For a far target $y\in U_D(x)$, protection means
+\[
+ y\to x,\qquad N_D^-(y)\subseteq N_D^-(x)\setminus\{y\}.
+\]
+Write $\mathcal F(x)$ for the unprotected far targets of $x$, and
+$t(x)=|\mathcal F(x)|$.
+A protected target has the useful reachability implication
+\[
+ \begin{gathered}
+ y\text{ protected for }x\\
+ \Longrightarrow\quad
+ [z\leadsto y\ (\le2)\ \Longrightarrow\ z\leadsto x\ (\le2)].
+ \end{gathered}
+\]
+This follows directly from the incoming-neighborhood containment.
+
+For a missing pair $ab$, let
+\[
+ F_{ab}=\{x:x\to a,\ b\in U_D(x)\}.
+\]
+The direction $a\to b$ is convenient precisely when $F_{ab}$ is empty.
+The pair is bad precisely when both $F_{ab}$ and $F_{ba}$ are nonempty.
+If it is bad and $x\in F_{ab}$, then $b\in\mathcal F(x)$:
+an opposite-direction witness would force an arc toward $x$ if $b$
+were protected, contradicting the cross-witness nonadjacency.
+
+Conveniently orient all good missing pairs using the canonical rule:
+choose the only convenient direction when unique; if both directions
+are convenient, follow a fixed linear extension of the protected-target
+strict partial order.  This rule has the compatibility property
+\[
+ \begin{gathered}
+ y\text{ protected for }f,\quad f\to q\text{ canonically added good arc},\\
+ qy\text{ missing}\quad\Longrightarrow\quad y\to q\text{ is chosen}.
+ \end{gathered}
+ \tag{UF1}\label{eq:unit-good-compatibility}
+\]
+In particular, no cardinality bound on the failure-source set is
+needed here.  Indeed $G(f\to q)$ implies $G(y\to q)$, since every
+predecessor of $y$ is a predecessor of $f$; hence $qy$ is automatically
+good.  If its opposite direction is also convenient, then
+$G(q\to y)$ implies $G(q\to f)$ by the reachability implication above.
+Both pairs would then be oriented by the reference order, and the
+choices $f\to q\to y$ would contradict $y$ preceding $f$.
+
+\begin{lemma}[Safe retention with unit failure heads]
+\label{lem:unit-safe-retained}
+Suppose every directional failure source of a bad missing pair has
+$t(x)\le1$.  Complete the good pairs canonically, and orient the bad
+pairs arbitrarily to form a tournament $T$.
+For any added arc $f\to q$, reverse all the other added out-arcs
+of $f$ inward to form $T'$.
+Then
+\[
+ N_{T'}^+(f)=N_D^+(f)\dot\cup\{q\},
+\]
+\[
+ {
+ N_{T'}^{++}(f)\subseteq
+ \bigl(N_D^{++}(f)\setminus\{q\}\bigr)
+ \cup\bigl(\mathcal F(f)\setminus\{q\}\bigr),}
+ \tag{UF2}\label{eq:unit-retained-envelope}
+\]
+and consequently
+\[
+ {d_{T'}^{++}(f)\le d_D^{++}(f)+t(f)-1.}
+\]
+The retained pair $fq$ may be good or bad.
+\end{lemma}
+\begin{proof}
+The first-neighborhood assertion is immediate.
+Consider a second-neighborhood path $f\to a\to y$ in $T'$.
+If $a$ is an original outneighbor of $f$, an original or convenient
+second arc makes $y$ originally reachable within two steps.
+A nonconvenient bad second arc can only introduce an unprotected
+far head of $f$.  Second arcs in such a path are untouched by the
+modification, since they do not involve $f$.
+
+Now let $a=q$.  A protected far target $y$ of $f$ cannot receive
+an original arc from $q$: that would force $q\to f$, whereas $fq$
+is missing.  If $qy$ is missing and $fq$ is good, its chosen direction
+is $y\to q$ by \eqref{eq:unit-good-compatibility}.
+
+If $fq$ is bad, choose an opposite-direction failure source $r$:
+$r\to q$ and $f\in U_D(r)$.
+Protection of $y$ forces $y\in U_D(r)$ as well.
+Thus the direction $q\to y$ fails at $r$.
+If $qy$ were bad, its opposite witness would make
+$y\in\mathcal F(r)$, while the bad pair $fq$ already makes
+$f\in\mathcal F(r)$.  These two distinct heads contradict $t(r)\le1$.
+Therefore $qy$ is good, with $y\to q$ its only convenient direction.
+The arc $q\to y$ again cannot occur.
+
+All new second heads are therefore in $\mathcal F(f)$, and $q$
+itself is excluded because it is now a first neighbor.
+The two sets in \eqref{eq:unit-retained-envelope} are disjoint.
+Originally missing $fq$ puts $q$ in exactly one of
+$N_D^{++}(f)$ and $U_D(f)$; in the latter case $q$ is necessarily
+unprotected.  Excluding it removes one unit from their combined
+cardinality, proving the final estimate.
+\end{proof}
+
+\subsection{A completion whose sink sources avoid failure}
+
+Suppose all bad-edge directional failure sources lie in a set $Z$,
+and all have $t\le1$.  Orient every missing pair inside $Z$ first,
+using the canonical rule on good pairs.
+Let $K$ consist of these oriented internal missing pairs and let
+$S=\{z\in Z:d_K^+(z)=0\}$.
+The set $S$ contains no missing pair.
+Assume the already chosen bad internal directions have no failure
+source in $S$.  Every remaining bad pair can then be oriented to
+avoid failures in $S$: otherwise opposite witnesses in $S$ would
+form a missing pair.  The remaining pairs do not change $K$.
+
+If $t(z)\le g(z)+1$ for $z\in Z\setminus S$, this completion gives
+a Seymour vertex in $D$.  To see this, choose a global median order
+and its last vertex $f$.  If $f$ is outside $Z\setminus S$, reverse
+all its added out-arcs inward; all its remaining first arcs are
+original, and it is not a failure source of any chosen direction,
+so its tournament SNP transfers directly to $D$.
+Otherwise retain any added arc $f\to q$ in $K$, reversing the other
+added out-arcs inward.  The order remains median.  By
+Lemma~\ref{lem:unit-safe-retained}, its new deficiency is at least
+$g(f)+2-t(f)\ge1$, contradicting the tournament feed theorem.
+This reasoning does not infer SNP merely from acyclicity of a
+dependency digraph.
+
+\subsection{Four unit failure sources reduce to one reciprocal cycle}
+
+\begin{proposition}\label{prop:four-unit-cycle-reduction}
+Let $D$ be a finite nonempty all-deficient oriented graph.
+Let $Z$ be the union of the directional failure-source sets of all
+bad missing pairs. Suppose $|Z|\le4$ and $t(x)\le1$ for every $x\in Z$.
+Then the only case not excluded by the preceding completion argument
+has the following structure:
+\begin{enumerate}
+\item The four failure-source vertices induce a directed cycle of
+length four, with the two diagonals missing.
+\item These diagonals are the only bad missing pairs of $D$, and lose
+to each other.
+\item Every other missing pair is good.
+\item Each failure-source vertex has exactly one unprotected far
+head, its incoming neighbor on the four-cycle.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+Every bad-edge directional failure source is in $Z$.
+An internal bad pair requires four distinct vertices of $Z$; if
+$|Z|\le3$, the case of no internal bad pair below applies immediately.
+Otherwise $|Z|=4$.
+For each active such source, write $h(x)$ for its unique
+unprotected far head.
+
+Two bad missing pairs inside $Z$ cannot share an endpoint.
+Suppose $ab$ and $ac$ were both bad, and let $d$ be the fourth vertex.
+The witnesses for $ab$ must be $c,d$.
+As $ac$ is missing, $c$ cannot point to $a$; hence $c\to b$,
+$a\in U_D(c)$, and the opposite witness has $d\to a$ and
+$b\in\mathcal F(d)$.
+But $d$ is also a directional failure source for $ac$, which
+would give it an unprotected head in $\{a,c\}$, different from $b$.
+This contradicts $t(d)\le1$.
+Thus internal bad pairs form a matching, with at most two members.
+
+If there is no internal bad pair, use the canonical internal
+directions.  If there is exactly one, say $ab$, its two witness
+sources $c,d$ form a missing pair which is good.
+Its canonical direction makes one of $c,d$, say $c$, a nonsink
+of $K$.  Orient $ab$ in the direction failed by $c$.
+There are no other possible directional failure sources for that
+pair, because its endpoints are in $Z$ and only $c,d$ remain.
+This internal direction therefore avoids every sink of $K$.
+External bad pairs can be oriented to avoid those sinks as above.
+The threshold $t\le1\le g+1$ applies to every nonsink source,
+so both cases contradict that $D$ is all-deficient.
+
+It remains that there are two internal bad pairs, say $ab$ and $cd$.
+Label their witnesses so that $c\to a$, $d\to b$,
+$h(c)=b$ and $h(d)=a$.
+The witnesses for $cd$ are necessarily $a,b$.
+Because opposite arcs are forbidden, they must satisfy
+$a\to d$, $b\to c$, $h(a)=c$ and $h(b)=d$.
+Thus the four cross pairs are precisely
+$c\to a\to d\to b\to c$; the two diagonals are missing and
+lose to each other.
+
+Every bad pair has its two endpoints among the heads of its
+opposite failure witnesses.  All four heads just identified
+belong to $Z$, so there can be no other bad pair outside $Z$.
+The internal matching classification leaves only $ab$ and $cd$.
+The full dependency digraph consequently consists of this one
+two-cycle and isolated missing pairs.
+\end{proof}
+
+\begin{theorem}[At most four unit failure sources]
+\label{thm:four-unit-failure-sources}
+Let $D$ be any finite nonempty oriented graph. If the union $Z$ of
+the bad-edge directional failure sources has at most four vertices,
+and $t(x)\le1$ for every $x\in Z$, then $D$ has a Seymour vertex.
+\end{theorem}
+\begin{proof}
+Suppose instead that $D$ is all-deficient. By
+Proposition~\ref{prop:four-unit-cycle-reduction}, only the reciprocal
+cycle remains. Label its vertices $0,1,2,3$, with original arcs
+$0\to1\to2\to3\to0$, missing diagonals $02,13$, and
+\[
+ h(0)=3,\quad h(1)=0,\quad h(2)=1,\quad h(3)=2.
+\]
+These diagonals are the only bad pairs. Complete them by $0\to2$
+and $1\to3$, and complete all good pairs canonically, obtaining $T$.
+The selected bad directions have failures only at $3$ and $0$,
+respectively. Take a global median order $L$ of $T$ and let $f$ be
+its last vertex.
+
+If $f\notin\{0,3\}$, reverse all added outgoing arcs of $f$. The
+result still has median order $L$, has the original first neighbourhood
+of $f$, and has no new second head, because neither selected bad
+direction fails at $f$. Its feed SNP transfers to $D$, a contradiction.
+If $f=0$, retain the added arc $0\to2$ and reverse the other added
+outgoing arcs. Lemma~\ref{lem:unit-safe-retained} gives deficiency
+at least $g(0)+2-t(0)>0$, again contradicting the feed theorem.
+Consequently every global median order of this fixed $T$ must end at $3$.
+
+If $3$ has any added outgoing arc $3\to q$, retain it and reverse
+the other added outgoing arcs. The same lemma gives positive
+deficiency at this median feed, since $t(3)=1$. Thus $3$ has no
+added outgoing arc at all, and $N_T^+(3)=N_D^+(3)$.
+The only possible new second head at $3$ is its unique unprotected
+far head $h(3)=2$. Therefore
+\[
+ N_T^{++}(3)\subseteq N_D^{++}(3)\cup\{2\}.
+\]
+The feed SNP and $g(3)>0$ imply
+\[
+ g(3)=1,\qquad d_T^+(3)=d_T^{++}(3).
+\]
+
+Use the strong form of the Havet--Thomasse feed theorem
+\cite[Theorem~1 and its proof]{HavetThomasse2000}:
+\[
+ |N_T^+(3)|\le |G_L|\le |N_T^{++}(3)|,
+\]
+where $G_L$ consists of the incoming neighbours $y$ of $3$ for which
+some outgoing neighbour $a$ occurs before $y$ in $L$ and satisfies
+$a\to y$. The equality just obtained forces
+$|N_T^+(3)|=|G_L|$.
+The sedimentation lemma \cite[Lemma~1]{HavetThomasse2000} then states
+that the order
+\[
+ \operatorname{Sed}(L)=
+ (\text{incoming vertices outside }G_L,\ 3,\ N_T^+(3)\cup G_L)
+\]
+is still a global median order of the same tournament $T$, with each
+displayed group preserving its old internal order. Its last vertex
+is not $3$, since $N_T^+(3)$ is nonempty in an all-deficient graph.
+This contradicts the fact that every global median order of $T$
+ends at $3$. The reciprocal case is impossible as well.
+\end{proof}
+
+\begin{corollary}[No four-unit residual distribution]
+\label{cor:no-four-unit-residuals}
+In a strongly connected all-deficient graph minimal under arbitrary
+nonempty arc-set deletion, residual four cannot be distributed as
+$(1,1,1,1)$. Combined with
+Proposition~\ref{prop:one-two-unit-source}, this supplies an intermediate exclusion; all remaining residual-four allocations are excluded in the residual-exclusion part of this supplement.
+\end{corollary}
+\begin{proof}
+All bad-edge failure sources belong to the positive-residual support,
+and residual one gives $t\le1$. Apply
+Theorem~\ref{thm:four-unit-failure-sources}.
+The support contains a missing pair, so a single positive vertex is
+impossible. The remaining integer partitions are as stated.
+\end{proof}
+
+The sedimentation step uses a global median order and the equality
+$|N_T^+(f)|=|G_L|$. It does not infer the existence of two feed vertices
+from the existence of two Seymour vertices in a tournament, nor does
+it assert that an arbitrary tournament admits two median feeds.

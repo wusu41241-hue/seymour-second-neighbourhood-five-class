@@ -1,0 +1,51 @@
+\documentclass[11pt]{article}
+\newcommand{\DocumentKind}{Manuscript}
+\input{../journal-preamble.tex}
+\externaldocument[S-]{../supplement/main}[Seymour_Supplement_2026-10-07.pdf]
+\title{Five Maximal Incoming Classes Suffice:\par
+Exact Certificates and Structural Constraints for\par
+Seymour's Second-Neighbourhood Conjecture}
+\author{Guanze Yu}
+\date{7 October 2026}
+\hypersetup{pdftitle={Five Maximal Incoming Classes Suffice: Exact Certificates and Structural Constraints for Seymour's Second-Neighbourhood Conjecture},pdfauthor={Guanze Yu}}
+\begin{document}
+\maketitle
+\begin{abstract}
+We study Seymour's second-neighbourhood conjecture through incoming-neighbourhood
+patterns, counterexample-preserving row maps, and protection-preserving tournament
+completions. A finite system of homogeneous pattern inequalities provides an
+exact-second-neighbourhood certificate in the original graph. We prove that
+universal feasibility of these systems is equivalent to the conjecture, and
+verify feasibility for every oriented core on at most five vertices using
+nonnegative integer certificates. Consequently, every finite nonempty oriented graph
+with at most five inclusion-maximal incoming-neighbourhood classes has a whole
+maximal class of Seymour vertices, with no bound on its total order.
+We also prove a simultaneous outgoing-row copying lemma, obtain an independent-twin
+normal form for a lexicographically extremal counterexample, and locate a global
+core of gap-one maximal incoming classes. Iterated protection closure preserves
+the original first and exact second neighbourhoods at its partial median feeds.
+The resulting tournament feeds have a strict original far-head surplus; at zero
+completed gap, a safe weak closure forces an original cycle among the remaining
+missing partners. In the arc-set-minimal setting this gives residual at least four
+at every such zero-gap feed. Together with the supplementary residual exclusions,
+we obtain the necessary bound $2M-n\ge7$, strengthened to eight at even order,
+where $n$ is the order and $M$ is the number of missing unordered vertex pairs
+in the arc-set-minimal counterexample under consideration.
+All finite certificates and independent integer verifiers are supplied. These
+results do not prove or refute the conjecture in full generality.
+\end{abstract}
+\noindent\textbf{Keywords:} oriented graph; second neighbourhood; tournament;
+median order; incoming-neighbourhood inclusion; computer-assisted proof.
+\medskip
+\noindent\textbf{MSC 2020:} 05C20, 05C22, 05C85.
+\input{introduction.tex}
+\input{notation.tex}
+\input{core.tex}
+\input{cloning.tex}
+\input{closure.tex}
+\input{extremal.tex}
+\input{verification.tex}
+\input{discussion.tex}
+\bibliographystyle{plain}
+\bibliography{../references}
+\end{document}

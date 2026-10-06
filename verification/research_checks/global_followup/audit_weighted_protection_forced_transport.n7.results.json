@@ -1,0 +1,46 @@
+{
+  "status": "NO OBSTRUCTION IN SAMPLE",
+  "family": "protection-forced",
+  "sampleOrders": [
+    7
+  ],
+  "seed": "0x5106bada",
+  "count": {
+    "graphs": 1000,
+    "referenceCompletions": 91886,
+    "expansionLPs": 0,
+    "skewObstructionCandidates": 0
+  },
+  "obstruction": null,
+  "forcedSupportControl": {
+    "out": [
+      4,
+      89,
+      2,
+      117,
+      101,
+      71,
+      5
+    ],
+    "losingDensity": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333,
+      0,
+      0,
+      0,
+      0
+    ],
+    "forcedArc": [
+      1,
+      0
+    ],
+    "medianScore": 19,
+    "medianOrders": 1
+  },
+  "limits": [
+    "A control is not assumed all-deficient or arc-minimal.",
+    "Reference completions, not every arbitrary tournament completion, are enumerated.",
+    "Floating basis enumeration locates examples; rational verification is separate."
+  ]
+}

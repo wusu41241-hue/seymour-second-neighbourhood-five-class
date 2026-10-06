@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-04",
+  "status": "PASS",
+  "stats": {
+    "orientedGraphs": 59049,
+    "missingEdges": 196830,
+    "badMissingEdges": 13920,
+    "crossWitnessConfigurations": 15360,
+    "whollyProtectedGraphs": 1264,
+    "allGoodGraphs": 48815,
+    "medianFeedTransfers": 48815,
+    "allVertexNeighborhoodTransfers": 244075,
+    "nonemptyReversalBundles": 313,
+    "lowUnprotectedSupportGraphs": 32784
+  },
+  "cachedTournaments": 1024,
+  "outsideHypothesesControl": {
+    "name": "directed four-cycle",
+    "outBitmasks": [
+      2,
+      4,
+      8,
+      1
+    ],
+    "eta": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "gaps": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "badMissingEdges": 2,
+    "note": "Not an all-deficient graph; the protected-source hypothesis is essential."
+  },
+  "limitations": [
+    "Finite tests supplement the written proof and cited published theorem.",
+    "No small graph was assumed to be an SSNC counterexample.",
+    "No acyclic-dependency-graph theorem is asserted by the length-two check."
+  ]
+}

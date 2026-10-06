@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "counts": {
+    "cores": 59809,
+    "patterns": 522213,
+    "nonemptyPatterns": 462404,
+    "byOrder": {
+      "1": 1,
+      "2": 3,
+      "3": 27,
+      "4": 729,
+      "5": 59049
+    },
+    "nonuniformFive": 40,
+    "maxWeight": 3,
+    "maxSumWeights": 9
+  },
+  "hashes": [
+    {
+      "file": "incoming_core_certificates_n4.json",
+      "sha256": "b34056dbc1947c1149a6a12ac8a2f31fd579b89494908dc53a92f6bfcb5c7e18"
+    },
+    {
+      "file": "incoming_core_certificates_n5.json",
+      "sha256": "c9fe139b76a3866a7bf17e408d12f344823fa1a54fca306fd656139e601bfd5a"
+    }
+  ],
+  "scope": "Independent Boolean-matrix reconstruction of every labelled oriented core of orders one through five. Every admissible common-outneighbor pattern and nonnegative integer certificate checked. No floating point optimizer, LP or generator helper. This certifies an arbitrary-order structural class, not full SNC."
+}

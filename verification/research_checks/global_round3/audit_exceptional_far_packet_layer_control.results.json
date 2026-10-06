@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "outMasks": [
+    34,
+    4,
+    24,
+    16,
+    1,
+    2
+  ],
+  "vertex": 0,
+  "P": [
+    1,
+    5
+  ],
+  "C": [
+    2
+  ],
+  "secondIn": [
+    2,
+    3
+  ],
+  "exceptionalLayer": [
+    3
+  ],
+  "externalSecondLayer": [
+    3,
+    4
+  ],
+  "incoming": [
+    4
+  ],
+  "missing": [
+    2,
+    3
+  ],
+  "exceptionalMissing": [
+    3
+  ],
+  "E": [
+    2,
+    3,
+    4
+  ],
+  "L": [
+    3,
+    4
+  ],
+  "originalGap": 1,
+  "residual": 2,
+  "allGaps": [
+    1,
+    -1,
+    1,
+    0,
+    -1,
+    0
+  ],
+  "meaning": "External second boundary can contain a missing exceptional far head; exceptional head 3 is in E and L through X.",
+  "scope": "Strong oriented graph, but other vertices have nonpositive gaps. Not all-deficient, not deletion-minimal, not an SNC counterexample; numerical MIN packet estimate is not applied."
+}

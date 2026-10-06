@@ -1,0 +1,211 @@
+\section{Iterated protection closure and a strict original far-head surplus}
+\label{sec:iterated-protection-closure-strict-surplus}
+
+All graphs are finite, nonempty, loopless and without directed two-cycles.
+First and second neighborhoods always mean directed distance exactly one
+and exactly two. For any graph $H$, protection means
+\[
+ a\triangleleft_H w \quad\Longleftrightarrow\quad
+ a\to w\in A(H),\qquad
+ N_H^-(a)\subseteq N_H^-(w)\setminus\{a\}.
+\]
+The protected vertex $a$ is far from $w$. A missing direction $a\to b$
+is forced in $H$ when some $w$ satisfies $a\triangleleft_H w$ and
+$w\to b\in A(H)$. As previously proved, a forced direction is uniquely
+convenient in $H$: every predecessor of $a$ already reaches $b$ within
+two steps of $H$.
+
+\subsection{A finite closure which preserves all protections already obtained}
+
+Starting at $Q_0=D$, add \emph{all} directions currently forced in $Q_i$
+to form $Q_{i+1}$. Stop when none remain, and call the final graph $Q$.
+No arc is removed. Every nonterminal round fills at least one missing
+pair, so there are at most $M(D)$ nonterminal rounds. The construction is
+deterministic and never attempts to add two opposite directions.
+
+\begin{lemma}[Monotone protection and a stable partial median]
+\label{lem:iterated-closure-monotone-protection}
+Every protection of $Q_i$ survives in $Q_{i+1}$. Consequently every added
+arc has a tail which protects some vertex in the final graph $Q$.
+In $Q$, every protected pair has both incoming and outgoing neighborhood
+nesting. Every global median order of $Q$ therefore extends its protection
+partial order.
+\end{lemma}
+\begin{proof}
+Consistency and convenience hold in each current graph by the forced
+direction lemma; no minimality or deficiency is used.
+Fix $y\triangleleft_{Q_i}x$ and a newly incoming arc $a\to y$.
+There is a witness $a\triangleleft_{Q_i}w$, $w\to y$ in $Q_i$.
+Protection of $y$ implies $w\to x$ in $Q_i$. If $ax$ is missing,
+the same witness forces $a\to x$ in this round. An old $x\to a$
+would imply $x\to w$, contradicting $w\to x$. Thus the new incoming
+arc cannot destroy the required nesting at $y,x$.
+
+At termination, if $y\triangleleft_Q x$ and $x\to z$ in $Q$, then
+$z\to y$ would contradict incoming nesting, whereas a missing $yz$
+would still force $y\to z$. Therefore $y\to z$ is already in $Q$.
+This proves outgoing nesting. Swapping a reversed pair $x,y$ in a
+vertex order gains the mutual arc $y\to x$, and loses no intermediate
+incoming or outgoing contribution. Missing arcs contribute zero, so
+this argument applies to the incomplete graph $Q$. Every global
+median order of $Q$ places $y$ before $x$.
+\end{proof}
+
+\subsection{Maximization after closure, not during its construction}
+
+Orient every remaining missing pair of $Q$ forward in one linear
+extension of its protection order. Since there are no forced pairs left,
+the previously proved protection-preserving reference theorem applies
+with an empty forced set. Each resulting tournament preserves every
+protection of $Q$, hence every protection of every earlier $Q_i$.
+Call the still-missing pairs \emph{free pairs} in this subsection.
+
+Choose a tournament $T_*$ maximizing its ordinary global median score
+over \emph{all} these reference extensions. No assumption is made that
+an intermediate $Q_i$ is all-deficient or arc-minimal.
+
+\begin{lemma}[All-median rigidity and exact original feed neighborhoods]
+\label{lem:iterated-closure-original-feed-neighborhoods}
+Every global median order of $T_*$ extends protection in $Q$ and places
+every free added arc forward. If $f$ is any of its median feeds, then
+\[
+ N_{T_*}^+(f)=N_Q^+(f)=N_D^+(f),\qquad
+ N_Q^{++}(f)=N_D^{++}(f).
+\]
+Moreover, writing $r$ for the number of free pairs,
+\[
+ \max_T\operatorname{medscore}(T)
+   =\operatorname{medscore}(Q)+r.
+\]
+The possible feeds across all maximizing completions are precisely the
+global median feeds of the fixed partial graph $Q$.
+\end{lemma}
+\begin{proof}
+Tournament protection gives domination, so the two-position swap forces
+every median order to extend protection. If a free added arc were
+backward in any median of a maximizing $T_*$, using that median as a new
+reference would flip all backward free arcs forward without changing any
+$Q$ arc. This strictly increases the score, a contradiction. Closure
+under \emph{all} protection extensions is essential here.
+
+A feed cannot have an outgoing free arc because it would be backward.
+Nor can it be the tail of any arc added during closure: that tail has
+a protection successor which survives in $Q$ and $T_*$, and must occur
+later in every median order. Thus no added first arc exists at $f$,
+at any stage of the construction.
+
+Induct on the closure stages to obtain exact second-neighborhood equality.
+Any new path from $f$ uses an original first arc $f\to a$. If its
+second arc $a\to b$ was added in the current round, its convenience in
+the \emph{previous} graph means that this predecessor $f$ already reached
+$b$ within two steps there. A first target remains first throughout, so
+no new exact second head occurs. Old exact second paths persist because
+the first neighborhood is unchanged. The induction proves the equality
+with $D$. It does not assert that every closure arc is convenient in $D$.
+
+Each $Q$ median extends protection, and completing all free pairs forward
+adds exactly $r$ to its score. Conversely any tournament/order pair scores
+at most $\operatorname{medscore}(Q)+r$. Equality requires both components
+to attain their maxima. This also gives the feed equivalence.
+\end{proof}
+
+\subsection{An original positive-gap feed cannot exhaust its far budget}
+
+Let $\mathcal F_D(f)$ denote the originally far heads not protected in
+$D$, let $t_D(f)=|\mathcal F_D(f)|$, and let $\mathcal M_Q(f)$ denote
+the missing partners of $f$ in the terminal partial graph $Q$.
+Put $g_H(f)=|N_H^+(f)|-|N_H^{++}(f)|$ and
+\[
+ A_f=N_{T_*}^{++}(f)\setminus N_D^{++}(f).
+\]
+The ordinary strong feed theorem and its global equality sedimentation
+are those of Havet--Thomasse; no arc-weighted feed theorem is used.
+
+\begin{theorem}[Strict surplus, without a minimal-counterexample hypothesis]
+\label{thm:iterated-closure-strict-original-surplus}
+For any median feed $f$ of $T_*$ with $g_D(f)>0$, one has
+\[
+ \mathcal M_Q(f)\ne\varnothing,\qquad
+ t_D(f)\ge g_D(f)+1.
+\]
+More precisely, if $g_{T_*}(f)=0$, then
+\[
+ \varnothing\ne\mathcal M_Q(f)
+     \subseteq U_{T_*}(f)\cap(\mathcal F_D(f)\setminus A_f),
+ \qquad
+ t_D(f)\ge g_D(f)+|\mathcal M_Q(f)|.
+\]
+This is an arbitrary-graph theorem: it needs neither all-deficiency of
+$D$, strong connectivity, residual assumptions, nor arc minimality.
+\end{theorem}
+\begin{proof}
+Protection in $D$ survives. The exact first set is original and original
+exact second paths persist, so
+\[
+ N_{T_*}^{++}(f)=N_D^{++}(f)\,\dot\cup\,A_f,
+ \qquad A_f\subseteq\mathcal F_D(f),\qquad
+ g_{T_*}(f)=g_D(f)-|A_f|\le0.
+\]
+The last inequality is the tournament feed theorem.
+
+If $\mathcal M_Q(f)$ were empty, $f$ would be whole in $Q$. Every far
+head $y$ of a whole vertex in an oriented graph is protected: $y\to f$;
+if $z\to y$ then $f\to z$ would give $f\to z\to y$, so adjacency
+at $f$ forces $z\to f$. Thus $y\triangleleft_Q f$. Since all these
+protections survive in $T_*$, $f$ acquires no further second heads.
+The original first and second sets then give $g_{T_*}(f)=g_D(f)>0$,
+a contradiction. Therefore $\mathcal M_Q(f)$ is nonempty.
+
+Suppose $g_{T_*}(f)=0$. For any median order $L$ ending at $f$, the
+strong feed inequalities imply $G_L=N_{T_*}^{++}(f)$ and
+$|G_L|=|N_{T_*}^+(f)|$. If a remaining missing partner $b$ belonged
+to this second set, the completed direction would be the free incoming
+arc $b\to f$, since $f$ has no added first arc. Global sedimentation
+puts $f$ before every vertex of $G_L$ while retaining a global median
+order of the \emph{same} $T_*$. That free arc becomes backward,
+contradicting all-median rigidity.
+
+Every partner in $\mathcal M_Q(f)$ is consequently far in $T_*$.
+It was also an original missing partner, hence cannot have been an
+original protected head, and belongs to $\mathcal F_D(f)\setminus A_f$.
+Also $|A_f|=g_D(f)$ in the equality case. The two disjoint subsets
+$A_f$ and $\mathcal M_Q(f)$ give the sharper budget inequality.
+
+If $g_{T_*}(f)<0$, integrality gives
+$|A_f|\ge g_D(f)+1$, which also proves the strict-surplus bound.
+\end{proof}
+
+\begin{corollary}[An unbounded sufficient structural condition]
+\label{cor:iterated-closure-low-far-budget}
+If every deficient vertex $v$ of an oriented graph $D$ satisfies
+$t_D(v)\le g_D(v)$, then $D$ has a Seymour vertex.
+\end{corollary}
+\begin{proof}
+Otherwise all original gaps are positive and any feed of the construction
+contradicts the strict-surplus theorem.
+\end{proof}
+
+\begin{corollary}[Nonunit residual at every closure feed]
+\label{cor:iterated-closure-nonunit-feed}
+If $D$ belongs to the previously strongly connected arbitrary-
+arc-set-deletion-minimal all-deficient class, every median feed of $T_*$
+has $\eta\ge2$. If $t_D(f)\le2$ at such a feed, necessarily
+$g_D(f)=1$ and $t_D(f)=2$.
+\end{corollary}
+\begin{proof}
+The zero and unit residual budgets are $t=0$ and $t\le1$ respectively,
+while the strict-surplus theorem gives $t\ge g_D+1\ge2$. For $t\le2$
+the same inequalities force $g_D=1,t=2$.
+\end{proof}
+
+\paragraph{Comparison and scope.}
+The two balanced branches of the preceding \emph{one-round} forced-family
+analysis are now absent for the \emph{iterated-closure} maximizing family.
+This does not retroactively claim that they are impossible in every old
+one-round completion. The new terminal graph need not remain a minimal
+counterexample, and its arcs need not all be convenient relative to $D$.
+No minimality-based packet bound is applied to an intermediate graph.
+The strict-surplus theorem still permits arbitrarily large original
+unprotected far budgets. It neither proves the complete SNC nor supplies
+an actual all-deficient graph. External novelty and peer review remain
+outstanding.

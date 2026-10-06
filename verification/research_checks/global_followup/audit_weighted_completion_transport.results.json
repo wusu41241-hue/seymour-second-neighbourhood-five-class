@@ -1,0 +1,173 @@
+{
+  "status": "OBSTRUCTION FOUND",
+  "count": {
+    "graphs": 1940,
+    "referenceCompletions": 8129,
+    "expansionLPs": 2,
+    "skewObstructionCandidates": 1
+  },
+  "obstruction": {
+    "original": [
+      0,
+      49,
+      51,
+      6,
+      9,
+      8
+    ],
+    "originalGaps": [
+      0,
+      2,
+      3,
+      -1,
+      0,
+      -1
+    ],
+    "protectedRelations": [
+      [
+        4
+      ],
+      [
+        2
+      ],
+      [],
+      [],
+      [],
+      []
+    ],
+    "allReferenceCompletions": [
+      {
+        "out": [
+          8,
+          49,
+          51,
+          6,
+          41,
+          9
+        ],
+        "rank": [
+          4,
+          1,
+          0,
+          2,
+          3,
+          5
+        ],
+        "delta": [
+          -1,
+          0,
+          0,
+          0,
+          1,
+          1
+        ],
+        "skewScore": -0.3333333333333333,
+        "losingDensity": [
+          0.3333333333333333,
+          0.3333333333333333,
+          0,
+          0.3333333333333333,
+          0,
+          0
+        ],
+        "expansionScore": -0.33333333333333337,
+        "expansionLambda": [
+          0.33333333333333337,
+          0.3333333333333333,
+          0,
+          0.3333333333333333,
+          0,
+          0
+        ],
+        "expansionBasis": [
+          2,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "out": [
+          8,
+          49,
+          51,
+          6,
+          9,
+          25
+        ],
+        "rank": [
+          5,
+          1,
+          0,
+          2,
+          4,
+          3
+        ],
+        "delta": [
+          -1,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "skewScore": -0.3333333333333333,
+        "losingDensity": [
+          0.3333333333333333,
+          0.3333333333333333,
+          0,
+          0.3333333333333333,
+          0,
+          0
+        ],
+        "expansionScore": -0.33333333333333337,
+        "expansionLambda": [
+          0.33333333333333337,
+          0.3333333333333333,
+          0,
+          0.3333333333333333,
+          0,
+          0
+        ],
+        "expansionBasis": [
+          2,
+          4,
+          5,
+          6,
+          7
+        ]
+      }
+    ],
+    "bestExpansion": -0.33333333333333337
+  },
+  "forcedSupportControl": {
+    "out": [
+      42,
+      60,
+      57,
+      16,
+      33,
+      8
+    ],
+    "losingDensity": [
+      0,
+      0,
+      0,
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333
+    ],
+    "forcedArc": [
+      5,
+      3
+    ],
+    "medianScore": 13,
+    "medianOrders": 1
+  },
+  "limits": [
+    "A control is not assumed all-deficient or arc-minimal.",
+    "Reference completions, not every arbitrary tournament completion, are enumerated.",
+    "Floating basis enumeration locates examples; rational verification is separate."
+  ]
+}

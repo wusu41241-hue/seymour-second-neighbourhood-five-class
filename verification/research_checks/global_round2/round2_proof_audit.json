@@ -1,0 +1,110 @@
+{
+  "date": "2026-10-05",
+  "conjecture_status": "Not solved; no actual all-deficient finite oriented graph found.",
+  "scope": "Exact directed distance two throughout. Arbitrary-graph closure theorems are separated from original strongly connected arc-set-minimal all-deficient packet corollaries.",
+  "main_proofs": [
+    {
+      "file": "iterated_protection_closure_strict_surplus.tex",
+      "result": "Repeated current FORCED closure preserves all acquired protections and terminates. Every feed of a maximum terminal-reference completion retains its original first set and its original exact second set in the partial closure. Positive-original-gap feeds have nonempty terminal missing set and t_D>=g_D+1.",
+      "extra": "At zero completed gap, terminal missing partners are unpaid original unprotected far heads, giving t_D>=g_D+mu_Q.",
+      "assurance": "Root proof and three independent reconstruction reviews PASS. Primary Havet--Thomasse strong-feed and global sedimentation hypotheses checked directly."
+    },
+    {
+      "file": "weak_protection_closure_zero_feed_cycle.tex",
+      "result": "Safe SINGLE weak additions use incoming-neighborhood containment and a currently maximal protection head. Zero-gap positive-original feeds have a terminal missing-partner induced graph of minimum indegree one, hence mu_Q>=3 and t_D>=g_D+3.",
+      "original_cycle_lift": "A directed cycle already exists in the ORIGINAL D on the same terminal partner set. FORCED internal arcs are shortcuts of earlier internal paths; WEAK internal arcs cannot create the first directed cycle in an acyclic induced graph.",
+      "assurance": "Root and three separate theory reviews PASS. Original-cycle lift separately reconstructed by root and the independent framework reviewer.",
+      "scope_limits": "The +3 bound is ONLY for zero completed gap, not negative gap. Positive indegree is a terminal-graph assertion, while only cycle existence is lifted to D. Cycle vertices are not automatically actual BAD sources or positive-residual vertices."
+    },
+    {
+      "file": "minimal_weak_zero_feed_residual_budget.tex",
+      "result": "In the ORIGINAL arc-set-minimal strong all-deficient class, a zero-gap weak-closure feed satisfies eta_D>=mu_Q+1>=4. The packet estimates are used only when original P is nonempty.",
+      "eta_four_shape": "Only original P nonempty, m=3, k=s=0, original gap one and original far budget four remain. The original triangle on three partners eliminates the possible exceptional k=1 packet.",
+      "assurance": "Root derivation and three separate original-packet reconstructions PASS. Missing-far and unprotected-incoming-far witness cases checked individually. Eta-four triangle exclusion reviewed separately; the final packet saturation identities are direct algebra checked by root.",
+      "scope_limits": "Does not raise eta to four for strictly negative completed gaps or all vertices. Does not assert intermediate closure graphs remain minimal or all-deficient."
+    },
+    {
+      "file": "closure_good_equality_missing_degree_budget.tex",
+      "result": "All new original-far heads are Good. Exact good slack equals new-head count minus original gap minus old nongood-second count. Strong Good equality implies mu_Q<=t_D-g_D, even when the completed gap is negative.",
+      "assurance": "Root reconstruction PASS. Finite attacks state that negative-gap strong-equality coverage remains limited."
+    },
+    {
+      "file": "closure_degree_and_low_budget_corollaries.tex",
+      "result": "At every positive-original-gap closure feed, 2d_D^++number_of_original_protected_far_heads<=n-2. At n=2delta+3 the feed has minimum outdegree and at most one protected far head. Any graph with t_D<=1 everywhere satisfies SNC, without order or FLEX assumptions.",
+      "assurance": "Root and separate independent algebra/proof reviews PASS.",
+      "scope_limits": "Not an assertion that every n=2delta+3 graph has a minimum-outdegree Seymour vertex. Full novelty assessment remains outstanding."
+    },
+    {
+      "files": ["two_heavy_flexible_tail_reduction.tex", "flexible_exception_clique_feed_reduction.tex"],
+      "result": "The head of a flexible two-exception pair, or the inward terminal vertex of an arbitrary flexible exception clique, can be selected as a median feed of a maximum CANONICAL completion and has no original protection successor.",
+      "assurance": "Root checked the protected-shadow sedimentation branch and separation between canonical and altered-closure families, PASS.",
+      "scope_limits": "This does not exclude every two-heavy residual allocation. Original BAD-source transfer is not carried unchanged into the altered closure family."
+    },
+    {
+      "file": "outstar_deletion_criticality.tex",
+      "result": "Exact arbitrary outgoing-star deletion loss/retargeting identity. Original arc minimality gives proper retained-set expansion; original gap two forces no private old second heads and an internal first-neighborhood cycle.",
+      "assurance": "Root and separate-agent exact derivation PASS; 637942 local deletion identities checked."
+    }
+  ],
+  "finite_attacks": {
+    "iterated_forced_large_sample": {
+      "all_five_vertex_graphs": 59049,
+      "samples_orders_six_through_twelve": 20000,
+      "controls": 2,
+      "median_feeds": 154918,
+      "stage_feed_neighborhood_checks": 351298,
+      "maximum_forced_rounds_observed": 10,
+      "status": "PASS"
+    },
+    "fresh_independent_forced_order_enumeration": {
+      "graphs": 61010,
+      "median_orders_of_final_completions": 91044,
+      "status": "PASS"
+    },
+    "fresh_independent_weak_order_enumeration": {
+      "graphs": 61011,
+      "single_weak_steps": 49957,
+      "final_median_orders": 97277,
+      "maximum_closure_stages_observed": 19,
+      "random_zero_gap_positive_original_feeds": 0,
+      "status": "PASS; zero branch is additionally exercised by the explicit eleven-vertex control"
+    },
+    "controls": [
+      {
+        "n": 6,
+        "original_gap": 1,
+        "completed_gap": -1,
+        "t_D": 2,
+        "mu_Q": 1,
+        "meaning": "The unrestricted +1 surplus bound is sharp and stable Good slack can block sedimentation. Root independently checked all 720 orders. NOT an SNC counterexample."
+      },
+      {
+        "n": 11,
+        "original_gap": 1,
+        "completed_gap": 0,
+        "t_D": 4,
+        "mu_Q": 3,
+        "original_missing_partner_cycle": [5,6,7],
+        "meaning": "The generic zero-gap +3 bound is sharp, with an ORIGINAL directed triangle. Root independently re-ran exact subset-DP median checks. NOT an SNC counterexample."
+      }
+    ],
+    "matching_candidate": "35746 forced-stable matching graphs and 56110 partial median feeds had no positive-gap feed, but no theorem was proved. This finite absence is NOT used as proof.",
+    "limits": "Finite attacks are supplementary. No exhaustive unknown-counterexample search, proof-assistant verification or external peer review is claimed."
+  },
+  "primary_source_checks": [
+    {
+      "url": "https://perso.ens-lyon.fr/stephan.thomasse/liste/median.pdf",
+      "used": "Theorem 1: strong feed inequalities; Lemma 1: GLOBAL median sedimentation under exact Good equality."
+    },
+    {
+      "url": "https://www.ejgta.org/index.php/ejgta/article/viewFile/164/pdf_10",
+      "comparison": "Good median-order and missing-matching arguments impose their own module/dependency conditions. They are not taken to prove every median feed of an arbitrary partial closure has SNP."
+    },
+    {
+      "url": "https://arxiv.org/html/2601.21563v1",
+      "comparison": "Small-order enumeration and split-twin extension claims were inspected. A full coverage/priority audit of the new closure lemmas has NOT been completed."
+    }
+  ],
+  "unchanged_numeric_frontier": "R>=7, even order requires R>=8. Five R=7 residual allocations remain. At R=7 every candidate residual is at most three after prior filters, so zero-gap weak-closure feeds are now excluded, but negative completed-gap feeds remain.",
+  "artifact_state": "New mergeable source, verification programs and audit records are on F:. Previously delivered PDF/desktop copy preserved unchanged. No outside submission."
+}

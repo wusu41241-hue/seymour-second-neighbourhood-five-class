@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "seed": "0x51c3c3c3",
+  "counts": {
+    "graphs": 1000,
+    "copiedVertices": 16488,
+    "fieldIdentityChecks": 131904
+  },
+  "scope": "Checks exact amplification identities on arbitrary fixed-seed graphs of orders three through eight. These are not hypothetical counterexamples; the operation does not preserve arbitrary arc-set minimality."
+}

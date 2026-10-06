@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "seed": "0x51a0cafe",
+  "totals": {
+    "graphs": 1010,
+    "admissibleReferences": 94303,
+    "allOrdersChecked": 353665,
+    "globalMedianOrders": 1323,
+    "flexibleForwardChecks": 1184,
+    "positiveProtectedPairs": 2659
+  },
+  "scope": "Maximal reference-completion lemma checked on every labeled graph of orders one to four and 250 fixed-seed samples of orders five to seven; all orders of each reported tournament are enumerated. No SNC or arc-set-minimal theorem is proved computationally."
+}

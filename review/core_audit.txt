@@ -1,0 +1,214 @@
+Independent mathematical audit for the consolidated SNC manuscript
+Review date: 2026-10-07 (Asia/Taipei)
+Reviewer: manuscript_math_audit subagent
+
+Scope and disposition
+=====================
+Read in full, independently reconstructed the proofs, and checked the hypotheses of:
+1. global_round3/weighted_max_incoming_tournament_core.tex
+2. global_round3/iterated_incoming_core_certificate_reduction.tex
+3. global_round3/predecessor_clone_extremal_normal_form.tex
+4. global_round3/simultaneous_row_clone_unit_predecessor_core.tex
+All source files are under historical-research/seymour-2026-10-05/.
+No old file was edited. This audit does not rely on the earlier PASS reports.
+
+Disposition: PASS for the stated mathematical assertions and their specified
+hypotheses. No fatal gap found. The certificate-dependent five-class theorem
+is computer-assisted; the general transfer, equivalence, lifting, and surgery
+lemmas have ordinary finite mathematical proofs. This is an internal review,
+not external peer review or a determination of novelty.
+
+Precise theorem list suitable for the manuscript
+================================================
+Throughout, D is a finite nonempty oriented graph without loops or digons;
+N++ denotes vertices at directed distance exactly two, and g=d+-d++.
+
+T1. Pattern-certificate transfer (unconditional).
+Let C={c_1,...,c_k}, let H=D[C], put P_D(v)={i:c_i->v}, and let
+P(H)={P:P is a subset of N_H^-(j) for some j}. Define
+R_H(P)={i not in P:N_H^+(i) intersects P}.
+Suppose every P_D(v) belongs to P(H). If a nonzero nonnegative vector lambda
+satisfies lambda(R_H(P))>=lambda(P) for every P in P(H), its zero extension
+has N_D^T lambda>=0, where N_D has -1 on first and +1 on exact second targets.
+Consequently an original vertex c_i with lambda_i>0 has g_D(c_i)<=0.
+
+T2. Tournament core certificate (unconditional).
+If H is a tournament, every normalized nonnegative vector satisfying
+(A_H-A_H^T)lambda>=0 satisfies all the inequalities of T1. Such a vector
+exists by the finite skew-symmetric zero-sum game argument. Thus an
+incoming-covered tournament core, including tournament representatives of
+all maximal incoming classes, contains an original Seymour vertex.
+
+T3. At most five maximal incoming classes (computer-assisted).
+Partition V(D) by equality of the complete original incoming neighborhoods;
+order these classes by containment of their common incoming sets. If there
+are at most five maximal classes, at least one maximal class consists entirely
+of Seymour vertices. Total order and all class sizes are unrestricted.
+The stronger whole-class conclusion follows from choosing a positive-gap
+representative in EACH maximal class under its negation, then applying T1
+to the resulting core. It does not require equal outgoing neighborhoods
+inside a class, any minimal-counterexample assumption, or symmetrization.
+
+T4. Iterated induced-core lifting (unconditional).
+For one representative from each maximal incoming class of H, let K be the
+induced representative core. Every pattern certificate of K extends by zero
+to a pattern certificate of H. This may be iterated. If some resulting core
+has at most five vertices or is a tournament, an original Seymour vertex
+lies in the support in that final core. Universal feasibility need only be
+proved for cores with distinct, pairwise incomparable incoming neighborhoods.
+The arbitrary-chain conclusion does not itself give a whole ORIGINAL
+maximal class consisting of Seymour vertices.
+
+T5. Equivalent pattern formulation of SNC (unconditional equivalence).
+Every finite oriented core has a nonzero nonnegative pattern certificate
+if and only if SNC is true. Infeasibility of a particular finite pattern
+system yields, by strict finite minimax and an explicitly described finite
+labelled-pattern construction, a genuine finite all-deficient oriented graph.
+This theorem does not assert feasibility for arbitrary cores. In particular,
+there is no proof of SNC or constructed counterexample in these files.
+
+T6. Full-domain predecessor row map (unconditional surgery).
+If rho:V(D)->V(D) satisfies N_D^-(v) subseteq N_D^-(rho(v)), replacing every
+outgoing row by the ORIGINAL row of rho(v), simultaneously, produces an
+oriented graph D^rho with N++_{D^rho}(v) subseteq N++_D(rho(v)) and
+g_{D^rho}(v)>=g_D(rho(v)). Shared heads and modified heads are allowed.
+For a single changed row a<-b, equality holds for its second neighborhood,
+and every unchanged vertex's second neighborhood can only shrink.
+
+T7. Minimum-order unit-predecessor cover (conditional on a counterexample).
+In an all-deficient graph of smallest possible order among ALL such graphs,
+for every f some inclusion-maximal incoming-equivalence class C consists
+entirely of gap-one vertices pointing to f. Hence at least three maximal
+pure-unit classes exist, and the quotient using complete original interclass
+arcs has positive minimum indegree and a directed cycle of length at least
+three. This is stronger than the existence of an individual unit predecessor.
+It is NOT asserted for an arbitrary arc-deletion-minimal counterexample.
+
+T8. Global extremal twin normal form (conditional on a counterexample).
+Choose a counterexample by, in order, minimum vertex count, minimum arc count
+among ALL counterexamples of that order, maximum sum of gaps, and maximum
+sum_F |{v:N_D^+(v)=F}|^2. Incoming containment implies nondecreasing outdegree;
+if those degrees coincide, it implies nonincreasing gap. Equal incoming sets
+then imply equal outgoing sets, so each incoming-equivalence class is an
+independent module with common first and second neighborhoods. The stronger
+lexicographic extremal selection is necessary for the stated proof.
+
+Adversarial proof checks
+========================
+A. Exact distance and source exclusion in T1.
+For i in R_H(P_D(v)), an original path c_i->c_j->v exists and c_i->v does
+not. If v=c_i, then c_i->c_j and c_j->c_i would be a digon, so i cannot
+belong to R_H(P_D(c_i)). The proof does not count the source as a second
+target and does not confuse exact distance two with reachability within two.
+
+B. Tournament expansion when the complementary set has zero mass.
+Let F=V(H)\(P union R_H(P)). The common outneighbor witness belongs to F,
+so F is nonempty even when lambda(F)=0. If lambda(F)>0, summing the skew
+game inequalities over F yields 0<=lambda(F)(lambda(R)-lambda(P)). If the
+mass is zero, use the inequality at a witness j in F: incoming mass is at
+least lambda(P), outgoing mass at most lambda(R). Both cases are valid.
+
+C. Strict duality in T5.
+Set a_P(i)=1_{i in R_H(P)}-1_{i in P}. Infeasibility means that the continuous
+function min_P lambda dot a_P is negative on the entire compact probability
+simplex. Its maximum is therefore strictly negative. Finite minimax supplies
+nonnegative pattern weights with every coordinate of their weighted sum
+strictly negative. The strict inequalities and rational coefficient matrix
+permit rational weights; clear denominators to obtain integer multiplicities
+with gamma_i=sum_P w_P(1_{i in P}-1_{i in R_H(P)})>0 for every i.
+Thus merely nonpositive duality is NOT being substituted for strict positivity.
+
+D. Realization of the dual pattern weights.
+Each pattern vertex v is labelled by j with P(v) subseteq N_H^-(j), and
+v->u iff label(v) belongs to P(u). This implies an H arc between the source
+and target labels whenever an arc occurs, ruling out loops and digons.
+Distinguished full-pattern vertices c_j guarantee ALL necessary two-step
+intermediates. Conversely every first intermediate of label j implies the
+original core arc i->j, so no additional second-target pattern is introduced.
+The source cannot be among its own second targets. Every vertex of label i
+therefore has gap K gamma_i+g_H(i), including the distinguished vertices.
+For sufficiently large integer K all these gaps are positive. Repeated
+patterns and repeated labels do not invalidate any of these arguments.
+
+E. Certificate lifting.
+For P subseteq N_H^-(v), choose a maximal-class representative c covering
+N_H^-(v). Then P intersect C is a permitted K pattern, and
+R_K(P intersect C) subseteq R_H(P) intersect C. Zero extension proves the
+required inequality. No completeness, extremality, or closure hypothesis
+has been imported.
+
+F. Simultaneous copying.
+For a new path v->u->x, original rho(v)->u and incoming containment at u
+give original rho(v)->rho(u); the new second arc is original rho(u)->x.
+This yields an old exact second target of rho(v). A loop or digon in the
+copied graph similarly forces an old loop or digon. The argument works
+even when rho(u) is modified and when heads coincide. All rows MUST be
+copied from one original snapshot, as specified in the source.
+
+G. Deleting the target after the coupled surgery.
+If all original unit predecessors of f can be copied outside their set,
+every surviving predecessor of f has gap at least two; unchanged nonunit
+predecessors already have that property. Deleting f loses at most one
+first neighbor at each such vertex, and deletion cannot create new exact
+second targets among the remaining vertices. The smaller graph is therefore
+all-deficient. This legitimately uses global minimum order.
+
+H. Extremal hierarchy.
+Single-row cloning preserves vertex count and changes the number of arcs
+by d+(b)-d+(a). If arc counts tie, other gaps do not decrease. If incoming
+sets are equal, both cloning directions are admissible, giving equal
+degrees and gaps. Under a tie of the first three objectives, copying into
+the larger outgoing-row class strictly increases the fourth objective by
+2(r_b-r_a)+2. This argument is sound but must retain ALL four objectives.
+
+Fresh computational verification on 2026-10-07
+==============================================
+1. Read the source and reran verify_core_pattern_certificates_independent.js
+   using D:/node.exe. This implementation reconstructs Boolean adjacency
+   matrices independently of the generator, checks all permitted subsets,
+   and uses nonnegative exact integer arithmetic. fs.writeFileSync was
+   disabled in this single Node process to preserve all old output files.
+   Fresh result: PASS; 59,809 cores; 522,213 patterns; 462,404 nonempty
+   patterns; by-order counts 1, 3, 27, 729, 59,049; 40 nonuniform order-five
+   certificates; maximum entry 3; maximum certificate sum 9.
+   SHA-256 n=4 table:
+   b34056dbc1947c1149a6a12ac8a2f31fd579b89494908dc53a92f6bfcb5c7e18
+   SHA-256 n=5 table:
+   c9fe139b76a3866a7bf17e408d12f344823fa1a54fca306fd656139e601bfd5a
+
+2. Wrote and ran a separate in-memory Node enumeration (no file writes)
+   over EVERY oriented graph of orders one through four and EVERY full-domain
+   map rho satisfying the original incoming containment predicates. Checked
+   absence of loops/digons, every second-set inclusion, and the exact equality
+   for each map changing only one row. Fresh result: PASS; 760 graphs;
+   13,863 admissible maps; 55,233 vertex checks; 3,616 single-row equality
+   checks. This is a finite sanity check supporting, not replacing, T6's proof.
+
+Required wording safeguards for the manuscript
+==============================================
+- State that the five-class theorem is computer-assisted and include the
+  exact encoding, complete certificate tables, verifier, and their hashes.
+- Distinguish 522,213 permitted patterns including the empty set from
+  462,404 nonempty patterns. Both figures are correct; do not interchange them.
+- The five-class theorem concerns maximal INCOMING-equivalence classes,
+  not maximal protection vertices, arbitrary modules, or total graph order.
+- The terminal-core reduction and dual realization are equivalences or
+  sufficient conditions, not a resolution of general feasibility.
+- State global minimum-order and the stronger four-objective extremality
+  locally wherever used; do not merge them into mere arc-set minimality.
+- Gap one in the unit-core theorem means g=1, not residual eta=1.
+- A graph's chosen representative tournament core guarantees a Seymour
+  representative. The whole-class claim is separately justified by choosing
+  a positive-gap representative in every class under negation.
+- No new priority claim follows from this audit. Fisher is an input for
+  density existence; related predecessor-domination and weighted formulations
+  still require the manuscript's separate literature comparison.
+
+Overall assessment
+==================
+These four sources are mathematically coherent and can form a self-contained
+main theoretical section, with the small-core certificate tables as a
+reproducibility supplement and the extremal surgeries as separate conditional
+structure theorems. They do not depend on the earlier residual/median-order
+foundation, except where the broader manuscript separately invokes that
+foundation. No counterexample or complete proof of SNC has been obtained.

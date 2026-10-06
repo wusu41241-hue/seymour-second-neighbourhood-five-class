@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-04",
+  "status": "PASS",
+  "command": "node audit_oct04.js",
+  "limitations": [
+    "No counterexample to SSNC is produced or excluded in full.",
+    "The deletion audit tests local identities, not a vacuous all-counterexample theorem.",
+    "The finite relation audits do not replace checking the reduction lemmas in the proofs.",
+    "Internal adversarial review and regression checks are not external peer review."
+  ],
+  "deletionAudit": {
+    "totalOrientations": 59049,
+    "selectedGraphs": 16144,
+    "vertexDeletions": 80720,
+    "lightTargetChecks": 94600,
+    "negativeT3Cases": 70610,
+    "checked": [
+      "nonnegative source-restricted capacity defects",
+      "integer light-target charging inequality",
+      "y <= N + t2/2",
+      "M' = delta + 1 + c - A'_Y",
+      "M' <= D_def + t2/2 + U_Y + c",
+      "N + D_def + t2 + t3 + t4 = 3c - Phi + 2c0"
+    ]
+  },
+  "weightFiveAudit": {
+    "byRootCount": [
+      {"H": 1, "tested": 1, "feasible": 0},
+      {"H": 2, "tested": 12, "feasible": 0},
+      {"H": 3, "tested": 162, "feasible": 0},
+      {"H": 4, "tested": 2916, "feasible": 0},
+      {"H": 5, "tested": 59049, "feasible": 24}
+    ],
+    "totalTested": 62140,
+    "totalFeasible": 24
+  },
+  "nearBoundaryAudit": [
+    {"delta": 7, "survivingWeightVectors": 0, "tested": 0, "feasible": 0},
+    {"delta": 8, "survivingWeightVectors": 0, "tested": 0, "feasible": 0},
+    {"delta": 9, "survivingWeightVectors": 0, "tested": 0, "feasible": 0},
+    {"delta": 10, "survivingWeightVectors": 1, "tested": 729, "feasible": 0}
+  ]
+}

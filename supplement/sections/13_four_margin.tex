@@ -1,0 +1,58 @@
+\begin{theorem}[A four-unit residual margin]
+\label{thm:residual-four-margin}
+Every nonempty strongly connected arc-minimal all-deficient oriented graph on
+$n$ vertices satisfies
+\[
+ \sum_x\eta(x)=2M-n\ge4,
+ \qquad
+ {M\ge\left\lceil\frac n2\right\rceil+2}.
+\]
+Equivalently,
+$|A(D)|\le\lfloor n(n-2)/2\rfloor-2$.
+\end{theorem}
+\begin{proof}
+The established bad-edge witness lemma implies that the set
+$Z=\{x:\eta(x)>0\}$ contains a missing pair, and therefore the
+total residual is at least two. It also implies that every failure
+source of every bad missing edge lies in $Z$.
+
+If the total residual is two, there are exactly two positive vertices,
+both of residual one. If it is three and has three positive vertices,
+all three likewise have residual one. In either case $|Z|\le3$, and
+Corollary~\ref{cor:eta-one-budget} gives
+$t(z)\le1\le g(z)+1$ for every $z\in Z$.
+The small-failure-source transfer lemma
+(Lemma~\ref{lem:small-failure-sources}) therefore gives a Seymour
+vertex, a contradiction. This application uses the transfer lemma's
+canonical convenient orientations and does not assume that an
+arbitrary convenient completion preserves all good missing edges.
+
+It remains to exclude total residual three with
+$Z=\{u,v\}$, $\eta(u)=2$, and $\eta(v)=1$. The pair $uv$ is missing.
+There is a bad missing edge, since otherwise the good-edge completion
+argument would give a Seymour vertex. Its two directional failure
+sources must be $u,v$. Consequently
+$\Nout(v)\cap U(u)\ne\varnothing$.
+Apply Lemma~\ref{lem:eta-two-dichotomy}.
+
+If $t(u)\le2$, both positive vertices satisfy the transfer threshold
+$t(z)\le g(z)+1$, so
+Lemma~\ref{lem:small-failure-sources} again gives a contradiction.
+Otherwise that dichotomy supplies convenience of $v\to u$.
+Choose the reference linear extension of the protected relation with
+$v$ before $u$. This is possible because missing partners are
+incomparable in that relation; a protected chain would, by
+transitivity, force an arc between them. The canonical convenient
+orientation of $uv$ is then $v\to u$: it is either the only convenient
+direction or the direction selected by the reference order.
+In the transfer lemma's internal missing-edge digraph on $Z$, the only
+vertex with positive out-degree is now $v$, and
+$t(v)\le1\le g(v)+1$. The vertex $u$ is a zero-out-degree vertex;
+the transfer construction directs bad missing edges to avoid its
+failures and requires no bound on $t(u)$. Thus the lemma applies once
+more, a contradiction.
+
+The total residual is an integer, so it is at least four. Finally
+$2M-n$ has the parity of $n$: for odd $n$ it is at least five.
+Both parity cases give the displayed missing-pair bound.
+\end{proof}

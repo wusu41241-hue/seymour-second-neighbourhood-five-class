@@ -1,0 +1,31 @@
+Zenodo release preparation, 7 October 2026
+
+Title: Five Maximal Incoming Classes Suffice: Exact Certificates and Structural
+Constraints for Seymour's Second-Neighbourhood Conjecture
+Author: Guanze Yu
+Resource type: Publication / Preprint
+Language: English
+Licenses: CC BY 4.0 (paper, supplement and non-code material); MIT (programs).
+License choice confirmed by the author on 7 October 2026.
+
+Changes from the earlier internally reviewed manuscript:
+1. The title now leads with the at-most-five maximal incoming-class theorem.
+2. Guanze Yu is the sole named author in both title pages and PDF metadata.
+3. The abstract defines n and M and states the arc-set-minimal scope of 2M-n>=7.
+4. The underlying proofs, primary certificate tables and verifiers are unchanged.
+
+The at-most-five-class result is not a bound on the total order of the graph.
+The full conjecture remains unresolved by this work. The release makes no
+claim of accepted priority, journal publication or external peer review.
+AI-assistance disclosure is retained in the manuscript.
+
+The original review/ files are historical records from the previous unsigned
+build. Absolute research-workspace paths appearing there are provenance
+references, not dependencies required by the primary certificate replay.
+
+Public repository: https://github.com/wusu41241-hue/seymour-second-neighbourhood-five-class
+Zenodo deposit and DOI registration remain unverified at the initial commit.
+The public staging copy replaces absolute local historical-workspace paths
+with descriptive historical-research/ and historical-workspace/ labels.
+Five search-result certificate_file references now point to portable copies.
+No DOI, affiliation, ORCID, journal or funding identifier is invented.

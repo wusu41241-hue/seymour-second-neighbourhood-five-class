@@ -1,0 +1,188 @@
+% Opening scope/coverage note for the complete supplementary proof volume.
+% Prepared 7 October 2026. Parent supplies longtable and booktabs.
+\section{Coverage, dependencies, and scope of the supplementary results}
+\label{sec:supplement-coverage}
+
+This supplement supplies the longer proofs and auxiliary results underlying
+the main article. It also records how the earlier special cases are covered
+by the final statements. All graphs are finite and nonempty, and all second
+neighborhoods are defined by directed distance \emph{exactly} two. In
+particular, first neighbors are excluded from second neighborhoods. Write
+\(g_D(v)=d_D^+(v)-d_D^{++}(v)\); thus a Seymour vertex has
+\(g_D(v)\le0\), and an all-deficient graph has positive gap everywhere.
+
+\paragraph{The hypotheses are part of each result.}
+The residual arguments use a strongly connected all-deficient graph that
+is minimal under deletion of \emph{every nonempty set of arcs}, on its fixed
+vertex set. We call this the MIN setting. Single-arc criticality alone is
+not the stated hypothesis. Sink-component arguments extend the numerical
+missing-pair bound to arc-set-minimal graphs without strong connectivity.
+The incoming-pattern certificate theorems and the basic closure theorems
+apply to arbitrary oriented graphs and do not require MIN. The class-cover
+and cloning normal forms instead use their explicitly specified
+minimum-order or lexicographic extremal choices. An intermediate closure
+graph, or a graph obtained by vertex deletion, is never assumed to inherit
+all-deficiency or minimality without a separate argument.
+
+\paragraph{Incoming-pattern certificates.}
+The main article proves the transfer from representative cores, its
+tournament case, the at-most-five maximal incoming-class theorem, the
+iterated core reduction, and the equivalence between universal pattern
+feasibility and the second-neighborhood conjecture. The accompanying
+integer tables and independent verifiers certify every core of order at
+most five. This bound concerns core order, not the total graph order.
+
+\paragraph{Cloning and extremal forms.}
+The main article gives simultaneous original-snapshot row cloning, the
+minimum-order whole-class gap-one predecessor cover, and the specified
+extremal true-twin normal form. Gap-one vertices here must not be confused
+with residual-one vertices. Classical gap-one predecessor and cycle facts
+are distinguished from their class-level refinements.
+
+\paragraph{Residual foundation.}
+The supplement supplies the external-boundary deletion lemma, target
+packet, \(\eta\ge0\), \(\sum\eta=2M-n\), zero-residual protection,
+unit residual budgets, and the shared exceptional-partner remainder.
+These are the local inputs to the MIN statements in the article.
+
+\paragraph{Completion and residual margin.}
+Canonical convenient orientations, witness transfer, safe retention,
+two-positive-support exclusion and the fixed heavy-cover criterion lead
+to the one-exception theorem. The remaining mixed cases
+\((m,2,1)\), \((2,2,2)\), and \((2,2,1,1)\) are proved here in full.
+Together they yield the article's parity-sensitive bound on missing
+pairs. All comparisons of completed gaps are made in the specified
+completion.
+
+\paragraph{Closure and equality.}
+The main article develops iterated forced and single weak protection
+steps, exact original feed neighborhoods, strict far-head surplus, and
+the original partner-cycle and seed-path conclusions. The supplement
+retains the one-round antecedents, packet refinements, low-residual
+equality shapes, near-whole feed boundary bound, and the separately
+scoped additional safe operator.
+
+\paragraph{Additional transfer tools.}
+Complete supplementary arguments cover all-keeper and overlap budgets,
+multiple retained cross-witness arcs, flexible exception-clique feed
+reduction, arbitrary outgoing-star deletion identities, and the
+gap-two witness multiplicity consequences. These have their own
+local hypotheses and do not assert universal completion existence.
+
+\paragraph{Dense odd boundary.}
+At \(n=2\delta+3\), the supplement includes the target-capacity core,
+minimum-degree predecessor bounds, even-order and odd-deletion
+identities, certified basins, heavy-set capacity, and the degree- and
+residual-dependent four-heavy restrictions. These are independent
+auxiliary consequences rather than a solution of the dense boundary.
+
+\paragraph{Obstructions and verification.}
+Cyclic amplification, exact weighted transport, its dual formulation,
+and explicit controls document limits of proposed shortcuts. The
+artifact index distinguishes exact integer certificate checking,
+finite local tests, solver-dependent infeasibility logs, and heuristic
+search outcomes. None of the control graphs is a counterexample to the
+second-neighborhood conjecture.
+
+\paragraph{The short dependency chain for the numerical bound.}
+In MIN, at least three vertices have positive residual, and the
+one-exception theorem requires at least two \emph{actual} bad-direction
+failure sources with residual at least two. Consequently the only
+positive residual partitions with total at most six are
+\[
+ (2,2,1),\qquad(3,2,1),\qquad(2,2,2),\qquad(2,2,1,1).
+\]
+The general \((m,2,1)\) theorem eliminates the first two, and the other
+two exclusions eliminate the remainder. Hence
+\[
+ R=2M-n\ge7,\qquad
+ M\ge\left\lceil\frac n2\right\rceil+3+
+       \mathbf1_{\{n\ \mathrm{even}\}}.
+\]
+The even-order residual is at least eight by parity. The sink-component
+extension adds the stated penalty for vertices outside a sink component;
+equality in the uniform bound forces strong connectivity. These bounds
+are assertions about arc-set-minimal counterexamples. Since arc deletion
+increases the number of missing pairs, they do not directly prove the
+conjecture for arbitrary denser graphs.
+
+\paragraph{Earlier exclusions and their final disposition.}
+The unrestricted one-exception theorem excludes all allocations
+\((m,1^k)\), for every \(m\ge2\) and finite \(k\), and also covers the
+pure-unit situation. It therefore subsumes the earlier finite unit-support
+thresholds, the standalone all-unit exclusion, and the cases
+\((m,1,1)\), \((m,1,1,1)\), and \((2,1,1,1,1)\).
+The complete two-support theorem supersedes its smaller residual and
+restricted-order cases. The final numerical bound supersedes the
+successive exclusions of residuals zero through five and the older
+\(n=19,\delta=8\) conclusions \(M\ge6\) and \(M\ge7\); in that
+MIN case the present bound is \(M\ge13\). Useful local lemmas from
+these arguments remain available, including full unit packets,
+unit--unit witness tails, simultaneous two-vertex priorities, and the
+matching-module deletion identities. They are not counted again as
+independent improvements of the final bound.
+
+\paragraph{Zero gap and strong-feed equality are distinct branches.}
+For the terminal FORCED/WEAK construction, a positive-original-gap feed
+always satisfies \(t_D(f)\ge g_D(f)+1\). If its completed gap is zero,
+the remaining partner set has size \(m\ge3\), contains an original
+directed cycle, and gives
+\(t_D(f)\ge g_D(f)+m\). In MIN this implies
+\(\eta_D(f)\ge m+1\ge4\). Equality at residual four has the stated
+necessary shape \(m=3,k=s=0,g_D=1,t_D=4\), with nonempty original
+\(P(f)\) and a saturated full packet. The positive-indegree assertion
+belongs to the \emph{terminal} partner graph; only cycle existence is
+lifted to the original graph. These partner vertices are not thereby
+shown to be actual failure sources or to have positive residual.
+
+At strong Good equality with negative completed gap, the corrected
+partner-path theorem applies instead: residual two permits only original
+nongood-second partners, while residual three permits at most one far
+partner, reached by an original arc from a nongood-second partner. That
+far partner may be exceptional in the packet. Neither the all-second
+case nor strict Good surplus has been excluded. Thus the five remaining
+residual-seven partitions
+\[
+ (3,3,1),\ (3,2,2),\ (3,2,1,1),\
+ (2,2,2,1),\ (2,2,1,1,1)
+\]
+are forced into negative completed gap, but remain unresolved.
+
+\paragraph{The separate dense-boundary parameters.}
+In the chapters restricted to \(n=2\delta+3\), \(\sigma\) denotes
+target-capacity surplus and \(K=\{\sigma>0\}\) its core. It is not
+\(\eta\), and a heavy target \(\sigma\ge2\) need not be an actual
+bad-direction failure source. The general core conclusions are
+\(|K|\ge6\) and \(z\ge h+8\), where \(z\) counts whole
+minimum-degree vertices and \(h\) counts gap-two vertices.
+The stronger \(z\ge h+10\) requires \(\delta\ge10\); the
+\(h+11\) conclusion has an additional degree--residual condition,
+for example \(\delta>40R+12\). The predecessor inequalities and
+odd-deletion bounds retain their own hypotheses. In particular, a
+retained minimum-degree condition is not asserted to hold for every
+chosen odd set.
+
+\paragraph{Corrections and evidence boundaries.}
+The saved proofs do not use the rejected assertions that the external
+second boundary of a target packet always lies in its incoming set,
+that an exceptional far head cannot belong to the remainder, or that
+the released-direction completion family contains the canonical family
+as a set. The proved comparison is of maximum ordinary forward score.
+At a fixed tournament the normalized Fisher losing density coincides
+with the normalized reverse-expansion density; these do not provide
+independent choices of weights. Three inward-priority families need not
+be compatible. The enlarged convenient-tail closure preserves the
+stated feed invariants but does not inherit original partner-cycle
+lifting without another proof. Corrected or disproved shortcuts are
+recorded only as scope controls, not as theorems.
+
+The imported Tahara excess manuscript is attributed related work, not
+an original result of this article. The archived local \(\delta=7\)
+packages concern two specified branches and have solver-log validation;
+their presence does not constitute a proof here of the whole
+\(\delta=7\) theorem or a formal unsatisfiability certificate. Search
+attainment is an upper bound on an extremal objective, and a timeout is
+unresolved. Complete source-level coverage and the retained artifact
+provenance are recorded in the accompanying inventory. The article and
+supplement establish the stated partial results; they neither prove the
+full conjecture nor exhibit a counterexample.

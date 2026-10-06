@@ -1,0 +1,216 @@
+\section{At least three vertices with unprotected far targets}
+\label{sec:three-unprotected-vertices}
+
+The following argument uses protection rather than the numerical
+residual of vertices outside the two candidate sources. In particular,
+it is stronger than excluding a two-vertex positive residual support.
+All far sets, convenience conditions, and protected pairs refer to
+the original oriented graph $D$.
+
+\begin{theorem}\label{thm:three-unprotected-vertices}
+Let $D$ be a finite nonempty strongly connected all-deficient oriented graph minimal
+under deletion of arbitrary nonempty arc sets. Then at least three
+vertices have an unprotected far target:
+\[
+ \bigl|\{x:t(x)>0\}\bigr|\ge3.
+\]
+\end{theorem}
+\begin{proof}
+A directional failure witness of a bad missing pair always has an
+unprotected far target: a witness in the opposite direction would,
+under protection, create a forbidden two-step path. Thus, if at most
+one vertex had an unprotected far target, every missing pair would
+be good. Ghazal's good-pair theorem would give a Seymour vertex
+\cite[Theorem~2]{Ghazal2012}.
+
+Suppose therefore that the only vertices with $t(x)>0$ are $u,v$.
+There is a bad pair, again by the good-pair theorem, and all its
+directional failure sources lie in $\{u,v\}$.
+Lemma~\ref{lem:two-source-bipartite-bad} gives the missing pair $uv$,
+goodness of every missing pair incident to either vertex, and the
+nonempty sets
+\[
+ \mathcal A=N_D^+(u)\cap U_D(v),\qquad
+ \mathcal B=N_D^+(v)\cap U_D(u).
+\]
+The bad pairs are exactly $\mathcal A\times\mathcal B$.
+Orient all of them as $\mathcal A\to\mathcal B$, so their only
+directional failure source is $u$.
+
+We will canonically orient all good pairs using a reference linear
+extension in which every original missing partner of $v$ precedes $v$.
+Such an extension exists. Missing partners are incomparable with $v$
+in the protected partial order: a protected chain would force an arc.
+Adding all precedence requirements $r\prec v$ for
+$r\in\mathcal M(v)$ cannot create a cycle, because such a cycle would
+require an original protected chain from $v$ to one of these partners.
+Let $T$ be the resulting tournament.
+By Lemma~\ref{lem:uniform-zero-protected-completion}, every vertex
+outside $\{u,v\}$ remains deficient in this one tournament. It is
+enough to prove that $v$ also remains deficient.
+
+\par\medskip\noindent\textbf{The empty far-in set.}\quad 
+If $P(v)=\varnothing$, every other vertex reaches $v$ within two
+steps. Thus $r\to v$ is convenient for every missing partner $r$.
+The chosen reference extension makes every added incident arc point
+into $v$, whether the reverse direction is also convenient or not.
+No first neighbour is added at $v$. Its original first neighbours
+cannot introduce a new far second head: good directions are convenient,
+and the selected bad directions fail only at $u$.
+Hence $g_T(v)=g_D(v)>0$.
+
+Assume henceforth that $P=P(v)\ne\varnothing$ and put
+\[
+ \begin{gathered}
+ Q=N_D^{--}(v),\quad C=\partial P,\quad X=\partial^2P,\quad H=Q\setminus C,\\
+ B=H\cap\mathcal M(v),\quad k=|B|,\quad s=|H\cap N_D^+(v)|.
+ \end{gathered}
+\]
+Delete the $s$ outgoing arcs from $v$ into $H$, obtaining
+$\widehat D$; when $s=0$ leave $D$ unchanged. Define
+\[
+ E=(\mathcal M(v)\setminus B)\,\dot\cup\,X,
+ \qquad L=E\setminus N^{++}_{\widehat D}(v),
+ \qquad p=|P|.
+\]
+Lemma~\ref{lem:partner-head-budget} gives
+\begin{equation}\label{eq:two-support-lambda}
+ |L|\le\lambda:=
+ \begin{cases}
+  \eta(v)-2k,&s=0,\\
+  \eta(v)-g_D(v)-2k,&s>0.
+ \end{cases}
+\end{equation}
+It also gives convenience of $r\to v$ for every $r\in B$.
+
+\par\medskip\noindent\textbf{Which missing partners become first neighbours.}\quad 
+Write $K=N_T^+(v)\setminus N_D^+(v)$ and $h=|K|$.
+Our reference order selects $r\to v$ whenever that direction is
+convenient. Consequently every $r\in K$ has an original predecessor
+$a\in P(v)$ with $a\to r$: otherwise $r\to v$ would be convenient.
+Every exceptional partner in $B$ is directed into $v$, so
+$K\subseteq\mathcal M(v)\setminus B\subseteq E$.
+
+For a missing partner $r\notin B\cup\{u\}$, one has $t(r)=0$.
+It cannot belong to $P(v)$, because its far target $v$ would then be
+protected, forcing the original arc $v\to r$ despite the missing pair.
+Thus $r\in C$, and some $a\in P$ points to it. The direction
+$r\to v$ is not convenient, so the good pair $rv$ is canonically
+oriented as $v\to r$. The only nonexceptional partner which might
+instead be directed into $v$ is $u$. Therefore
+\begin{equation}\label{eq:two-support-first-count}
+ h\ge\mu(v)-k-1.
+\end{equation}
+
+\par\medskip\noindent\textbf{A shared envelope for all added first intermediates.}\quad 
+We claim
+\begin{equation}\label{eq:two-support-shared-envelope}
+ N_T^{++}(v)\subseteq
+ \bigl(N_D^{++}(v)\cup L\bigr)\setminus K,
+ \qquad K\subseteq N_D^{++}(v)\cup L.
+\end{equation}
+Original first intermediates do not introduce far heads, because the
+chosen bad directions fail only at $u$ and good directions are
+convenient. Consider an added first intermediate $r\in K$ and an
+original far target $y\in U_D(v)\setminus L$.
+The original partner-budget lemma already rules out $r\to y$ in $D$.
+
+If $ry$ was missing, it is good: $v$ originally points to neither $r$
+nor $y$, so it cannot witness a failure of either direction; the sole
+remaining possible source $u$ cannot supply both opposite witnesses.
+Choose $a\in P$ with $a\to r$, as above.
+Every path of length at most two from $P$ stays inside $P\cup C\cup X$.
+Moreover every vertex of this union which is originally far from $v$
+lies in $L$. Indeed, such a vertex is either a missing partner outside
+$B$ or a member of $X$, hence is in $E$; an originally far target cannot
+become reachable after deleting arcs and so is not in
+$N^{++}_{\widehat D}(v)$.
+Thus $y\notin P\cup C\cup X$ and $y\in U_D(a)$.
+The direction $r\to y$ is not convenient, so the good pair $ry$ is
+oriented uniquely as $y\to r$. This excludes a new path through $r$
+to $y$ and proves the first inclusion.
+
+For the second inclusion, $K\subseteq E$. If a member of $K$ belongs
+to $N^{++}_{\widehat D}(v)$, its two-step path already existed in $D$;
+it was not an original first neighbour, since it was missing from $v$.
+It therefore belongs to $N_D^{++}(v)$. Otherwise it belongs to $L$.
+Notice that $L$ may also contain original second neighbours lost in
+$\widehat D$, and may contain deleted original first neighbours.
+No disjointness between $L$ and $N_D^{++}(v)$ is assumed.
+
+Removing the whole set $K$ from the union in
+\eqref{eq:two-support-shared-envelope} gives
+\begin{equation}\label{eq:two-support-gap}
+ d_T^{++}(v)\le d_D^{++}(v)+\lambda-h,
+ \qquad g_T(v)\ge g_D(v)+2h-\lambda.
+\end{equation}
+If $h=0$, its first neighbourhood is entirely original and has no
+chosen-direction failures, so $g_T(v)=g_D(v)>0$ independently of this
+upper estimate. We can thus assume $h>0$.
+
+\par\medskip\noindent\textbf{The nonempty deleted bundle.}\quad 
+If $s>0$, substitute \eqref{eq:two-support-first-count} and
+\eqref{eq:two-support-lambda} into \eqref{eq:two-support-gap}:
+\[
+ g_T(v)\ge2g_D(v)+2\mu(v)-2-\eta(v)
+       =p+g_D(v)-1\ge1.
+\]
+The equality uses the original identity
+$p=2\mu(v)+g_D(v)-1-\eta(v)$.
+Only the original graph's arc-set minimality is used to obtain the
+nonempty-bundle bound in \eqref{eq:two-support-lambda}.
+
+\par\medskip\noindent\textbf{No deleted outgoing arc and the singleton exception.}\quad 
+If $s=0$, the same substitution gives $g_T(v)\ge p-1$.
+This is positive when $p\ge2$.
+For $p=1$ it is positive unless
+$h=\mu(v)-k-1$: any larger integer $h$ improves the estimate by two.
+In this last case $u\notin B$ and the canonical direction on $uv$
+is $u\to v$.
+Write $P=\{a\}$.
+If $a\ne u$, then $u$ is a nonexceptional missing partner outside
+$P$, hence belongs to $C$. Thus $a\to u$, while $v\in U_D(a)$.
+This makes $u\to v$ nonconvenient, contradicting its canonical choice.
+If $a=u$, then $C=N_D^+(u)$. Since $s=0$, all of $H=B$ consists of
+missing partners of $v$, as does the singleton $P=\{u\}$.
+The partition into $P,C,H$ therefore gives
+$N_D^+(v)\subseteq C=N_D^+(u)$.
+But then
+$\mathcal B=N_D^+(v)\cap U_D(u)=\varnothing$,
+contrary to the nonempty bad-pair bipartition.
+This excludes the only zero-gap estimate case.
+
+\par\medskip\noindent\textbf{Two Seymour vertices in one fixed tournament.}\quad 
+We have proved $g_T(v)>0$ for the selected completion.
+Every other vertex except possibly $u$ has $t(z)=0$ and remains
+deficient by Lemma~\ref{lem:uniform-zero-protected-completion}.
+Thus $T$ has at most one Seymour vertex.
+The original all-deficient graph has positive out-degree at every
+vertex, and adding arcs cannot create a sink. Havet--Thomasse's
+two-Seymour-vertex theorem for tournaments with no sink
+\cite[Theorem~2]{HavetThomasse2000} is a contradiction.
+The comparison is in this one tournament, not between completions
+reoriented separately for different candidate feed vertices.
+\end{proof}
+
+\begin{corollary}\label{cor:three-positive-residual-support}
+Every finite nonempty strongly connected arc-minimal all-deficient oriented graph has
+at least three vertices with positive residual:
+\[
+ \bigl|\{x:\eta(x)>0\}\bigr|\ge3.
+\]
+In particular, a two-vertex positive residual support is impossible,
+without any upper bound on either residual.
+\end{corollary}
+\begin{proof}
+Zero residual makes every far target protected, so $\eta(x)=0$
+implies $t(x)=0$. The preceding theorem therefore applies.
+\end{proof}
+
+\begin{remark}
+The theorem bounds the number of vertices with an unprotected far
+target, not the number which actually occur as directional failure
+sources of bad missing pairs. A third vertex with $t>0$ need not be
+a bad-pair witness; no claim that there must be three actual bad
+failure sources is made here.
+\end{remark}

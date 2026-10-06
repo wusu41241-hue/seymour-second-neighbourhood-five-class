@@ -1,0 +1,97 @@
+\section{Bipartite witness graphs and nonnegative tournament gaps}
+\label{sec:bipartite-witness-completion}
+
+Let $\mathcal W$ be the graph whose vertices are the directional failure
+sources of bad missing pairs. Join $x,y$ when they are opposite failure
+witnesses for some bad pair. Its edges are original missing pairs.
+The two directional failure sets of each bad pair span a complete
+bipartite subgraph of $\mathcal W$.
+
+\begin{lemma}[Completion along a bipartition]
+\label{lem:bipartite-selected-source-completion}
+Suppose $\mathcal W$ is bipartite with parts $L,R$. Orient each bad
+missing pair in the direction whose failure sources belong to $L$,
+and all good pairs canonically relative to protection, obtaining $T$.
+For every vertex $z$, put $K_z=N_T^+(z)\setminus N_D^+(z)$. Then
+\[
+ N_T^{++}(z)\subseteq
+ (N_D^{++}(z)\setminus K_z)\cup(\mathcal F(z)\setminus K_z),
+ \qquad g_T(z)\ge g_D(z)+2|K_z|-t(z).
+\]
+If $z\notin L$ and $K_z=\varnothing$, its two neighbourhoods are
+unchanged. If $t(z)=0$, the second-neighbourhood inclusion is the
+exact equality $N_T^{++}(z)=N_D^{++}(z)\setminus K_z$.
+\end{lemma}
+\begin{proof}
+The direction choice is well-defined: the complete bipartite graph
+between the opposite failure sets makes each of these sets monochromatic,
+in opposite colours. Every chosen bad direction therefore fails only
+at vertices of $L$.
+
+No added second arc through an original first neighbour reaches a
+protected far head: a good direction is convenient, and every failure
+head of a bad direction is unprotected. Through an added good first
+arc, the canonical protection compatibility rules out such a head.
+For an added bad first arc $z\to a$, choose an opposite witness
+$r\in R$, so $r\to a$ and $z\in U_D(r)$.
+If $y$ is protected from $z$, then $y\in U_D(r)$ as well.
+An original $a\to y$ would force $a\to z$, contrary to the missing
+pair $za$. If $ay$ is missing, its direction $a\to y$ fails at $r$.
+A good pair must therefore be oriented $y\to a$; for a bad pair,
+our choice avoiding $R$ also forces $y\to a$.
+This checks all new first intermediates and all possible second arcs.
+
+Thus every genuinely new far second head belongs to $\mathcal F(z)$.
+Every added first neighbour was missing from $z$, hence lies in exactly
+one of the disjoint sets $N_D^{++}(z)$ and $\mathcal F(z)$.
+Removing the entire $K_z$ proves the count.
+For $z\notin L$ with no new first neighbours, no chosen bad direction
+can fail at $z$, so there are no new second heads. Original paths remain.
+The exact assertion for $t(z)=0$ follows in the same way.
+\end{proof}
+
+\begin{lemma}[Only one selected failure source]
+\label{lem:single-selected-source-completion}
+If every bad missing pair can be oriented so that its chosen directional
+failure sources lie in $\{c\}$, the preceding conclusion holds for
+canonical good directions and these bad directions. In particular,
+every $z\ne c$ with $t(z)\le1$ and $g_D(z)>0$ remains deficient in
+the same completion, regardless of whether $K_z$ is empty.
+\end{lemma}
+\begin{proof}
+All cross-witness edges are incident to $c$: the chosen failure set
+of every bad pair is precisely $\{c\}$, and the opposite set excludes
+$c$. Thus use $L=\{c\}$ in the previous lemma. If $K_z$ is empty its
+gap is unchanged; otherwise $g_T(z)\ge g_D(z)+2-t(z)>0$.
+\end{proof}
+
+\begin{lemma}[The zero-gap set has no sink]
+\label{lem:nonnegative-tournament-three-zeros}
+Let $T$ be a finite nonempty tournament with no sink, and suppose
+$g_T(z)\ge0$ for every vertex. Then its zero-gap vertices induce a
+tournament with no sink. In particular there are at least three of them.
+\end{lemma}
+\begin{proof}
+The unweighted tournament SNP theorem ensures a zero-gap vertex exists.
+Suppose the zero-gap set $S$ has a sink $c$ in $T[S]$.
+The absence of a sink in $T$ gives an outgoing neighbour $h$ of $c$
+outside $S$. Assign weights $w(c)=5/4$, $w(h)=9/8$, and weight one
+to all other vertices. The weighted gap at $c$ is $1/8$.
+Every other zero-gap vertex points to $c$, so its weighted gap is at
+least $1/4-1/8=1/8$. Every originally positive-gap vertex has integer
+gap at least one, and its weighted gap is at least $1-1/4-1/8>0$.
+All weighted gaps are therefore strictly positive, a contradiction to
+the weighted tournament SNP theorem \cite[Proposition~2.1]{FidlerYuster2007}.
+
+For this rational-weight use, that theorem follows directly from the
+unweighted tournament theorem without assumptions about a weighted
+median optimization: multiply the weights by eight, replace each vertex
+by a transitive tournament of its integer weight, and orient between
+blocks as in $T$. Every vertex in a block has external gap equal to
+eight times the rational weighted original gap, and nonnegative
+additional internal gap.
+If all weighted gaps were positive, the expanded tournament would be
+all-deficient, contradicting the unweighted theorem.
+A tournament on at most two vertices always has a sink, proving the
+last assertion.
+\end{proof}

@@ -1,0 +1,417 @@
+{
+  "claim": "Auxiliary unit witness graph enumeration and forced matching heads only",
+  "oriented_graph_counterexample": false,
+  "all_deficient_graph_search": false,
+  "unit_graph_counts": {
+    "empty": 1,
+    "single_edge": 6,
+    "unit_path": 12,
+    "triangle": 4,
+    "two_disjoint_edges": 3
+  },
+  "unit_graphs": [
+    {
+      "mask": 0,
+      "edges": [],
+      "type": "empty"
+    },
+    {
+      "mask": 1,
+      "edges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "type": "single_edge"
+    },
+    {
+      "mask": 2,
+      "edges": [
+        [
+          0,
+          2
+        ]
+      ],
+      "type": "single_edge"
+    },
+    {
+      "mask": 3,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "type": "unit_path"
+    },
+    {
+      "mask": 4,
+      "edges": [
+        [
+          0,
+          3
+        ]
+      ],
+      "type": "single_edge"
+    },
+    {
+      "mask": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "type": "unit_path"
+    },
+    {
+      "mask": 6,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "type": "unit_path"
+    },
+    {
+      "mask": 8,
+      "edges": [
+        [
+          1,
+          2
+        ]
+      ],
+      "type": "single_edge"
+    },
+    {
+      "mask": 9,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "type": "unit_path"
+    },
+    {
+      "mask": 10,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "type": "unit_path"
+    },
+    {
+      "mask": 11,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "type": "triangle"
+    },
+    {
+      "mask": 12,
+      "edges": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "type": "two_disjoint_edges"
+    },
+    {
+      "mask": 16,
+      "edges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "type": "single_edge"
+    },
+    {
+      "mask": 17,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "type": "unit_path"
+    },
+    {
+      "mask": 18,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "type": "two_disjoint_edges"
+    },
+    {
+      "mask": 20,
+      "edges": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "type": "unit_path"
+    },
+    {
+      "mask": 21,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "type": "triangle"
+    },
+    {
+      "mask": 24,
+      "edges": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "type": "unit_path"
+    },
+    {
+      "mask": 32,
+      "edges": [
+        [
+          2,
+          3
+        ]
+      ],
+      "type": "single_edge"
+    },
+    {
+      "mask": 33,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "type": "two_disjoint_edges"
+    },
+    {
+      "mask": 34,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "type": "unit_path"
+    },
+    {
+      "mask": 36,
+      "edges": [
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "type": "unit_path"
+    },
+    {
+      "mask": 38,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "type": "triangle"
+    },
+    {
+      "mask": 40,
+      "edges": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "type": "unit_path"
+    },
+    {
+      "mask": 48,
+      "edges": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "type": "unit_path"
+    },
+    {
+      "mask": 56,
+      "edges": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "type": "triangle"
+    }
+  ],
+  "forced_matching_configurations": [
+    {
+      "ha": 4,
+      "hb": 3,
+      "hc": 1,
+      "hd": 2,
+      "witness": [
+        {
+          "tail": [
+            1,
+            2
+          ],
+          "heads": [
+            4,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "ha": 4,
+      "hb": 3,
+      "hc": 1,
+      "hd": 5,
+      "witness": [
+        {
+          "tail": [
+            1,
+            2
+          ],
+          "heads": [
+            4,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "ha": 4,
+      "hb": 3,
+      "hc": 1,
+      "hd": 6,
+      "witness": [
+        {
+          "tail": [
+            1,
+            2
+          ],
+          "heads": [
+            4,
+            3
+          ]
+        }
+      ]
+    }
+  ]
+}

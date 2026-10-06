@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "counts": {
+    "graphs5": 59049,
+    "sampledGraphs": 100000,
+    "bipartiteBadGraphs": 54724,
+    "colouredCompletions": 109448,
+    "vertexEnvelopes": 901632,
+    "protectedSourceExactEqualities": 139044,
+    "noNewFirstUnselectedEqualities": 252569,
+    "addedBadFirstCases": 203930,
+    "nonnegativeSinkFreeTournaments6": 704,
+    "zeroInducedNoSinkChecks": 704
+  },
+  "bipartiteControl": {
+    "out": [
+      8,
+      4,
+      0,
+      0,
+      0
+    ],
+    "L": [
+      0
+    ],
+    "R": [
+      1
+    ],
+    "completed": [
+      30,
+      28,
+      0,
+      4,
+      12
+    ]
+  },
+  "seed": "0x5132026",
+  "limits": [
+    "Actual graph envelope checks, not a search proof of SNC.",
+    "The zero-set theorem also has a mathematical weighted-perturbation proof; enumeration alone is not its proof."
+  ]
+}

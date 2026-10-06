@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "verifier": "verify_small_core_certificates.js",
+  "orders": [
+    {"n":1,"graphs":1,"nonempty_inequalities":0},
+    {"n":2,"graphs":3,"nonempty_inequalities":2},
+    {"n":3,"graphs":27,"nonempty_inequalities":54},
+    {"n":4,"graphs":729,"nonempty_inequalities":3078},
+    {"n":5,"graphs":59049,"nonempty_inequalities":459270}
+  ],
+  "graphs": 59809,
+  "nonempty_inequalities": 462404,
+  "including_empty_patterns": 522213,
+  "arithmetic": "Exact nonnegative safe integers, maximum entry three; no solver or floating-point tolerances in the independent verifier.",
+  "generator": "search_small_core_certificates.py used existing Z3 exact QF_LRA for forty nonuniform order-five certificates. All remaining certificates were uniform supports.",
+  "theorem_scope": "Arbitrary total graph order, at most five distinct inclusion-maximal incoming-neighborhood sets; proof of transfer is separate from finite core verification.",
+  "full_conjecture_status": "Not solved; no infeasible core or actual counterexample found."
+}

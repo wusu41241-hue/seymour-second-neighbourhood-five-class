@@ -1,0 +1,17 @@
+\section{An even-order capacity identity}
+For any oriented graph $H$, set
+$b_H(v)=d_H^+(v)-1-d_H^{++}(v)$ and $B(H)=\sum_v b_H(v)$.
+These quantities can be negative in a vertex-deleted graph.
+At order $n'=2\alpha+2$ with actual minimum outdegree $\alpha$,
+write $q'(x)=|T'(x)|-\alpha$ and define the capacity surplus
+$\sigma'(x)=2q'(x)-1-|P'(x)|$ when $q'>0$, and zero when $q'=0$.
+Let $z'$ count whole vertices of outdegree $\alpha$.
+Then
+\[
+ B(H)+n'=z'-\sum_x\sigma'(x).
+\]
+Indeed $q'=0$ implies $P'=\varnothing$ by the same capacity count;
+these vertices are exactly the $z'$ perfect vertices. Summing
+$q'$ gives $n'(\alpha+1)-\sum d^+$, while summing the far-in sets
+gives $n'(n'-1)-\sum d^+-\sum d^{++}$. Substitution proves the identity.
+No counterexample hypothesis on $H$ is used.

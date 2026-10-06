@@ -1,0 +1,16 @@
+Copyright (c) 2026 Guanze Yu
+
+The manuscript, technical supplement, editable LaTeX text, certificate tables,
+and original non-code supporting material in this package are licensed under
+the Creative Commons Attribution 4.0 International License (CC BY 4.0).
+
+License: https://creativecommons.org/licenses/by/4.0/
+Legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Attribution: Guanze Yu, Five Maximal Incoming Classes Suffice: Exact
+Certificates and Structural Constraints for Seymour's Second-Neighbourhood
+Conjecture, 2026. Indicate changes and retain citations to third-party work.
+
+The original verification and build programs are instead provided under
+the MIT license in LICENSE-CODE.txt. This includes .js, .py and .ps1 files.
+This notice does not relicense third-party works cited by the manuscript.

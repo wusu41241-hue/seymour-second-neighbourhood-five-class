@@ -1,0 +1,95 @@
+\section{Remaining missing degree is charged to original head surplus}
+\label{sec:closure-good-equality-missing-degree}
+
+Let $Q$ be the terminal iterated protection closure of an arbitrary
+finite nonempty oriented graph $D$, and let $T_*$ be a maximum-score
+reference completion of $Q$. Every remaining missing pair of $Q$ is
+free, and every median of $T_*$ puts all free arcs forward.
+Let $f$ be a median feed with $g=g_D(f)>0$,
+$t=t_D(f)$ and $\mu_Q=|\mathcal M_Q(f)|$. Its first set is original,
+and its completed second set is
+\[
+ N_{T_*}^{++}(f)=N_D^{++}(f)\,\dot\cup\,A_f,
+ \qquad A_f\subseteq\mathcal F_D(f).
+\]
+Put $c=|A_f|$ and let $G_L$ be the good vertices of a median order
+$L$ ending at $f$.
+
+\begin{lemma}[Every newly reached original-far head is good]
+\label{lem:closure-new-head-good}
+One has $A_f\subseteq G_L$ in every median order ending at $f$.
+Writing
+$b_L=|N_D^{++}(f)\setminus G_L|$ and
+$s_L=|G_L|-|N_{T_*}^+(f)|$, the exact identity is
+\[
+ s_L=c-g-b_L\ge0.
+\]
+\end{lemma}
+\begin{proof}
+A new head $y$ has a path $f\to a\to y$ with original first arc.
+The second arc cannot belong to $Q$, whose exact second neighborhood
+at the feed is still original. Thus it is a free completion direction,
+which is forward in every median order. Its first intermediate $a$
+occurs before $y$, so $y$ is good. Consequently the good set consists
+of all $c$ new heads and $d_D^{++}(f)-b_L$ old heads. Subtract the
+original first count $d_D^{++}(f)+g$ to obtain the identity. The weak
+inequality is the strong feed theorem.
+\end{proof}
+
+\begin{proposition}[The stronger equality budget]
+\label{prop:closure-strong-feed-equality-degree-budget}
+If $|G_L|=|N_{T_*}^+(f)|$, then
+\[
+ \mu_Q\le t-g.
+\]
+This includes negative completed gap as well as zero completed gap.
+No arc-minimality, source-support or residual assumption is needed.
+\end{proposition}
+\begin{proof}
+If $r\in\mathcal M_Q(f)\cap G_L$, its completed direction is the
+free incoming arc $r\to f$, because the feed has no added first arc.
+Equality permits global sedimentation. It places $f$ before $r$
+while preserving the median score, making this free arc backward in
+another median of the same $T_*$. All-median rigidity excludes this.
+Therefore
+\[
+ |\mathcal M_Q(f)\cap N_{T_*}^{++}(f)|
+ \le |N_{T_*}^{++}(f)\setminus G_L|
+=d_D^{++}(f)+c-d_D^+(f)=c-g.
+\]
+In fact every such remaining partner in the second set is an original
+\emph{nongood} second neighbor: the new-head lemma excludes all of
+$A_f$ from this nongood class.
+Every remaining missing partner not in the completed second set is
+far in $T_*$, since it is not a completed first neighbor either.
+It was originally missing, hence cannot be originally protected,
+and belongs to $\mathcal F_D(f)\setminus A_f$. Consequently
+\[
+ |\mathcal M_Q(f)\cap U_{T_*}(f)|\le t-c.
+\]
+The two classes partition $\mathcal M_Q(f)$. Their sum is at most
+$(c-g)+(t-c)=t-g$, proving the result.
+\end{proof}
+
+\begin{corollary}[Large remaining degree forces stable medians]
+\label{cor:closure-large-degree-strong-good-slack}
+If $\mu_Q>t-g$, every median order ending at $f$ has strict strong-feed
+slack $|G_L|>|N_{T_*}^+(f)|$. In particular it is stable under the
+Havet--Thomasse sedimentation operation.
+If $t=2$, the strict original-surplus theorem gives $g=1$;
+strong-feed equality then forces $\mu_Q=1$.
+\end{corollary}
+\begin{proof}
+The strong feed theorem always gives the weak inequality. Equality
+contradicts the proposition, so all such orders have strict inequality.
+For $t=2$, positive original gap and $t\ge g+1$ give $g=1$.
+The proposition gives $\mu_Q\le1$, while terminal whole-feed exclusion
+gives $\mu_Q\ge1$.
+\end{proof}
+
+\paragraph{Remaining scope.}
+The budget does not apply automatically to medians with strict good
+slack. It does not assert that every median order has equality, nor
+that every remaining missing partner is far when the completed gap is
+negative. It separates the two possible global obstructions rather
+than resolving either one in arbitrary size.

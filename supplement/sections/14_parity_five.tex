@@ -1,0 +1,78 @@
+\section{Excluding residual four and the parity-sensitive margin}
+\label{sec:parity-five-margin}
+
+\begin{theorem}\label{thm:residual-four-excluded}
+Let $D$ be a finite nonempty strongly connected all-deficient oriented
+graph minimal under deletion of arbitrary nonempty arc sets. Then
+\[
+ R=2M-n=\sum_x\eta(x)\ge5.
+\]
+In particular,
+\[
+ {
+ M\ge\left\lceil\frac n2\right\rceil+2+\mathbf1_{\{n\text{ even}\}}.}
+\]
+For even $n$ the residual is at least six, and for odd $n$ it is
+at least five.
+\end{theorem}
+\begin{proof}
+The earlier four-unit margin gives $R\ge4$.
+If $R=4$, at least three residuals are positive by
+Corollary~\ref{cor:three-positive-residual-support}.
+The only possible integer partitions are consequently $(2,1,1)$
+and $(1,1,1,1)$.
+The former is excluded by Proposition~\ref{prop:one-two-unit-source};
+the latter by Theorem~\ref{thm:four-unit-failure-sources} and the
+unit-residual bound $t\le1$.
+Thus $R\ne4$, giving $R\ge5$.
+Since $R=2M-n$ has the parity of $n$, even order requires $R\ge6$.
+Integer rounding gives the asserted missing-pair bound.
+\end{proof}
+
+\begin{corollary}[All arc-set-minimal counterexamples]
+\label{cor:parity-five-sink}
+Let $D$ be any finite nonempty all-deficient oriented graph minimal
+under deletion of arbitrary nonempty arc sets. Let $S$ be a sink
+strongly connected component, with $k=|S|$ and $o=n-k$.
+Then
+\[
+ M(D)\ge\left\lceil\frac{k}{2}\right\rceil+2+\mathbf1_{\{k\text{ even}\}}
+       +\left\lceil\frac{o(k-2)}2\right\rceil
+ \ge\left\lceil\frac n2\right\rceil+o+2+\mathbf1_{\{n\text{ even}\}}.
+\]
+In particular the parity-sensitive uniform bound holds without strong
+connectivity. Equality in that uniform bound forces strong connectivity.
+\end{corollary}
+\begin{proof}
+The sink component inherits all-deficiency and arc-set minimality,
+as established in the previous sink-component argument. Apply
+Theorem~\ref{thm:residual-four-excluded} to $D[S]$.
+The unchanged outside estimate is
+\[
+ M(D[V\setminus S])+M(S,V\setminus S)
+ \ge\left\lceil\frac{o(k-2)}2\right\rceil.
+\]
+This proves the first inequality. Every all-deficient graph has
+minimum outdegree at least two, so $k\ge5$.
+Thus the outside term is at least $\lceil3o/2\rceil$.
+For $n=k+o$, the elementary parity inequality
+\[
+ \left\lceil\frac{k}{2}\right\rceil
+ +\left\lceil\frac{3o}{2}\right\rceil
+ +\mathbf1_{\{k\text{ even}\}}
+ \ge\left\lceil\frac n2\right\rceil+o+\mathbf1_{\{n\text{ even}\}}
+\]
+follows from
+$\lceil3o/2\rceil=o+\lceil o/2\rceil$:
+if $n$ is even, either $k$ is even or both $k,o$ are odd, each giving
+the needed extra unit. If $n$ is odd, the old rounding bound suffices.
+If $o>0$, the result is strictly greater than the uniform bound,
+which proves the equality assertion.
+\end{proof}
+
+At the odd boundary order $n=2\delta+3$, the missing-pair bound remains
+$M\ge\delta+4$. At the first even order above it, $n=2\delta+4$,
+the bound improves to $M\ge\delta+5$.
+
+
+The next sections exclude residual five and improve the odd-order bound as well.

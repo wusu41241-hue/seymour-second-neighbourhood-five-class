@@ -1,0 +1,93 @@
+\section{Introduction}
+For a vertex $v$ of a finite oriented graph $D$, let $N_D^+(v)$ denote its
+outneighbourhood and let $N_D^{++}(v)$ consist of vertices whose directed
+distance from $v$ is exactly two. Seymour's conjecture asks whether every
+nonempty oriented graph has a vertex satisfying
+\begin{equation}\label{eq:paper-snc}
+ |N_D^{++}(v)|\ge |N_D^+(v)|.
+\end{equation}
+Such a vertex is called a Seymour vertex. The exclusion of first neighbours
+from the second set is essential in every deletion, completion and counting
+argument below.
+
+The tournament case is known, but a general completion may create second
+neighbours that were absent in the original graph. We develop two ways of
+making that discrepancy explicit. The first uses a small induced incoming
+core and an exact linear certificate. The second completes only carefully
+controlled directions before a global median-order optimization. A separate
+copying operation imposes global structural restrictions on a suitably chosen
+counterexample. The three constructions have different preservation properties;
+their hypotheses are kept distinct throughout the paper.
+
+\subsection{Principal results}
+Partition vertices by equality of their full incoming neighbourhoods. A class
+is maximal when its common incoming set is maximal under inclusion among the
+sets $N_D^-(v)$. Maximality refers to inclusion, not to the numerical indegree.
+Our first unconditional result is the following computer-assisted theorem.
+
+\begin{theorem}[Five maximal incoming classes]\label{thm:intro-five}
+Every finite nonempty oriented graph with at most five maximal incoming-neighbourhood
+classes has a maximal class all of whose vertices are Seymour vertices.
+The total order and the sizes of the classes are unrestricted.
+\end{theorem}
+
+The theorem follows from a transfer inequality valid for arbitrary induced
+cores. Its finite component comprises $59\,809$ labelled cores of orders one
+through five and $462\,404$ nonempty pattern inequalities. Every witness is a
+nonnegative integer vector, with entries at most three. The tables are checked
+independently of the program that found them. The full proof and the precise
+finite verification contract appear in Theorem~\ref{thm:core-five}.
+
+The same certificate system has a converse: an infeasible core system yields,
+by a finite labelled construction, a genuine all-deficient oriented graph
+(Theorem~\ref{thm:pattern-duality}). Thus universal feasibility is equivalent
+to the full conjecture. A certificate also lifts through repeated maximal
+incoming-core reductions, reducing the remaining feasibility question to
+cores with pairwise distinct, incomparable incoming sets.
+
+Our second group of results concerns simultaneous copying. If an original
+vertex map $\rho$ satisfies $N_D^-(v)\subseteq N_D^-(\rho(v))$ for every $v$,
+replacing each outgoing row by the original row of $\rho(v)$ creates an
+oriented graph whose gap at $v$ is at least the original gap at $\rho(v)$.
+This implies a global covering property in a smallest-order counterexample:
+every vertex receives an entire maximal incoming class whose members all have
+gap one. A further extremal selection makes equal incoming neighbourhoods into
+independent true-twin modules. These statements use global extremality rather
+than merely inclusion-minimal deletion assumptions.
+
+For the completion results write $g_D(v)=d_D^+(v)-d_D^{++}(v)$ and let $t_D(v)$
+count the original far vertices not protected by incoming-neighbourhood nesting.
+The closure constructed in Section~\ref{sec:paper-closure} admits an optimal
+reference completion whose every original-positive-gap median feed satisfies
+\begin{equation}\label{eq:intro-surplus}
+ t_D(f)\ge g_D(f)+1.
+\end{equation}
+Under the safe weak extension, zero completed gap requires at least three
+remaining missing partners, an original directed cycle among them, and
+$t_D(f)\ge g_D(f)+3$. For a strongly connected all-deficient graph minimal
+under every nonempty arc-set deletion, the same feed satisfies
+$\eta_D(f)\ge4$, where
+$\eta_D(v)=\mu_D(v)-1+d_D^{--}(v)-d_D^{++}(v)$.
+
+The supplementary case reductions, together with an unbounded one-exception
+theorem for actual bad-direction failure sources, yield
+\begin{equation}\label{eq:intro-residual}
+ 2M-n\ge7,\qquad
+ M\ge\left\lceil n/2\right\rceil+3+\ind_{\{n\text{ even}\}}.
+\end{equation}
+The missing-pair bound is a necessary condition for the stated arc-set-minimal
+class. It is not a missing-edge density theorem for arbitrary original graphs:
+deleting arcs changes $M$. Proofs of the residual allocations and the specialized
+tools for $n=2\delta^++3$ are collected in the companion supplement.
+
+\input{related.tex}
+
+\subsection{Organization and verification}
+The incoming-core and cloning arguments are independent of the residual
+machinery. After establishing them, we give the closure construction and the
+zero-gap cycle argument, then state the minimal-counterexample consequences
+with their supplementary proof locations. The final sections give reproducibility
+details, exact controls against stronger transfer claims, and the unresolved
+global steps. The supplement is a self-contained technical repository of the
+longer foundational and case arguments. It also records which earlier finite
+classifications are subsumed by the stronger results.

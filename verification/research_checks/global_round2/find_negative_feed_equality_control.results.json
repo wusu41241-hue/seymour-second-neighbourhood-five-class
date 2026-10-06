@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "scope": "Clones and fixed-seed orientation perturbations of a known positive-original closure-feed control. Other vertices may have nonpositive gaps. Not an SNC counterexample or an exhaustive proof.",
+  "counts": {
+    "graphs": 1905,
+    "positivePartialMedianFeeds": 270,
+    "maxCompletions": 583,
+    "positiveTournamentMedianFeeds": 583,
+    "negativeCompleted": 80,
+    "negativeEquality": 0
+  },
+  "negativeEqualityControl": null,
+  "stableNegativeControl": {
+    "out": [
+      6,
+      8,
+      8,
+      17,
+      65,
+      22,
+      32
+    ],
+    "Q": [
+      6,
+      8,
+      8,
+      17,
+      65,
+      22,
+      32
+    ],
+    "T": [
+      6,
+      88,
+      90,
+      81,
+      65,
+      31,
+      33
+    ],
+    "median": [
+      5,
+      2,
+      1,
+      3,
+      4,
+      6,
+      0
+    ],
+    "feed": 0,
+    "gOriginal": 1,
+    "gCompleted": -1,
+    "tOriginal": 3,
+    "muQ": 2,
+    "good": [
+      3,
+      4,
+      6
+    ],
+    "rounds": 0
+  }
+}

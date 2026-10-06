@@ -1,0 +1,136 @@
+\section{A dense amplification that preserves the local obstruction}
+\label{sec:global-dense-amplification}
+
+For any oriented graph $D$ with $n$ vertices, form $\mathcal C(D)$ from
+three disjoint copies $D_0,D_1,D_2$, adding every arc from $D_i$ to
+$D_{i+1}$ cyclically. There are no digons. The complete cyclic connections
+make $\mathcal C(D)$ strongly connected even if $D$ was not.
+This is the three-copy specialization of the cycle blow-up mechanism
+used by Espuny Diaz, Girao, Granet and Kronenberg~\cite{EspunyDiazEtAl2025} in their counterexample
+reductions; the exact invariants below are recorded explicitly.
+
+\begin{lemma}[Exact invariants of cyclic amplification]
+\label{lem:global-cyclic-amplification}
+For a copy $x_i$ of $x\in D$, all first, exact second, and far relations
+satisfy
+\[
+\begin{split}
+ N_{\mathcal C(D)}^+(x_i)&=N_D^+(x)_i\,\dot\cup\,V(D_{i+1}),\\
+ N_{\mathcal C(D)}^{++}(x_i)&=N_D^{++}(x)_i\,\dot\cup\,V(D_{i+2}),\\
+ P_{\mathcal C(D)}(x_i)&=P_D(x)_i,\qquad
+ \mathcal F_{\mathcal C(D)}(x_i)=\mathcal F_D(x)_i.
+\end{split}
+\]
+Thus $g,\mu,\eta$, and the actual bad failure-source status are preserved
+pointwise. The global quantities obey
+\[
+ n'=3n,\quad\delta'=n+\delta,\quad M'=3M,\quad R'=3R,
+ \qquad n'-2\delta'=n-2\delta.
+\]
+In particular a counterexample is amplified to a strongly connected
+counterexample without decreasing any of its original vertex gaps.
+\end{lemma}
+\begin{proof}
+An internal first step introduces only internal original second targets
+or vertices of the next copy, already first targets. A first step into
+the next copy reaches the entire following copy. It cannot return to
+the original copy within two steps. These facts prove the first two
+identities. The reverse exact-second degree likewise increases by $n$.
+All vertices outside the starting copy are reached in one or two steps,
+so far and far-in relations stay internal. Every internal incoming
+neighborhood gets the same previous-copy set, preserving protection.
+
+All missing pairs stay inside copies. An outside predecessor of one
+endpoint of a missing pair already reaches its other endpoint in one
+or two steps; it is not a new directional failure witness. Therefore
+the old failure sets and actual source status are copied exactly.
+The stated degree, residual, and missing-pair formulas follow.
+\end{proof}
+
+\begin{corollary}[An asymptotically dense global target]
+\label{cor:global-dense-target}
+If SNC were proved for every oriented graph with
+$\delta^+(D)>(1/2-\varepsilon)|V(D)|$, for one fixed $\varepsilon>0$,
+then SNC would hold for all finite oriented graphs.
+More generally, it suffices to prove that for every fixed defect
+$q=n-2\delta$, counterexamples of that defect have bounded order.
+\end{corollary}
+\begin{proof}
+Iterating the lemma gives $n_k=3^kn$ and
+$\delta_k=(n_k-q)/2$, with the same fixed $q$.
+The ratio $\delta_k/n_k=1/2-q/(2n_k)$ tends to one half from below,
+and any initial counterexample persists at unbounded order. It would
+eventually violate either proposed theorem, yielding the contradiction.
+\end{proof}
+
+This is a genuine global reduction but is not an easier theorem already
+proved here. Crucially, it does not preserve strong arc-set minimality:
+if $D$ is all-deficient, deleting \emph{all} cross-copy arcs leaves three
+all-deficient copies. Minimizing arcs can therefore discard the high
+minimum degree. A bound proved only for arc-minimal graphs cannot simply
+be applied to the dense amplifications. Likewise the pointwise residual
+is unchanged; the amplification is not a reduction to pure-unit residuals.
+
+\section{The exact weighted transfer problem}
+\label{sec:global-weighted-transfer}
+
+Let $N_D$ have entry $+1$ for an exact second target, $-1$ for a first
+target, and zero otherwise. Seacrest's Farkas alternative~\cite{Seacrest2015} relates an
+expansion weighting to a weighted counterexample in the reverse graph.
+It is equivalent to SNC in general, not a proof of either alternative.
+For tournaments, Fisher's losing-density result supplies a nonzero
+$\lambda\ge0$ with $N_T^T\lambda\ge0$.
+
+In any protection-preserving completion define $A_x$ to be the newly
+reached originally far second heads. Original second paths persist
+unless their endpoints have become first neighbors. Hence the exact
+gap difference is
+\[
+ g_T(x)-g_D(x)=2|K_x|-c_x,
+ \qquad c_x=|K_x\cap\mathcal F_D(x)|+|A_x|\le t(x).
+\]
+The two cost sets are disjoint. If a tournament losing density could be
+chosen with
+\[
+ \sum_x\lambda_x(2|K_x|-c_x)\ge0,
+\]
+then all-deficiency of $D$ would contradict
+\[
+ 0\ge\sum_x\lambda_x g_T(x)
+   =\sum_x\lambda_x g_D(x)+
+      \sum_x\lambda_x(2|K_x|-c_x)>0.
+\]
+This is a global mass-transport target, allowing different vertices to
+compensate one another. Existence of a suitable completion and losing
+density has not been proved. The looser replacement $c_x\le t(x)$ can
+discard exactly the slack needed even in an ordinary directed four-cycle.
+
+For an arbitrary incomplete oriented graph, an equilibrium of its skew
+adjacency matrix alone does not suffice: the positive five-vertex control
+weights in the companion file balance incoming and outgoing weights but
+fail second-neighborhood expansion. This is not a tournament control:
+Fisher's tournament losing densities do satisfy reverse expansion, and
+the follow-up density-collapse lemma proves equality of the two normalized
+feasible sets. The completion, rather than an extra density degree of
+freedom, is the remaining choice in that formulation.
+Nor does the existential arc-weighted tournament theorem authorize using
+an arbitrary arc-weighted median feed: the canonical six-vertex control
+has a verified such feed with arc-first weight $74$ and arc-second weight
+$38$. These are failures of proposed proof shortcuts, not conjecture
+counterexamples.
+
+\section{The missing global step}
+\label{sec:global-open-step}
+
+The two promising concrete tasks are now:
+(i) a quantitative extension of maximal reference completion that handles
+a nonunit actual feed and its multiple inverse witnesses; or
+(ii) a completion/losing-density selection proving the exact weighted
+mass balance above. Simultaneous packet control is a third sufficient
+route, but it must establish independence and acyclic reference priorities,
+not assume them separately for every target.
+
+No terminating reduction from arbitrary mixed residuals to the excluded
+pure-unit class has been obtained. The preceding amplified graphs show
+why density growth, vertex-weight reformulation, or arc minimization alone
+does not provide that reduction.

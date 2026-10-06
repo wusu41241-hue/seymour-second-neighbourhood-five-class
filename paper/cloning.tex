@@ -1,0 +1,363 @@
+\section{Predecessor containment and extremal counterexamples}
+\label{sec:paper-predecessor-cloning}
+
+In this section we study a surgery that preserves positive gaps by
+copying outgoing neighborhoods under incoming-neighborhood containment.
+The surgery itself is valid in an arbitrary finite oriented graph.
+Its structural consequences will explicitly state whether they require
+minimum order or a stronger lexicographic extremal choice.
+
+We call $D$ \emph{all-deficient} if $g_D(v)>0$ for every vertex.
+Such a graph is a counterexample to the second neighborhood conjecture.
+The gap-one predecessor and gap-one cycle phenomena occur in the
+minimal-counterexample analysis of Brantner et al.~\cite{BrantnerEtAl2009}.
+Minimum-order reductions also play a central role in
+\cite{EspunyDiazEtAl2025}. The arguments below give statements about
+entire incoming classes and establish the precise extremal hypotheses
+needed for an independent-module normal form.
+
+\subsection{Copying one row and copying all rows}
+
+All containment predicates and all copied neighborhoods in the next
+two results are evaluated in the original graph $D$.
+
+\begin{lemma}[One-row copying under predecessor containment]
+\label{lem:paper-single-row-copy}
+Let $a\ne b$ and suppose that
+$N_D^-(a)\subseteq N_D^-(b)$. Replace the outgoing neighborhood of
+$a$ by $N_D^+(b)$, leaving every other outgoing neighborhood unchanged,
+and denote the resulting graph by $D^{a\leftarrow b}$. Then this graph
+is oriented and
+\[
+ N_{D^{a\leftarrow b}}^+(a)=N_D^+(b),\qquad
+ N_{D^{a\leftarrow b}}^{++}(a)=N_D^{++}(b).
+\]
+For every $v\ne a$,
+\[
+ N_{D^{a\leftarrow b}}^+(v)=N_D^+(v),\qquad
+ N_{D^{a\leftarrow b}}^{++}(v)\subseteq N_D^{++}(v).
+\]
+In particular, the new gap at $a$ is $g_D(b)$, all other gaps do not
+decrease, and an all-deficient graph remains all-deficient.
+\end{lemma}
+\begin{proof}
+There is no original arc $b\to a$: it would put $b$ in $N_D^-(a)$
+and hence in $N_D^-(b)$, contrary to the absence of loops. Nor is there
+an original two-step path $b\to x\to a$, since $x\to a$ would imply
+$x\to b$ and form a digon with $b\to x$. Thus $a$ is neither a first
+nor a second target of $b$.
+
+Every $x\in N_D^+(b)$ is distinct from $a$ and cannot point to $a$,
+again because $x\to a$ would imply $x\to b$. The new row at $a$
+therefore creates neither a loop nor a digon. The intermediate vertices
+in $N_D^+(b)$ retain their outgoing neighborhoods. Their union of
+outgoing targets contains neither $a$, by the two-step exclusion just
+proved, nor $b$, by the absence of digons. Subtracting the copied first
+set $N_D^+(b)$ consequently gives exactly $N_D^{++}(b)$ as the new
+second neighborhood of $a$.
+
+For $v\ne a$, only a two-step path using the changed row could produce
+a new second target. Such a path has the form $v\to a\to x$, where
+$v\to a$ and $b\to x$ are original arcs. Incoming containment gives
+the original arc $v\to b$, so $v\to b\to x$ was already an original
+two-step path. The first set at $v$ is unchanged, so no new exact
+second target appears. Some second targets may disappear. The gap
+statements now follow by counting the first and second sets.
+\end{proof}
+
+\begin{theorem}[A simultaneous predecessor map]
+\label{thm:clone-map}
+Let $\rho:V(D)\to V(D)$ satisfy
+\begin{equation}
+ N_D^-(v)\subseteq N_D^-(\rho(v))\qquad(v\in V(D)).
+ \label{eq:paper-clone-containment}
+\end{equation}
+Define $D^\rho$ by simultaneously setting
+\[
+ N_{D^\rho}^+(v)=N_D^+(\rho(v))\qquad(v\in V(D)).
+\]
+Then $D^\rho$ is oriented, and for every $v$,
+\begin{equation}
+ N_{D^\rho}^{++}(v)\subseteq N_D^{++}(\rho(v)),
+ \qquad g_{D^\rho}(v)\geq g_D(\rho(v)).
+ \label{eq:paper-clone-map-gaps}
+\end{equation}
+The map $\rho$ need not be injective, and its image may contain vertices
+whose rows are also changed. In particular, all-deficiency is preserved.
+\end{theorem}
+\begin{proof}
+A new loop at $v$ would mean an original arc $\rho(v)\to v$.
+By \eqref{eq:paper-clone-containment}, this would imply an original
+loop at $\rho(v)$. If $v\to u$ and $u\to v$ were both new arcs,
+the original arcs $\rho(v)\to u$ and $\rho(u)\to v$, together with
+containment at $u$ and $v$, would give the original label arcs
+$\rho(v)\to\rho(u)$ and $\rho(u)\to\rho(v)$. These form a digon
+when the two images differ and a loop when they coincide. Thus the
+new graph is oriented.
+
+Consider a new two-step path $v\to u\to x$. It means that
+$\rho(v)\to u$ and $\rho(u)\to x$ are original arcs. Applying
+incoming containment at $u$ to the first of these arcs yields the
+original arc $\rho(v)\to\rho(u)$. Hence
+\[
+ \rho(v)\to\rho(u)\to x
+\]
+is an original two-step path. Its intermediate vertex cannot equal
+$\rho(v)$, since that would require a loop, and its endpoint cannot
+equal $\rho(v)$, since that would require a digon. If $x$ is an exact
+second target of $v$ in $D^\rho$, then
+$x\notin N_{D^\rho}^+(v)=N_D^+(\rho(v))$. Therefore it is an
+original exact second target of $\rho(v)$, proving the inclusion in
+\eqref{eq:paper-clone-map-gaps}. The first neighborhood has exactly
+the copied original size, so the gap inequality follows.
+\end{proof}
+
+\begin{corollary}[Copying a prescribed subset]
+\label{cor:paper-subset-copy}
+Let $A\subseteq V(D)$, and choose $\rho(a)$ for each $a\in A$ with
+$N_D^-(a)\subseteq N_D^-(\rho(a))$. Extend $\rho$ by the identity
+outside $A$. Then simultaneous copying gives
+\[
+ g_{D^\rho}(a)\geq g_D(\rho(a))\quad(a\in A),\qquad
+ g_{D^\rho}(v)\geq g_D(v)\quad(v\notin A).
+\]
+\end{corollary}
+\begin{proof}
+The extended map satisfies \eqref{eq:paper-clone-containment} at every
+vertex, so Theorem~\ref{thm:clone-map} applies.
+\end{proof}
+
+The simultaneous formulation is essential for coupled choices of the
+map: all containments refer to one graph, and all rows are copied from
+that same graph. A sequence that recomputes containment after each
+individual copy is a different procedure and is not needed here.
+
+\subsection{A unit-predecessor cover at minimum order}
+
+For the remainder of this subsection, assume that $D$ is all-deficient
+and has the smallest possible number of vertices among all
+all-deficient oriented graphs. This is a global minimum-order
+assumption. For $f\in V(D)$ define
+\[
+ A_f=\{a\in V(D):a\to f\text{ and }g_D(a)=1\}.
+\]
+The next obstruction concerns a simultaneous choice of replacement
+vertices outside the set being copied.
+
+\begin{lemma}[Unit predecessors cannot all be copied outside their set]
+\label{lem:paper-unit-predecessor-obstruction}
+For no vertex $f$ is there a map
+\[
+ \rho:A_f\longrightarrow V(D)\setminus A_f
+ \quad\text{such that}\quad
+ N_D^-(a)\subseteq N_D^-(\rho(a))\quad(a\in A_f).
+\]
+In particular $A_f\ne\varnothing$ for every $f$.
+\end{lemma}
+\begin{proof}
+Suppose such a map exists. Extend it by the identity outside $A_f$
+and copy the rows simultaneously. The resulting graph $D^\rho$ is
+all-deficient by Theorem~\ref{thm:clone-map}.
+
+We claim that every predecessor of $f$ in $D^\rho$ has gap at least
+two. An unchanged predecessor was originally a predecessor outside
+$A_f$, and hence had positive integral gap at least two; its gap has
+not decreased. If a changed vertex $a\in A_f$ still points to $f$,
+then its chosen image $b=\rho(a)$ originally pointed to $f$.
+Since $b\notin A_f$, we again have $g_D(b)\geq2$, and the copy
+inequality gives $g_{D^\rho}(a)\geq2$. There are no other new
+predecessors because all rows outside $A_f$ were unchanged.
+
+Delete $f$ from $D^\rho$. Each of its predecessors loses one first
+target and can only lose exact second targets among the remaining
+vertices; its gap therefore remains at least one. Every other
+remaining vertex loses no first target and acquires no exact second
+target, so its gap also remains positive. The deleted graph is
+nonempty: an all-deficient oriented graph has positive outdegree at
+every vertex and therefore at least three vertices. We have produced
+a smaller all-deficient graph, contradicting minimum order.
+
+If $A_f$ were empty, the empty map would meet the stated conditions
+and the same deletion argument would apply.
+\end{proof}
+
+\begin{theorem}[Every vertex receives a maximal pure-unit class]
+\label{thm:unit-class-cover}
+For every $f\in V(D)$, some maximal incoming class $C$ satisfies
+\[
+ C\subseteq A_f.
+\]
+Equivalently, every member of $C$ has original gap one and sends an
+original arc to $f$.
+\end{theorem}
+\begin{proof}
+Suppose no maximal incoming class is contained in $A_f$. Each maximal
+class then has a representative outside $A_f$. For every $a\in A_f$,
+choose a maximal class whose incoming set contains $N_D^-(a)$, and
+let $\rho(a)$ be its chosen representative outside $A_f$. Such a
+maximal class exists in the finite inclusion poset. The resulting map
+satisfies
+\[
+ N_D^-(a)\subseteq N_D^-(\rho(a)),\qquad
+ \rho(a)\notin A_f\qquad(a\in A_f),
+\]
+contradicting Lemma~\ref{lem:paper-unit-predecessor-obstruction}.
+\end{proof}
+
+Call a maximal incoming class \emph{pure-unit} if all its members have
+gap one, and let $\mathcal C_1$ be the family of these classes.
+
+\begin{corollary}[A complete-arc cycle of pure-unit classes]
+\label{cor:paper-unit-class-cycle}
+There are at least three classes in $\mathcal C_1$. Define an oriented
+quotient on $\mathcal C_1$ by placing an arc $C\to C'$ when every
+vertex of $C$ points to every vertex of $C'$. This quotient has positive
+minimum indegree and contains a directed cycle of length at least three.
+Selecting one vertex from each class on such a cycle gives an original
+directed cycle all of whose vertices have gap one.
+\end{corollary}
+\begin{proof}
+Theorem~\ref{thm:unit-class-cover} makes $\mathcal C_1$ nonempty.
+Fix $C'\in\mathcal C_1$ and $f\in C'$. The theorem gives
+$C\in\mathcal C_1$ with every member of $C$ pointing to $f$.
+Every vertex of $C'$ has the same incoming neighborhood as $f$;
+hence all these arcs extend to complete arcs from $C$ to $C'$.
+The classes are distinct, since an incoming class is independent.
+Thus each quotient vertex has an incoming arc.
+
+The quotient has no loops or digons, by its definition and the
+orientedness of $D$. Following predecessors in this finite quotient
+produces a directed cycle. Such a cycle has at least three vertices.
+Its complete interclass arcs allow any choice of one original vertex
+from each cycle class, proving the last assertion.
+\end{proof}
+
+Combining this with Corollary~\ref{cor:paper-counterexample-six-incoming-classes},
+a minimum-order counterexample would have at least six maximal incoming
+classes, at least three of which are pure-unit. Neither assertion says
+that every maximal incoming class must be pure-unit.
+
+\subsection{A lexicographic extremal normal form}
+
+Suppose a counterexample exists. Among all all-deficient oriented graphs,
+choose $D$ according to the following successive objectives:
+\begin{enumerate}
+ \item minimize $|V(D)|$;
+ \item subject to the first objective, minimize $|A(D)|$;
+ \item subject to the first two objectives, maximize
+       $\sum_{v\in V(D)}g_D(v)$;
+ \item subject to the first three objectives, maximize
+       \[
+        \Psi(D)=\sum_F
+              |\{v\in V(D):N_D^+(v)=F\}|^2,
+       \]
+       where the sum ranges over the distinct outgoing neighborhoods.
+\end{enumerate}
+These choices exist conditionally on the existence of a counterexample:
+the first minimum is a positive integer, and after fixing it only finitely
+many labelled oriented graphs remain. The second objective ranges over
+all counterexamples of that order, rather than just subgraphs of one
+chosen graph. Call a graph selected in this way \emph{globally extremal}.
+
+\begin{lemma}
+\label{lem:paper-extremal-connectivity}
+A globally extremal counterexample is strongly connected and minimal
+under deletion of any nonempty set of arcs while the vertex set is fixed.
+\end{lemma}
+\begin{proof}
+If it were not strongly connected, choose a sink strongly connected
+component. It is a proper nonempty vertex subset with no outgoing arc
+to its complement. Both first and second neighborhoods of its vertices
+therefore remain unchanged in the induced subgraph. That subgraph
+would be all-deficient, contrary to minimum order. If deleting a
+nonempty arc set preserved all-deficiency, the resulting graph would
+have the same order and fewer arcs, contrary to the second objective.
+\end{proof}
+
+\begin{proposition}[Degree and gap monotonicity under incoming containment]
+\label{prop:normal-degree}
+In a globally extremal counterexample, if $a\ne b$ and
+$N_D^-(a)\subseteq N_D^-(b)$, then
+\[
+ d_D^+(a)\leq d_D^+(b).
+\]
+If these outdegrees are equal, then $g_D(a)\geq g_D(b)$. In particular,
+equal incoming neighborhoods imply equal outdegrees and equal gaps.
+If in addition $a\to b$, the missing degrees satisfy
+\[
+ \mu_D(a)\geq\mu_D(b)+1,
+ \qquad \mu_D(v)=|V(D)|-1-d_D^+(v)-d_D^-(v).
+\]
+\end{proposition}
+\begin{proof}
+By Lemma~\ref{lem:paper-single-row-copy}, copying the outgoing row
+of $b$ to $a$ preserves all-deficiency. It changes the arc count by
+$d_D^+(b)-d_D^+(a)$. A negative change would contradict the second
+extremal objective, which proves the degree inequality.
+
+If the degrees coincide, the copied graph has the same order and arc
+count. Its new gap at $a$ is $g_D(b)$, and all other gaps do not
+decrease. Its total gap is thus at least the old total plus
+$g_D(b)-g_D(a)$. The third objective excludes a positive increase,
+giving $g_D(a)\geq g_D(b)$. When the incoming neighborhoods are
+equal, apply both conclusions in both directions.
+
+If $a\to b$, then $a\in N_D^-(b)\setminus N_D^-(a)$, so incoming
+containment yields $d_D^-(b)\geq d_D^-(a)+1$. Therefore
+\[
+ \mu_D(a)-\mu_D(b)
+ =d_D^+(b)-d_D^+(a)+d_D^-(b)-d_D^-(a)\geq1.
+\]
+\end{proof}
+
+\begin{theorem}[Independent incoming classes in an extremal graph]
+\label{thm:twin-normal-form}
+In a globally extremal counterexample,
+\[
+ N_D^-(a)=N_D^-(b)\quad\Longrightarrow\quad N_D^+(a)=N_D^+(b).
+\]
+Consequently every incoming class is an independent module: each outside
+vertex has uniform adjacency and orientation to the entire class.
+Members of a class have the same first and exact second neighborhoods,
+the same gap, and the same missing degree.
+\end{theorem}
+\begin{proof}
+Suppose that $a$ and $b$ have the same incoming neighborhood but
+different outgoing neighborhoods $F_a$ and $F_b$.
+Proposition~\ref{prop:normal-degree} gives equal outdegrees and equal
+gaps. Both single-row copying directions are permitted. They preserve
+the first two extremal objectives; their total gaps cannot decrease,
+and by the third objective cannot increase. Thus both operations also
+preserve the third objective.
+
+Let $r_a$ and $r_b$ be the numbers of vertices whose outgoing
+neighborhoods are $F_a$ and $F_b$, respectively. Interchange the names
+if necessary so that $r_a\leq r_b$, and copy $b$'s row to $a$.
+Every other outgoing row is unchanged. The value of the fourth
+objective changes by
+\[
+ (r_a-1)^2+(r_b+1)^2-r_a^2-r_b^2
+       =2(r_b-r_a)+2>0.
+\]
+This remains the correct formula if the old row class disappears.
+The increase contradicts the fourth extremal objective, proving
+equality of the outgoing neighborhoods.
+
+An incoming class is independent, as noted above. Equality of both
+incoming and outgoing neighborhoods gives uniform adjacency to every
+outside vertex, including uniform nonadjacency when no arc is present.
+The unions of outgoing neighborhoods over the common first set are
+identical for all members of the class. Such a union contains no
+member of the class: a path $a\to x\to b$ between two class members
+would imply $x\to a$ from their equal incoming sets and hence a
+digon. Subtracting the common first set therefore gives identical
+exact second sets. Equality of the gaps and missing degrees follows.
+\end{proof}
+
+The independent-module conclusion concerns the selected globally
+extremal graph. The row-copying inequalities hold without that selection,
+but the degree ordering, gap ordering, and final symmetrization use its
+successive objectives. In particular, arc-deletion minimality alone
+does not supply the tie-breaking properties used in
+Proposition~\ref{prop:normal-degree} and
+Theorem~\ref{thm:twin-normal-form}.

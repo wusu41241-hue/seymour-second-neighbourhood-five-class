@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-07",
+  "author": "Guanze Yu",
+  "title": "Five Maximal Incoming Classes Suffice: Exact Certificates and Structural Constraints for Seymour's Second-Neighbourhood Conjecture",
+  "status": "Locally prepared; no public deposit or DOI has been verified",
+  "licenses_confirmed_by_author": {
+    "paper_supplement_and_non_code_material": "CC-BY-4.0",
+    "original_verification_and_build_programs": "MIT"
+  },
+  "pdfs": {
+    "main_pages": 27,
+    "supplement_pages": 119,
+    "author_in_both_metadata_and_title_pages": true,
+    "replacement_characters": 0,
+    "a4_unencrypted_latin_modern": true,
+    "blocking_latex_diagnostics": 0,
+    "visually_checked_pages": {"main": [1, 2], "supplement": [1, 2]},
+    "previous_full_manuscript_visual_review": "See historical final_qa.json; this release changes the title pages, metadata and abstract scope clarification."
+  },
+  "exact_certificate_replay": {
+    "primary_verifier": "PASS",
+    "independent_boolean_matrix_verifier": "PASS",
+    "labelled_cores": 59809,
+    "nonempty_inequalities": 462404,
+    "all_patterns": 522213,
+    "order_five_table_sha256": "c9fe139b76a3866a7bf17e408d12f344823fa1a54fca306fd656139e601bfd5a"
+  },
+  "caveats": [
+    "This work does not settle the full conjecture.",
+    "Internal review is not external peer review or formal proof-assistant verification.",
+    "No priority, acceptance, affiliation, ORCID or DOI is inferred.",
+    "Publication still requires verified access to the intended repository or Zenodo account."
+  ]
+}

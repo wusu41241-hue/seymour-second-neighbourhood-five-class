@@ -1,0 +1,157 @@
+\section{Excluding the residual allocation (2,2,1)}
+\label{sec:exclude-two-two-one}
+
+Continue with a finite nonempty strongly connected all-deficient graph
+minimal under deletion of arbitrary nonempty arc sets.
+Let $\mathcal B$ be its cross-witness graph: two vertices are adjacent
+when they occur as opposite directional failure witnesses of a bad
+missing pair. Every edge of $\mathcal B$ is an original missing pair.
+
+\begin{lemma}[Large two-unit vertices have one witness partner]
+\label{lem:eta-two-witness-degree}
+If $\eta(x)=2$ and $t(x)>2$, then $d_{\mathcal B}(x)\le1$.
+For its sole witness partner $c$, when one exists, $c\to x$ is a
+convenient orientation.
+\end{lemma}
+\begin{proof}
+If $P(x)=\varnothing$, the identity
+$2=2\mu(x)+g(x)-1$ and $g(x)\in\{1,2\}$ force
+$\mu(x)=1$, so there is only one missing partner.
+That partner is conveniently directed into $x$ because every vertex
+reaches $x$ within two steps.
+Otherwise the local residual and unprotected-target bounds force
+$s=0,j=1$ when $t(x)>2$. The exceptional missing-partner set is
+$B_x=\{q\}$, and Lemma~\ref{lem:partner-head-budget} has zero
+remaining head budget. Thus every missing partner $r\ne q$ satisfies
+$N_D^+(r)\cap U_D(x)=\varnothing$.
+A cross-witness partner necessarily has a nonempty such intersection,
+so it must be $q$. That lemma also gives convenience of $q\to x$.
+\end{proof}
+
+\begin{lemma}[A two-unit leaf in a source star]
+\label{lem:eta-two-leaf-completion}
+Suppose the cross-witness graph is a star with center $c$, and $v$ is
+a leaf with $\eta(v)=2$. Orient every bad missing pair in the direction
+whose only failure source is $c$. Canonically orient good pairs using
+a reference extension which places all good missing partners of $v$
+before $v$. The resulting tournament $T$ keeps $v$ deficient.
+If $t(v)>2$, the completion also adds the first arc $c\to v$.
+\end{lemma}
+\begin{proof}
+Each bad pair has one directional failure set equal to $\{c\}$:
+otherwise opposite noncentral witnesses would create an edge between
+leaves of the star. This justifies the prescribed orientation.
+Since $cv$ is missing, a selected bad direction cannot be an outgoing
+arc from $v$: failure at $c$ would require the original arc $c\to v$.
+Thus all added first neighbours of $v$ come from good pairs.
+
+The reference extension exists, because every missing partner of $v$
+is incomparable with $v$ in the protected order. If $t(v)\le2$, the
+nonselected-source budget from
+Lemma~\ref{lem:single-selected-source-completion} keeps $v$ deficient:
+with no added first neighbour its gap is unchanged, and with at least
+one it is at least $g_D(v)+2-t(v)\ge1$.
+
+For $t(v)>2$ and $P(v)=\varnothing$, one has $\mu(v)=1$ and $g(v)=1$,
+so the sole missing partner is $c$. The direction $c\to v$ is
+convenient and is selected by the reference extension. There are no
+added first neighbours at $v$, and its original first intermediates
+cannot create a far head because the selected bad directions fail
+only at $c$.
+
+For $t(v)>2$ and $P(v)\ne\varnothing$, the preceding lemma identifies
+the unique exceptional partner as $c$. Thus $s=0,j=1$ and the local
+envelope saturates:
+\[
+ E=(\mathcal M(v)\setminus\{c\})\,\dot\cup\,\partial^2P(v)
+   =N_D^{++}(v).
+\]
+Every vertex in $P(v)\cup\partial P(v)\cup\partial^2P(v)$ is
+originally reachable from $v$ within two steps. The convenient
+direction $c\to v$ is selected, so any added first neighbour
+$r$ lies in $\mathcal M(v)\setminus\{c\}\subseteq E$.
+Because all good partners were placed before $v$, an added good
+direction $v\to r$ means that $r\to v$ is not convenient. Therefore
+there is an original $p\in P(v)$ with $p\to r$.
+In particular $p\ne c$, since $c$ is outside $P(v)$.
+This argument applies to the actual added-first set; it does not
+assume that every nonexceptional partner has residual zero or belongs
+to $\partial P(v)$.
+
+Let $y\in U_D(v)$. An original $r\to y$ is impossible by saturation.
+Moreover $p$ cannot reach $y$ within two steps: all such paths from
+$P(v)$ stay in the displayed reachable union.
+If $ry$ is good, $r\to y$ is nonconvenient because it fails at $p$.
+If $ry$ is bad, a selected direction $r\to y$ would likewise fail at
+$p\ne c$, contradicting the choice of $c$ as its only failure source.
+Thus the completion never directs $r$ toward $y$.
+Original first intermediates of $v$ are also safe because bad
+directions fail only at $c$.
+Writing $K=N_T^+(v)\setminus N_D^+(v)$, we obtain
+\[
+ K\subseteq N_D^{++}(v),\qquad
+ N_T^{++}(v)=N_D^{++}(v)\setminus K,
+ \qquad g_T(v)=g_D(v)+2|K|>0.
+\]
+The convenience and selection of $c\to v$ also prove the final
+assertion in both large-budget cases.
+\end{proof}
+
+\begin{theorem}\label{thm:no-two-two-one}
+The positive residual allocation $(2,2,1)$ is impossible.
+\end{theorem}
+\begin{proof}
+Let the positive vertices be $u,v,w$, with residuals $2,2,1$.
+Every other vertex has $t=0$, while
+Corollary~\ref{cor:eta-one-budget} gives $t(w)\le1$.
+All directional failure sources lie in these three vertices.
+The cross-witness graph $\mathcal B$ is nonempty.
+Every missing pair inside this three-vertex set is good: a bad pair
+would require two further distinct failure witnesses within the set.
+
+If $\mathcal B$ is a triangle, the two residual-two vertices each have
+two witness partners, and Lemma~\ref{lem:eta-two-witness-degree}
+forces $t(u),t(v)\le2$. All source thresholds
+$t(x)\le g(x)+1$ now hold, so the generic cross-witness transfer
+Lemma~\ref{lem:cross-witness-source-transfer} gives a Seymour vertex.
+
+Suppose $\mathcal B$ has one edge incident to the unit vertex $w$.
+The actual directional failure sources are just the endpoints of
+that edge; Theorem~\ref{thm:two-sources-one-unit} applies.
+Thus the remaining one-edge possibility joins $u$ and $v$.
+Orient all bad pairs with $u$ as their sole selected failure source,
+and apply Lemma~\ref{lem:eta-two-leaf-completion} to the leaf $v$.
+The generic single-selected-source completion budget keeps the
+nonselected unit $w$ deficient, and keeps all zero-residual vertices
+deficient. Only $u$ can be a Seymour vertex of this fixed tournament.
+
+Next let $\mathcal B$ be a two-edge path centered at a residual-two
+vertex, say $u$. Select $u$ as the sole failure source of every bad
+direction, and protect the other residual-two leaf $v$ by
+Lemma~\ref{lem:eta-two-leaf-completion}. The nonselected unit leaf
+$w$ remains deficient by its one-unit budget. Again all vertices
+except possibly $u$ remain deficient in the same tournament.
+
+Finally let the path be centered at the unit vertex $w$. Select $w$
+as the sole failure source. If both heavy leaves satisfy $t\le2$,
+the generic nonselected-source budget keeps both deficient for any
+canonical completion. Only $w$ can then be Seymour.
+Otherwise choose a heavy leaf with $t>2$, say $v$, and use the
+reference extension of Lemma~\ref{lem:eta-two-leaf-completion}.
+This keeps $v$ deficient and adds the good first arc $w\to v$.
+The center $w$ has no incident bad pair, since a selected direction
+cannot fail at its own endpoint. Its new first neighbours are
+therefore good ones. The center's general completion budget gives
+\[
+ g_T(w)\ge g_D(w)+2|K_w|-t(w)\ge g_D(w)+1>0,
+\]
+because $|K_w|\ge1$ and $t(w)\le1$.
+Thus only the other heavy leaf $u$ can be Seymour.
+
+These cases exhaust all nonempty graphs on three vertices.
+In every non-transfer case we produced one fixed completed tournament
+with at most one Seymour vertex. It has no sink, because every
+original vertex had positive out-degree. Havet--Thomasse's theorem
+provides at least two distinct Seymour vertices in such a tournament
+\cite[Theorem~2]{HavetThomasse2000}, a contradiction.
+\end{proof}

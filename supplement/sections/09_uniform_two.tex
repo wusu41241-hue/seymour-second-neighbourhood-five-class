@@ -1,0 +1,111 @@
+\section{A simultaneous completion with two failure sources}
+\label{sec:uniform-two-positive-completion}
+
+All convenience, protection, far sets and failure sets below are defined
+in the original oriented graph $D$.
+Write $y\triangleleft z$ when
+$y\to z$ and $N_D^-(y)\subseteq N_D^-(z)\setminus\{y\}$.
+This is a strict partial order; it implies $y\in U_D(z)$ and that
+reaching $y$ within two steps reaches $z$ within two steps.
+Write $\mathcal F(z)$ for the unprotected far targets and
+$t(z)=|\mathcal F(z)|$.
+Good missing pairs and convenient directions have Ghazal's meaning
+\cite{Ghazal2012}.
+
+Fix a linear extension of $\triangleleft$.
+Canonically orient each good missing pair in its unique convenient
+direction, or according to that extension if both directions are
+convenient.
+The compatibility rule is
+\[
+ \begin{gathered}
+ y\triangleleft z,\quad z\to q\text{ canonically added},\quad qy\text{ missing}\\
+ \Longrightarrow\quad y\to q\text{ is the added direction}.
+ \end{gathered}
+ \tag{UT1}\label{eq:uniform-protection-compatibility}
+\]
+Indeed $G(z\to q)$ implies $G(y\to q)$ by predecessor containment,
+so $qy$ is good.  If $G(q\to y)$ also holds, reachability through
+the protected target gives $G(q\to z)$.
+Choosing $z\to q\to y$ would then require $z\prec q\prec y$ in
+the reference extension, contrary to $y\triangleleft z$.
+
+\subsection{The bad pairs form a uniformly orientable complete bipartite set}
+
+\begin{lemma}\label{lem:two-source-bipartite-bad}
+Suppose $D$ has at least one bad missing pair and all directional
+failure sources of bad pairs lie in $\{u,v\}$.
+Then $uv$ is missing, every missing pair incident to $u$ or $v$
+is good, and, with
+\[
+ A=N_D^+(u)\cap U_D(v),\qquad B=N_D^+(v)\cap U_D(u),
+\]
+the bad pairs are exactly $A\times B$.
+The sets $A,B$ are nonempty, disjoint and avoid $u,v$.
+Orienting all bad pairs as $A\to B$ makes $u$ their only failure source.
+\end{lemma}
+\begin{proof}
+Opposite failure witnesses are distinct, avoid both endpoints,
+and are nonadjacent: either arc between them would create a forbidden
+two-step path.  With only two possible witnesses, they must be $u,v$,
+and each directional failure set of a bad pair is a singleton.
+This proves that $uv$ is missing.
+A bad pair incident to one of $u,v$ would have at most one available
+failure source, impossible.
+
+Label the endpoints of a bad pair so that $u\to a$, $b\in U_D(u)$,
+$v\to b$ and $a\in U_D(v)$.  Then $a\in A,b\in B$.
+Conversely, for $a\in A,b\in B$, an arc $a\to b$ would let $u$
+reach $b$ within two steps, while $b\to a$ would let $v$ reach $a$.
+Thus $ab$ is missing and bad, with precisely these two witnesses.
+The remaining assertions follow from the definitions.
+\end{proof}
+
+\begin{lemma}[Exact simultaneous transfer at protected sources]
+\label{lem:uniform-zero-protected-completion}
+Under the hypotheses of Lemma~\ref{lem:two-source-bipartite-bad},
+orient all bad pairs as $A\to B$ and all good pairs canonically,
+obtaining a tournament $T$.
+For every $z\notin\{u,v\}$ with $t(z)=0$, put
+$K_z=N_T^+(z)\setminus N_D^+(z)$.  Then
+\[
+ {N_T^{++}(z)=N_D^{++}(z)\setminus K_z,\qquad
+ g_T(z)=g_D(z)+2|K_z|.}
+ \tag{UT2}\label{eq:uniform-zero-exact}
+\]
+This lemma does not assume that $D$ is all-deficient or arc-minimal.
+\end{lemma}
+\begin{proof}
+Every missing partner of $z$ is an exact second outneighbor:
+if it were far, it could not satisfy the directed adjacency required
+for protection, contrary to $t(z)=0$.
+Hence $K_z\subseteq N_D^{++}(z)$.
+
+Let $y\in U_D(z)$.  It is protected for $z$.
+We rule out every possible path $z\to a\to y$ in $T$.
+If $a$ is an original outneighbor, an original or convenient second
+arc would make $y$ originally reachable.
+A chosen bad second arc fails only at $u$, not at $z$, so it also
+cannot introduce this far head.
+
+If $z\to a$ is an added good arc, an original $a\to y$ would
+force $a\to z$, contradicting that $za$ was missing.
+If $ay$ is missing, \eqref{eq:uniform-protection-compatibility}
+orients it as $y\to a$.
+
+Finally, if $z\to a$ is an added bad arc, $z\in A$ and $a\in B$.
+Thus $z$ is far from $v$, and $v\to a$.
+Protection of $y$ makes $y$ far from $v$ as well.
+An original $a\to y$ is again impossible by protection.
+If $ay$ is good, the direction $a\to y$ fails at $v$, so its
+only convenient direction is $y\to a$.
+If $ay$ is bad, $a\in B$ implies $y\in A$, and the uniform rule
+also chooses $y\to a$.
+This last case explicitly includes two consecutive added bad arcs.
+
+No original far target of $z$ becomes reachable within two steps.
+Original two-step paths are retained, and the only original second
+neighbors excluded from the exact second neighborhood are those in
+$K_z$, now first neighbors.  This proves the equality and its
+degree consequence.
+\end{proof}

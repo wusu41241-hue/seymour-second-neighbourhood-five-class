@@ -1,0 +1,109 @@
+{
+  "status": "CANONICAL_FEED_SHORTCUT_REFUTED",
+  "tested": 115889,
+  "seed": "0x5105acfe",
+  "control": {
+    "n": 6,
+    "originalOut": [
+      0,
+      36,
+      17,
+      34,
+      2,
+      4
+    ],
+    "originalGaps": [
+      0,
+      0,
+      1,
+      1,
+      -1,
+      -1
+    ],
+    "canonicalCompletion": [
+      50,
+      36,
+      17,
+      55,
+      34,
+      4
+    ],
+    "highWeight": 37,
+    "lowWeight": 1,
+    "weightedMedianOrder": [
+      3,
+      0,
+      4,
+      1,
+      5,
+      2
+    ],
+    "modifiedCompletion": [
+      50,
+      36,
+      17,
+      55,
+      34,
+      4
+    ],
+    "modifiedArcWeights": [
+      [
+        0,
+        37,
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        37,
+        0,
+        0,
+        37
+      ],
+      [
+        37,
+        0,
+        0,
+        0,
+        37,
+        0
+      ],
+      [
+        37,
+        37,
+        37,
+        0,
+        37,
+        37
+      ],
+      [
+        0,
+        37,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        37,
+        0,
+        0,
+        0
+      ]
+    ],
+    "modifiedGlobalMedianScore": 373,
+    "feed": 2,
+    "alpha": 74,
+    "beta": 38
+  },
+  "limits": [
+    "This tests the exact canonical low-weight completion plus backward feed reversals, not SNC or Seacrest's existential theorem.",
+    "Original and uniquely convenient arcs have weight n^2+1; bad and double-convenient additions have weight one.",
+    "All median scores for the reported small tournament are exactly enumerated. No minimal-counterexample hypotheses are asserted on the control."
+  ]
+}

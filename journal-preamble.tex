@@ -1,0 +1,59 @@
+\usepackage[a4paper,top=25mm,bottom=25mm,left=28mm,right=28mm,headheight=15pt,footskip=11mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{booktabs,longtable,tabularx,array}
+\usepackage{enumitem,graphicx,listings,fancyhdr,needspace}
+\usepackage{url}
+\usepackage[hidelinks,unicode]{hyperref}
+\usepackage{xr}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{3em}
+\renewcommand{\baselinestretch}{1.08}
+\raggedbottom
+\setlist[enumerate]{leftmargin=2em,itemsep=0.15em,topsep=0.35em}
+\setlist[itemize]{leftmargin=1.8em,itemsep=0.15em,topsep=0.35em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+\newcommand{\Nout}{N^+}
+\newcommand{\Nin}{N^-}
+\newcommand{\Ntwo}{N^{++}}
+\newcommand{\Nback}{N^{--}}
+\newcommand{\dout}{d^+}
+\newcommand{\din}{d^-}
+\newcommand{\dtwo}{d^{++}}
+\newcommand{\dback}{d^{--}}
+\newcommand{\bd}{\partial}
+\newcommand{\ind}{\mathbf 1}
+\DeclareMathOperator{\Reach}{Reach}
+\DeclareMathOperator{\med}{med}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\itshape Incoming cores and extremal constraints}
+\fancyhead[R]{\small\DocumentKind}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+\setcounter{tocdepth}{1}
+\lstdefinestyle{journalcode}{basicstyle=\footnotesize\ttfamily,keywordstyle=\rmfamily\bfseries,
+commentstyle=\itshape,showstringspaces=false,frame=none,numbers=left,
+numberstyle=\scriptsize,numbersep=7pt,xleftmargin=1.5em,breaklines=true,
+columns=fullflexible,keepspaces=true,tabsize=2,captionpos=b}
+\lstset{style=journalcode}
+\lstdefinelanguage{JavaScript}{morekeywords={const,let,var,function,return,for,of,in,if,else,new,throw,true,false,null,require},sensitive=true,morecomment=[l]{//},morecomment=[s]{/*}{*/},morestring=[b]",morestring=[b]'}
+\makeatletter
+\renewcommand*\l@section{\@dottedtocline{1}{0em}{3.4em}}
+\makeatother
+\def\UrlBreaks{\do\/\do-\do_\do\%\do.}
+\hypersetup{pdfauthor={Guanze Yu},pdfsubject={Research preprint; complete conjecture not resolved}}

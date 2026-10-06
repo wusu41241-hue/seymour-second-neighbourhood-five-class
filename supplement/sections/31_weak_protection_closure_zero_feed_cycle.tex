@@ -1,0 +1,148 @@
+\section{Weak protection steps force a directed cycle at every zero-gap feed}
+\label{sec:weak-protection-closure-zero-feed-cycle}
+
+Use the preceding iterated closure definitions. In addition to adding
+all currently FORCED directions, allow the following \emph{single-arc}
+step in a current graph $H$:
+\[
+ \begin{gathered}
+ ab\text{ missing},\qquad N_H^-(a)\subseteq N_H^-(b),\\
+ b\text{ is maximal in the current protection order};\quad\text{add }a\to b.
+ \end{gathered}
+\]
+Maximal means there is no original-current relation $b\triangleleft_H x$.
+This step is called weak protection. Recompute protection and forced
+directions after each weak step: simultaneous arbitrary weak choices
+are \emph{not} permitted. Continue until neither a forced direction nor
+an eligible weak step remains; any deterministic tie rule may be used.
+Termination requires at most $M(D)$ added pairs. Denote the terminal
+graph by $Q^{\mathrm w}$.
+
+\begin{lemma}[The single weak step is convenient and protection-monotone]
+\label{lem:single-weak-protection-safe}
+Every weak step preserves all current protections and creates
+$a\triangleleft b$. Its new direction is convenient in the graph
+\emph{before} the step.
+\end{lemma}
+\begin{proof}
+Only the incoming neighborhood of $b$ changes. An old relation
+$b\triangleleft_H x$ could be destroyed by the new predecessor, but
+maximality excludes every such relation. An old relation
+$y\triangleleft_H b$ can only become easier to satisfy when its right
+vertex gains a predecessor; every other relation is unchanged.
+After the addition,
+$N^-(a)\subseteq N^-(b)\setminus\{a\}$, so the new arc protects $b$.
+For convenience, every old predecessor of $a$ already points directly
+to $b$ by the assumed containment. The graph remains oriented because
+$ab$ was missing.
+\end{proof}
+
+At the terminal graph no forced missing direction remains, so current
+protection has both incoming and outgoing nesting. Complete all its
+remaining missing pairs forward in one current-protection extension,
+and maximize the ordinary global median score over all such extensions.
+Call a maximizing tournament $T^{\mathrm w}_*$.
+
+The preceding closure proof applies without change: every added arc
+has a tail with a protection successor which survives to the end, and
+every step was convenient relative to its preceding graph. Thus, at
+every global median feed $f$,
+\[
+ N_{T^{\mathrm w}_*}^+(f)=N_{Q^{\mathrm w}}^+(f)=N_D^+(f),\qquad
+ N_{Q^{\mathrm w}}^{++}(f)=N_D^{++}(f).
+\]
+Every median respects terminal protection and makes all still-free
+added arcs forward. No intermediate graph is assumed all-deficient,
+strongly connected or minimal.
+
+\begin{theorem}[The terminal missing partners of a zero-gap feed contain a cycle]
+\label{thm:weak-closure-zero-feed-cycle}
+Let $f$ be any median feed of $T^{\mathrm w}_*$ such that
+$g_D(f)>0$ and $g_{T^{\mathrm w}_*}(f)=0$. Then
+\[
+ R=\mathcal M_{Q^{\mathrm w}}(f)\ne\varnothing,
+ \qquad \delta^-(Q^{\mathrm w}[R])\ge1.
+\]
+In fact the \emph{original} induced graph $D[R]$ already contains a
+directed cycle. In particular a cycle of length at least three exists, and
+\[
+ |R|\ge3,\qquad
+ t_D(f)\ge g_D(f)+|R|\ge g_D(f)+3.
+\]
+Neither minimality nor actual BAD failure-source status is required.
+\end{theorem}
+\begin{proof}
+The preceding arbitrary-closure proof gives $R\ne\varnothing$ and
+shows that every member of $R$ is far from $f$ in the completed
+tournament: otherwise it belongs to the equality good set, and
+global sedimentation would reverse its free incoming arc to $f$.
+Also $R\subseteq\mathcal F_D(f)\setminus A_f$ and
+$|A_f|=g_D(f)$, where $A_f$ is the set of new original-far second heads.
+This gives $t_D(f)\ge g_D(f)+|R|$.
+
+Fix $r\in R$. The feed $f$ is maximal in terminal protection, since
+every median order extends that order. There is no eligible weak
+$r\to f$ step, so
+\[
+ N_{Q^{\mathrm w}}^-(r)\not\subseteq N_{Q^{\mathrm w}}^-(f).
+\]
+Choose a witness $p$ in the difference. Since $r$ is far from $f$
+in the tournament and $p\to r$ is retained, the alternative $f\to p$
+would give $f\to p\to r$. Therefore $p\to f$ in the tournament.
+It was not an arc of the terminal graph by choice of $p$, and the
+opposite direction could not have been an arc there either. Thus
+$pf$ is a remaining missing pair, so $p\in R$. Also $p\ne r$,
+because the graph is loopless. Hence every $r\in R$ has a predecessor
+inside $Q^{\mathrm w}[R]$. Following predecessors in a finite graph
+produces a directed cycle. Loops and directed two-cycles are forbidden,
+so at least three distinct vertices occur.
+
+It remains to lift cycle existence back to $D[R]$. Hold this final set
+$R$ fixed throughout the earlier construction. At a FORCED step which
+adds an internal arc $a\to b$ of $R$, let $a\triangleleft_H w$ and
+$w\to b$ be its preceding-graph witness. Since $b$ is far from $f$ in
+the final tournament, the retained arc $w\to b$ implies $w\to f$ there.
+If $wf$ were adjacent in the terminal graph, its direction would already
+be $w\to f$. The retained relation $a\triangleleft w$ would then force
+the still-missing $a\to f$, contradicting terminality. Thus $w\in R$.
+The new internal arc is merely a shortcut of the old internal path
+$a\to w\to b$. Adding all such shortcuts cannot make an acyclic
+induced graph cyclic.
+
+At a single WEAK step adding an internal $a\to b$, suppose an acyclic
+previous induced graph would become cyclic. Then it previously had a
+path $b\leadsto p\to a$ inside $R$. Its length cannot be one since
+$ab$ was missing. The old containment $N_H^-(a)\subseteq N_H^-(b)$
+gives $p\to b$ already, so the previous graph itself had the cycle
+$b\leadsto p\to b$, a contradiction. Steps outside $R$ do not alter its
+induced arcs. Hence an acyclic $D[R]$ would stay acyclic throughout,
+contrary to the terminal cycle just proved. The original cycle exists.
+\end{proof}
+
+\begin{corollary}[Low-budget feeds are strictly, not equally, Seymour]
+\label{cor:weak-closure-low-budget-strict-feed}
+At a feed with $g_D(f)>0$, either
+\[
+ g_{T^{\mathrm w}_*}(f)\le-1,
+ \qquad\text{or}\qquad
+ t_D(f)\ge g_D(f)+3.
+\]
+In particular if $t_D(f)\le g_D(f)+2$, the completed feed has strict
+SNP. If $t_D(f)\le3$, a zero completed gap is impossible.
+\end{corollary}
+\begin{proof}
+The feed theorem gives $g_{T^{\mathrm w}_*}(f)\le0$. The theorem excludes
+the equality case under either displayed budget restriction.
+\end{proof}
+
+\paragraph{Scope and remaining obstruction.}
+The stronger $+3$ budget is asserted only for a \emph{zero completed
+gap}. If the completed gap is negative, the general strict original
+surplus remains $t_D\ge g_D+1$, not $g_D+3$. A feed may have strict
+SNP only because it acquired two or more original-far second heads;
+its original gap can still be positive. No full SNC proof follows.
+Although a cycle is now proved to exist in the original graph $D[R]$,
+its vertices need not be actual BAD sources in $D$. It must not be counted
+as three additional original positive-residual vertices without a
+separate argument. Positive indegree is proved for the terminal induced
+graph, not for every vertex of the original induced graph.

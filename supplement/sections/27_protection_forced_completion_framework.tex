@@ -1,0 +1,327 @@
+\section{Fixing only the directions actually forced by protection}
+\label{sec:protection-forced-completion}
+
+For an oriented graph $D$, write $a\triangleleft w$ when
+$a\to w$ and $N_D^-(a)\subseteq N_D^-(w)\setminus\{a\}$.
+As in the preceding draft this is a strict partial order, and $a$ is
+an originally protected far head of $w$. A direction on a missing pair
+is called \emph{protection-forced} if
+\begin{equation}
+ a\to b\text{ is forced}\quad\Longleftrightarrow\quad
+ \exists w:\ a\triangleleft w,\quad w\to b\in A(D),\quad ab
+ \text{ is missing}.
+ \label{eq:protection-forced-definition}
+\end{equation}
+Here ``forced'' is relative to preserving all original protection
+relations, not to preserving every original convenient direction.
+
+\begin{lemma}[Forced directions are consistent and convenient]
+\label{lem:protection-forced-consistency}
+Each forced direction is uniquely convenient. Every tournament
+completion which preserves all original protected pairs must orient
+that missing pair in its forced direction. In particular two opposite
+directions on the same pair cannot both be forced.
+\end{lemma}
+\begin{proof}
+Let $a\triangleleft w$ and $w\to b$ witness $a\to b$.
+Each original predecessor $p$ of $a$ also points to $w$, hence reaches
+$b$ via $p\to w\to b$. Thus $a\to b$ is convenient.
+Conversely $w$ is an original predecessor of $b$, but cannot reach
+its protected far head $a$ within two steps; it witnesses failure of
+$b\to a$. The direction is uniquely convenient.
+In a completed tournament, preservation of $a\triangleleft w$
+forces every outneighbor of $w$ to be an outneighbor of $a$, so
+$a\to b$ is mandatory. Opposite forced directions would both be
+convenient while each has a witnessed nonconvenient reverse, which
+is impossible.
+\end{proof}
+
+Fix these directions, but release \emph{all other} missing pairs:
+this includes bad pairs, pairs convenient in both directions, and
+uniquely convenient pairs not forced by protection. For any linear
+extension $\prec$ of original protection, orient every released pair
+forward in $\prec$. Call the resulting tournament $T_\prec$.
+This fixes fewer convenient directions than the preceding canonical
+family, but is an alternative reference family, not a guaranteed
+set-theoretic superset: the remaining released directions must now
+all arise from the same order. Its median-score optimization nevertheless
+dominates the old canonical-family optimization, as proved below.
+
+\begin{theorem}[The fewer-fixed-arcs family preserves original protection]
+\label{thm:protection-forced-completion-preserves}
+Every $T_\prec$ preserves every original relation $y\triangleleft x$.
+Consequently, with $K_x=N_{T_\prec}^+(x)\setminus N_D^+(x)$,
+\[
+ N_{T_\prec}^{++}(x)\subseteq
+ (N_D^{++}(x)\setminus K_x)\cup
+ (\mathcal F_D(x)\setminus K_x),
+\]
+and the exact identity $g_{T_\prec}(x)-g_D(x)=2|K_x|-c_x$ holds
+with $c_x\le t_D(x)$ as before. There is no residual or support bound.
+\end{theorem}
+\begin{proof}
+Fix $y\triangleleft x$. Only a newly incoming arc $q\to y$ needs
+checking for the required incoming-neighborhood nesting.
+
+If $q\to y$ is forced, choose $w$ with $q\triangleleft w$ and
+$w\to y$ original. Since $y\triangleleft x$, $w\to x$ is original.
+If $qx$ is missing it is forced $q\to x$, using the same $w$.
+If $x\to q$ were original, $q\triangleleft w$ would imply
+$x\to w$, contrary to $w\to x$. Thus an original $qx$ also has
+the required direction $q\to x$.
+
+Otherwise $qy$ is released, so $q\prec y\prec x$. An original
+$x\to q$ would make $y\to q$ forced, using $y\triangleleft x$;
+that contradicts release of $qy$. Similarly, a missing pair $qx$
+forced $x\to q$ has a witness $w$ with $x\triangleleft w$ and
+$w\to q$ original. Transitivity gives $y\triangleleft w$, again
+forcing $y\to q$, a contradiction. In all remaining cases $q\to x$
+is original, forced, or released forward. Thus every predecessor of
+$y$ also points to $x$ in $T_\prec$.
+
+This proves preservation. A protected far head remains far: if
+$x\to z\to y$ existed in the completed tournament, $z\to y$
+would force $z\to x$, a digon. Such a head cannot be newly first
+either, because $y\to x$ was original. Every original exact second
+path survives unless its endpoint becomes first; the claimed envelope
+and the disjoint-cost identity follow directly.
+\end{proof}
+
+\paragraph{Why simply releasing every direction is false.}
+The three-vertex original graph $1\to0\to2$ has protection
+$1\triangleleft0$. The protection extension $2\prec1\prec0$
+would orient the missing pair as $2\to1$ if every pair were released,
+creating $0\to2\to1$ and destroying protection. Here $1\to2$ is
+exactly a forced direction under the definition. The theorem does
+\emph{not} use the false statement that original incoming protection
+already supplies full outgoing domination in an incomplete graph.
+
+\section{A maximal fewer-fixed-arcs completion has no added feed out-arcs}
+\label{sec:protection-forced-maximal-feed}
+
+\begin{theorem}[All released arcs are forward in every median order]
+\label{thm:protection-forced-maximal-rigidity}
+There is a fewer-fixed-arcs completion $T_*$ for which every global
+median order extends original protection and puts every released
+added arc forward. Every median feed $f$ of this fixed $T_*$ satisfies
+\[
+ K_f=\varnothing,\qquad N_{T_*}^+(f)=N_D^+(f).
+\]
+\end{theorem}
+\begin{proof}
+In a tournament an originally protected pair now has both incoming
+and outgoing domination. If $y\triangleleft x$, the usual two-position
+swap shows that no median order can put $x$ before $y$;
+the mutual arc is gained and no intermediate contribution is lost.
+Hence every median order of a fewer-fixed-arcs completion extends original
+protection.
+
+Maximize the forward score over all pairs consisting of a fewer-fixed-arcs
+completion and an order, and choose $T_*$ attaining it. If any released
+added arc were backward in one of its median orders $L$, re-complete
+using $L$ as reference. It is admissible by protection preservation.
+Forced arcs stay fixed, and precisely the backward released arcs
+become forward, strictly increasing the score. This is impossible.
+The argument applies to every median order of the same maximizing
+completion because all have the same median score.
+
+A feed has no outgoing released arc, since every such arc would be
+backward. Nor can it be the tail $a$ of a forced arc: its witness
+$a\triangleleft w$ puts $a$ before $w$ in every median order.
+Thus it has no outgoing added arc of either type.
+\end{proof}
+
+\begin{lemma}[Optimization over all protection-preserving completions]
+\label{lem:protection-forced-all-completion-normalization}
+The maximum median score over the fewer-fixed-arcs reference family
+equals the maximum over \emph{all} tournament completions preserving
+original protection. In particular it is at least the maximum score
+over the preceding canonical family. No corresponding dominance of
+the \emph{weighted correction-budget} objective is asserted.
+\end{lemma}
+\begin{proof}
+Take any protection-preserving completion $T$ and one of its median
+orders $L$. The order extends original protection. Every forced pair
+has the same direction in $T$ by its mandatory-direction lemma.
+Normalize every remaining missing pair forward in $L$, obtaining a
+valid fewer-fixed-arcs completion. The order's forward score increases
+by exactly the number of previously backward released arcs, and none
+of its original or forced arcs changes. Thus its median score is at
+least that of $T$. The reverse inequality follows because the reference
+family consists of protection-preserving completions.
+\end{proof}
+
+\begin{lemma}[A single fixed partial graph controls the optimization]
+\label{lem:protection-forced-fixed-partial-median}
+Let $Q$ be obtained from $D$ by adding precisely its protection-forced
+directions, and let $r$ be the number of released missing pairs. Then
+\[
+ \max_{\prec}\operatorname{medscore}(T_\prec)
+       =\operatorname{medscore}(Q)+r.
+\]
+Every median order of a maximizing $T_*$ is a median order of $Q$.
+Conversely every median order of $Q$, completed by orienting all
+released pairs forward in that order, attains the maximum above.
+\end{lemma}
+\begin{proof}
+In $Q$ each original relation $y\triangleleft x$ already has both
+incoming and outgoing neighborhood nesting. Incoming nesting follows
+from the forced-arc case in the previous preservation proof. For
+outgoing nesting, an original $x\to q$ makes $y\to q$ original or
+forced. A forced $x\to q$ has a witness $x\triangleleft w$ and
+$w\to q$ original; then $y\triangleleft w$ forces $y\to q$ if
+missing. An opposite original $q\to y$ would give $q\to x$ original,
+contrary to missing $xq$.
+
+The two-position swap for two-sided domination does not require a
+complete graph: absent arcs count zero and nesting ensures no lost
+intermediate contribution. Thus every median order of $Q$ extends
+original protection. Completing such an order yields its maximum
+$Q$ score plus all $r$ released arcs. Conversely every order in any
+reference completion has score at most this number, since its $Q$
+part scores at most $\operatorname{medscore}(Q)$ and its released
+part at most $r$. Equality forces both component maxima.
+\end{proof}
+
+\begin{corollary}[Both original neighborhoods survive at a partial median feed]
+\label{cor:protection-forced-partial-feed-exact}
+Every median feed $f$ of the fixed partial graph $Q$ satisfies
+\[
+ N_Q^+(f)=N_D^+(f),\qquad N_Q^{++}(f)=N_D^{++}(f).
+\]
+\end{corollary}
+\begin{proof}
+Every median order of $Q$ respects original protection. A tail of a
+forced arc protects an original vertex and so cannot be a feed.
+Thus $f$ has no added first arc. Any new two-step path at $f$ would
+use an original first arc and a forced second arc, but that second
+direction is convenient, so its original predecessor $f$ already
+reaches the head within two steps in $D$. The exact first set is
+unchanged, which proves equality of the exact second sets as well.
+\end{proof}
+
+This identifies the remaining task with obtaining an appropriate
+Seymour median feed in this fixed \emph{incomplete} graph $Q$ under
+the extremal hypotheses. The tournament feed theorem must not be
+applied directly to $Q$.
+
+\begin{corollary}[An unbounded exact feed obstruction]
+\label{cor:protection-forced-feed-cost}
+If $D$ were all-deficient, every median feed $f$ of this $T_*$ would
+have at least $g_D(f)$ newly reached unprotected far heads, with no
+added first neighbors. Each new head is reached via an original
+first arc followed by a released, nonconvenient added arc. None of
+these second arcs can be protection-forced.
+\end{corollary}
+\begin{proof}
+The feed theorem gives $g_{T_*}(f)\le0$. The exact first set and
+survival of all original second paths give
+$g_{T_*}(f)=g_D(f)-|A_f|$, so $|A_f|\ge g_D(f)$.
+There is no added first intermediate. Every new-head second arc
+fails convenience at $f$, whereas every forced arc is convenient.
+Protection preservation excludes every originally protected far head.
+\end{proof}
+
+This is stronger first-neighborhood control than the preceding
+canonical family, where a feed could still have an outgoing uniquely
+convenient keeper. It is not a full SNC proof: a released uniquely
+convenient pair may now be chosen \emph{against} its convenient
+direction, so the feed may acquire far heads even without witnessing
+a genuinely bad missing pair. The old actual-bad-source conclusions
+and direct good-completion transfer cannot be carried over unchanged.
+
+\paragraph{An exact control against automatic feed transfer.}
+Take the directed four-cycle blow-up with independent class sizes
+$(3,2,4,1)$ and full arcs $C_a\to C_{a+1}$ cyclically. There are
+no original protection relations, so $Q=D$. Its out masks, with
+the classes consecutive in the displayed order, are
+\[
+ (24,24,24,480,480,512,512,512,512,7).
+\]
+The graph has $21$ arcs and $24$ directed four-cycles. Each arc lies
+in at most eight of those cycles; exactly the three arcs from the
+last class to the first attain eight. Every feedback arc set has
+size at least three. Equality forces all three selected arcs to be
+these last-to-first arcs. Deleting them makes the graph acyclic.
+Thus every global median order places the four classes consecutively
+in their cyclic order. Its forward score is $18$, and there are
+$3!2!4!=288$ such orders. Every possible maximizing-family feed is
+the singleton last-class vertex $f=9$.
+
+Here $d_D^+(f)=3$ but $d_D^{++}(f)=2$. Completing all released
+pairs forward creates four extra second heads in the third class;
+$K_f=\varnothing$ as proved, but $g_T(f)=-3$. There are Seymour
+vertices elsewhere, so this is not an SNC counterexample. It is the
+unweighted clone realization of the weighted four-cycle warning at
+the end of Section~2 of Havet--Thomasse's median-order paper.
+Its formal residual is $\eta(f)=1$ but $t(f)=4$, so it violates the
+\emph{minimal-class} unit budget. The new framework must
+therefore still use the extremal counterexample hypotheses rather
+than treating no added first neighbors as a complete transfer proof.
+
+\paragraph{A unit-feed control that violates the full-boundary hypothesis.}
+Another graph has out masks
+\[
+ (30,224,96,96,2,320,1,1,1).
+\]
+Name its vertices $(f,a,b,c,d,r,w,z,y)$ in that order. Its original
+arcs are $f\to a,b,c,d$, $a\to r,w,z$, $b,c\to r,w$, $d\to a$,
+$r\to w,y$, and $w,z,y\to f$. The original protected pairs include
+$d\triangleleft a$ and $r\triangleleft w$. The forced additions are
+$d\to r,w,z$ and $r\to f$, so $Q$ has $21$ arcs.
+
+Four arc-disjoint $Q$ cycles are $f a z f$, $f b w f$, $f c r f$,
+and $f d a r y f$. Thus every median order has at least four backward
+arcs. The order $(d,a,b,c,r,w,z,y,f)$ has exactly four, so it is
+globally median with forward score $17$. Completing its released
+pairs forward gives $K_f=\varnothing$ and introduces just the head
+$y$, changing its gap from one to zero. Numerically
+$\mu(f)=1$, $P(f)=\{d\}$, $\eta(f)=1$, and $t(f)=1$.
+The missing opposite witness $r\to f$ is protection-forced, so
+sedimentation does not contradict released-arc rigidity by reversing
+that arc.
+
+This graph is \emph{not} a minimal all-deficient graph: it has many
+Seymour vertices. More specifically its external packet has
+$\partial P(f)=\{a\}$ but $N_D^{--}(f)=\{a,b,c,r\}$. Therefore
+the minimal-class full-boundary lemma at an active unit source fails.
+In bundle notation $j=3$, $s=2$, and the required minimal inequality
+$1\ge g(f)+2(j-s)=3$ is violated. The control does not obstruct a
+counterexample-specific proof which uses that full-boundary lemma
+to rule out forced incoming missing witnesses.
+
+\paragraph{Relation to the canonical-only budget obstruction.}
+For the six-vertex graph $(0,49,51,6,9,8)$ from the companion file,
+there are no forced missing directions. The protection extension with
+ranks $(5,2,1,0,3,4)$ gives completion $(0,49,51,7,41,9)$.
+Vertex $0$ remains a sink, so $\lambda=e_0$ is an expansion density
+and its correction budget is zero. This defeats the previously proved
+$-1/3$ obstruction by admitting an alternative reference direction, not by changing
+or disputing the canonical-only theorem. In its cloned and amplified
+variants, this same orientation pattern can likewise be used internally
+and mixed equally across copies to obtain zero budget.
+
+\paragraph{Independent finite audit.}
+\texttt{audit\_protection\_forced\_completion.js} tested all $59049$
+five-vertex oriented graphs and $20000$ fixed-seed samples of orders
+six through twelve. It checked $158098$ fewer-fixed-arcs completions,
+$529572$ protected pairs, and $950484$ vertex envelopes and exact
+cost identities. It encountered $195408$ genuinely released reversals
+of uniquely convenient directions, so the expansion was exercised
+nonvacuously. It additionally checked every median order of every
+score-maximizing reference completion on $300$ sampled six-vertex
+graphs, checking $11529$ median feeds with no added out-arcs.
+The ten-vertex clone control's $288$ median orders and unique feed
+were independently counted by exact subset dynamic programming.
+These audits verify identities and attack the proofs; they do
+not prove the remaining all-deficient completion-budget existence.
+
+\paragraph{Next global targets.}
+The exact weighted threshold may now be sought over this alternative
+family, with only protection-forced arcs fixed. Alternatively, the
+fixed maximal completion has eliminated all added first neighbors
+at every median feed, isolating the obstruction to released reverse
+convenient directions or bad directions which create multiple far
+heads. A subsequent argument must control those heads without
+assuming a globally compatible packet selection or claiming an
+arc-weighted feed theorem that the previous controls refute.

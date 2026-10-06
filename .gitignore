@@ -1,0 +1,20 @@
+# LaTeX intermediates
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+paper/main.pdf
+supplement/main.pdf
+
+# Local scratch and editor state
+tmp/
+__pycache__/
+.DS_Store
+Thumbs.db
+
+# Published PDFs under output/pdf/ are intentionally tracked.

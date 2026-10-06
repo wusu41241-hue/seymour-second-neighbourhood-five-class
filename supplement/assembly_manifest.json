@@ -1,0 +1,266 @@
+{
+  "date": "2026-10-07",
+  "files": [
+    {
+      "source": "legacy/foundation.tex",
+      "compiled": "sections/01_foundation.tex",
+      "original_sha256": "cff43c21122281f08f3c597524fe907c404dc53cc80fb1dd7ff07c48809aeef5"
+    },
+    {
+      "source": "legacy/good_missing.tex",
+      "compiled": "sections/02_good_missing.tex",
+      "original_sha256": "8107d7fb11ee61c3af0aed2ba578c174a6e43e0d58070cfa6d844b35689f2fea"
+    },
+    {
+      "source": "legacy/local_budget.tex",
+      "compiled": "sections/03_local_budget.tex",
+      "original_sha256": "f74ee3a7a9fd242289f55b46263c7d6dc6903787f1ec78bf2e1690f197794679"
+    },
+    {
+      "source": "legacy/partner_budget.tex",
+      "compiled": "sections/04_partner_budget.tex",
+      "original_sha256": "0f363cd6de10fe604e7e1b4658b685987b599de22b44db629af7c1fbd81fb650"
+    },
+    {
+      "source": "legacy/small_sources.tex",
+      "compiled": "sections/05_small_sources.tex",
+      "original_sha256": "c050c4aaf0045ab52583a66ab73db174ec55ffb6d06b9e407c62daf65f19489e"
+    },
+    {
+      "source": "legacy/dangerous_witnesses.tex",
+      "compiled": "sections/06_dangerous_witnesses.tex",
+      "original_sha256": "8e90e9fc357ad6478f0b5be68db8163168e451a53addc971279264ea596acf6a"
+    },
+    {
+      "source": "legacy/witness_graph.tex",
+      "compiled": "sections/07_witness_graph.tex",
+      "original_sha256": "40fee62deab15e74361c6c8353e6d8dea492b8f69c0fbded8744c32542262c36"
+    },
+    {
+      "source": "legacy/single_failure.tex",
+      "compiled": "sections/08_single_failure.tex",
+      "original_sha256": "24a70695619fcd86207c08d56532e5f22fd0991e59ded121abf6582f389a8e42"
+    },
+    {
+      "source": "legacy/uniform_two.tex",
+      "compiled": "sections/09_uniform_two.tex",
+      "original_sha256": "09a8cc79739965c42832db28f9b4e85f1c2c66364de05fb32b2f608a54a8af6c"
+    },
+    {
+      "source": "legacy/two_support.tex",
+      "compiled": "sections/10_two_support.tex",
+      "original_sha256": "593aad126a4a4e572a56ca7e766d7d57f64850370ac06ef760d2da99e0b03cba"
+    },
+    {
+      "source": "legacy/unit_sources.tex",
+      "compiled": "sections/11_unit_sources.tex",
+      "original_sha256": "24f9397e4c52ac4547ac2d6d9af7d3e2914cf181d18a1829113ddff65fae2e9c"
+    },
+    {
+      "source": "legacy/bipartite.tex",
+      "compiled": "sections/12_bipartite.tex",
+      "original_sha256": "1684f07521e3721707c70c469880ddd9be7bbcf500d7164de4f3fafee2f21f8e"
+    },
+    {
+      "source": "legacy/four_margin.tex",
+      "compiled": "sections/13_four_margin.tex",
+      "original_sha256": "16316d6e5c90c12e304ef82464159c1cc16ed6ecdd9b11ebb21a4f85477a8893"
+    },
+    {
+      "source": "legacy/parity_five.tex",
+      "compiled": "sections/14_parity_five.tex",
+      "original_sha256": "c74434e9d1ce18e8abb15c5a1f3526ab7d6d3c56c628fc1dee203bdee5837a52"
+    },
+    {
+      "source": "legacy/three_two_units.tex",
+      "compiled": "sections/15_three_two_units.tex",
+      "original_sha256": "95e3f1a83c98ffdc95b1a44b3b558c292bb469dfa13a234f8784a4f3517e562d"
+    },
+    {
+      "source": "legacy/unit_five.tex",
+      "compiled": "sections/16_unit_five.tex",
+      "original_sha256": "65d7b6fe7a689958bc2e1314a3593c41430d8c6350e2cd71612c3172471b676b"
+    },
+    {
+      "source": "legacy/two_two_one.tex",
+      "compiled": "sections/17_two_two_one.tex",
+      "original_sha256": "6dd373f830a4bb64025a5f6c6decaec745727738b0705ee059ccab22f0847dce"
+    },
+    {
+      "source": "legacy/two_one_one_one.tex",
+      "compiled": "sections/18_two_one_one_one.tex",
+      "original_sha256": "61cd692c630b9dd1fc76a0d6a4491b049d0bbd69d7f91167cfbdd86aef342071"
+    },
+    {
+      "source": "legacy/six_margin.tex",
+      "compiled": "sections/19_six_margin.tex",
+      "original_sha256": "95709d9a69d47ba405a0ac4ba67884ffb29ce481b32d9a0477d3f9358f988f0a"
+    },
+    {
+      "source": "global_completion_framework.tex",
+      "compiled": "sections/20_global_completion_framework.tex",
+      "original_sha256": "56d739fefe9f5efff7c2c8415dd925c9858c821b3840b624846ae1de9f65be0c"
+    },
+    {
+      "source": "all_keeper_packet_criterion.tex",
+      "compiled": "sections/21_all_keeper_packet_criterion.tex",
+      "original_sha256": "08e1e686f11920f5371ffc73c1a2811083bc4fce4518fe33758326cf3b4afd95"
+    },
+    {
+      "source": "global_followup/protected_heavy_cover_criterion.tex",
+      "compiled": "sections/22_protected_heavy_cover_criterion.tex",
+      "original_sha256": "b5e6dce1fcc2001adcb4617df3f62cf45902a61bd5c3afc5d38342052fc7345d"
+    },
+    {
+      "source": "global_followup/single_heavy_actual_exclusion_short.tex",
+      "compiled": "sections/23_single_heavy_actual_exclusion_short.tex",
+      "original_sha256": "f2254b95f3d6e938a0224bda1cb8b21aa43a85526aecce151bc19f83848cbc21"
+    },
+    {
+      "source": "eta_three_two_one_exclusion.tex",
+      "compiled": "sections/24_eta_three_two_one_exclusion.tex",
+      "original_sha256": "360f498d96d521944fbce6480acae9cd663ab0f8a9717d293891dc67c10079ee"
+    },
+    {
+      "source": "eta_two_two_two_path_reduction.tex",
+      "compiled": "sections/25_eta_two_two_two_path_reduction.tex",
+      "original_sha256": "f10366591a9640dc193d3fb3c37163a3408039bd8b77ccde803bd6065d878421"
+    },
+    {
+      "source": "eta_two_two_one_one_exclusion.tex",
+      "compiled": "sections/26_eta_two_two_one_one_exclusion.tex",
+      "original_sha256": "b35b58c7ce2516acfe48a8f98901110c056a60e82fc5de6b4202a26cc042d914"
+    },
+    {
+      "source": "global_followup/protection_forced_completion_framework.tex",
+      "compiled": "sections/27_protection_forced_completion_framework.tex",
+      "original_sha256": "b2c764e0c93df4c7ad58c90e2a8a261dbcd1d52630216dc12b3734b90b5c2b00"
+    },
+    {
+      "source": "global_followup/forced_feed_full_boundary_obstruction.tex",
+      "compiled": "sections/28_forced_feed_full_boundary_obstruction.tex",
+      "original_sha256": "2b99bb7f49a681f021f00a00f932a9965e2da0626550fb7ae77e2a88d85addad"
+    },
+    {
+      "source": "global_followup/balanced_forced_feed_minimal_refinement.tex",
+      "compiled": "sections/29_balanced_forced_feed_minimal_refinement.tex",
+      "original_sha256": "6d754b8b2f184417862559b75b17a39af875f2d557132ab10386c1d80e3737ea"
+    },
+    {
+      "source": "global_round2/iterated_protection_closure_strict_surplus.tex",
+      "compiled": "sections/30_iterated_protection_closure_strict_surplus.tex",
+      "original_sha256": "d839ac6cdef1529cfa59ae315dd42448034205f1a315aa8cd099f071e4c82db4"
+    },
+    {
+      "source": "global_round2/weak_protection_closure_zero_feed_cycle.tex",
+      "compiled": "sections/31_weak_protection_closure_zero_feed_cycle.tex",
+      "original_sha256": "170cb3105788ee80147a93fcfb37c5dbe73aaea05afb37d469276c612bb70a46"
+    },
+    {
+      "source": "global_round2/minimal_weak_zero_feed_residual_budget.tex",
+      "compiled": "sections/32_minimal_weak_zero_feed_residual_budget.tex",
+      "original_sha256": "f1ac8556a30c5f8c101a01ce7a2b2fe43fe4da3e4fc91100a4f687d332257ca0"
+    },
+    {
+      "source": "global_round2/closure_good_equality_missing_degree_budget.tex",
+      "compiled": "sections/33_closure_good_equality_missing_degree_budget.tex",
+      "original_sha256": "3d5dc1cabbc34b2734b2bb6d0236365f1c190bbaf967cd3c0183ead6f917a3dc"
+    },
+    {
+      "source": "global_round2/closure_degree_and_low_budget_corollaries.tex",
+      "compiled": "sections/34_closure_degree_and_low_budget_corollaries.tex",
+      "original_sha256": "4dcd4a2f28271e5d682ab188862416223a080912ac5ec0ab56ed2e4edc178aa2"
+    },
+    {
+      "source": "global_round2/outstar_deletion_criticality.tex",
+      "compiled": "sections/35_outstar_deletion_criticality.tex",
+      "original_sha256": "da9347940979381af71ca9c32dbfead28ae1edffac3eda085c6f8d969962469f"
+    },
+    {
+      "source": "global_round2/two_heavy_flexible_tail_reduction.tex",
+      "compiled": "sections/36_two_heavy_flexible_tail_reduction.tex",
+      "original_sha256": "718e1e85a76f53c93f75863a6ae0db87dde645f380c3f264189c4074aeb86803"
+    },
+    {
+      "source": "global_round2/flexible_exception_clique_feed_reduction.tex",
+      "compiled": "sections/37_flexible_exception_clique_feed_reduction.tex",
+      "original_sha256": "31ef4e0a353d8ab7b9efe64924ac26f0942dd16038b94fd47befca6467df8745"
+    },
+    {
+      "source": "global_round3/weak_equality_original_partner_paths.tex",
+      "compiled": "sections/38_weak_equality_original_partner_paths.tex",
+      "original_sha256": "e3d64a07c2e54a0563370adab372dee555032b57d994871499a1665519fd580a"
+    },
+    {
+      "source": "global_round3/nearwhole_feed_global_boundary_budget.tex",
+      "compiled": "sections/39_nearwhole_feed_global_boundary_budget.tex",
+      "original_sha256": "b0fd979f144486cb98287c68d6c4aa29912d177a381b7993ca3e348c39d812ca"
+    },
+    {
+      "source": "global_round3/convenient_nonmax_tail_safe_step.tex",
+      "compiled": "sections/40_convenient_nonmax_tail_safe_step.tex",
+      "original_sha256": "50b383ad964c1246eef17e9b820948b8c1c7e6f994a64bf67f9e0662dc578ab6"
+    },
+    {
+      "source": "global_amplification_and_obstructions.tex",
+      "compiled": "sections/41_global_amplification_and_obstructions.tex",
+      "original_sha256": "a77b95016d934d266075bf17644df10330d53e33addfaa3d2d85d96d8a395901"
+    },
+    {
+      "source": "global_followup/weighted_transport_duality_and_obstruction.tex",
+      "compiled": "sections/42_weighted_transport_duality_and_obstruction.tex",
+      "original_sha256": "af3757b6c363ce771f1a06d71529d628f59f96388ba9248d0dc0f5841f64eb92"
+    },
+    {
+      "source": "legacy/core_basis.tex",
+      "compiled": "sections/43_core_basis.tex",
+      "original_sha256": "0636108affad8d765d260c12f0b758a5467ccf785ecf682f7e3e29249f73e75c"
+    },
+    {
+      "source": "legacy/even_budget.tex",
+      "compiled": "sections/44_even_budget.tex",
+      "original_sha256": "942cbd086aea85491ef19609aadcbd7e5bb04af3cb63f3f33bccc951e311f936"
+    },
+    {
+      "source": "legacy/core_six.tex",
+      "compiled": "sections/45_core_six.tex",
+      "original_sha256": "6cc5027c34d4b4cc9814c30977d68edbd2f217b57035f63206e6c0798a4c77cb"
+    },
+    {
+      "source": "legacy/predecessor.tex",
+      "compiled": "sections/46_predecessor.tex",
+      "original_sha256": "7c20764749a3d054bc200c7f48b96e2429a10db3a783f8928ae24188b18182d3"
+    },
+    {
+      "source": "legacy/odd_transfer.tex",
+      "compiled": "sections/47_odd_transfer.tex",
+      "original_sha256": "d1c31b0be12281dd4077415b640a04055f988e9bd8611136efd0dbf6932f2a43"
+    },
+    {
+      "source": "legacy/three_disjoint.tex",
+      "compiled": "sections/48_three_disjoint.tex",
+      "original_sha256": "83f45f224c0d577eee6efb4f8b17b9700927e4347c5062764263e6c0a20f0662"
+    },
+    {
+      "source": "legacy/odd_capacity.tex",
+      "compiled": "sections/49_odd_capacity.tex",
+      "original_sha256": "83c4ddc609fd70519f3e482c157aed21f7382095ff279f952ca002259e440119"
+    },
+    {
+      "source": "legacy/basins.tex",
+      "compiled": "sections/50_basins.tex",
+      "original_sha256": "2afe0c008cb6d58222a91d8c649a0ec3bc5fd4f91b2a482f3ca75a94a6491f29"
+    },
+    {
+      "source": "legacy/heavy_capacity.tex",
+      "compiled": "sections/51_heavy_capacity.tex",
+      "original_sha256": "a1b5b1b9247e624636307779eb52e588ed0bbce3367aa88a861d6178932832d0"
+    },
+    {
+      "source": "legacy/restricted_capacity.tex",
+      "compiled": "sections/52_restricted_capacity.tex",
+      "original_sha256": "580b4f1031575844ec6344c0d24c0017bcb7774b1198ca92b077a13c02d94ffe"
+    }
+  ],
+  "scope": "Mechanical formatting and citation-key normalization only; original sources preserved."
+}

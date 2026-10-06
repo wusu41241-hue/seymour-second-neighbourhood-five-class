@@ -1,0 +1,120 @@
+\section{Exact certificates and reproducibility}\label{sec:paper-verification}
+The computational component proves a finite statement about cores. It does
+not enumerate all original graphs covered by Theorem~\ref{thm:core-five};
+their total order is unbounded. The mathematical transfer theorem passes
+from the finite certificates to those graphs.
+
+\subsection{Enumeration and the verification boundary}
+For a labelled core on $k$ vertices, unordered pairs are listed in
+lexicographic order. A ternary digit encodes absence, the lower-to-higher
+direction, or its reverse, with the first pair at the least significant digit.
+This enumerates all $3^{\binom{k}{2}}$ labelled oriented cores.
+For each core $H$, the certificate is a nonzero nonnegative integer vector $w$.
+For every set $P$ with a common outneighbour, the verifier checks
+\[
+ \sum_{i\notin P:\ N_H^+(i)\cap P\ne\varnothing}w_i
+       \ge\sum_{i\in P}w_i.
+\]
+Dividing by $\sum_iw_i$ gives the normalized vector used in the proof.
+
+\begin{table}[htbp]
+\centering
+\caption{Complete incoming-pattern certificate verification.}
+\label{tab:paper-certificate-counts}
+\begin{tabular}{@{}rrrr@{}}
+\toprule
+Core order & Labelled cores & Nonempty inequalities & Largest weight\\
+\midrule
+1 & 1 & 0 & 1\\
+2 & 3 & 2 & 1\\
+3 & 27 & 54 & 1\\
+4 & 729 & 3\,078 & 1\\
+5 & 59\,049 & 459\,270 & 3\\
+\midrule
+Total & 59\,809 & 462\,404 & 3\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Including one empty pattern for each core gives $522\,213$ checks.
+At order five, $59\,009$ certificates are uniform on their support;
+the other forty use weights from $\{0,1,3\}$. All forty corresponding
+cores are tournaments, also covered by the analytic density argument.
+An exact rational solver discovered these forty vectors, but all stored
+vectors are checked directly with integer arithmetic. Solver correctness
+is not part of the verifier's trusted boundary.
+
+The independently organized replays reconstruct adjacency and external
+predecessor sets from the ternary code. One uses Boolean matrices rather
+than the generator's incoming-bitmask unions. They check coverage, vector
+length, nonnegativity, nonzero mass, and every permitted pattern. Integer
+sums in the supplied tables are at most nine; the principal replay also
+checks that all sums are safe integers.
+
+\begin{lstlisting}[caption={Independent certificate verification, pseudocode.},label={alg:paper-verifier}]
+for k = 1,...,5:
+    assert table[k].length == 3^(k*(k-1)/2)
+    for code = 0,...,table[k].length-1:
+        H = decode_oriented_graph(k, code)
+        w = table[k][code]
+        assert w is a nonzero vector of nonnegative integers
+        for P subset of V(H):
+            if some j receives an arc from every vertex of P:
+                R = {i outside P: i points to some vertex of P}
+                assert sum(w[i] for i in R) >= sum(w[i] for i in P)
+\end{lstlisting}
+
+The supplied verification directory can be checked with standard Node.js,
+without a solver, network access or third-party packages:
+\begin{lstlisting}
+node verify_small_core_certificates.js
+node verify_core_pattern_certificates_independent.js
+\end{lstlisting}
+The SHA-256 checksum of the order-five table is
+\begin{center}\small\ttfamily
+c9fe139b76a3866a7bf17e408d12f344823fa\linebreak
+1a54fca306fd656139e601bfd5a
+\end{center}
+The line break is typographical. Reproducing the generator is unnecessary
+to validate a supplied certificate.
+
+\subsection{Controls for the completion arguments}
+Finite graph checks supplement the closure proofs but do not establish
+their universal quantifiers. The following controls test their scope.
+In an adjacency mask, bit $j$ of the $i$th integer means $i\to j$.
+
+The six-vertex graph $(4,4,24,32,32,3)$ has weak closure
+$(6,4,24,48,32,3)$ and a maximizing completion
+$(30,28,56,48,32,3)$. Its unique median is $(0,1,2,3,4,5)$.
+At feed $5$, the original gap is one, the completed gap is minus one,
+$t_D=2$, and the terminal missing degree is one. Thus the general $+1$
+surplus is attained in the negative-gap branch. Good slack is one, so
+equality sedimentation cannot move the order.
+
+The eleven-vertex original masks
+\[
+ (6,8,8,17,1793,80,144,48,33,65,129)
+\]
+give terminal partners $\{5,6,7\}$ at feed $0$, with original cycle
+$5\to6\to7\to5$. Exact subset dynamic programming verifies partial
+median score $23$ and maximizing tournament score $49$ for the reference
+$(8,9,10,5,6,7,1,2,3,4,0)$. Here
+$g_D(0)=1$, $g_T(0)=0$ and $t_D(0)=4$, attaining the zero-gap $+3$ bound.
+Both controls contain Seymour vertices and are not counterexamples to
+the conjecture or to the MIN residual estimates.
+
+A ten-vertex control also satisfies all outgoing-star deletion conditions
+at one feed, with local residual two, yet has stable negative completed
+gap. Its original first boundary and external second boundary both have
+size three, violating the global boundary lemma. This distinguishes
+single-feed criticality from full original arc-set minimality. Its explicit
+data and the exact-score programs are supplied with the supplementary records.
+
+\subsection{Other computations and their scope}
+Copying and closure programs test identities on arbitrary graphs, including
+several changed rows and shared heads. They do not simulate a hypothetical
+all-deficient minimal graph. Searches that fail to find a graph or a difficult
+branch are not proofs of nonexistence. Earlier minimum-degree-seven branch
+logs are archived as local computational records and are not used to infer
+a complete minimum-degree theorem. The exact five-core theorem has the
+exhaustive finite coverage specified above, independently of those searches.

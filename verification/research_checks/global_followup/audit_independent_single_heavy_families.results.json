@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "counts": {
+    "graphs": 61009,
+    "eligibleVertices": 259556,
+    "heavyActualEligibleVertices": 4347,
+    "firstFamilyOriginalPositiveFeeds": 0,
+    "secondFamilyRuns": 156229,
+    "secondFamilyHeavyRuns": 3853,
+    "secondFamilyPositiveFeeds": 0
+  },
+  "activeControl": {
+    "out": [
+      8,
+      4,
+      1,
+      0
+    ],
+    "u": 0,
+    "firstFeed": 3,
+    "firstMedian": [
+      1,
+      2,
+      0,
+      3
+    ],
+    "firstT": [
+      8,
+      13,
+      9,
+      0
+    ],
+    "secondFeed": 3,
+    "secondMedian": [
+      1,
+      2,
+      0,
+      3
+    ],
+    "secondT": [
+      8,
+      13,
+      9,
+      0
+    ],
+    "originalGaps": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  "scope": "Every oriented graph n=2..5; 1200 deterministic n=6/7 samples; known six-vertex arc-weighted-feed obstruction. Test applies to arbitrary graphs, not presumed minimal/all-deficient. Enumerates all orders. Does not prove SNC or existence of a counterexample."
+}

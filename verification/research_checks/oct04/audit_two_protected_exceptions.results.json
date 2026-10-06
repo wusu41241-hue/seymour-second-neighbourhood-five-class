@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "counts": {
+    "graphs5": 59049,
+    "sampledGraphs": 100000,
+    "twoSourceGraphs": 19525,
+    "positiveEndpointCompletions": 31658,
+    "emptyFarInPersistence": 396,
+    "noAddedFirstPersistence": 10104,
+    "packetPersistenceCases": 272,
+    "nonemptyDeletedBundleCases": 16,
+    "singletonFarInCases": 18,
+    "casesWithTwoPlusAddedFirst": 182,
+    "casesWithOverlapInUnion": 0,
+    "wholeNonSourceProtectionCases": 6,
+    "targetedControls": 3
+  },
+  "examples": {
+    "packet": {
+      "out": [
+        36,
+        500,
+        1552,
+        260,
+        584,
+        284,
+        1444,
+        829,
+        1044,
+        1282,
+        18
+      ],
+      "u": 9,
+      "v": 5,
+      "p": 3,
+      "s": 0,
+      "k": 0,
+      "h": 2,
+      "eta": 1,
+      "lambda": 1,
+      "originalGap": 1,
+      "completedGap": 4
+    },
+    "targeted": {
+      "out": [
+        70,
+        192,
+        18,
+        480,
+        130,
+        83,
+        16,
+        289,
+        83
+      ],
+      "u": 3,
+      "v": 0,
+      "p": 2,
+      "h": 1,
+      "originalGap": 1,
+      "completedGap": 3
+    }
+  },
+  "seed": "0x3e24026",
+  "limits": [
+    "The program checks local prerequisites explicitly; it does not infer them from arbitrary numerical eta values.",
+    "The general theorem's outside-vertex protection hypothesis is used in its proof to derive a local missing-partner condition; tests can also supply that condition directly.",
+    "No finite experiment proves the all-order minimal-counterexample theorem.",
+    "The verifier is self-contained and imports no Pro code."
+  ]
+}

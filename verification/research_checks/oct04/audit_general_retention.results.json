@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "counts": {
+    "allFiveGraphs": 59049,
+    "sampledGraphs": 20000,
+    "goodRetentions": 1541260,
+    "goodRetentionsWithFourPlusSources": 414308,
+    "goodRetentionsWithProtectedFarHeads": 311894,
+    "badRetentionsWithUnitReverseWitness": 45824,
+    "badRetentionsWithFourPlusSources": 24380,
+    "newSecondHeadsCases": 783006
+  },
+  "control": {
+    "out": [
+      18,
+      4,
+      0,
+      1,
+      0
+    ],
+    "f": 2,
+    "q": 0,
+    "unitWitness": 3,
+    "sourceCount": 2,
+    "secondBefore": 0,
+    "secondAfter": 18
+  },
+  "seed": "0x10502026",
+  "scope": "Two canonical linear extensions and two bad-edge orientation tie choices per graph; all outgoing added good arcs and all added bad arcs with at least one unit-unprotected inverse witness are tested. No graph is assumed to be an all-deficient minimal counterexample."
+}

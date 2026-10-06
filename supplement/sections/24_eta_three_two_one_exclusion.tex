@@ -1,0 +1,461 @@
+\section{Multiple retained cross-witness arcs and allocations $(m,2,1)$}
+\label{sec:three-two-one-exclusion}
+
+All neighborhoods, far sets, protection, and convenience refer to the
+original oriented graph $D$.  Write $g(x)=d_D^+(x)-d_D^{++}(x)$,
+$P(x)=\{p:x\in U_D(p)\}$, and
+$\mathcal F(x)=\{y\in U_D(x):y\text{ is not protected from }x\}$.
+Let $t(x)=|\mathcal F(x)|$ and let $\mathcal B$ be the cross-witness
+graph.  Opposite failure sources of a bad missing pair are joined in
+$\mathcal B$; every such edge is an original missing pair.
+
+\begin{lemma}[A multiple-retention source criterion]
+\label{lem:multiple-retained-source-criterion}
+Let $Z$ cover the directional failure sources of all bad missing pairs,
+and suppose every edge of $\mathcal B_Z$ is good.  Orient its edges by
+canonical convenient orientations, and put
+$S=\{z:d_{\mathcal B_Z}^+(z)=0\}$.  If
+\[
+ t(z)\le g(z)+2d_{\mathcal B_Z}^+(z)-1
+ \qquad(z\in Z\setminus S),
+\]
+then $D$ has a Seymour vertex.
+\end{lemma}
+\begin{proof}
+Orient bad pairs to avoid failure sources in $S$.  This is possible:
+opposite sources in $S$ would form a cross-witness edge with an
+outgoing endpoint, contradicting its definition.  Complete all good
+pairs canonically and choose a median feed $f$ in the resulting
+tournament.  If $f\notin Z\setminus S$, reverse every added arc
+leaving $f$; its feed SNP transfers to $D$, by the usual no-failure
+argument.
+
+Otherwise retain every outgoing cross-witness arc at $f$ and reverse
+its other added outgoing arcs.  Put $J=N_{\mathcal B_Z}^+(f)$ and
+$r=|J|\ge1$.  These reversals are all of backward arcs in the chosen
+median order, which remains median.  Each retained arc is a canonical
+good direction.  Canonical protected-target compatibility, applied
+separately to every $q\in J$, prevents an original or added arc
+$q\to y$ when $y$ is protected from $f$.  Original first intermediates
+can introduce only unprotected far heads.  Hence
+\[
+ N_{T'}^{++}(f)\subseteq
+ (N_D^{++}(f)\setminus J)\cup
+ (\mathcal F(f)\setminus J).
+\]
+Every missing partner in $J$ belongs to exactly one of the disjoint
+sets $N_D^{++}(f)$ and $\mathcal F(f)$.  Thus
+\[
+ d_{T'}^+(f)-d_{T'}^{++}(f)\ge g(f)+2r-t(f)\ge1,
+\]
+contradicting the median-feed SNP.  Paths between retained first
+neighbors cause no difficulty: all their heads are first neighbors
+and are explicitly removed from the second-neighborhood envelope.
+\end{proof}
+
+\subsection{A unit source in a three-source triangle}
+
+For the remainder, assume that $D$ is strongly connected,
+all-deficient, and minimal under deletion of arbitrary nonempty arc
+sets on its fixed vertex set.  Its positive residual support is
+$Z=\{u,v,w\}$ with
+\[
+ \eta(u)=m\ge1,\qquad \eta(v)=2,\qquad \eta(w)=1.
+\]
+All directional failure sources belong to $Z$, and all missing pairs
+inside $Z$ are good.  In particular, every edge of $\mathcal B$ is
+good.  A unit source satisfies $t(w)\le1$; an active unit source has
+$\mathcal F(w)=\{a\}$ for some $a$.
+
+\begin{lemma}[The unit head in a witness triangle]
+\label{lem:unit-head-witness-triangle}
+If $\mathcal B$ is a triangle, then $t(v)\le2$.  Its active unit
+vertex has a unique unprotected head $a$, and
+\[
+ u\to a,\qquad v\to a,\qquad
+ w\notin P(u)\cup P(v).
+\]
+Every bad missing pair having $w$ as a directional failure source
+has one directional failure set exactly $\{w\}$.
+\end{lemma}
+\begin{proof}
+The residual-two witness-degree lemma gives $t(v)\le2$, since $v$
+has two cross-witness partners.  An opposite witness to $w$ points
+originally to its sole unprotected head $a$; both $u$ and $v$ are
+such opposite witnesses.  Consequently $a\ne u,v$.  As $wu,wv$ are
+missing, neither $u$ nor $v$ can be a protected far target of $w$,
+and neither equals its sole unprotected far target.  Thus $w$ reaches
+each of them in exactly two steps, proving the displayed exclusion
+from their far-in sets.
+
+If $w$ fails one direction of a bad pair, its failure head is $a$.
+Neither $u$ nor $v$ can fail this same direction, since both point
+originally to $a$.  These are all other possible sources, so the
+directional failure set containing $w$ is precisely $\{w\}$.
+\end{proof}
+
+\begin{lemma}[Nonexceptional triangle partners]
+\label{lem:triangle-partner-canonical-direction}
+Assume the triangle situation and $P(u)\ne\varnothing$.  In the
+target-packet notation, let $B_u$ be the exceptional missing-partner
+set.  If $w\notin B_u$, then $u\to w$ is the unique convenient
+orientation.  If $v\notin B_u$, then $u\to v$ is convenient;
+moreover, if $v\to u$ is not convenient, some $p\in P(u)$ points
+originally to $v$.
+\end{lemma}
+\begin{proof}
+A nonexceptional missing partner belongs to $P(u)\cup\partial P(u)$.
+The preceding lemma excludes $w$ from $P(u)$, so $w\in\partial P(u)$.
+A predecessor in $P(u)$ makes $w\to u$ nonconvenient.  Since $uw$
+is good, its only convenient direction is $u\to w$.
+
+If $v\notin P(u)$, the identical boundary argument makes $u\to v$
+the unique convenient direction.  Suppose instead $v\in P(u)$,
+so $u$ is far from $v$.  To prove convenience of $u\to v$, suppose
+$p\in P(v)$ points to $u$.  The source $p$ cannot be $u$ or $v$,
+and it cannot be $w$ because $w\notin P(v)$.  Therefore $\eta(p)=0$.
+Protection of the far target $v$ from $p$ then gives $v\to p$,
+which together with $p\to u$ contradicts $u\in U_D(v)$.
+There is no such predecessor $p$, exactly the convenience condition
+for $u\to v$.  Finally, nonconvenience of $v\to u$ is equivalent
+to the asserted predecessor in $P(u)$.
+\end{proof}
+
+\subsection{The non-triangular witness cases}
+
+\begin{lemma}[A unit-centered star with one residual-two leaf]
+\label{lem:unit-centered-star-arbitrary-heavy}
+More generally, let the three positive residuals be $(m,2,1)$ with
+any $m\ge1$.  If $\mathcal B$ is the two-edge star centered at the
+unit vertex, then $D$ cannot exist.
+\end{lemma}
+\begin{proof}
+Call the heavy leaf $u$, the residual-two leaf $v$, and the unit
+center $w$.  Select every bad direction with only $w$ as its failure
+source.  If $t(v)>2$, the residual-two leaf-completion lemma keeps
+$v$ deficient and adds the good first arc $w\to v$.  The unit budget
+then keeps $w$ deficient as well; all zero-residual vertices remain
+deficient.  Only $u$ could be Seymour, contrary to the two-Seymour
+vertex theorem for sink-free tournaments.
+
+Assume $t(v)\le2$.  Choose a canonical reference extension placing
+all good missing partners of $u$ before $u$.  The active unit has
+unique unprotected head $a$, with $u\to a$ and $a\ne u$.  Thus
+$w\notin P(u)$, because $wu$ is missing and $u$ is not its unique
+far head.  Every missing pair incident to $u$ is good: a bad such
+pair would require both other sources $v,w$, whereas $w$ can witness
+neither direction (it neither points to $u$ nor has $u$ as a far
+head).  If $P(u)=\varnothing$, all its missing partners are directed
+inward and its gap is unchanged.
+
+Otherwise use the packet $E,L,B_u,k,s$ for $u$, with
+\[
+ |L|\le\lambda=
+ \begin{cases}\eta(u)-2k,&s=0,\\
+ \eta(u)-g(u)-2k,&s>0.\end{cases}
+\]
+Every added first neighbor $r$ has a predecessor in $P(u)$ and is
+nonexceptional.  That predecessor is not $w$.  For a far head outside
+$L$, an original $r\to y$ is excluded by the partner budget; an added
+good direction is excluded by that predecessor; and an added bad
+direction would fail at a source other than the selected $w$.
+Therefore, with $J=N_T^+(u)\setminus N_D^+(u)$ and $h=|J|$,
+\[
+ N_T^{++}(u)\subseteq (N_D^{++}(u)\cup L)\setminus J,
+ \qquad J\subseteq N_D^{++}(u)\cup L.
+\]
+All zero-residual nonexceptional partners belong to $\partial P(u)$,
+as does $w$ when nonexceptional.  These are directed outward from
+$u$.  Only $v$ may be an additional inward nonexceptional partner,
+so $h\ge\mu(u)-k-1$.  For $h>0$ this gives
+\[
+ g_T(u)\ge g(u)+2h-\lambda\ge
+ \begin{cases}|P(u)|-1,&s=0,\\
+ |P(u)|+g(u)-1,&s>0.\end{cases}
+\]
+For $h=0$ its original neighborhoods are unchanged.  Thus $g_T(u)\ge0$.
+The nonselected $v$ remains strictly deficient because $t(v)\le2$;
+$w$ has $g_T(w)\ge g(w)-1\ge0$; and every other vertex has positive
+gap.  The zero-gap set has at most two vertices, contradicting the
+zero-set theorem for a sink-free tournament with all gaps nonnegative.
+\end{proof}
+
+\begin{lemma}[A residual-two-centered star with an arbitrary heavy leaf]
+\label{lem:two-centered-star-three-two-one}
+The two-edge star centered at $v$ is impossible for the allocation
+$(m,2,1)$, regardless of the positive value $m$.
+\end{lemma}
+\begin{proof}
+Write its center as $c=v$, its arbitrary-residual leaf as $u$, and its
+unit leaf as $w$.  The witness-degree lemma gives $t(c)\le2$.  Orient
+all bad pairs with $c$ as their sole selected failure source, and use
+a reference extension placing all good missing partners of $u$ before
+$u$.  All zero-residual vertices and the nonselected unit $w$ remain
+deficient.  If $c$ has an added first neighbor, then
+$g_T(c)\ge g(c)+2-t(c)>0$, leaving only $u$ as a possible Seymour
+vertex.  Assume, therefore, $K_c=\varnothing$.
+
+The good missing pair $cu$ must be directed $u\to c$.  The reference
+choice then means $c\to u$ is nonconvenient; in particular some
+$p_0\in P(u)$ points to $c$, and $c$ is nonexceptional.
+If $P(u)=\varnothing$ this is already impossible.  Apply the packet
+notation to $u$.
+
+An added first neighbor of $u$ cannot be bad, since its chosen
+direction would need the nonexistent original arc $c\to u$.
+Every added first neighbor has a predecessor $p\in P(u)$ by the
+reference choice.  Outside $L$, original second arcs from such
+neighbors and added good second arcs are excluded as before.
+An added bad second arc is also excluded unless its predecessor is
+$p=c$.  In that exception $c\in P(u)$, and the new far head is a
+member of $\mathcal F(c)\setminus\{u\}$: the missing target $u$
+itself is already unprotected from $c$.  Thus the union of additional
+heads outside $L$ has size at most one.
+
+There is at most one bad missing pair incident to $u$.  Indeed its
+two witnesses must be $c,w$; the selected inward direction must fail
+at $c$, and the opposite direction at $w$.  If $a$ is the unit's
+unique unprotected head, that pair is $ua$, requires $c\in P(u)$,
+and has $a$ nonexceptional.  Moreover $a\notin\{c,u,w\}$.
+Every other nonexceptional missing partner is directed outward:
+zero-residual partners cannot lie in $P(u)$; a missing partner $w$
+cannot lie there either, since $c\to a$ and $cu$ is missing imply
+$a\ne u$; and $c$ is outward by $K_c=\varnothing$.
+Consequently $h\ge\mu(u)-k$ if $ua$ is not bad, and
+$h\ge\mu(u)-k-1$ otherwise.
+
+In the former case the packet bound, including the possible one
+extra head, gives $g_T(u)\ge|P(u)|$ for $s=0$, and a stronger bound
+for $s>0$.  Thus $u$ is deficient.  In the latter case $c\in P(u)$,
+and $p_0\ne c$ makes $p=|P(u)|\ge2$.  In fact there is no extra
+far head outside $L$ in this latter case.  To see this, a selected
+bad second arc $r\to y$ through an added first neighbor $r\in K_u$
+has sole selected failure source $c$.  Its opposite witness cannot
+be $u$: both $ur$ is originally missing and $y$ is originally far
+from $u$, so $u$ points originally to neither endpoint.  Hence its
+opposite witness must be $w$, whose unique unprotected head is $a$.
+This forces $r=a$.  But the bad incident pair $ua$ was directed
+$a\to u$, so $a\notin K_u$, a contradiction.  We therefore have
+\[
+ g_T(u)\ge
+ \begin{cases}p-1,&s=0,\\p+g(u)-1,&s>0,\end{cases}
+\]
+and both are positive.  No numerical upper bound on $m$ has been
+used in this argument.
+
+Thus, when $K_c=\varnothing$, every vertex except possibly $c$ is
+deficient.  When $K_c\ne\varnothing$, every vertex except possibly
+$u$ is deficient.  In each case this is one fixed sink-free completed
+tournament with at most one Seymour vertex, a contradiction.
+\end{proof}
+
+\subsection{The triangle at arbitrary heavy residual}
+
+\begin{lemma}[Good incident pairs and good keeper--far pairs]
+\label{lem:triangle-keeper-pairs-good}
+In the triangle situation every missing pair incident to $u,v,w$ is
+good.  Moreover, if $r$ is a missing partner of $u$ and
+$y\in U_D(u)$, then any missing pair $ry$ is good.
+\end{lemma}
+\begin{proof}
+Let $a$ be the unit's sole unprotected head.  We have $u\to a$,
+$v\to a$, and $uw,vw$ missing.  A bad missing pair incident to $u$
+would need the two failure sources $v,w$.  But $w$ can fail neither
+direction: it does not originally point to $u$, and $u$ is not
+far from $w$.  The latter follows because $u\ne a$ and $uw$ is
+missing.  The same argument works for $v$.  A bad pair incident to
+$w$ would need $u,v$; the direction with tail $w$ has no possible
+failure source, since neither $u$ nor $v$ points originally to $w$.
+All three incident-pair assertions follow.
+
+Now $r,y\ne a$, since $u\to a$ is original whereas $r$ is missing
+from $u$ and $y$ is far from $u$.  The vertex $u$ points originally
+to neither endpoint of $ry$, so cannot witness either direction.
+If $ry$ were bad, its two opposite sources would have to be $v,w$.
+Any failure from $w$ on a bad pair has its head equal to $a$,
+whereas neither endpoint is $a$.  This is impossible.
+\end{proof}
+
+\begin{theorem}\label{thm:no-three-two-one}
+A strongly connected all-deficient oriented graph minimal under
+arbitrary nonempty arc-set deletion cannot have precisely three
+positive residuals $(m,2,1)$, for any positive integer $m$.
+In particular this excludes $(3,2,1)$ in residual six and
+$(4,2,1)$ in residual seven in all orders.
+\end{theorem}
+\begin{proof}
+The cross-witness graph is nonempty.  If it has a single edge incident
+to the unit vertex, there are only two actual failure sources, one
+unit, and the existing two-source theorem applies.  If its single
+edge joins $u,v$, select all bad directions with failure source $u$
+and apply the residual-two leaf-completion lemma to $v$; the
+nonselected unit and all other vertices remain deficient.  The same
+argument works for the two-edge star centered at $u$.  A star centered
+at $w$ is excluded by Lemma~\ref{lem:unit-centered-star-arbitrary-heavy},
+and a star centered at $v$ by
+Lemma~\ref{lem:two-centered-star-three-two-one}.
+
+It remains that $\mathcal B$ is a triangle.  By
+Lemma~\ref{lem:unit-head-witness-triangle}, $t(v)\le2$ and $t(w)\le1$.
+Use one canonical reference extension in which every original
+missing partner of $u$ precedes $u$; every such pair is good by
+Lemma~\ref{lem:triangle-keeper-pairs-good}.
+This simultaneous extension exists because every missing partner
+is incomparable with $u$ in the protected partial order: any
+protected chain would force an original arc.  Adding all precedence
+constraints cannot create a cycle.
+
+If $P(u)=\varnothing$, all incident directions into $u$ are
+convenient, and the reference choice directs both cross-witness
+edges into $u$.  It is the sole cross-witness sink.  The ordinary
+cross-witness transfer uses only the budgets at $v,w$ and excludes
+this case.  Assume henceforth $P=P(u)\ne\varnothing$.
+
+Take the packet notation for $u$:
+\[
+ B_u=H\cap\mathcal M(u),\quad k=|B_u|,\quad
+ E=(\mathcal M(u)\setminus B_u)\,\dot\cup\,\partial^2P,\quad
+ L=E\setminus N_{\widehat D}^{++}(u).
+\]
+Its general head budget is
+\[
+ |L|\le\lambda=
+ \begin{cases}m-2k,&s=0,\\m-g(u)-2k,&s>0.\end{cases}
+\]
+There is no bound on $m$, $k$, or $t(u)$ beyond these established
+packet facts.
+
+We first choose bad directions so that every selected failure head
+at $u$ belongs to $L$, while no direction fails at a cross-witness
+sink.  Only membership of $v,w$ in $B_u$ matters, not its total size.
+
+If neither $v$ nor $w$ is exceptional, orient bad pairs to avoid the
+canonical cross-witness sinks.  Every opposite witness of a selected
+failure at $u$ is a nonexceptional missing partner, so its head lies
+in $L$ by the partner budget.
+
+If $v$ is exceptional but $w$ is not, the canonical directions are
+$v\to u$ and $u\to w$.  The latter is unique convenient because
+$w\notin P(u)$, so $w$ is a nonexceptional boundary partner.
+The only possible cross-witness sink is $w$.
+For every bad pair having $w$ as a source choose the direction
+avoiding $w$; the directional failure set containing $w$ is exactly
+$\{w\}$.  For every other bad pair its two failure sets are
+$\{u\},\{v\}$; choose the one failing at $v$.
+These choices avoid $w$, and every selected failure at $u$ has
+the nonexceptional opposite witness $w$, with its head in $L$.
+
+If $w$ is exceptional but $v$ is not, the canonical direction is
+$w\to u$.  If $v\to u$ is convenient, the reference choice also
+selects it.  Then $u$ is the sole cross-witness sink, and the ordinary
+cross-witness transfer already excludes the graph.
+Otherwise the canonical direction is $u\to v$, and the only
+possible cross-witness sink is $v$.  For every bad pair having $w$
+as a source choose the direction whose failure set is $\{w\}$.
+For every other bad pair choose the direction failing at $u$
+rather than $v$.  These choices avoid $v$, and every selected
+failure at $u$ has the nonexceptional opposite witness $v$,
+with its head in $L$.
+
+If both $v,w$ are exceptional, both canonical cross-witness arcs
+point into $u$.  Once again $u$ is the sole sink and the ordinary
+cross-witness transfer excludes the graph.  Hence it suffices to
+consider the stated constructions in the other cases.
+Let $T$ be their one fixed completed tournament.
+
+Put $J=N_T^+(u)\setminus N_D^+(u)$ and $h=|J|$.
+Every member $r$ of $J$ is good and nonexceptional.  Since all
+partners precede $u$ in the reference extension, the incoming
+direction $r\to u$ must be nonconvenient; therefore some
+$p\in P$ points originally to $r$.
+We claim the simultaneous envelope
+\[
+ N_T^{++}(u)\subseteq (N_D^{++}(u)\cup L)\setminus J,
+ \qquad J\subseteq N_D^{++}(u)\cup L.
+ \tag{T21}\label{eq:three-source-triangle-shared-envelope}
+\]
+An original first intermediate introduces a far head only through
+a chosen bad direction failing at $u$, and all such heads lie in $L$.
+For an added first intermediate $r\in J$, an original outgoing
+far head likewise lies in $L$ by the partner budget.  Consider an
+original far head $y\notin L$ with $ry$ missing.  This pair is good
+by Lemma~\ref{lem:triangle-keeper-pairs-good}.
+Every vertex reachable from $P$ within two steps belongs to
+$P\cup\partial P\cup\partial^2P$, and any member of this union
+originally far from $u$ lies in $L$: it is in $E$ and cannot gain
+a path after deleting arcs.  Thus $y$ is far from the predecessor
+$p$, making $r\to y$ nonconvenient.  Its unique convenient direction
+is $y\to r$.  This prevents all new far heads outside $L$.
+Finally $J\subseteq E$, and any member of $E$ reached in
+$\widehat D$ was already an exact second neighbor of $u$ in $D$,
+because it was originally missing.  This proves the second inclusion.
+
+A zero-residual missing partner cannot lie in $P$: protection of
+its far target $u$ would force the forbidden original arc $u\to r$.
+Every nonexceptional such partner lies in $\partial P$ and is
+directed outward from $u$.  The same is true of the unit $w$ when
+nonexceptional, since $w\notin P(u)$.  Only $v$ can be an extra
+inward nonexceptional partner.  Consequently
+\[
+ h\ge\mu(u)-k-1.
+\]
+Let $p=|P|$.  Count the envelope in
+\eqref{eq:three-source-triangle-shared-envelope}, noting that all
+$h$ vertices are removed from the union even if $L$ overlaps the
+original second neighborhood.  Using
+$p=2\mu(u)+g(u)-1-m$, we obtain
+\[
+ g_T(u)\ge g(u)+2h-\lambda\ge
+ \begin{cases}p-1,&s=0,\\p+g(u)-1,&s>0,\end{cases}
+ \qquad g_T(u)\ge0.
+ \tag{T22}\label{eq:three-source-triangle-nonnegative}
+\]
+This bound also applies when $h=0$; we do not assume that an empty
+added-first set alone prevents chosen failures at $u$.
+
+We now show that every global median order of this same $T$ must
+end at $u$.  A feed outside the nonsink source set transfers its
+SNP to $D$ after reversing all added outgoing arcs, since the bad
+directions avoid cross-witness sinks.  This contradicts all-deficiency.
+A nonsink feed $v$ or $w$ is contradicted by retaining one outgoing
+canonical good cross-witness arc and using $t(v)\le2,t(w)\le1$.
+The backward-arc reversal preserves the global median order; the
+retained-arc argument accounts for all protected targets.  Thus no
+vertex other than $u$ is a global median feed of $T$.
+
+Choose a global median order $L_0$ of $T$, ending at $u$.
+The feed SNP and \eqref{eq:three-source-triangle-nonnegative} force
+$d_T^+(u)=d_T^{++}(u)$.  The strong Havet--Thomasse feed theorem
+\cite[Theorem~1 and its proof]{HavetThomasse2000} gives
+\[
+ |N_T^+(u)|\le |G_{L_0}|\le |N_T^{++}(u)|,
+\]
+so these quantities are equal.  Their global sedimentation lemma
+\cite[Lemma~1]{HavetThomasse2000} now yields a global median order
+\[
+ \operatorname{Sed}(L_0)=
+ (\text{bad incoming vertices},\,u,\,N_T^+(u)\cup G_{L_0}),
+\]
+with the displayed groups preserving their internal order.
+Because $d_D^+(u)>0$, the last group is nonempty and its last vertex
+is not $u$.  This contradicts the conclusion that every global median
+order of the fixed $T$ ends at $u$.
+
+All three-vertex witness graphs are exhausted.  Hence no allocation
+$(m,2,1)$ is possible for any positive $m$.
+\end{proof}
+
+\paragraph{Scope and audit notes.}
+The multiple-retention lemma is a graph-level transfer criterion,
+not restricted to residual six.  Every witness case, including the
+triangle, now holds for arbitrary $(m,2,1)$.  No assertion
+$\eta=m\Rightarrow t\le m$ is made.  The proof allows large $m$,
+large exceptional packets, and arbitrarily large $t(u)$; it controls
+the heads actually introduced by one chosen completion instead.
+All reference orders and bad directions are chosen once per case
+before choosing a median feed.  There is no comparison between
+independently reoriented feed completions.  The final triangle step
+uses the global median sedimentation lemma, not the false general
+claim that every sink-free tournament has two distinct median feeds.
+That primary prerequisite was checked directly in Havet--Thomasse's
+author PDF, Section~2, Theorem~1 and Lemma~1.

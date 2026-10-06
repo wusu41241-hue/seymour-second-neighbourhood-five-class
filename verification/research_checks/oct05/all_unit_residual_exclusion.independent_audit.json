@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-05",
+  "reviewer": "/root/oct05_m_three_units",
+  "target": "all_unit_residual_exclusion.tex",
+  "reviewed_sha256": "2F3C2CCFB7B3A19AE938D58FE1C2553B84DA92C6AD88D95156A7FD2084A1DAAD",
+  "verdict": "PASS_INTERNAL_INDEPENDENT_ADVERSARIAL_REVIEW",
+  "scope": "Whole pure-unit residual exclusion in the specified strongly connected all-deficient arbitrary-arc-set-deletion-minimal class. Not full SSNC, external peer review, a novelty claim or a machine-checked infinite proof.",
+  "reviewed_foundation_files": [
+    "unit_residual_five.tex",
+    "unit_support_twelve.tex",
+    "unit_support_eighteen.tex"
+  ],
+  "critical_checks": [
+    "The dependency degree-count argument forces every tail and head into directed dependency cycles; its edge successor makes the head map surjective, hence a permutation on actual sources.",
+    "Every missing head pair is good by dependency tail/image disjointness; absence of head two-cycles makes the reverse exact-two-reachable and its direction nonconvenient by the active full packet.",
+    "An h-cycle independent in B cannot be a tournament whose every vertex has a far head; maximum-outdegree king gives the contradiction. All other missing pairs become bad by mutual exact-two reach and the active packets.",
+    "An exceptional path-component orbit permits its single equality at any prescribed leaf; parity construction was independently exhaustively checked for two through twelve components.",
+    "The closed-head-cycle module proof classifies all outsiders before deriving complete adjacency, including inactive unit vertices with only the weak missing-partner packet. It has no circular module assumption.",
+    "The one-cycle matching block is determined as a circulant: short forward arcs propagate to contradiction without meeting an antipodal missing edge; its internal first and exact second counts are both k-1.",
+    "Deleting every internal arc removes equal internal first/second counts and cannot create a second neighbor from an old internal first neighbor; outside exact second sets and all gaps are unchanged.",
+    "Forced head arcs are uniquely convenient and do not constrain the global canonical reference; all head/far predicates remain original-graph predicates in the unit completion envelope.",
+    "After orienting every component orbit, all completed tournament gaps are strictly positive, giving the standard tournament SNP contradiction without assuming two median feeds."
+  ],
+  "finite_auxiliary_checks": {
+    "audit_unit_any_path_root.js": {
+      "status": "PASS",
+      "component_counts": "2 through 12",
+      "orientations": 16376,
+      "exceptional_return_maps": 11,
+      "arbitrary_prescribed_leaf_certificates": 154
+    },
+    "audit_unit_circulant_block.js": {
+      "status": "PASS",
+      "orders": [4, 6, 8],
+      "graphs": 65601,
+      "eligible_structures": "Exactly one circulant per order; all internal gaps zero."
+    },
+    "audit_unit_closed_matching_module.js": {
+      "status": "PASS",
+      "graphs": 27054,
+      "eligible_relational_models": 16,
+      "partial_outside_models": 0,
+      "cases": [
+        {"H": 4, "outside": 1, "graphs": 81, "eligible": 2},
+        {"H": 6, "outside": 1, "graphs": 729, "eligible": 2},
+        {"H": 8, "outside": 1, "graphs": 6561, "eligible": 2},
+        {"H": 4, "outside": 2, "graphs": 19683, "eligible": 10}
+      ],
+      "checks": "Complete uniform outside adjacency; outside neighborhoods unchanged and every original gap unchanged after deleting all internal arcs."
+    }
+  },
+  "limitations": "Finite checks validate only auxiliary relation/orientation/accounting claims. The infinite theorem depends on the stated minimal-counterexample foundation and requires external mathematical scrutiny."
+}

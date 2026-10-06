@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "counts": {
+    "exhaustiveGraphs5": 59049,
+    "sampledGraphs": 12000,
+    "localEnvelopeCases": 10783,
+    "nonemptyBundleCases": 570,
+    "etaOneCases": 941,
+    "etaTwoDichotomyCases": 277,
+    "etaTwoExceptionalCases": 16,
+    "smallSourceGraphs": 66041,
+    "smallSourceBadGraphs": 11341,
+    "completions": 7398508,
+    "compatibilityChecks": 133964,
+    "inwardTransfers": 41328414,
+    "retainedArcTransfers": 3559144,
+    "retainedTransfersWithProtectedTargets": 829762,
+    "retainedTransfersWithNewSecondHeads": 1247192,
+    "retainedFormerSecond": 1905776,
+    "retainedFormerFar": 1653368,
+    "allDeficientGraphs": 0
+  },
+  "examples": {
+    "retainedWithBad": {
+      "out": [
+        16,
+        12,
+        1,
+        0,
+        0
+      ],
+      "Z": 11,
+      "f": 3,
+      "q": 0,
+      "oldSecond": 0,
+      "unprotected": 21,
+      "newSecond": 16
+    }
+  },
+  "seed": "0x4c031026",
+  "limitations": [
+    "Not a proof of SNC or of the minimal-counterexample hypotheses.",
+    "No all-deficient counterexamples occurred; local hypotheses were checked explicitly on arbitrary graphs.",
+    "Two linear extensions and two bad-edge tie choices per eligible source cover, not all completions.",
+    "The median-feed theorem is a published dependency; this script tests set transfer at every vertex and does not enumerate median orders."
+  ]
+}

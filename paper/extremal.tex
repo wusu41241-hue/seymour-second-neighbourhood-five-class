@@ -1,0 +1,222 @@
+\section{Residual consequences in minimal counterexamples}\label{sec:paper-residuals}
+Throughout this section, unless stated otherwise, $D$ is in the MIN setting
+of Section~\ref{sec:paper-notation}. Put
+\[
+ \eta(v)=\mu(v)-1+d^{--}(v)-d^{++}(v),\qquad
+ R=\sum_v\eta(v)=2M-n.
+\]
+The last identity counts exact directed distance-two pairs by their two
+endpoints. Unlike the core certificate, the inequalities below use original
+arc-set minimality.
+
+\subsection{The original boundary and partner estimates}
+We collect the local estimates used here. Full proofs are given in the
+supplement so that the external-boundary convention is explicit.
+
+\begin{lemma}[Original deletion estimates]\label{lem:paper-packet}
+Every original gap belongs to $\{1,2\}$. If $\partial S\ne\varnothing$,
+then $|\partial^2S|<|\partial S|$. Moreover $\eta(v)\ge0$ for every $v$,
+and
+\[
+ \eta(v)=2\mu(v)+g(v)-1-|P(v)|.
+\]
+Fix $v$ with $P(v)\ne\varnothing$, and write
+\[
+ \begin{gathered}
+ C=\partial P(v),\quad X=\partial^2P(v),\quad J=N^{--}(v)\setminus C,\\
+ B=J\cap\mathcal M(v),\quad k=|B|,\quad s=|J\cap N^+(v)|.
+ \end{gathered}
+\]
+Delete the $s$ arcs from $v$ into $J$, obtaining $\widehat D$. Then
+\[
+ N_{\widehat D}^{++}(v)\subseteq
+ E=(\mathcal M(v)\setminus B)\,\dot\cup\,X,
+ \qquad L=E\setminus N_{\widehat D}^{++}(v)
+\]
+satisfies
+\begin{equation}\label{eq:paper-packet-bound}
+ |L|\le\eta(v)-2k-g(v)\ind_{\{s>0\}},\qquad
+ \bigcup_{r\in\mathcal M(v)\setminus B}(N^+(r)\cap U(v))\subseteq L.
+\end{equation}
+Every exceptional partner $r\in B$ admits the convenient direction
+$r\to v$. Residual zero gives $t(v)=0$, residual one gives $t(v)\le1$,
+and $\eta(v)=t(v)=1$ gives $P(v)\ne\varnothing$ and
+$N^{--}(v)=\partial P(v)$.
+\end{lemma}
+\begin{proof}
+The gap bound follows by deleting one outgoing arc: other first sets are
+unchanged and their second sets can only shrink, while the deleted tail's
+gap decreases by at most two. The external-boundary deletion argument is
+Lemma~\ref{S-lem:boundary}; the original target partition yields
+Theorem~\ref{S-thm:main} and the residual identity. The shared remainder
+estimate is Lemma~\ref{S-lem:partner-head-budget}; it subtracts the original
+second degree if $s=0$, and the second degree forced by minimality after the
+nonempty deletion if $s>0$. Its union bound counts distinct heads.
+Zero-residual protection and the unit bound are proved in the supplementary
+local-budget section. At residual one, a nonempty deletion gives $t=0$;
+otherwise equality forces $J$ empty. The empty-$P$ identity gives a whole
+vertex and $t=0$, proving the final assertion when $t=1$.
+\end{proof}
+
+The set $L$ concerns an original deletion. It is never recomputed in a
+closure graph and then assigned the original minimality hypothesis.
+In particular, an exceptional missing far head can lie in $X$; no inclusion
+$X\subseteq N^-(v)$ is assumed.
+
+\subsection{A residual-four threshold for zero completed gap}
+Let $S_v=\mathcal M(v)\cap U(v)$. For nonempty $P(v)$,
+\begin{equation}\label{eq:paper-missing-far}
+ |S_v|\le k+|L|\le\eta(v)-k-g(v)\ind_{\{s>0\}}.
+\end{equation}
+Indeed, a nonexceptional missing far head belongs to $E$ and cannot become
+reachable when arcs are deleted, so it lies in $L$. When $k=0$, in fact
+$\mathcal F(v)\subseteq L$. A far incoming head $y$ that is not protected
+has a predecessor $r$ not pointing to $v$. It cannot be an outneighbour of
+$v$, since that would reach $y$ in two steps. Thus it is a missing partner,
+and the union bound in \eqref{eq:paper-packet-bound} applies.
+
+\begin{theorem}[Zero-gap residual threshold]\label{thm:paper-eta-four}
+At a zero-gap feed $f$ of the weak-closure completion, let
+$m=|\mathcal M_Q(f)|$. Then
+\[
+ \eta_D(f)\ge m+1\ge4.
+\]
+If $\eta_D(f)=4$, its original packet necessarily satisfies
+\[
+ P_D(f)\ne\varnothing,\quad m=3,\quad k=s=0,\quad g_D(f)=1,
+ \quad t_D(f)=4.
+\]
+Furthermore $|P_D(f)|=2\mu_D(f)-4\ge2$,
+$N_D^{--}(f)=\partial P_D(f)$, $L=\mathcal F_D(f)$,
+and $|\partial^2P_D(f)|=|\partial P_D(f)|-1$.
+\end{theorem}
+\begin{proof}
+Theorem~\ref{thm:paper-original-cycle} gives $m\ge3$,
+$\mathcal M_Q(f)\subseteq S_f$, and $t_D(f)\ge g_D(f)+m$.
+If $P(f)$ is empty, the residual identity gives
+$\eta(f)=2\mu(f)+g(f)-1\ge2m+g(f)-1\ge m+1$.
+For nonempty $P(f)$ and $k>0$, \eqref{eq:paper-missing-far} gives
+$\eta(f)\ge m+k+g(f)\ind_{\{s>0\}}\ge m+1$.
+For $k=0$, the inclusion $\mathcal F(f)\subseteq L$ gives
+$\eta(f)\ge g(f)+m+g(f)\ind_{\{s>0\}}\ge m+1$.
+
+At residual four these bounds force $P(f)\ne\varnothing$, $m=3$,
+$s=0$ and $k\le1$. If $k=1$, all three original missing far heads are
+exactly the terminal partners, the unique exceptional partner is among
+them, and the other two already consume the bound $|L|\le2$.
+Their original induced graph has a directed cycle, hence a triangle.
+The exceptional vertex receives an original arc from a nonexceptional
+partner on this triangle. The shared head bound puts it in $L$ too,
+a contradiction. Thus $k=0$; now $g+m\le t\le4$ gives $g=1,t=4$.
+The residual identity gives the stated size of $P$. The partition gives
+$N^{--}=\partial P$, and $\mathcal F\subseteq L$, $|L|\le4$ gives
+$L=\mathcal F$. Here $\widehat D=D$ and
+$|E|=d^{++}(f)+4=\mu(f)+|\partial^2P|$; combine this with
+$\eta=\mu-1+|\partial P|-d^{++}=4$ to obtain the final equality.
+\end{proof}
+
+This threshold does not apply to strictly negative completed gaps. At strong
+Good equality the supplementary original path theorem gives a finer statement:
+if $\eta(f)=2$, every terminal partner is an original nongood second vertex;
+if $\eta(f)=3$, there is at most one terminal far partner and it receives an
+original arc from such a second partner. The unique far partner at residual
+three may be exceptional. These conclusions leave both the all-second case
+and the strictly positive Good-slack case unresolved.
+
+\subsection{Actual failure sources and the residual margin}
+For a missing direction $a\to b$, its original failure set is
+$\{x:x\to a,\ b\in U_D(x)\}$. Let $\mathcal A$ be the vertices occurring
+in the failure set of a direction on a bad missing pair. Opposite directional
+witnesses are nonadjacent. The cross-witness graph joins every such pair of
+witnesses. A missing pair is flexible if it is bad or convenient in both
+directions.
+
+\begin{theorem}[One uncontrolled actual source]\label{thm:paper-one-exception}
+In an arbitrary oriented graph, suppose some vertex $u$ has the following
+properties: every actual source in $\mathcal A\setminus\{u\}$ has $t\le1$,
+and every cross-witness pair between two such sources is flexible. Then the
+graph has a Seymour vertex. In MIN, at least two distinct actual failure
+sources have residual at least two. In particular every positive residual
+allocation $(m,1^k)$ is excluded for $m\ge2$ and finite $k$.
+\end{theorem}
+\begin{proof}
+The complete argument is Theorem~\ref{S-thm:one-exception-short-general}.
+Its first optimization uses all canonical protection-reference completions,
+maximizing the forward score and then the position of $u$. A unit-budget
+feed is balanced. An opposite witness other than $u$ makes a flexible
+incoming arc backward after sedimentation, whereas witness $u$ moves $u$
+strictly later. Thus the selected feed must be $u$, which therefore has
+no original protection successor. A separate fixed completion avoiding
+bad failures at $u$, followed by a median maximizing its position, yields
+the second contradiction. The fixed-cover argument is proved independently
+in Theorem~\ref{S-thm:protected-independent-heavy-cover}.
+
+In MIN, an actual source has positive residual; residual one has $t\le1$,
+and the unit--unit opposite-witness pair is bad. If at most one actual
+source had residual at least two, the general result would apply. The
+allocation consequence follows even when inactive residuals are unrestricted.
+\end{proof}
+
+\begin{theorem}[Parity-sensitive missing-pair margin]\label{thm:paper-residual-seven}
+Every MIN graph satisfies $R=2M-n\ge7$, with $R\ge8$ at even order.
+Every arc-set-minimal all-deficient graph, whether strong or not, satisfies
+\[
+ M\ge\left\lceil n/2\right\rceil+3+\ind_{\{n\text{ even}\}}.
+\]
+If $o$ vertices lie outside a sink strong component, the right side can be
+increased by $o$. Equality in the uniform bound implies strong connectivity.
+\end{theorem}
+\begin{proof}
+The supplementary two-support theorem gives at least three positive
+residual vertices (Corollary~\ref{S-cor:three-positive-residual-support}).
+Theorem~\ref{thm:paper-one-exception} requires two residuals at least two.
+Hence, at total residual at most six, the only possible positive partitions are
+\[
+ (2,2,1),\quad(3,2,1),\quad(2,2,2),\quad(2,2,1,1).
+\]
+The first two are excluded by the general $(m,2,1)$ theorem
+(Theorem~\ref{S-thm:no-three-two-one}); the last two by
+Theorems~\ref{S-thm:eta222-excluded} and \ref{S-thm:no-two-two-one-one}.
+These are complete graph arguments, not an enumeration of possible orders.
+Thus $R\ge7$; parity gives $R\ge8$ for even $n$.
+
+For a sink component of order $k$ with $o=n-k$, the inherited minimality
+and the outside missing-pair count in Theorem~\ref{S-thm:sink} give
+\[
+ M(D)\ge\left\lceil k/2\right\rceil+3+\ind_{\{k\text{ even}\}}
+               +\left\lceil o(k-2)/2\right\rceil.
+\]
+An all-deficient graph has minimum outdegree at least two, so $k\ge5$.
+Using $k-2\ge3$ and checking the two parities yields at least
+$\lceil n/2\rceil+o+3+\ind_{\{n\text{ even}\}}$.
+If $o>0$ this is strictly stronger than the uniform bound.
+\end{proof}
+
+Thus at $n=2\delta+3$ one has $M\ge\delta+5$, and at $n=2\delta+4$
+one has $M\ge\delta+6$. The remaining residual-seven partitions after
+these filters are
+\[
+ (3,3,1),\ (3,2,2),\ (3,2,1,1),\ (2,2,2,1),\ (2,2,1,1,1).
+\]
+Their weak-closure median feeds must have strictly negative completed gap,
+by Theorem~\ref{thm:paper-eta-four}. None of these five partitions is
+excluded by that observation alone.
+
+\subsection{An additional global constraint on a near-whole feed}
+Suppose a weak-closure feed $f$ has one original missing partner $r$.
+Terminal whole-feed exclusion leaves $r$ still missing. Absence of a weak
+$r\to f$ step supplies a current predecessor $p$ of $r$ not pointing to
+$f$. Since $f$ is adjacent to every other vertex, $f\to p$; exact feed
+neighbourhood invariance gives $r\in N_D^{++}(f)$.
+If also $P_D(f)$ is empty, each unprotected original far head $y$ must
+receive an original arc from $r$, the only possible missing-partner witness
+against protection. Put $O=N_D^+(f)$, $d=d_D^+(f)$, $g=g_D(f)$ and $t=t_D(f)$.
+Then $\mathcal F_D(f)\subseteq\partial_D^2O$. Every member of $O$ reaches
+$f$ originally within two steps, so $f\in\partial_D^2O$ as well. Therefore
+\[
+ t+1\le|\partial_D^2O|<|\partial_D O|=d-g,
+ \qquad d\ge g+t+2,\qquad n\ge g+3t+5.
+\]
+This uses the global original boundary inequality. It is stronger than
+the constraints obtained by deleting only arcs with tail $f$, but still
+leaves unbounded parameter ranges.

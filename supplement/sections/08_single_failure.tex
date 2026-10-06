@@ -1,0 +1,82 @@
+\subsection{A completion with only one possible failure source}
+\label{sec:single-failure-source}
+
+\begin{lemma}[One possible failing feed]
+\label{lem:single-failure-source}
+Let $D$ be a finite nonempty oriented graph and let $v\in V(D)$.
+Suppose every missing pair incident to $v$ is good, every bad missing
+pair admits a direction whose failure sources are contained in $\{v\}$,
+and $t(v)\le g(v)$. Then $D$ has a Seymour vertex.
+\end{lemma}
+\begin{proof}
+Suppose $D$ is all-deficient. Complete good pairs by canonical
+convenient directions and each bad pair by a direction with failures
+only at $v$, obtaining $T$. If a global median order ends at $f\ne v$,
+reverse its added out-arcs inward. The order remains median, the
+first neighbourhood of $f$ becomes the original one, and no genuinely
+new second head is possible: original second arcs and convenient
+added arcs reach original first or second neighbours, while no chosen
+bad direction fails at $f$. The tournament feed SNP transfers to $D$.
+Thus every global median order of this fixed $T$ must end at $v$.
+
+If $v$ has any added outgoing arc $v\to q$, it is a canonical good
+direction. Retain it and reverse all other added outgoing arcs of $v$.
+The safe retention argument for good directions has no restriction
+on the number or budgets of other failure sources: for a protected
+far head $y$ of $v$, convenience of $v\to q$ implies convenience of
+$y\to q$, and canonical compatibility excludes the added direction
+$q\to y$. Original $q\to y$ is excluded by protection. Consequently
+\[
+ d_{T'}^+(v)-d_{T'}^{++}(v)\ge g(v)+2-t(v)\ge2,
+\]
+contradicting the feed theorem for the unchanged median order.
+Therefore $v$ has no added outgoing arc, and $N_T^+(v)=N_D^+(v)$.
+
+Any new second head of $v$ is an unprotected original far target.
+It follows that
+\[
+ d_T^{++}(v)\le d_D^{++}(v)+t(v)\le d_D^+(v)=d_T^+(v).
+\]
+The feed SNP forces equality throughout, so the strong form of
+the Havet--Thomasse feed theorem gives
+$|N_T^+(v)|=|G_L|=|N_T^{++}(v)|$.
+Its global median sedimentation lemma
+\cite[Theorem~1 and Lemma~1]{HavetThomasse2000} produces another
+global median order of the same $T$, with $v$ placed before
+$N_T^+(v)\cup G_L$. This last set is nonempty because $D$ is
+all-deficient. The new last vertex is not $v$, contradicting the
+uniqueness of the possible feed. This proves the lemma.
+\end{proof}
+
+\begin{theorem}[Two failure sources, one with a unit budget]
+\label{thm:two-sources-one-unit}
+Let $D$ be a finite nonempty oriented graph. Suppose every directional
+failure source of every bad missing pair belongs to $\{u,v\}$,
+and $t(v)\le1$. Then $D$ has a Seymour vertex.
+\end{theorem}
+\begin{proof}
+If all pairs are good, use the good-missing-edge theorem. Otherwise,
+each bad pair has opposite failure witnesses $u,v$. Neither directional
+failure set can contain both: the two sets are disjoint, and both
+are nonempty. Each such pair consequently has a direction whose
+only failure source is $v$.
+Every missing pair incident to $v$ is good, since a bad one would
+need two distinct failure sources outside its endpoints, leaving
+only $u$. If $g(v)\le0$, $v$ already has the SNP. Otherwise
+$t(v)\le1\le g(v)$, and Lemma~\ref{lem:single-failure-source} applies.
+\end{proof}
+
+\begin{corollary}[No two-source residual distribution with a unit]
+\label{cor:no-two-source-unit}
+In a strongly connected all-deficient graph minimal under deletion of
+arbitrary nonempty arc sets, a positive-residual support of two vertices
+cannot have residuals $(a,1)$ for any positive integer $a$.
+In particular residual four cannot be distributed as $(3,1)$, and
+residual five cannot be distributed as $(4,1)$.
+\end{corollary}
+\begin{proof}
+Zero-residual source protection places every bad-edge directional
+failure source in the positive support. The residual-one estimate
+gives $t\le1$ at its unit vertex. Apply
+Theorem~\ref{thm:two-sources-one-unit}.
+\end{proof}

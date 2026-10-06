@@ -1,0 +1,136 @@
+\section{A flexible pair between two uncontrolled actual sources}
+\label{sec:two-heavy-flexible-tail-reduction}
+
+All predicates refer to the original finite nonempty oriented graph
+$D$. Let $A$ be its actual bad-direction failure sources. Suppose that
+$A\setminus\{u,v\}$ has unprotected far-head budget at most one,
+and every cross-witness pair between two sources of this set is
+flexible (bad or double-convenient good). No budget restriction is
+made on $u,v$ or inactive vertices. Assume $uv$ itself is a flexible
+original missing pair.
+
+For every linear extension $\sigma$ of original protection, complete
+every flexible pair forward in $\sigma$ and fix uniquely convenient
+good directions. Maximize the unweighted forward score over this
+\emph{complete family of all protection extensions} and all orders.
+Every median order of a maximizing member extends original protection
+and puts every flexible added direction forward. Indeed, any backward
+flexible pair could be made forward by re-referencing to that median
+order, while leaving original and fixed directions unchanged.
+
+\begin{theorem}[The head of the two-exception flexible pair is a feed]
+\label{thm:two-heavy-flexible-head-feed}
+Suppose $D$ is all-deficient. In any score-maximizing reference
+completion $T$ in which $uv$ is directed $u\to v$, a global median
+order maximizing $\operatorname{pos}(v)$ among median orders of
+this fixed $T$ has feed $v$. Consequently $v$ has no successor in
+original protection. The theorem applies in arbitrary finite size.
+\end{theorem}
+\begin{proof}
+Let $L$ be the indicated median order and $f$ its feed. A feed outside
+$A$ is impossible: reverse all its added out-arcs inward, preserving
+global optimality. Its first neighborhood is original, and any new
+far second target would require a bad directional failure at $f$ or
+a nonconvenient chosen good direction. Both are impossible, so feed
+SNP would transfer to the originally deficient vertex.
+
+If $f=u$, the flexible direction $u\to v$ would be backward in $L$,
+contradicting maximum-reference rigidity. Suppose that
+$f\in A\setminus\{u,v\}$. The universal simultaneous envelope
+and its $t(f)\le1$ force
+\[
+ K_f=\varnothing,\qquad g_D(f)=t(f)=1,\qquad g_T(f)=0,
+ \qquad G_L=N_T^{++}(f)=N_D^{++}(f)\cup\{y\},
+\]
+where $y$ is its sole unprotected original far head. Its new head
+uses an original first arc and an added bad second direction.
+Choose an opposite witness $r$. The original missing pair $fr$ has
+$r\ne y$, so $r\in N_D^{++}(f)\subseteq G_L$.
+
+If $r\notin\{u,v\}$, its cross-witness pair $fr$ is flexible by
+hypothesis and has completed direction $r\to f$ because $K_f$ is
+empty. Sedimentation makes this direction backward in another global
+median order of $T$, contradicting maximum-reference rigidity.
+If $r=v$, sedimentation strictly increases the position of $v$,
+contradicting the selected median order.
+
+It remains that $r=u$. If $v$ is not an original protected far target
+of $f$, it is an original first target, an original exact second
+target, or the sole unprotected original far head $y$. Thus
+$v\in N_T^+(f)\cup G_L$, and sedimentation increases its position,
+again contradicting the selected order. If instead
+$v\triangleleft f$, then $v$ remains far from $f$ in $T$ and is a
+bad vertex of $L$. Sedimentation places $v$ before the feed $f$ and
+$u\in G_L$ after it. It therefore puts $v$ before $u$, making the
+fixed tournament's flexible arc $u\to v$ backward in another median
+order. This too contradicts maximum-reference rigidity.
+
+All cases except $f=v$ are impossible. Every median order extends
+original protection, so its last position at $v$ forbids every
+original relation $v\triangleleft q$.
+\end{proof}
+
+\begin{corollary}[Two nonmaximal exceptions with a flexible pair]
+\label{cor:two-heavy-both-protection-successors}
+Under the same budget and cross-witness-flexibility hypotheses,
+if both $u$ and $v$ have successors in original protection and $uv$
+is flexible, $D$ has a Seymour vertex.
+\end{corollary}
+\begin{proof}
+In any maximum-reference completion the flexible pair has a head.
+The theorem forces that head to have no original protection successor,
+contradicting either of the two asserted relations.
+\end{proof}
+
+\begin{corollary}[Two-heavy minimal counterexample reduction]
+\label{cor:two-heavy-minimal-flexible-reduction}
+In the strong arbitrary-arc-set-deletion-minimal all-deficient class,
+suppose there are exactly two nonunit actual sources $u,v$, all other
+actual sources having residual one. If $uv$ is bad or double-convenient
+good, at least one of $u,v$ is maximal in the original protection
+order. More precisely, the head of $uv$ in any maximum-reference
+completion is maximal and can be chosen as a median feed of that
+completion. Inactive residuals are unrestricted.
+\end{corollary}
+\begin{proof}
+Unit budgets and the unit--unit cross-witness-tail badness
+give the two hypotheses on other actual sources. Apply the theorem.
+\end{proof}
+
+\subsection{The good-tail obstruction forced by a protected unit shadow}
+
+\begin{lemma}[A protected unit shadow with a separate incoming path]
+\label{lem:protected-unit-shadow-good-tail}
+Suppose $f$ is an actual unit source in the minimal class, $uv$ and
+$vf$ are original missing pairs, $v$ is an opposite witness to $f$
+for some bad direction, $v$ reaches $f$ at exact distance two,
+and $u\triangleleft f$. Then $v\to u$
+is nonconvenient. In particular, if $uv$ is good, its only convenient
+direction is $u\to v$.
+\end{lemma}
+\begin{proof}
+The independently assumed incoming path and the full unit packet give
+$v\in N_D^{--}(f)=\partial P(f)$. Hence some $p\in P(f)$ points
+originally to $v$. Protection $u\triangleleft f$ implies that any
+vertex reaching $u$ within two steps reaches $f$ within two steps:
+an original predecessor of $u$ also points to $f$, and an incoming
+two-step path into $u$ can replace its last arc by one into $f$.
+Thus $p\in P(u)$. The original arc $p\to v$ witnesses nonconvenience
+of $v\to u$. Goodness forces the other direction to be convenient.
+\end{proof}
+
+\paragraph{Rejected attempted strengthening.}
+The opposite-witness property alone gives $f\to v$ at exact distance
+two, and does
+\emph{not} imply $v\in N_D^{--}(f)$. A protected unit shadow alone
+does not establish the reverse convenience failure without a separate
+original path $v\leadsto f$, which is an explicit extra hypothesis of
+the last lemma. No such reachability is assumed in the main theorem.
+
+\paragraph{Remaining gap.}
+This does not exclude a two-heavy minimal counterexample with a maximal
+heavy source. The controlling completion may give its heavy feed more
+than one newly reached far head, so unit-feed sedimentation equality
+need not hold. Uniquely convenient heavy tails are outside the flexible
+pair theorem. No claim that every allocation $(m_1,m_2,1^k)$ is excluded
+is made.

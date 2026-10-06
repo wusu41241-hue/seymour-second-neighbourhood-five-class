@@ -1,0 +1,145 @@
+\section{Capacity toward the heavy targets}
+\label{sec:minimum-heavy-capacity}
+
+Let $D$ be strongly connected, all-deficient, and minimal under
+deletion of arbitrary nonempty sets of arcs.  Assume
+$n=2\delta+3$ and $\delta\ge6$.
+Let $K$ be its positive-surplus core, let $\mathcal H$ be the set of
+heavy vertices ($\sigma\ge2$), and put $H=|\mathcal H|$.
+The established general result gives $H\ge2$.
+Use the certified basins $B_1,\ldots,B_H$ of
+Lemma~\ref{lem:general-basin-certificates}, and the exceptional set
+\[
+ B=\{x\in K:e(x)=0,\ \sigma(x)=1,\ p(x)=0\}.
+\]
+No source is far from a vertex of $B$.  Every other core vertex
+has a heavy-root certificate.  A source pointing to a root points
+to its entire basin; a source reaching a root within two steps
+reaches its entire basin within two steps.
+Also, every minimum-degree source has at least two far vertices
+in $K$, all certified: its far set has size three or four and
+contains at most one zero-surplus target.
+Every heavy root has a minimum-degree predecessor.
+
+\begin{lemma}[Minimum-degree capacity toward the heavy set]
+\label{lem:minimum-heavy-capacity}
+For every minimum-degree vertex $v$,
+\[
+ {|N_D^+(v)\cap\mathcal H|\le H-2.}
+\]
+\end{lemma}
+\begin{proof}
+If $v$ is itself a heavy root and points to every other heavy
+root, it points to its own children and to all the other basins.
+It would have no far certified core target, a contradiction.
+Thus consider a minimum-degree vertex $v$ that is not heavy.
+Suppose it points to at least $H-1$ heavy roots.
+It cannot point to all $H$, since that would directly reach every
+certified core target.  Let $r$ be the unique heavy root not
+dominated by $v$.
+
+Every far core target of $v$ is in the basin of $r$.
+The certificate therefore makes $r$ far from $v$.
+Choose any minimum-degree predecessor $w\to r$.
+Vertex $w$ points to the basin of $r$ and has a far certified
+core target elsewhere, hence some root $s\ne r$ is far from $w$.
+As $v\to s$, neither $v\to w$ nor $w\to v$ is possible: the
+former would let $v$ reach $r$, and the latter would let $w$
+reach $s$ within two steps.
+
+If $v$ is whole, this nonadjacency is impossible.
+If $\mu(v)=1$, the same reasoning for every minimum-degree
+predecessor of $r$ confines that entire predecessor set to the
+unique nonneighbor of $v$.  It is nonempty, so $c(r)=1$;
+its member is nonwhole, so $c_0(r)=0$.
+The refined predecessor bound gives
+\[
+ 9c(r)+6c_0(r)\ge\delta+1+3\Phi(r)\ge\delta+4,
+\]
+contradicting $\delta\ge6$.
+
+These cases cover every minimum-degree vertex outside $K$ and
+every inactive minimum-degree unit target.
+In the remaining case $v$ is an active minimum-degree unit
+target and has a heavy-root certificate.  Its certified root
+cannot be one of the roots it dominates, so it must be $r$.
+The containment $N^-(r)\subseteq N^-(v)$ makes $w\to v$,
+contradicting the preceding nonadjacency (equivalently,
+$w\to v\to s$ reaches a far root).
+All possible types are excluded.
+\end{proof}
+
+\begin{theorem}[Capacity for every vertex]
+\label{thm:all-heavy-capacity}
+Every vertex $v$ of $D$ satisfies
+\begin{equation}\label{eq:all-heavy-capacity}
+ {|N_D^+(v)\cap\mathcal H|\le H-2.}
+\end{equation}
+In particular $H\ge3$.  If $\delta\ge10$, then $H\ge4$ and
+\[
+ {z\ge h+10,}
+\]
+where $z$ counts whole minimum-degree vertices and $h$ counts
+gap-two vertices.
+\end{theorem}
+\begin{proof}
+Minimum-degree vertices were handled above.  If a heavy vertex
+$v$ points to all the other heavy roots, a minimum predecessor
+$w\to v$ reaches its own root directly and every other root
+within two steps through $v$.  It therefore reaches every
+certified core target within two steps, contradicting the
+minimum-source far demand.
+
+The remaining vertices are nonminimum unit targets, and all
+have a heavy-root certificate, say with root $r$.
+The arc $r\to v$ prevents $v$ from pointing back to $r$.
+If it pointed to every other heavy root, any minimum predecessor
+$w\to r$ would point to $v$ by
+$N^-(r)\subseteq N^-(v)$, and would again reach every root and
+certified core target within two steps.  This contradiction
+proves \eqref{eq:all-heavy-capacity}.
+
+If $H=2$, the minimum-degree capacity is zero, contrary to the
+existence of a minimum-degree predecessor for every heavy root.
+Thus $H\ge3$.
+If $H=3$, delete the set $S$ of all three heavy roots.
+Each surviving minimum-degree vertex loses at most one outgoing
+arc by \eqref{eq:all-heavy-capacity}.
+Every surviving nonminimum vertex is unit and has excess one,
+so its outdegree after deletion is also at least $\delta-1$.
+All excess-two vertices are heavy and have been deleted.
+Hence $\delta^+(D-S)\ge\delta-1$.
+The heavy-triple obstruction in
+Corollary~\ref{cor:heavy-triple} contradicts $\delta\ge10$.
+Consequently $H\ge4$ in that range.
+The general core bound gives $k\ge6$, while the fixed-target
+budget gives
+$z-h=\sum_x\sigma(x)\ge k+H$.
+This yields $z\ge h+10$.
+\end{proof}
+
+\begin{corollary}[A pair covering when there are four heavy roots]
+\label{cor:four-heavy-minimum-pairs}
+Suppose $\delta\ge10$ and $H=4$.  Form a simple graph $J$ on
+$\mathcal H$, joining two heavy roots if some minimum-degree
+vertex outside that pair points to both.  Every three-element
+subset of $\mathcal H$ contains an edge of $J$; equivalently,
+the independence number of $J$ is at most two.
+More explicitly, with
+$a_v=|N_D^+(v)\cap\mathcal H|$, one has
+\[
+ 4\le\sum_{e(v)=0,\ a_v=2}\bigl(2-[v\in\mathcal H]\bigr).
+\]
+\end{corollary}
+\begin{proof}
+The heavy-triple obstruction requires an outside minimum-degree
+vertex pointing to at least two members of each triple, or an
+outside excess-one vertex pointing to all three.
+The latter alternative is ruled out by
+\eqref{eq:all-heavy-capacity}, which limits every heavy outdegree
+to two.  Thus every triple contains a pair dominated by a
+minimum-degree source outside that triple.
+Such a source has $a_v=2$ and covers two triples if it is not
+heavy, and one triple if it is itself heavy; summation gives
+the explicit inequality.
+\end{proof}

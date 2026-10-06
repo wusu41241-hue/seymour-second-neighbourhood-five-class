@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "counts": {
+    "graphs5": 59049,
+    "sampledGraphs": 20000,
+    "unitFourSourceBadGraphs": 1806,
+    "internalBadMatchingCases": 1806,
+    "reciprocalCycleCases": 243,
+    "reciprocalOrientationCases": 972,
+    "singleVulnerablePositiveCases": 5776,
+    "singleVulnerableOriginalSeymourTransfers": 5776,
+    "sedimentationEqualityChecks": 8011
+  },
+  "reciprocalControl": {
+    "out": [
+      20,
+      24,
+      2,
+      1,
+      0
+    ],
+    "Z": 15
+  },
+  "seed": "0x71042026",
+  "scope": "Verifies actual graph classification, completion directions, exact global median-feed sets and original Seymour transfers; does not assume sampled graphs are minimal all-deficient counterexamples."
+}

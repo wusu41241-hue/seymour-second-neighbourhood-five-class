@@ -1,0 +1,111 @@
+{
+  "status": "PASS",
+  "counts": {
+    "graphs": 61011,
+    "closureStagesWithAdditions": 122364,
+    "closureAddedArcs": 157500,
+    "weakSingleSteps": 49957,
+    "multistageGraphs": 37814,
+    "maxClosureStages": 19,
+    "completedClosures": 36137,
+    "partialMedianOrders": 168437,
+    "finalMedianOrders": 97277,
+    "originalFirstSecondFeedChecks": 97277,
+    "positiveOriginalFeeds": 1,
+    "strictSurplusChecks": 1,
+    "zeroGapRemainingMissingChecks": 0,
+    "strongGoodEqualityChecks": 0
+  },
+  "multistageControl": {
+    "out": [
+      0,
+      0,
+      0
+    ],
+    "stages": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        0
+      ],
+      [
+        6,
+        0,
+        0
+      ],
+      [
+        6,
+        4,
+        0
+      ]
+    ]
+  },
+  "positiveFeedControl": {
+    "out": [
+      4,
+      4,
+      24,
+      32,
+      32,
+      3
+    ],
+    "Q": [
+      6,
+      4,
+      24,
+      48,
+      32,
+      3
+    ],
+    "T": [
+      30,
+      28,
+      56,
+      48,
+      32,
+      3
+    ],
+    "median": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "feed": 5,
+    "gOriginal": 1,
+    "gCompleted": -1,
+    "tOriginal": 2,
+    "strongGoodVertices": [
+      2,
+      3,
+      4
+    ],
+    "strongGoodSlack": 1,
+    "newHeads": [
+      3,
+      4
+    ],
+    "remainingMissing": [
+      2
+    ],
+    "finalFar": [],
+    "sedimentation": null,
+    "originalGaps": [
+      -1,
+      -1,
+      1,
+      -1,
+      -1,
+      1
+    ],
+    "closureStages": 2
+  },
+  "scope": "All oriented graphs n=2..5 plus 1200 deterministic n=6/7 controls and three explicit controls. Forces synchronous; weak steps strictly single and only at maximal head. All orders enumerated. No minimality assumed. Not a proof of SNC."
+}

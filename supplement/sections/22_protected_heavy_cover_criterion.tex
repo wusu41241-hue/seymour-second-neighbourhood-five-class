@@ -1,0 +1,143 @@
+\section{A fixed-completion criterion for an independent heavy cover}
+\label{sec:protected-heavy-cover-criterion}
+
+All graph predicates in this section refer to the original finite
+nonempty oriented graph $D$. Let $A$ be its actual bad-direction
+failure sources, and let $B$ be the cross-witness graph on $A$:
+the two directional failure sets of each bad pair span their complete
+bipartite cross-witness graph. Write $t(x)$ for the number of
+unprotected original far heads of $x$.
+
+\begin{theorem}[An independent heavy cover without protection successors]
+\label{thm:protected-independent-heavy-cover}
+Suppose there is a nonempty set $H$ of vertices such that:
+\begin{enumerate}
+\item Every source $f\in A\setminus H$ satisfies $t(f)\le1$.
+\item $B[H\cap A]$ is independent.
+\item No $h\in H$ is a protected far target of any source
+$f\in A\setminus H$; equivalently, no original relation
+$h\triangleleft f$ occurs between those sets.
+\end{enumerate}
+Then $D$ has a Seymour vertex. No source-support, order, residual, or
+far-budget bound is imposed on $H$ or on inactive vertices.
+\end{theorem}
+\begin{proof}
+Suppose all original gaps are positive. Independence allows each bad
+pair to be oriented so that all its selected directional failures
+avoid $H$: its two failure sets cannot both meet $H$, since such
+opposite witnesses would give an edge of $B[H\cap A]$. Complete good
+pairs canonically by any fixed reference extension of protection.
+Call the resulting fixed tournament $T$. Every selected bad failure
+source has $t\le1$, so the simultaneous safe envelope applies at
+every vertex:
+\[
+ N_T^{++}(x)\subseteq
+ (N_D^{++}(x)\setminus K_x)\cup
+ (\mathcal F_D(x)\setminus K_x),\qquad
+ g_T(x)\ge g_D(x)+2|K_x|-t(x).
+\]
+Among all global median orders of this one fixed tournament, choose
+$L$ maximizing $\sum_{h\in H}\operatorname{pos}_L(h)$, and let $f$
+be its feed.
+
+If $f\notin A$, or if $f\in H$, reverse every added outgoing feed
+arc inward. The order remains global median, its first neighborhood
+is original, and it has no new far second head: good directions are
+convenient, and no selected bad direction fails at $f$. Feed SNP
+would transfer to the original deficient vertex, a contradiction.
+
+Thus $f\in A\setminus H$ and $t(f)\le1$. The envelope and feed SNP
+force $K_f=\varnothing$, $g_D(f)=t(f)=1$ and $g_T(f)=0$.
+Writing $y$ for its unique unprotected original far head, the strong
+feed theorem then gives
+\[
+ G_L=N_T^{++}(f)=N_D^{++}(f)\cup\{y\},\qquad
+ |N_T^+(f)|=|G_L|.
+\]
+For every $h\in H$, condition~3 excludes original protected farness
+from $f$. Since $h\ne f$, it is therefore an original first neighbor,
+an original exact second neighbor, or the sole unprotected original
+far head $y$. In all three cases
+\[
+ H\subseteq N_T^+(f)\cup G_L.
+\]
+Global sedimentation remains a median order and strictly increases
+the position of each vertex of this union, by the exact positional
+identity
+\[
+ \operatorname{pos}_{\mathrm{Sed}(L)}(h)-\operatorname{pos}_L(h)
+ =1+|\{b\in B_L:\operatorname{pos}_L(b)>
+                         \operatorname{pos}_L(h)\}|>0,
+\]
+where $B_L=V(T)\setminus(N_T^+(f)\cup G_L\cup\{f\})$ denotes the
+\emph{bad vertices of the median order}, not the cross-witness graph.
+It therefore increases the chosen sum by at least $|H|>0$, a
+contradiction. This proves the criterion.
+\end{proof}
+
+The strong feed inequality and the global sedimentation assertion are
+the unweighted results of Havet--Thomasse
+\cite[Theorem~1 and Lemma~1]{HavetThomasse2000}; the exact positional
+identity follows by counting the moved bad vertices.
+
+\begin{corollary}[Simplifying the second phase of the one-exception proof]
+\label{cor:one-heavy-second-phase-fixed}
+Once the unrestricted maximum argument has proved that a unique
+exceptional actual source $u$ has no original protection successor,
+the second phase needs only an arbitrary completion avoiding all
+failures at $u$, and a median order of that fixed completion maximizing
+the position of $u$. No second family maximum or fixed-tail case
+analysis is necessary.
+\end{corollary}
+\begin{proof}
+Apply the theorem with $H=\{u\}$. Independence is automatic;
+the other sources have $t\le1$, and the first phase supplied
+condition~3. The proof uses only the simultaneous envelope in the
+fixed completion and its global sedimentation operation.
+\end{proof}
+
+\begin{corollary}[A global alternative for minimal counterexamples]
+\label{cor:heavy-heavy-edge-or-protected-unit}
+In the strong arbitrary-arc-set-deletion-minimal all-deficient class,
+put $H=\{h\in A:\eta(h)\ge2\}$. The unit closure makes
+$H$ nonempty. A counterexample must have either:
+\begin{enumerate}
+\item a cross-witness edge joining two vertices of $H$; or
+\item an actual unit source $f$ and an $h\in H$ with
+$h\triangleleft f$ in original protection.
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+If neither occurs, all hypotheses of the fixed-completion criterion
+hold. Actual sources outside $H$ have residual one and hence $t\le1$.
+The criterion contradicts all-deficiency.
+\end{proof}
+
+\paragraph{Audit boundary.}
+The theorem does not show that every heavy cover is independent or
+that its protection-successor condition always holds. It exhibits
+the specific two global obstructions that remain after unit budgets
+are controlled. Its proof uses one fixed tournament, not a comparison
+of numerical gaps from different completions. Ordinary two-Seymour
+vertex theorems are not used, and global median orders, not merely
+local median orders, are essential.
+
+\paragraph{A local protection-obstruction control.}
+The ten-vertex out masks
+\[
+ [540,541,96,96,96,1,3,28,128,256]
+\]
+have an actual unit source $f=0$ with
+$g(f)=\eta(f)=t(f)=1$ and
+$\partial P(f)=N_D^{--}(f)=\{2,3,4\}$.
+The actual source $h=1$ has $g(h)=2$, $\eta(h)=2$, $t(h)=1$, and
+$h\triangleleft f$, because
+$N_D^-(h)=\{6\}\subseteq N_D^-(f)\setminus\{h\}=\{5,6\}$.
+The bad missing pair $\{7,9\}$ has failure sources $\{0,1\}$ for
+$9\to7$ and $\{8\}$ for $7\to9$. Several other vertices have
+nonpositive gap, so this is not an SNC counterexample and does not
+meet the complete minimal-counterexample hypotheses. It does show
+that a heavy-protecting-unit relation is not contradicted by the unit's
+local residual, positive gap and full packet alone.
+The independent program
+\texttt{audit\_heavy\_protects\_unit\_control.js} verifies all these claims.

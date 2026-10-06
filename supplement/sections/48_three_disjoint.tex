@@ -1,0 +1,19 @@
+\begin{lemma}\label{lem:odd-root-three-disjoint}
+If an oriented graph $R$ on three or four vertices has positive
+outdegree at every vertex, it contains three vertices whose
+outneighborhoods in $R$ are pairwise disjoint.
+\end{lemma}
+\begin{proof}
+Complete $R$ to a tournament; this preserves positive outdegree,
+and any disjointness proved in the completion holds in $R$.
+On three vertices the completion must be a directed triangle.
+On four vertices, if some vertex has outdegree three, the remaining
+three vertices form a directed triangle and their outneighborhoods
+are disjoint.  Otherwise the tournament has score multiset
+$(1,1,2,2)$.  Let $a,b$ have outdegree one and orient their mutual
+arc as $a\to b$.  If the other vertices are $c,d$, then both point
+to $a$, while $b$ points to exactly one of them, say $c$.  Thus
+$d\to b$.  The arc $d\to c$ would give $d$ outdegree three, so
+$c\to d$.  The outneighborhoods of $a,b,c$ are respectively
+$\{b\},\{c\},\{a,d\}$, which are pairwise disjoint.
+\end{proof}

@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-05",
+  "task": "Unbounded structural progress toward Seymour's second-neighborhood conjecture",
+  "definitions": {
+    "graph": "Finite nonempty oriented graph: no loops and no directed two-cycles.",
+    "N2": "Vertices at directed distance EXACTLY two; excludes the vertex itself and all first neighbors.",
+    "g": "d_plus - d_exact_second",
+    "minimal_class": "Strongly connected and all g>0, minimal under deletion of ANY nonempty arc set on the fixed vertex set.",
+    "actual_source": "A vertex which really witnesses nonconvenience of a direction on a BAD missing pair, not merely a vertex with positive eta.",
+    "eta": "mu - 1 + d_reverse_exact_second - d_exact_second = 2mu + g - 1 - |P|",
+    "P": "Other vertices from which the chosen vertex is not reachable within at most two original steps.",
+    "t": "Number of original far heads not protected by incoming-neighborhood nesting."
+  },
+  "accepted_main_results": [
+    {
+      "file": "single_heavy_actual_exclusion_short.tex",
+      "scope": "Arbitrary graph theorem with one exceptional actual source; minimal-class corollary",
+      "consequence": "At least two distinct ACTUAL eta>=2 sources in a putative minimal counterexample; all (m,1^k) allocations excluded for any m>=2 and finite k.",
+      "root_review": "PASS: both phases independently reconstructed, including unit inverse-tail sedimentation and the separate fixed-cover argument.",
+      "separate_agent_review": "PASS: fresh adversarial proof audit and independent graph predicates."
+    },
+    {
+      "file": "protected_heavy_cover_criterion.tex",
+      "scope": "Arbitrary finite nonempty oriented graphs with the stated independent cover and no protection-successor hypotheses",
+      "consequence": "Counterexamples require a heavy-heavy cross-witness edge OR a heavy actual source protecting an actual unit source.",
+      "root_review": "PASS: one fixed completion, one maximum-position-sum median, no comparison of scores from different completions."
+    },
+    {
+      "file": "protection_forced_completion_framework.tex",
+      "scope": "Arbitrary finite nonempty oriented graphs",
+      "consequence": "Original protection preserved. All released arcs forward in EVERY median of a maximum-score completion; every feed has no added first arc. Fixed partial Q median feeds retain BOTH original neighborhoods.",
+      "root_review": "PASS: forced direction consistency, preservation, normalization, fixed partial score and exact neighborhoods reconstructed.",
+      "separate_agent_review": "PASS after set-containment wording was replaced with correct score-optimization dominance."
+    },
+    {
+      "file": "forced_feed_full_boundary_obstruction.tex",
+      "scope": "Generic positive-gap feed obstruction; residual corollary requires minimal class",
+      "consequence": "t=g>0 forces all missing partners inward FORCED and nonempty M subset N-- minus boundary(P). Full boundary gives t>=g+1. In the minimal class every forced-family median feed has eta>=2.",
+      "root_review": "PASS: all missing partners in the equality good-vertex set; forced incoming outside boundary; sedimentation contradiction for any released incoming partner.",
+      "separate_agent_reviews": "Two additional proof reviews PASS; no actual BAD-source status is assumed in the eta=1 packet lemma."
+    },
+    {
+      "file": "balanced_forced_feed_minimal_refinement.tex",
+      "scope": "Minimum all-deficient class and maximum forced-family completion; balanced condition t=g",
+      "consequence": "Balanced feeds necessarily have EMPTY P; all other original vertices reach the feed within two steps. Nonempty P forces strict head surplus t>=g+1.",
+      "root_review": "PASS: nonempty-P packet bounds leave only g2 and singleton P; the exact N+(f)={z} disjoint union N+(z) shape permits deletion f->z with second set unchanged and gap2 reduced to gap1, contradicting minimality.",
+      "separate_agent_review": "Author and a third agent independently checked exact foundation references, empty-P routing, neighborhood equality and the deletion exclusion; both PASS.",
+      "remaining": "g=t=1, eta=2mu OR g=t=2, eta=2mu+1, mu>=1. These two branches and strict head-surplus feeds are not excluded."
+    },
+    {
+      "file": "weighted_transport_duality_and_obstruction.tex",
+      "scope": "Exact tournament-density and LP identities; arbitrary-graph controls outside the minimal all-deficient class",
+      "consequence": "Expansion densities equal Fisher losing densities; the density is fixed in each tournament. A k-clone family has canonical budget exactly -k/3 at every reference completion, even after strong near-half-degree amplification.",
+      "root_review": "PASS: primary Fisher Lemma 2 checked, matrix sign convention checked, dual formula and common certificate checked.",
+      "integer_reverification": "PASS: 98 quotient types, 224 three-copy choices, 9 iterative amplifications; no LP floating-point evidence used as proof."
+    }
+  ],
+  "repairs_and_rejected_shortcuts": [
+    "Maximum-reference rigidity needs ALL original protection extensions, or explicit closure under using any admissible median as a new reference. A four-vertex control rejects arbitrary finite subfamilies.",
+    "The forced alternative reference family is not a set-theoretic superset of the canonical family. Only the proven median-score optimization dominance is used.",
+    "A released reversal of a uniquely convenient GOOD pair may produce new far heads; original BAD-source transfer cannot be carried across to the forced family unchanged.",
+    "Having no added first neighbors does not by itself imply feed transfer. Exact seven- and ten-vertex controls have positive-original-gap maximum-completion feeds but have Seymour vertices elsewhere.",
+    "The older five-vertex skew-equilibrium control is incomplete, not a tournament; its scope has been clarified in both old fragments.",
+    "Tournament losing-density support rigidity is not median-order FLEX rigidity; a six-point tournament control disproves the proposed implication.",
+    "Packet estimates require nonempty P. They must not be silently applied to the empty-P branch.",
+    "No theorem giving two distinct median feeds in every sink-free tournament is used; a four-vertex counterexample to that assertion was verified."
+  ],
+  "assurance_limits": [
+    "All minimal-counterexample corollaries depend on the explicitly retained and internally reviewed foundation lemmas.",
+    "Small-graph audits supplement mathematical proofs; they do not prove the conjecture or exhaust unknown counterexamples.",
+    "Internal multi-agent review is not external peer review or proof-assistant verification.",
+    "Novelty, priority and journal suitability have not been fully assessed.",
+    "The complete conjecture is not solved and no actual all-deficient oriented graph has been found.",
+    "Previous delivered PDF and desktop copy remain unchanged; current new proofs are mergeable F:-stored source fragments."
+  ]
+}

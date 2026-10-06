@@ -1,0 +1,151 @@
+\section{Five unit residuals and functional losing cycles}
+\label{sec:five-unit-residuals}
+
+Throughout, $D$ is a nonempty strongly connected all-deficient oriented
+graph, minimal under deletion of arbitrary nonempty sets of arcs.
+Let $Z$ be the positive residual support, and let $Z_{\mathrm{act}}$
+be the set of actual directional
+failure sources of bad missing pairs. Zero-residual protection gives
+$Z_{\mathrm{act}}\subseteq Z$.
+For every unit-residual $x\in Z_{\mathrm{act}}$, the unit budget and an actual bad
+failure give
+\[
+ t(x)=1,\qquad\mathcal F(x)=\{h(x)\}.
+\]
+Thus every such source has a unique unprotected failure head $h(x)$,
+which is a far target distinct from $x$.
+
+Define the missing-edge dependency digraph $\mathcal L$ as follows.
+Its vertices are all missing unordered pairs of $D$, and there is
+one arc
+\[
+ \{x,y\}\longrightarrow\{a,b\}
+\]
+whenever $x\to a$, $b\in U(x)$, $y\to b$, and $a\in U(y)$,
+possibly after interchanging the endpoints. The witnesses and the
+two target endpoints are four distinct vertices. The source pair
+is missing. The digraph has no multiplicity: an arc records existence
+of witnesses, not their number. A missing pair is bad precisely when
+its dependency vertex has positive in-degree.
+
+\begin{lemma}[A unit cross-witness pair is itself bad]
+\label{lem:unit-cross-pairs-bad}
+If $\{x,y\}$ is the tail of an arc of $\mathcal L$ and
+$\eta(x)=\eta(y)=1$, then the missing pair $xy$ is bad.
+No restriction on the residuals of other vertices is required for
+this lemma. Moreover $x$ and $y$ reach one another at exact
+distance two.
+\end{lemma}
+
+\begin{proof}
+Both witnesses belong to $Z_{\mathrm{act}}$ and have residual one and
+$t=1$. Fix $x$. Since $xy$ is missing, $\mu(x)\ge1$, and the identity
+$p(x)=2\mu(x)+g(x)-2$ gives $P(x)\ne\varnothing$.
+For the target-bundle quantities $s,j$, a positive $s$ would force
+$j=s$ and $g(x)=1$, and the unprotected-target envelope would give
+$t(x)\le\eta(x)-g(x)=0$. Hence $s=0$, and the bound
+$\eta(x)\ge2j$ gives $j=0$. Consequently
+\[
+ \partial P(x)=N_D^{--}(x).
+\]
+The same holds for $y$.
+
+The unique unprotected head of $x$ is the opposite target $b$, not
+$y$, since $y\to b$ and the witnesses are outside the target pair.
+If $y$ were far from $x$, their missing pair would make $y$ another
+unprotected far target. This contradicts $t(x)=1$. Thus
+$y\in N_D^{++}(x)$, and symmetrically $x\in N_D^{++}(y)$.
+
+It follows that
+$y\in N_D^{--}(x)=\partial P(x)$, so some $p\in P(x)$ points to $y$.
+Since $x\in U(p)$, this is a failure of the convenient direction
+$y\to x$. Likewise a predecessor of $x$ in $P(y)$ supplies a failure
+of the direction $x\to y$. Both directions fail, so $xy$ is bad.
+\end{proof}
+
+\begin{lemma}[All nontrivial unit dependency components are cycles]
+\label{lem:unit-dependency-cycles}
+Suppose every actual directional failure source has residual one.
+Then every nonisolated vertex of $\mathcal L$ has in- and out-degree one.
+In particular all its nontrivial components are directed cycles,
+and every bad missing pair has both endpoints in $Z_{\mathrm{act}}$.
+\end{lemma}
+
+\begin{proof}
+A tail $\{x,y\}$ has only one possible target, namely
+$\{h(x),h(y)\}$, since every bad failure head is unprotected. Hence
+all out-degrees are at most one. Let $E$ be the set of positive
+out-degree vertices. There are exactly $|E|$ arcs. By
+Lemma~\ref{lem:unit-cross-pairs-bad}, every member of $E$ is bad
+and has in-degree at least one. The total in-degree over $E$ is
+therefore at least $|E|$, which already equals the total over all
+dependency vertices. Equality forces every arc head to lie in $E$,
+and every member of $E$ to have in-degree one. All remaining vertices
+are isolated.
+
+Every bad pair has positive in-degree and is thus in $E$. Every
+tail pair consists of actual failure sources, proving the last
+assertion. This is a degree-count argument; it is not a replacement
+of directed walks by simple paths, and it allows two-cycles.
+\end{proof}
+
+\begin{theorem}[No five-unit residual distribution]
+\label{thm:no-five-unit-residuals}
+Residual five cannot be distributed as five unit residuals:
+\[
+ \sum_x\eta(x)=5,
+ \qquad \eta(x)\in\{0,1\}\text{ for every }x
+\]
+is impossible in this minimal class.
+\end{theorem}
+
+\begin{proof}
+Here $|Z|=5$. If $|Z_{\mathrm{act}}|\le4$, the general four-unit
+failure-source theorem, Theorem~\ref{thm:four-unit-failure-sources},
+already gives a Seymour vertex. Thus all five vertices are actual
+sources and $Z_{\mathrm{act}}=Z$.
+
+Let $B$ be the undirected cross-witness graph on $Z$, whose edges
+are the tails $E$ of dependency arcs. It has no isolated vertices:
+every actual failure has an opposite witness and hence participates
+in a tail pair. By Lemma~\ref{lem:unit-dependency-cycles}, every bad
+pair is internal to $Z$, so every failure head $h(x)$ belongs to $Z$.
+The map
+\[
+ \{x,y\}\longmapsto\{h(x),h(y)\}
+\]
+permutes $E$, since it is exactly the successor map on the dependency
+cycles. As $B$ has no isolated vertices, this edge surjectivity makes
+$h:Z\to Z$ surjective: each vertex appears in a target edge and
+therefore in the image of $h$. Thus $h$ is a permutation. It has
+no fixed point, because $h(x)\in U(x)$.
+
+The edge set of $B$ is invariant under applying $h$ to both endpoints.
+For every edge $\{x,y\}\in E$, its image is disjoint from it, and
+the original graph has the cross-arcs
+\[
+ x\to h(y),\qquad y\to h(x).
+ \tag{U5}\label{eq:five-unit-cross-arcs}
+\]
+Every edge of $B$, in contrast, is an original missing pair.
+
+A derangement on five vertices has cycle type either five or three
+plus two. Suppose first that $h$ is a five-cycle. The unordered
+pair orbits are its five consecutive pairs and its five
+distance-two pairs. A consecutive pair intersects its image,
+so none can belong to $E$. The other orbit is therefore the only
+possible nonempty invariant edge set, and $E$ must consist of all
+five distance-two pairs. In particular $\{x,h^2(x)\}\in E$.
+Its required cross-arc in \eqref{eq:five-unit-cross-arcs} is
+$x\to h^3(x)$. But $\{x,h^3(x)\}$ is also a distance-two pair
+and belongs to $E$, so it is missing. This is a contradiction.
+
+Now suppose $h$ has a three-cycle on $a,b,c$ and a transposition
+on $d,e$. Every pair within either cycle intersects its image and
+is forbidden in $E$. The six cross pairs between the two cycles
+form one orbit under $h$. Consequently the nonempty invariant
+edge set is all of $K_{3,2}$. The edge $\{a,d\}$ requires the
+original arc $a\to h(d)=e$, while $\{a,e\}$ belongs to the same
+edge set and is missing. This is again a contradiction.
+Both derangement types are excluded.
+\end{proof}

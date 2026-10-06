@@ -1,0 +1,134 @@
+{
+  "status": "PASS",
+  "counts": {
+    "graphs": 59051,
+    "outstarDeletions": 637942,
+    "localCriticalPositiveSources": 55282,
+    "localCriticalGapTwoSources": 562,
+    "gapTwoSecondWitnessChecks": 563
+  },
+  "explicit": [
+    {
+      "out": [
+        14,
+        20,
+        24,
+        2,
+        0
+      ],
+      "vertex": 0,
+      "originalGap": 2,
+      "outNeighbors": [
+        1,
+        2,
+        3
+      ],
+      "secondNeighbors": [
+        4
+      ],
+      "locallyOutstarCritical": true,
+      "singleton": [
+        {
+          "a": 3,
+          "lost": 0,
+          "retargeted": 1,
+          "newGap": 0
+        },
+        {
+          "a": 2,
+          "lost": 0,
+          "retargeted": 1,
+          "newGap": 0
+        },
+        {
+          "a": 1,
+          "lost": 0,
+          "retargeted": 1,
+          "newGap": 0
+        }
+      ],
+      "secondWitnesses": [
+        {
+          "b": 4,
+          "witnesses": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "out": [
+        30,
+        100,
+        104,
+        112,
+        98,
+        448,
+        1,
+        1,
+        1
+      ],
+      "vertex": 0,
+      "originalGap": 2,
+      "outNeighbors": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "secondNeighbors": [
+        5,
+        6
+      ],
+      "locallyOutstarCritical": true,
+      "singleton": [
+        {
+          "a": 4,
+          "lost": 0,
+          "retargeted": 1,
+          "newGap": 0
+        },
+        {
+          "a": 3,
+          "lost": 0,
+          "retargeted": 1,
+          "newGap": 0
+        },
+        {
+          "a": 2,
+          "lost": 0,
+          "retargeted": 1,
+          "newGap": 0
+        },
+        {
+          "a": 1,
+          "lost": 0,
+          "retargeted": 1,
+          "newGap": 0
+        }
+      ],
+      "secondWitnesses": [
+        {
+          "b": 5,
+          "witnesses": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "b": 6,
+          "witnesses": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ]
+    }
+  ],
+  "scope": "Exact deletion identities on all five-vertex oriented graphs. Criticality tested locally at one source, not claimed arc-minimal/all-deficient globally. The two explicit sources satisfy every proper outgoing-star deletion SNP condition but their graphs have Seymour vertices."
+}

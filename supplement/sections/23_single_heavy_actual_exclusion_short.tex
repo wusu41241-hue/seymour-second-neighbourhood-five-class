@@ -1,0 +1,130 @@
+\section{An arbitrary-order one-exception completion theorem}
+\label{sec:one-exception-short-proof}
+
+All predicates refer to the original finite nonempty oriented graph $D$.
+Let $A$ be its actual bad-direction failure sources, $\mathcal F(x)$
+its unprotected far targets and $t(x)=|\mathcal F(x)|$. Protection is
+$y\triangleleft x$ if $y\to x$ and
+$N_D^-(y)\subseteq N_D^-(x)\setminus\{y\}$.
+A missing pair is flexible if it is bad or is good with both directions
+convenient. An opposite pair of bad-direction witnesses is an original
+missing cross-witness pair.
+
+\begin{theorem}[At most one uncontrolled actual source]
+\label{thm:one-exception-short-general}
+Suppose a vertex $u$ satisfies:
+\begin{enumerate}
+\item every source $x\in A\setminus\{u\}$ has $t(x)\le1$;
+\item every cross-witness pair between two sources in
+$A\setminus\{u\}$ is flexible.
+\end{enumerate}
+Then $D$ has a Seymour vertex. There is no condition on the budgets
+of inactive vertices, and no bound on the order or source support.
+\end{theorem}
+\begin{proof}
+Assume $g_D(x)>0$ for every vertex. For \emph{every} linear extension
+$\sigma$ of protection, let $T_\sigma$ complete every flexible pair
+forward in $\sigma$ and keep every uniquely convenient good direction
+fixed. The universal reference-priority envelope preserves every
+original protected far pair and gives
+\[
+ g_{T_\sigma}(x)\ge g_D(x)+2|K_x|-t(x),\qquad
+ K_x=N_{T_\sigma}^+(x)\setminus N_D^+(x).
+ \tag{SX1}\label{eq:one-exception-short-envelope}
+\]
+Any global median order of such a tournament extends original
+protection: if $y\triangleleft x$ were reversed in the order, swapping
+their positions gains their mutual arc and loses none of the intervening
+pair contributions, by tournament domination.
+
+Among all pairs $(T_\sigma,L)$, with $L$ any vertex order, first
+maximize the unweighted forward-arc score $\Phi$ and then maximize
+$\operatorname{pos}_L(u)$. The selected $L$ is a global median order
+of the selected tournament $T$. Every flexible added arc is forward
+in every global median order of $T$: otherwise use that median order
+as a new reference, which is allowed because the family contains
+\emph{every} protection extension. All flexible backward pairs become
+forward, while fixed directions and original arcs are unchanged,
+strictly improving $\Phi$. Let $f$ be the chosen feed.
+
+If $f\notin A$, reverse all added outgoing feed arcs inward. This
+keeps the same order global median: its score increases by the number
+of reversals and every competing score increases by at most that
+number. Its first neighborhood becomes original. No new far second
+head can occur through an original first step: a good second direction
+is convenient and a bad second direction would fail at $f\notin A$.
+Its tournament feed SNP therefore transfers to the originally deficient
+vertex, a contradiction.
+
+Suppose $f\in A\setminus\{u\}$. The envelope and $t(f)\le1$ force
+$K_f=\varnothing$, since any added first neighbor gives a strictly
+positive completed gap. Original exact second neighbors then persist.
+Feed SNP, positive original gap and the envelope force
+\[
+ g_D(f)=t(f)=1,\qquad g_T(f)=0,
+ \qquad N_T^{++}(f)=N_D^{++}(f)\cup\{y\},
+\]
+where $y$ is its sole unprotected original far head. The strong feed
+theorem gives $|N_T^+(f)|\le|G_L|\le|N_T^{++}(f)|$; equality of the
+two neighborhoods therefore yields $G_L=N_T^{++}(f)$.
+
+The new head $y$ has a path $f\to a\to y$ with original first arc
+and added bad second arc. Choose an opposite witness $r$. Then
+$r\to y$ is original, so $r\ne y$, and $fr$ is originally missing.
+Since a missing far target is unprotected and $y$ is the only such
+head at $f$, $r\in N_D^{++}(f)\subseteq G_L$.
+
+Global sedimentation remains a median order and puts $f$ before every
+vertex of $G_L$. If $r\ne u$, condition~2 makes $fr$ flexible; its
+direction was $r\to f$ because $K_f=\varnothing$. Sedimentation
+makes it backward in another median order of $T$, contradicting the
+maximum-score argument. If $r=u$, sedimentation strictly increases
+the position of $u$ while preserving the score, because for every
+$z\in N_T^+(f)\cup G_L$ its position increases by
+\[
+ 1+|\{b\in B_L:\operatorname{pos}_L(b)>
+                            \operatorname{pos}_L(z)\}|>0,
+\]
+where $B_L$ is the set of bad vertices of the median order.
+This contradicts the secondary maximum. Both cases are impossible.
+
+Thus the \emph{selected} median feed is $u$. If $u\notin A$, the
+outside-source transfer already gives a contradiction. Otherwise the
+last position at $u$ shows that it has no original protection successor:
+there is no $q$ with $u\triangleleft q$, since every median order
+extends protection.
+
+Apply the fixed-completion heavy-cover criterion
+(Theorem~\ref{thm:protected-independent-heavy-cover}) with
+$H=\{u\}$. Its independence condition is automatic; all other actual
+sources have $t\le1$, and the absence of a protection successor at $u$
+supplies its final condition. It contradicts all-deficiency.
+The second phase uses a different fixed completion solely to apply
+that criterion; no numerical gap or optimal score is transferred
+between the completions.
+\end{proof}
+
+\begin{corollary}[Two nonunit actual failure sources]
+\label{cor:one-exception-short-two-heavy}
+In every finite nonempty strongly connected all-deficient oriented
+graph minimal under arbitrary nonempty arc-set deletion, at least two
+distinct actual bad-direction failure sources have $\eta\ge2$.
+Consequently every positive residual allocation $(m,1^k)$ is excluded
+for arbitrary $m\ge2$ and arbitrary finite $k\ge0$.
+\end{corollary}
+\begin{proof}
+Actual sources have positive residual, and a source of residual one
+has $t\le1$. The unit--unit cross-witness-tail lemma says
+that opposite unit sources have a bad, hence flexible, original missing
+pair. If at most one actual source were nonunit, choose it as $u$,
+or choose any vertex when none exists. The general theorem applies,
+a contradiction. Residuals of inactive vertices are unrestricted.
+\end{proof}
+
+\paragraph{Proof status.}
+The first phase claims the feed property only for its selected
+score/position optimum, not for every median order. Closure under
+all protection extensions is explicit and essential. The fixed-cover
+criterion has a separate proof, so the theorem and corollary have no
+circular dependency. The remaining multiple-exception classes are
+not excluded, and no proof of the full SNC is asserted.

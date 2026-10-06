@@ -1,0 +1,170 @@
+\section{Excluding the residual allocation (2,1,1,1)}
+\label{sec:exclude-two-one-one-one}
+
+Continue in a finite nonempty strongly connected all-deficient graph
+minimal under deletion of arbitrary nonempty arc sets.
+Suppose its positive residual vertices are a heavy vertex $u$ with
+$\eta(u)=2$ and three unit vertices with residual one.
+Every other vertex has residual zero and hence $t=0$; every unit
+vertex has $t\le1$ by Corollary~\ref{cor:eta-one-budget}.
+Let $\mathcal B$ be the actual cross-witness graph on these four
+vertices. It is nonempty, and its edges are original missing pairs.
+
+\begin{theorem}\label{thm:no-two-one-one-one}
+The positive residual allocation $(2,1,1,1)$ is impossible.
+\end{theorem}
+\begin{proof}
+\par\medskip\noindent\textbf{No unit--unit witness edge.}\quad 
+If no edge of $\mathcal B$ joins two units, it is a star centered at
+$u$. Orient each bad pair so that its only selected failure source
+is $u$, and good pairs canonically. All other vertices remain
+strictly deficient in the same completed tournament by
+Lemma~\ref{lem:single-selected-source-completion}.
+There is at most one Seymour vertex. The tournament has no sink,
+contradicting Havet--Thomasse's two-Seymour-vertex theorem
+\cite[Theorem~2]{HavetThomasse2000}.
+
+\par\medskip\noindent\textbf{Classification after a unit--unit edge.}\quad 
+Let $ab$ be a unit--unit edge of $\mathcal B$, and let $c$ be the
+third unit. Lemma~\ref{lem:unit-unit-witness-tail-bad} shows that
+the original missing pair $ab$ is itself bad.
+Its opposite witnesses must be the two remaining positive vertices
+$u,c$. After exchanging $a,b$ if necessary, their original relations
+are
+\begin{equation}\label{eq:2111-original-configuration}
+ u\to a,\qquad c\to b,\qquad
+ a\in U_D(c),\qquad b\in U_D(u),
+ \qquad uc\in E(\mathcal B).
+\end{equation}
+The unique unprotected far target of $c$ is thus $h(c)=a$.
+The original arcs prohibit witness edges $ua$ and $cb$.
+There is no witness edge $ca$ either: a cross witness opposite $c$
+would have to point to its unique unprotected head $a$, impossible
+when that witness is $a$ itself.
+Consequently $\mathcal B$ is either the matching
+$\{ab,uc\}$ or the path $a-b-u-c$.
+In particular this classification leaves no additional unit--unit
+edge or alternative four-source graph.
+
+\par\medskip\noindent\textbf{The path.}\quad 
+If $ub\in E(\mathcal B)$, the heavy vertex $u$ has witness degree
+two, so Lemma~\ref{lem:eta-two-witness-degree} gives $t(u)\le2$.
+Use the bipartition $L=\{b,c\}$, $R=\{a,u\}$ and complete according
+to Lemma~\ref{lem:bipartite-selected-source-completion}.
+Zero-residual vertices remain strictly deficient.
+The nonselected unit $a$ remains strictly deficient: with no new first
+neighbour its gap is unchanged, and otherwise its gap is at least
+$g_D(a)+2-t(a)>0$.
+The nonselected heavy $u$ likewise remains strictly deficient,
+using $t(u)\le2$.
+The selected units $b,c$ have gap at least zero, and strictly positive
+gap if they gain a first neighbour.
+Thus all tournament gaps are nonnegative, and its zero-gap set has
+at most two vertices. The tournament has no sink. This contradicts
+Lemma~\ref{lem:nonnegative-tournament-three-zeros}.
+
+\par\medskip\noindent\textbf{The matching and its two families of bad pairs.}\quad 
+Suppose now $\mathcal B=\{ab,uc\}$. Each bad pair has singleton
+opposite failure sets corresponding to one of these two edges;
+otherwise the complete cross-witness graph between its two failure
+sets would create another edge in $\mathcal B$.
+Since $h(c)=a$, the bad pairs witnessed by $u,c$ are all of the form
+$ax$, with selected direction $x\to a$ failing at $c$.
+Put $r=h(b)$ and $y=h(a)$. The units $a,b$ witness precisely the
+single bad pair $ry$, with original arcs $a\to r$, $b\to y$,
+$y\in U_D(a)$ and $r\in U_D(b)$. Select $r\to y$, which fails at $a$.
+These two families are disjoint: the second pair avoids both $a,b$,
+whereas every pair in the first family contains $a$.
+This is the completion with bipartition
+$L=\{a,c\}$, $R=\{b,u\}$.
+
+Observe that $r\ne u$: otherwise $a\to r=u$ would contradict the
+original arc $u\to a$ in
+\eqref{eq:2111-original-configuration}.
+Every selected bad arc incident to $u$ therefore points into $u$.
+The star family cannot contain $u$ as an endpoint, since its witnesses
+include $u$; the sole other pair $ry$ can contain $u$ only as $y$,
+and is then directed $r\to u$.
+
+Choose the reference extension for good directions so that all good
+missing partners of $u$ precede $u$.
+If $P(u)=\varnothing$, every direction into $u$ is convenient,
+so no first neighbour is added there. Its original first intermediates
+have no selected-direction failures, and $u$ stays deficient.
+Otherwise let the target-bundle sets be
+\[
+ \begin{gathered}
+ P=P(u),\quad C=\partial P,\quad X=\partial^2P,\quad H=N_D^{--}(u)\setminus C,\\
+ B=H\cap\mathcal M(u),\quad k=|B|,\quad s=|H\cap N_D^+(u)|.
+ \end{gathered}
+\]
+Use the envelope $E$ and remainder $L_0$ from
+Lemma~\ref{lem:partner-head-budget}. Its size satisfies
+\[
+ |L_0|\le\lambda=
+ \begin{cases}2-2k,&s=0,\\2-g_D(u)-2k,&s>0.\end{cases}
+\]
+Write $K=N_T^+(u)\setminus N_D^+(u)$.
+Every member of $K$ comes from a good missing pair. By the reference
+choice its reverse direction is nonconvenient, so it has an original
+predecessor $p\in P$ pointing to it.
+Every exceptional partner in $B$ is conveniently directed into $u$,
+and every bad incident direction is already incoming. Thus
+$K\subseteq\mathcal M(u)\setminus B\subseteq E$.
+
+We will rule out a new far head outside $L_0$ through each added
+first intermediate. An original second arc is excluded by the
+partner-head budget. A good second arc is also excluded: a far target
+outside $L_0$ is outside $P\cup C\cup X$, so it is far from the
+chosen predecessor $p\in P$, making that outgoing direction
+nonconvenient. This is the same cone argument as in the shared-envelope
+proof, and does not suppose that $p$ has residual zero.
+For a bad second arc, the star family has head $a$, already an
+original first neighbour of $u$. It cannot be a far second head.
+The only other possibility is $r\to y$ through the added keeper $r$.
+If $y=u$, it is a self endpoint and is not a second neighbour.
+Assume $y\ne u$ and that this is a genuinely new far head outside
+$L_0$. Its predecessor $p\in P$ is far from $y$, so $p$ is a
+directional failure witness for $r\to y$. That direction's failure
+set is exactly $\{a\}$, forcing $p=a$.
+
+\par\medskip\noindent\textbf{A short protected-reachability obstruction.}\quad 
+The preceding putative bad path gives $a\in P(u)$, so $u\in U_D(a)$.
+Since $t(a)=1$, its only unprotected head is $y$, and $y\ne u$,
+the far target $u$ must be protected for $a$:
+\[
+ u\to a,\qquad N_D^-(u)\subseteq N_D^-(a)\setminus\{u\}.
+\]
+The missing pair $cu$ and $h(c)=a\ne u$ imply that $c$ reaches $u$
+within two steps: otherwise $u$ would be another unprotected far
+target of the unit $c$. Reaching the protected predecessor $u$
+within two steps implies reaching $a$ within two steps. This
+contradicts $a\in U_D(c)$ in
+\eqref{eq:2111-original-configuration}.
+This excludes the sole bad second arc which could create a far head
+outside the packet remainder.
+
+We have now shown
+\[
+ N_T^{++}(u)\subseteq
+ (N_D^{++}(u)\cup L_0)\setminus K,
+ \qquad K\subseteq N_D^{++}(u)\cup L_0.
+\]
+No disjointness of $L_0$ and the original second neighbourhood is
+needed. Removing $K$ from the union gives
+$g_T(u)\ge g_D(u)+2|K|-\lambda$.
+If $K\ne\varnothing$, this is positive because $\lambda\le2$.
+If $K=\varnothing$, its first neighbourhood is entirely original,
+and no selected bad direction fails at the nonselected vertex $u$;
+its gap is unchanged and positive.
+
+\par\medskip\noindent\textbf{The matching contradiction in the same tournament.}\quad 
+The heavy $u$, the nonselected unit $b$, and all zero-residual
+vertices are strictly deficient in $T$.
+The selected units $a,c$ have nonnegative gaps by their one-unit
+budgets. Thus every tournament gap is nonnegative, and the zero-gap
+set is contained in $\{a,c\}$.
+The no-sink tournament has at most two zero-gap vertices, contrary
+to Lemma~\ref{lem:nonnegative-tournament-three-zeros}.
+The three cases prove the theorem.
+\end{proof}

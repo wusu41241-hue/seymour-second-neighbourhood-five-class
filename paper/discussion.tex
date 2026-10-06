@@ -1,0 +1,61 @@
+\section{Further consequences and unresolved steps}\label{sec:paper-discussion}
+The incoming-pattern formulation isolates a precise global question: does
+every finite oriented core admit a pattern certificate? Theorem~\ref{thm:pattern-duality}
+shows that universal feasibility would settle Seymour's conjecture, while
+an infeasible core would yield a concrete counterexample. The present tables
+establish only the core-order-five range. Iterated incoming-core reduction
+removes repeated or contained incoming sets from the remaining certificate
+problem, but does not prove feasibility on all larger terminal cores.
+
+The copying and completion methods impose different constraints. In a
+minimum-order counterexample the maximal gap-one classes cover every target;
+a further lexicographic choice makes incoming classes true independent
+modules. A closure feed can nevertheless remain originally deficient because
+it gains several second neighbours. The zero-gap branch has an original
+partner cycle and residual at least four. The negative-gap branch can have
+strict Good slack or an original nongood second partner. We have not proved
+that the original unit-class cover eliminates all these possibilities.
+
+Two supplementary results delimit other approaches. Cyclic three-copy
+amplification sends order $n$ and minimum outdegree $\delta$ to
+\[
+ n'=3n,\qquad\delta'=n+\delta,\qquad n'-2\delta'=n-2\delta,
+\]
+while preserving vertex gaps, missing degrees and local residuals.
+A fixed near-half minimum-degree theorem for all oriented graphs would
+therefore imply the conjecture. Amplification does not preserve arc-set
+minimality, so a minimal residual bound cannot simply be transferred to
+the amplified dense graph.
+
+For a fixed protection-preserving tournament completion $T$, set
+$\Delta=g_T-g_D$, and let $N_T$ be the signed second-minus-first matrix.
+The exact correction budget has dual form
+\[
+ \max_{\substack{\lambda\ge0,\ \mathbf1^T\lambda=1\\N_T^T\lambda\ge0}}
+       \lambda^T\Delta
+   =\min_{w\ge0}\max_x\bigl(\Delta_x+(N_Tw)_x\bigr).
+\]
+An explicit six-class clone family has optimum $-k/3$ for every canonical
+reference completion, even after strong dense amplification. These graphs
+already have Seymour vertices. They refute an unconditional completion-budget
+claim, not the conjecture. The supplement supplies a common integer dual
+certificate for the whole family. A normalized correction strictly greater
+than $-1$ would suffice for an all-deficient graph; its universal existence
+remains unproved.
+
+The specialized $n=2\delta+3$ results in the supplement include exact
+deletion identities, minimum-degree predecessor estimates, capacity and
+heavy-set constraints, and conditional degree thresholds. Their capacity
+variable $\sigma$ is distinct from $\eta$. Earlier finite pure-unit bounds
+and one-heavy exclusions are recorded as consequences of the unbounded
+source theorem rather than as independent contributions.
+
+\paragraph{Verification and attribution.}
+The arguments and programs underwent independent internal reconstruction
+and replay. This is not a proof-assistant certificate or an external referee
+report. AI tools assisted research, drafting and implementation; human
+authorship, review and approval are required before submission. Literature
+comparison establishes the cited inputs and their scope, but does not certify
+priority for every auxiliary observation. The source, certificate tables,
+dependency inventory and verification records support further examination.
+No complete proof of the general conjecture or actual counterexample is asserted.

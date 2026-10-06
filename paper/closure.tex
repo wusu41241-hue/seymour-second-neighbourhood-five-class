@@ -1,0 +1,243 @@
+\section{Protection closure and median feeds}\label{sec:paper-closure}
+The incoming-core reduction takes induced subgraphs. We now keep the vertex
+set fixed and add arcs. Every convenience predicate in this section refers
+to the graph present at the stated stage.
+
+\subsection{Two safe operations}
+A missing direction $a\to b$ is \emph{forced} in $H$ if some vertex $w$
+satisfies $a\triangleleft_H w$ and $w\to b\in A(H)$.
+
+\begin{lemma}\label{lem:paper-forced-step}
+Forced directions are consistent, uniquely convenient in $H$, and mandatory
+in every tournament completion preserving all protections of $H$.
+Adding all forced directions simultaneously preserves every old protection.
+\end{lemma}
+\begin{proof}
+For a witness $a\triangleleft_H w$, $w\to b$, every predecessor $p$ of $a$
+also points to $w$, and hence reaches $b$ within two steps. Thus $a\to b$
+is convenient. Its reverse fails at $w$, since $w$ cannot reach its protected
+far head $a$. Opposite directions cannot both be forced: each would have
+been proved convenient while the other witness proves it nonconvenient.
+In a tournament, $a\triangleleft w$ also gives outgoing domination, so
+$w\to b$ forces $a\to b$.
+
+Fix an old $y\triangleleft_H x$. An old predecessor of $y$ already points
+to $x$. For a newly incoming $a\to y$, choose its witness
+$a\triangleleft_H w$, $w\to y$. Then $w\to x$ originally. If $ax$ is
+missing it is forced $a\to x$ in the same round. If $x\to a$ were an old
+arc, protection at $a,w$ would give $x\to w$, a digon with $w\to x$.
+Thus the required new incoming nesting is preserved in every case.
+\end{proof}
+
+There is a second, sequential operation. If $ab$ is missing,
+$N_H^-(a)\subseteq N_H^-(b)$, and $b$ has no protection successor in $H$,
+add the single arc $a\to b$. Call this a \emph{weak step}.
+
+\begin{lemma}\label{lem:paper-weak-step}
+A weak step is convenient in its preceding graph, preserves all old
+protections, and creates $a\triangleleft b$.
+\end{lemma}
+\begin{proof}
+Every old predecessor of $a$ already points to $b$. Only $N^-(b)$ changes.
+An old relation $y\triangleleft b$ becomes easier to satisfy, and an old
+relation $b\triangleleft x$ is excluded by the hypothesis on $b$.
+All other incoming comparisons are unchanged. The added arc together with
+the old containment gives $a\triangleleft b$.
+\end{proof}
+
+Starting at $D$, repeatedly perform a full forced round; when no forced
+direction remains, perform one available weak step and recompute.
+Stop when neither operation is available, obtaining a partial graph $Q$.
+Any deterministic choice among eligible weak steps may be used.
+The process terminates after at most $M(D)$ new pairs. Protections acquired
+at any stage persist. In particular, every added arc has a tail with a
+protection successor in $Q$. Simultaneous arbitrary weak choices are not
+part of the construction.
+
+\subsection{A fixed partial graph and a complete reference family}
+Since $Q$ has no remaining forced pair, each $y\triangleleft_Q x$ has
+outgoing as well as incoming nesting. Indeed, $x\to z$ excludes $z\to y$
+by incoming nesting; if $yz$ were missing, $y\to z$ would still be forced.
+A two-position swap therefore shows that every global median order of $Q$
+extends protection: reversing $x,y$ gains their mutual arc and loses no
+contribution from an intermediate vertex. Missing arcs contribute zero.
+
+Complete every remaining missing pair forward in a linear extension of
+the protection order of $Q$. Every such tournament preserves protection.
+To see this, consider $y\triangleleft_Q x$ and a newly incoming $a\to y$.
+The reference has $a<y<x$. An old $x\to a$ would have forced $y\to a$,
+contrary to terminality and the missing pair $ay$. Thus $a\to x$ is either
+old or is also completed forward. This proves the incoming nesting.
+
+Let $T_*$ maximize the ordinary median score over the family of
+\emph{all} these extensions. A remaining pair of $Q$ is called free.
+
+\begin{theorem}[Rigidity and original neighbourhoods]\label{thm:paper-feed-invariance}
+Every global median of $T_*$ respects protection in $Q$ and puts every free
+arc forward. At any feed $f$ of such an order,
+\[
+ N_{T_*}^+(f)=N_Q^+(f)=N_D^+(f),\qquad
+ N_Q^{++}(f)=N_D^{++}(f).
+\]
+If $r$ is the number of free pairs, the maximum tournament median score is
+$\med(Q)+r$, and the possible feeds across the maximizing completions are
+exactly the median feeds of $Q$.
+\end{theorem}
+\begin{proof}
+Tournament domination makes every median respect protection. If a free arc
+were backward in one median of $T_*$, use that median as a new reference.
+This fixes the arcs of $Q$ and turns all backward free arcs forward,
+strictly increasing the score. This contradicts maximality and applies to
+every median of the same maximizing tournament. The argument requires the
+entire extension family.
+
+A feed has no outgoing free arc, since it would be backward. Nor can it be
+the tail of an arc added during closure: its persistent protection successor
+would have to occur later. Thus its first set was unchanged at every stage.
+Induct over the stages. Any new two-step path at $f$ uses an original first
+arc and a newly added second arc. Convenience in the preceding graph says
+that this original predecessor $f$ already reached the head within two steps.
+A first neighbour stays first throughout, so no new exact second head occurs.
+Old exact second paths persist because the first set is fixed.
+
+A median of $Q$ is an admissible reference and scores $\med(Q)+r$ after
+completion. No order in any reference tournament can exceed this number:
+its $Q$ contribution is at most $\med(Q)$ and its free contribution at most
+$r$. Equality forces both bounds to be attained, proving the score and feed
+assertions.
+\end{proof}
+
+\subsection{Equality sedimentation and the original far budget}
+For a median order $L$ of a tournament with feed $f$, a vertex
+$y\in N^-(f)$ is good if some $a\in N^+(f)$ occurs before $y$ in $L$ and
+has $a\to y$. Let $G_L$ be the good set. The strong feed theorem of
+Havet and Thomass\'e gives
+\[
+ |N^+(f)|\le |G_L|\le |N^{++}(f)|.
+\]
+When $|G_L|=|N^+(f)|$, their global sedimentation lemma replaces $L$ by
+the order consisting of its bad vertices, then $f$, then $N^+(f)\cup G_L$,
+preserving each block's previous relative order. It remains a global median
+of the same tournament~\cite{HavetThomasse2000}. Each vertex of the last
+block moves strictly later. These statements concern ordinary global medians.
+
+\begin{theorem}[Strict original surplus]\label{thm:paper-strict-surplus}
+Let $f$ be a median feed of $T_*$ with $g_D(f)>0$, and set
+\[
+ A_f=N_{T_*}^{++}(f)\setminus N_D^{++}(f),\qquad
+ R_f=\mathcal M_Q(f),\quad m_f=|R_f|.
+\]
+Then $m_f>0$ and $t_D(f)\ge g_D(f)+1$.
+If $g_{T_*}(f)=0$, then
+\[
+ \varnothing\ne R_f\subseteq U_{T_*}(f)\cap
+       \bigl(\mathcal F_D(f)\setminus A_f\bigr),\qquad
+ t_D(f)\ge g_D(f)+m_f.
+\]
+No all-deficiency or minimality assumption on the other vertices is needed.
+\end{theorem}
+\begin{proof}
+Original protection survives. By Theorem~\ref{thm:paper-feed-invariance},
+\[
+ N_{T_*}^{++}(f)=N_D^{++}(f)\,\dot\cup\,A_f,
+ \quad A_f\subseteq\mathcal F_D(f),\quad
+ g_{T_*}(f)=g_D(f)-|A_f|\le0.
+\]
+If $R_f$ were empty, $f$ would be whole in $Q$. Every far head of a whole
+vertex is protected in that graph. Preservation of these protections would
+prevent any further second head at $f$, giving $g_{T_*}(f)=g_D(f)>0$.
+This contradiction proves $m_f>0$.
+
+If the completed gap is zero, strong feed equality gives
+$G_L=N_{T_*}^{++}(f)$. A partner $r\in R_f\cap G_L$ has a free incoming
+arc $r\to f$, since the first set at $f$ is original. Sedimentation puts
+$f$ before $r$ while keeping a median, contradicting free-arc rigidity.
+Thus every remaining partner is far in $T_*$. It was originally missing,
+so it cannot be an originally protected head, and old exact second paths
+survive. Hence it lies in $\mathcal F_D(f)\setminus A_f$. The two disjoint
+sets have sizes $m_f$ and $g_D(f)$. If the completed gap is negative instead,
+integrality gives $|A_f|\ge g_D(f)+1$ directly.
+\end{proof}
+
+\begin{theorem}[An original partner cycle]\label{thm:paper-original-cycle}
+Under the zero-gap hypotheses of Theorem~\ref{thm:paper-strict-surplus},
+every vertex of $Q[R_f]$ has an incoming neighbour there, and the original
+graph $D[R_f]$ contains a directed cycle. Consequently
+\[
+ m_f\ge3,\qquad t_D(f)\ge g_D(f)+m_f\ge g_D(f)+3.
+\]
+\end{theorem}
+\begin{proof}
+The feed is maximal in terminal protection. For $r\in R_f$, terminality
+of the weak operation gives $p\in N_Q^-(r)\setminus N_Q^-(f)$.
+Since $r$ is far from $f$ in $T_*$, $p\to r$ implies $p\to f$ there.
+Neither direction on $pf$ was present in $Q$, so $p\in R_f$. Thus each
+remaining partner has a predecessor in the induced terminal graph.
+
+Fix the final set $R_f$ throughout the construction. For a forced internal
+addition $a\to b$, let $a\triangleleft_H w$, $w\to b$ be its preceding
+witness. Far-ness of $b$ in $T_*$ gives $w\to f$ there. If $wf$ were adjacent
+in $Q$, its direction would already be $w\to f$, and the retained protection
+$a\triangleleft w$ would force the still-missing $a\to f$. Therefore
+$w\in R_f$. The internal addition shortcuts an old internal two-step path.
+All simultaneous such shortcuts preserve acyclicity of an acyclic induced
+graph.
+
+For a single weak internal addition $a\to b$, creating the first cycle
+would require an old internal path $b\leadsto p\to a$. It cannot have length
+one, because $ab$ was missing. Old incoming containment gives $p\to b$,
+already completing an old cycle. Thus weak steps cannot create the first
+cycle either. An acyclic $D[R_f]$ would remain acyclic, whereas a finite
+graph of positive minimum indegree has a cycle. Orientedness excludes cycle
+lengths one and two.
+\end{proof}
+
+The stronger $+3$ bound applies to zero completed gap only. Omitting all weak
+steps still gives Theorem~\ref{thm:paper-strict-surplus}, but does not give
+the partner-cycle conclusion. The original cycle in the theorem is not a
+claim that every terminal cycle lifts edge by edge, nor that its vertices
+are actual bad-direction sources.
+
+\begin{corollary}\label{cor:paper-low-far}
+Every oriented graph with $t_D(v)\le1$ at every vertex has a Seymour vertex.
+More generally this holds if $t_D(v)\le g_D(v)$ at every deficient vertex.
+\end{corollary}
+\begin{proof}
+Otherwise every original gap is positive and any feed contradicts the
+strict-surplus theorem.
+\end{proof}
+
+If $h_D(f)$ counts the protected original far heads, partitioning the other
+vertices gives $t_D(f)-g_D(f)=n-1-2d_D^+(f)-h_D(f)$. Hence every
+original-positive-gap closure feed satisfies
+\begin{equation}\label{eq:paper-degree-localization}
+ 2d_D^+(f)+h_D(f)\le n-2.
+\end{equation}
+At $n=2\delta^+(D)+3$, such a feed has minimum original outdegree and at
+most one protected far head. This locates a possibly deficient feed; it
+does not assert that a minimum-degree vertex already has the SNP in $D$.
+
+\subsection{The negative-gap equality branch}
+Every new original-far head belongs to $G_L$: its second arc cannot lie in
+$Q$, and therefore is free and forward, putting its original first intermediate
+before the head. Write
+$b_L=|N_D^{++}(f)\setminus G_L|$ and
+$s_L=|G_L|-d_D^+(f)$. Then
+\begin{equation}\label{eq:paper-good-slack}
+ s_L=|A_f|-g_D(f)-b_L\ge0.
+\end{equation}
+When $s_L=0$, sedimentation excludes $R_f\cap G_L$. Its second partners
+number at most $|A_f|-g_D(f)$ and are original nongood second vertices;
+its far partners number at most $t_D(f)-|A_f|$. Thus
+\begin{equation}\label{eq:paper-equality-partners}
+ |R_f|\le t_D(f)-g_D(f)\qquad(s_L=0).
+\end{equation}
+This includes negative completed gap. Put
+$R_2=R_f\cap N_D^{++}(f)$, $R_\infty=R_f\cap U_{T_*}(f)$, and
+$U=R_\infty\setminus\Reach_{D[R_f]}(R_2)$, where reachability includes
+the seed vertices. The supplement proves that closure creates no new
+reachability from $R_2$ into $R_\infty$ inside $R_f$. If the whole set $U$
+is nonempty, its original induced graph $D[U]$ contains a directed cycle
+(Theorem~\ref{S-thm:weak-equality-original-partner-path-cycle}).
+When $s_L>0$, the cited equality-sedimentation move is unavailable. This
+does not assert that every median order of the tournament has the same slack.

@@ -1,0 +1,133 @@
+\section{Protected basins beyond the first residual layer}
+\label{sec:general-residual-basins}
+
+Let $D$ be a strongly connected all-deficient oriented graph, minimal
+under deletion of arbitrary nonempty sets of arcs, with
+$n=2\delta+3$.  Retain the target surpluses $\sigma$, the positive
+core $K$, its size $k$, and the heavy targets $\mathcal H$,
+$H=|\mathcal H|$.  Let $m$ count minimum-degree vertices in $K$,
+and let $L$ count the nonwhole vertices outside $K$.
+The zero-surplus classification gives the following dichotomy
+outside $K$: a vertex is either a whole minimum-degree vertex, or
+a minimum-degree vertex with $\mu=q=p=1$.  Put
+\[
+ R=2M-n=\sum_v\eta(v),\qquad
+ \eta(v)=2\mu(v)+g(v)-1-p(v)\ge0.
+\]
+For $v\in K$ of minimum degree one has $\eta(v)=\sigma(v)+g(v)\ge2$.
+An outside nonwhole vertex has $\eta(v)=g(v)\ge1$.
+Consequently
+\begin{equation}\label{eq:general-min-leaf-budget}
+ {2m+L\le R.}
+\end{equation}
+
+Let $B$ be the set of inactive minimum-degree unit-surplus targets:
+\[
+ B=\{x\in K:e(x)=0,\ \sigma(x)=1,\ p(x)=0\},\qquad b=|B|.
+\]
+Each such target has $q=\mu=1$ and
+$\eta(x)=\sigma(x)+g(x)\ge2$.  Importantly, $p(x)=0$ means
+that no vertex has $x$ in its far set.
+
+\begin{lemma}[Certificates outside the exceptional set]
+\label{lem:general-basin-certificates}
+The set $K\setminus B$ can be partitioned into basins
+$B_1,\ldots,B_H$, one for each heavy root $r_i$, with
+\[
+ r_i\to x,\qquad N^-(r_i)\subseteq N^-(x)
+       \quad(x\in B_i\setminus\{r_i\}).
+\]
+In particular, an external vertex pointing to $r_i$ points to
+every vertex of $B_i$; reaching $r_i$ within two steps reaches
+every vertex of $B_i$ within two steps.
+\end{lemma}
+\begin{proof}
+An active unit target has a protected parent of strictly larger
+$q$, with an arc to the child and an incoming-neighborhood
+containment.  Iteration must end at a heavy target; all such
+certificates compose transitively.
+
+An inactive unit target satisfies $q=1$.  If it is not in $B$,
+it has excess one and missing degree zero.  It is whole, has a
+nonempty far set, and cannot be far from a zero-surplus target,
+whose $T$-set has at most $\delta+1$ vertices while the closed
+outneighborhood of this source has $\delta+2$ vertices.
+Choose an active far target $y\in K$.
+Wholeness and the absence of a two-step path to $y$ give
+$y\to x$ and $N^-(y)\subseteq N^-(x)$.
+Compose this certificate with the heavy-ancestor certificate of
+$y$, if $y$ is itself unit.  Such a chain never enters $B$,
+whose vertices have $q=1$ and no far source.
+Assigning each nonheavy vertex one heavy certificate gives the
+partition.  The two stated reachability properties follow directly
+from the incoming-neighborhood containment.
+\end{proof}
+
+\begin{theorem}[Good minimum-degree witnesses]
+\label{thm:general-good-witnesses}
+Suppose every heavy root has more than $m+2L$ minimum-degree
+in-neighbors.  Then there is an oriented relation on the $H$ roots
+with basin weights $w_i=|B_i|$, whose weighted outdegree is at least
+three at every root.  Writing $k'=k-b=\sum_iw_i$, one obtains
+\begin{equation}\label{eq:general-basin-square}
+ {\sum_iw_i^2\le(k')^2-6k'.}
+\end{equation}
+In particular $H\ge3$ and $k'\ge7$.
+The same conclusion holds if every heavy root has more than $L$
+whole minimum-degree in-neighbors.
+\end{theorem}
+\begin{proof}
+Exclude three kinds of minimum-degree predecessors of a heavy
+root: those inside $K$ (at most $m$); nonwhole predecessors
+outside $K$ (at most $L$); and whole outside predecessors whose
+far set contains a nonwhole target outside $K$ (at most $L$).
+The last count uses $p=1$ at each such outside target.
+The union has cardinality at most $m+2L$.
+
+Thus choose a remaining predecessor $u_i$ for every root $r_i$.
+It is a whole minimum-degree vertex outside $K$ with no outside
+far target.  Since targets in $B$ have no far sources, its far
+set lies in $K\setminus B$ and has size $3$ or $4$.
+Define $i\to j$ whenever some whole minimum-degree vertex $u$ outside
+$K$, with no far target outside $K$, satisfies $u\to r_i$ and
+$r_j\in U_D(u)$.  The chosen $u_i$ guarantees such a witness for
+each demanded outgoing basin.  There is no loop since $u\to r_i$.
+There is no digon: witnesses for opposite relations would be
+distinct and nonadjacent, as either direction between them would
+create a forbidden two-step path.  But both witnesses are whole.
+The basin certificate makes each far core vertex imply that its
+root is far, so the weighted outdegree at $i$ is at least three.
+
+Multiplying these demands by $w_i$ and summing gives
+\[
+ 3k'\le\sum_{i\to j}w_iw_j
+       \le\frac{(k')^2-\sum_iw_i^2}{2},
+\]
+which is \eqref{eq:general-basin-square}.
+Positive outdegree in an oriented relation forces $H\ge3$;
+positivity and integrality of the weights give
+$\sum_iw_i^2\ge k'$, hence $k'\ge7$.
+If whole minimum-degree predecessors are counted directly,
+only the at most $L$ sources far from an outside nonwhole target
+need to be excluded, proving the alternate sufficient condition.
+\end{proof}
+
+\begin{corollary}[A degree--residual sufficient condition]
+\label{cor:general-witness-threshold}
+The conclusions of Theorem~\ref{thm:general-good-witnesses} hold
+whenever
+\[
+ \delta>10(m+2L)+R-3.
+\]
+In particular, the simpler condition $\delta>21R-3$ suffices.
+\end{corollary}
+\begin{proof}
+For a heavy target $s$, $\Phi(s)=\sigma(s)-1\ge1$.
+The density-sensitive predecessor bound gives
+\[
+ 10c(s)\ge\delta+1-R+2\Phi(s)\ge\delta+3-R.
+\]
+The first hypothesis thus forces $c(s)>m+2L$ for every heavy
+target.  Finally \eqref{eq:general-min-leaf-budget} implies
+$m+2L\le2R$, giving the simpler condition.
+\end{proof}

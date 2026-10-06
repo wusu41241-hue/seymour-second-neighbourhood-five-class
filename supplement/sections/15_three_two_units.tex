@@ -1,0 +1,190 @@
+\section{Three positive residuals cannot include two units}
+\label{sec:three-positive-two-units}
+
+All far sets, protection relations, convenience and failure sets are
+defined in the original graph.
+For a far target $y$ of $x$, protection means
+$y\to x$ and $N^-(y)\subseteq N^-(x)\setminus\{y\}$.
+Write $\mathcal F(x)$ for the unprotected far targets and
+$t(x)=|\mathcal F(x)|$.
+As before, good missing pairs are oriented canonically: use the only
+convenient direction, or use a fixed linear extension of the protection
+partial order when both directions are convenient.
+Protected-target compatibility ensures that an added convenient
+$z\to a$ cannot be followed by an added arc from $a$ to a protected
+far target of $z$.
+
+\subsection{A simultaneous single-blame completion}
+
+\begin{lemma}\label{lem:single-blame-unprotected-transfer}
+Suppose every bad missing pair of an oriented graph $D$ can be oriented
+so that all failure sources of its selected direction lie in $\{u\}$.
+Orient all bad pairs this way and all good pairs canonically, obtaining
+a tournament $T$.
+For every $z\ne u$, put
+$K_z=N_T^+(z)\setminus N_D^+(z)$.
+Then
+\[
+ {
+ N_T^{++}(z)\subseteq
+ (N_D^{++}(z)\setminus K_z)
+ \cup(\mathcal F(z)\setminus K_z),}
+ \tag{TU1}\label{eq:single-blame-envelope}
+\]
+and
+\[
+ g_T(z)\ge g_D(z)+2|K_z|-t(z).
+\]
+If $K_z=\varnothing$, the second neighborhood is exactly unchanged.
+\end{lemma}
+\begin{proof}
+All added first neighbors are missing partners, and therefore lie in
+the disjoint union $N_D^{++}(z)\dot\cup\mathcal F(z)$.
+We check that no protected far target $y$ of $z$ becomes a second
+neighbor in $T$.
+
+If the first intermediate vertex is an original outneighbor, an
+original or convenient second arc cannot introduce an original far
+head.  A selected bad second arc fails only at $u$, not at $z$.
+If the first arc $z\to a$ is added and good, protection excludes an
+original $a\to y$, and canonical compatibility chooses $y\to a$
+whenever $ay$ is missing.
+
+Now let $z\to a$ be an added bad arc.
+Its opposite direction has a failure source $r\ne u$:
+$r\to a$ and $z\in U_D(r)$.
+The source cannot be $u$, since it already fails the selected direction.
+Protection makes $y\in U_D(r)$.
+An original $a\to y$ would force $a\to z$, contrary to missing $za$.
+If $ay$ is missing, the direction $a\to y$ fails at $r$.
+It cannot be a selected convenient direction when $ay$ is good,
+or a selected bad direction when $ay$ is bad, because $r\ne u$.
+Thus the completion points from $y$ to $a$.
+This explicitly rules out paths using two added bad arcs.
+
+Every genuinely new far second head is therefore unprotected.
+Exclude all of $K_z$, now first neighbors, to obtain
+\eqref{eq:single-blame-envelope}.
+The degree inequality follows by removing $|K_z|$ from the combined
+cardinality and adding $|K_z|$ to the first degree.
+If $K_z$ is empty, every first intermediate is original and the first
+case above prevents every new far head, whether protected or not.
+Original second-neighborhood paths remain, so the second neighborhood
+is unchanged.
+\end{proof}
+
+\begin{corollary}\label{cor:single-blame-unit-others}
+Under the preceding orientation hypothesis, if $t(z)\le1$ for every
+$z\ne u$, then $D$ has a Seymour vertex.
+\end{corollary}
+\begin{proof}
+Suppose all vertices are deficient.
+For $K_z=\varnothing$, the completed degree gap is $g_D(z)>0$.
+For $|K_z|\ge1$, the bound gives
+$g_T(z)\ge g_D(z)+2|K_z|-1>0$.
+Thus every vertex except possibly $u$ is deficient in the same $T$.
+All original outdegrees are positive; hence $T$ has no sink.
+The published theorem giving at least two Seymour vertices in a
+sink-free tournament \cite[Theorem~2]{HavetThomasse2000}
+contradicts this simultaneous conclusion.
+\end{proof}
+
+\subsection{A unit--unit witness pair is itself bad}
+
+The remainder assumes that $D$ is strongly connected, all-deficient
+and minimal under deletion of arbitrary nonempty sets of arcs.
+No restriction on the order or minimum outdegree is imposed.
+The established residual and unit-target estimates are
+\[
+ \eta(x)=2\mu(x)+g(x)-1-|P(x)|\ge0,\qquad
+ \eta(x)=1\Longrightarrow t(x)\le1.
+\]
+
+\begin{lemma}[The packet of an active unit source]
+\label{lem:active-unit-full-boundary}
+If $\eta(x)=1$ and $t(x)=1$, then $P(x)\ne\varnothing$ and
+\[
+ \partial P(x)=N_D^{--}(x).
+\]
+\end{lemma}
+\begin{proof}
+The sole unprotected far target prevents $x$ from being whole:
+all far targets of a whole source are protected.
+Hence $\mu(x)\ge1$, and $P(x)=\varnothing$ would give
+$1=2\mu(x)+g(x)-1\ge2$.
+So $P(x)$ is nonempty.
+Set $C=\partial P(x)$, $Q=N_D^{--}(x)$,
+$j=|Q\setminus C|$ and
+$s=|N_D^+(x)\cap(Q\setminus C)|$.
+The established target-bundle bounds give
+\[
+ s=0\Rightarrow\eta(x)\ge2j,\qquad
+ s>0\Rightarrow\eta(x)\ge g(x)+2(j-s).
+\]
+If $s>0$, unit residual forces $g(x)=1$ and $j=s$.
+The equal-defect unprotected-target bound would then give
+$t(x)\le\eta(x)-g(x)=0$, a contradiction.
+Thus $s=0$, and $1\ge2j$ forces $j=0$.
+\end{proof}
+
+\begin{lemma}\label{lem:unit-unit-witness-tail-bad}
+Suppose opposite failure witnesses of a bad missing pair are vertices
+$v,w$ with $\eta(v)=\eta(w)=1$.
+Then $vw$ is itself a bad missing pair.
+\end{lemma}
+\begin{proof}
+Label the original bad pair $ab$ so that
+$v\to a$, $b\in U_D(v)$, $w\to b$ and $a\in U_D(w)$.
+The witness pair $vw$ is missing.
+Cross-witness protection shows
+$\mathcal F(v)=\{b\}$ and $\mathcal F(w)=\{a\}$.
+The heads $b,a$ are different from $w,v$, respectively, since
+$w\to b$ and $v\to a$ are not loops.
+
+A missing partner which is far is necessarily unprotected.
+Thus the missing pair $vw$ is reachable in both directions in
+exactly two steps: it uses neither source's sole unprotected head.
+Lemma~\ref{lem:active-unit-full-boundary} gives
+$w\in N_D^{--}(v)=\partial P(v)$ and
+$v\in N_D^{--}(w)=\partial P(w)$.
+Choose $p\in P(v)$ with $p\to w$, and $q\in P(w)$ with $q\to v$.
+Then $v$ is far from $p$ and $w$ is far from $q$.
+The direction $w\to v$ fails at $p$, and $v\to w$ fails at $q$.
+Both directions fail, so $vw$ is bad.
+\end{proof}
+
+\begin{theorem}\label{thm:three-positive-two-units}
+An arc-set-minimal strongly connected counterexample cannot have
+positive residual support $\{u,v,w\}$ with
+$\eta(v)=\eta(w)=1$, regardless of the positive value $\eta(u)$.
+Equivalently, no allocation $(m,1,1)$ with $m\ge1$ is possible.
+In particular the residual-five allocation $(3,1,1)$ is excluded.
+\end{theorem}
+\begin{proof}
+Every directional failure source of a bad missing pair has positive
+residual, by the zero-residual protection theorem.
+Since $D$ is all-deficient, Ghazal's theorem
+\cite[Theorem~2]{Ghazal2012} guarantees at least one bad pair.
+
+The vertices $v,w$ cannot be opposite witnesses of any bad pair.
+Otherwise Lemma~\ref{lem:unit-unit-witness-tail-bad} would make $vw$
+bad as well.  Its two opposite failure witnesses would have to be
+distinct positive-residual vertices outside $\{v,w\}$.
+Only $u$ is available, a contradiction.
+
+Consequently, for each bad pair, its two nonempty directional failure
+sets cannot have a unit source on each side.
+They are disjoint subsets of $\{u,v,w\}$.
+One direction therefore has no source in $\{v,w\}$ and has precisely
+$u$ as its failure source.
+Choose this direction for every bad pair.
+In cross-witness graph language, the graph has no edge $vw$ and
+all its nonempty edges lie in the star centered at $u$.
+This is an explicit choice of a single-blame orientation; no assertion
+about arbitrary acyclic dependency digraphs is used.
+
+The unit estimate gives $t(v),t(w)\le1$.
+All other vertices except $u$ have residual zero, hence $t=0$.
+Corollary~\ref{cor:single-blame-unit-others} now produces a Seymour
+vertex of $D$, the required contradiction.
+\end{proof}

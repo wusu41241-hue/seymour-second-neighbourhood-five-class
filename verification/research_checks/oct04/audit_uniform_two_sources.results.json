@@ -1,0 +1,194 @@
+{
+  "status": "PASS",
+  "counts": {
+    "graphs5": 59049,
+    "sampledGraphs": 100000,
+    "twoSourceGraphs5": 7320,
+    "twoSourceSampleGraphs": 12094,
+    "allNonSourcesProtectedGraphs5": 60,
+    "allNonSourcesProtectedSampleGraphs": 133,
+    "targetedActiveControlGraphs": 2,
+    "completions": 77664,
+    "protectedNonSourceEqualities": 147632,
+    "nonSourceAddedBadFirstCases": 25706,
+    "nonSourceMultipleAddedBadFirstCases": 1294,
+    "smallBudgetPersistenceCases": 19874,
+    "inactiveLargeBudgetPersistenceCases": 4,
+    "activeSaturatedPersistenceCases": 4,
+    "activeCasesWithMultipleAddedNeighbours": 2,
+    "tournamentTwoSnpChecks": 48889,
+    "allDeficientInputGraphs": 0
+  },
+  "examples": {
+    "inactive": {
+      "out": [
+        96,
+        81,
+        2,
+        2,
+        12,
+        150,
+        16,
+        21
+      ],
+      "u": 0,
+      "v": 4,
+      "t": 3
+    },
+    "targetedActiveControls": [
+      {
+        "out": [
+          70,
+          192,
+          18,
+          480,
+          130,
+          83,
+          16,
+          289,
+          83
+        ],
+        "sourceSet": [
+          0,
+          3
+        ],
+        "safeEtaTwoVertex": 0,
+        "originalGap": 1,
+        "originalEta": 2,
+        "unprotectedFar": [
+          3,
+          5,
+          8
+        ],
+        "retainedNeighbours": [
+          4
+        ],
+        "completedGap": 3,
+        "notAllDeficient": true
+      },
+      {
+        "out": [
+          3142,
+          704,
+          274,
+          4832,
+          642,
+          339,
+          272,
+          4129,
+          642,
+          4129,
+          274,
+          274,
+          339
+        ],
+        "sourceSet": [
+          0,
+          3
+        ],
+        "safeEtaTwoVertex": 0,
+        "originalGap": 1,
+        "originalEta": 2,
+        "unprotectedFar": [
+          3,
+          5,
+          12
+        ],
+        "retainedNeighbours": [
+          4,
+          8
+        ],
+        "completedGap": 5,
+        "notAllDeficient": true
+      }
+    ],
+    "active": {
+      "out": [
+        70,
+        192,
+        18,
+        480,
+        130,
+        83,
+        16,
+        289,
+        83
+      ],
+      "u": 3,
+      "v": 0,
+      "J": 16,
+      "t": 3
+    },
+    "nineVertexControl": {
+      "out": [
+        28,
+        224,
+        266,
+        274,
+        262,
+        321,
+        385,
+        289,
+        3
+      ],
+      "completedOut": [
+        30,
+        224,
+        490,
+        498,
+        486,
+        321,
+        385,
+        289,
+        3
+      ],
+      "originalGap": [
+        1,
+        1,
+        -2,
+        -2,
+        -2,
+        -2,
+        -2,
+        -2,
+        -4
+      ],
+      "originalEta": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        -5
+      ],
+      "completedGap": [
+        0,
+        1,
+        4,
+        4,
+        4,
+        -2,
+        -2,
+        -2,
+        -4
+      ],
+      "sourceSet": [
+        0,
+        1
+      ],
+      "addedBadFirstNeighboursAtEachA": 3,
+      "notAllDeficient": true
+    }
+  },
+  "seed": "0x2241026",
+  "limitations": [
+    "No all-deficient input graph occurred; the scan checks actual local set statements and explicit premises.",
+    "Two canonical reference orders and both source-role assignments per graph, not all possible orders.",
+    "Purpose-built active controls exercise retaining one and two added neighbours; finite tests do not verify every possible set size.",
+    "The nine-vertex control exercises three simultaneous added bad first arcs, and has many original Seymour vertices.",
+    "Pro sandbox code and result links were not imported."
+  ]
+}

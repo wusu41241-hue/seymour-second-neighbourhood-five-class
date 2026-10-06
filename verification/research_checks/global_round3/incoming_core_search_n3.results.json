@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "n": 3,
+  "graphs": 27,
+  "uniform_support_certificates": 27,
+  "exact_LRA_calls": 0,
+  "inequalities_checked": 54,
+  "maximum_integer_entry": 1,
+  "nonuniform_examples": [],
+  "certificate_file": "verification/incoming_core_certificates_n3.json",
+  "elapsed_seconds": 0.0,
+  "scope": "Exact small CORE certificate enumeration. The arbitrary-order graph theorem requires a separate proof of the incoming-pattern transfer lemma."
+}

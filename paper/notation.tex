@@ -1,0 +1,69 @@
+\section{Notation and extremal hypotheses}\label{sec:paper-notation}
+All graphs are finite and nonempty. An oriented graph has no loops and no
+pair of oppositely directed arcs. Set
+\[
+ N_D^{++}(v)=\left(\bigcup_{a\in N_D^+(v)}N_D^+(a)\right)
+       \setminus\bigl(N_D^+(v)\cup\{v\}\bigr),
+ \qquad g_D(v)=d_D^+(v)-d_D^{++}(v).
+\]
+Reverse exact second neighbourhoods are denoted by $N_D^{--}(v)$.
+We call $D$ all-deficient when $g_D(v)>0$ for every vertex. A missing
+partner of $v$ is a different vertex nonadjacent to it; its set and size
+are $\mathcal M_D(v)$ and $\mu_D(v)$. The number of missing unordered
+pairs is $M(D)$, so $\sum_v\mu_D(v)=2M(D)$.
+
+The far set and the reverse far set are
+\[
+ U_D(v)=V(D)\setminus\bigl(\{v\}\cup N_D^+(v)\cup N_D^{++}(v)\bigr),
+ \qquad P_D(v)=\{x\ne v:v\in U_D(x)\}.
+\]
+For $S\subseteq V(D)$ we use external boundaries
+\[
+ \Gamma_D(S)=\bigcup_{x\in S}N_D^+(x),\qquad
+ \partial_D S=\Gamma_D(S)\setminus S,\qquad
+ \partial_D^2S=\Gamma_D(\partial_D S)\setminus(S\cup\partial_D S).
+\]
+The word external distinguishes these sets from conventions that allow a
+set neighbourhood to meet the starting set.
+
+We will use three different extremal choices. An all-deficient graph is
+\emph{arc-set-minimal} when deleting every nonempty set of arcs on its fixed
+vertex set destroys all-deficiency. The abbreviation MIN means, in addition,
+that it is strongly connected. A \emph{minimum-order} counterexample has the
+smallest order among all counterexamples, including graphs obtained by
+rewiring. The lexicographic normal form in Section~\ref{sec:paper-predecessor-cloning}
+adds further global objectives. These conditions are not interchangeable.
+If a counterexample exists, a MIN graph exists by taking an arc-minimal
+spanning subgraph and then a sink strong component. A minimum-order
+counterexample is automatically strongly connected.
+
+\begin{definition}[Protection]\label{def:paper-protection}
+Write $a\triangleleft_D b$ if $a\to b$ and
+$N_D^-(a)\subseteq N_D^-(b)\setminus\{a\}$.
+Then $a$ is a protected far head of $b$. This is a strict partial order.
+Put
+\[
+ \mathcal F_D(b)=U_D(b)\setminus\{a:a\triangleleft_D b\},
+ \qquad t_D(b)=|\mathcal F_D(b)|.
+\]
+\end{definition}
+Indeed, an alleged path $b\to x\to a$ would force $x\to b$, a digon.
+Transitivity follows because $a\to b\to c$ and predecessor containment
+give $a\to c$ and the required further containment. A whole vertex, meaning
+$\mu_D(v)=0$, has every far head protected.
+
+A direction $a\to b$ on a missing pair is \emph{convenient} if every
+original predecessor of $a$ already reaches $b$ in one or two steps.
+A missing pair is good if at least one direction is convenient, and bad
+otherwise. All such predicates carry an explicit graph index whenever the
+graph has changed. A \emph{global median order} maximizes the total number
+of forward arcs among all vertex orders. Its last vertex is its feed.
+Local feedback inequalities alone do not justify the sedimentation step
+used later.
+
+\begin{remark}[Two kinds of unit]
+Gap one means $g_D(v)=1$. Residual one means $\eta_D(v)=1$.
+Actual failure-source status refers to a witnessed nonconvenient direction
+of an original bad pair. None of these three notions is identified with
+another without an explicit lemma.
+\end{remark}

@@ -1,0 +1,198 @@
+{
+  "status": "PASS",
+  "seed": "0x5105cafe",
+  "counts": {
+    "graphs5": 59049,
+    "randomGraphs": 30000,
+    "priorityCompletions": 178098,
+    "priorityVertexEnvelopes": 1130480,
+    "priorityBadFirst": 147071,
+    "priorityMultipleBadFirst": 53430,
+    "priorityProtectedPairs": 612106,
+    "avoidingLargeCompletions": 69798,
+    "avoidingLargeWithActualLargeSources": 6989,
+    "avoidingLargeVertexEnvelopes": 400791,
+    "overlapPacketCompletions": 464674,
+    "positiveOverlapPackets": 249930,
+    "overlapBadKeepers": 66891
+  },
+  "controls": {
+    "threeTargetPriorities": {
+      "out": [
+        26,
+        52,
+        41,
+        0,
+        0,
+        0
+      ],
+      "targets": [
+        0,
+        1,
+        2
+      ],
+      "protectedRelations": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "newPrecedences": [
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "originalGaps": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    "strongThreeTargetPriorities": {
+      "out": [
+        26,
+        52,
+        41,
+        64,
+        128,
+        256,
+        18,
+        36,
+        9
+      ],
+      "targets": [
+        0,
+        1,
+        2
+      ],
+      "originalGaps": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    },
+    "skewWeighting": {
+      "out": [
+        2,
+        4,
+        24,
+        17,
+        3
+      ],
+      "positiveWeights": [
+        1,
+        2,
+        2,
+        1,
+        1
+      ],
+      "skewBalance": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weightedGaps": [
+        0,
+        0,
+        -1,
+        0,
+        1
+      ],
+      "originalGaps": [
+        0,
+        -1,
+        0,
+        1,
+        1
+      ]
+    },
+    "largeSourceAvoidance": {
+      "out": [
+        0,
+        0,
+        1,
+        2,
+        5
+      ],
+      "largeSources": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "badPair": [
+        0,
+        1
+      ],
+      "forwardFailures": [
+        2,
+        4
+      ],
+      "reverseFailures": [
+        3
+      ],
+      "originalGaps": [
+        0,
+        0,
+        1,
+        1,
+        2
+      ]
+    },
+    "arbitraryBadViolation": {
+      "out": [
+        0,
+        17,
+        8,
+        0,
+        1
+      ],
+      "T": [
+        8,
+        29,
+        25,
+        16,
+        1
+      ],
+      "source": 0,
+      "newProtectedHeads": [
+        4
+      ]
+    }
+  },
+  "limits": [
+    "Every audit graph is an arbitrary oriented graph, not assumed minimal or all-deficient.",
+    "The packet audit tests overlap keeper counts and path envelopes, not the strict external-boundary or residual inequalities on arbitrary graphs.",
+    "Control graphs refute generic shortcuts only; none refutes SSNC or a theorem restricted to actual minimal counterexamples.",
+    "The finite checks are not an all-order proof. Global existence of a strict-budget completion remains unresolved."
+  ]
+}

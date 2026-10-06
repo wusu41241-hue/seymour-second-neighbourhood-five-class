@@ -1,0 +1,297 @@
+\section{The tournament expansion polytope has no extra density freedom}
+\label{sec:weighted-transport-density-collapse}
+
+For a tournament $T$, write $A_T$ for its adjacency matrix,
+$B_T=A_T-A_T^T$, and $F_T$ for the matrix of original far relations:
+$(F_T)_{xy}=1$ precisely when $x\ne y$ and $x$ does not reach $y$
+within two steps. Let $N_T$ have entry $+1$ on exact second targets,
+$-1$ on first targets, and zero elsewhere. Define
+\[
+ \mathcal P(T)=\{\lambda\ge0:\mathbf1^T\lambda=1,
+                         \ N_T^T\lambda\ge0\},\qquad
+ \mathcal L(T)=\{\lambda\ge0:\mathbf1^T\lambda=1,
+                         \ B_T\lambda\ge0\}.
+\]
+The second set is exactly the set of Fisher's \emph{losing densities}.
+The first set should initially be called the reverse expansion-density
+polytope, rather than treating its defining inequality as the definition
+of a skew losing density.
+
+\begin{lemma}[Density collapse in tournaments]
+\label{lem:transport-density-collapse}
+For every tournament $T$, $\mathcal P(T)=\mathcal L(T)$.
+In particular the expansion-density formulation does not provide an
+additional choice of density beyond the usual tournament losing density.
+\end{lemma}
+\begin{proof}
+Every nonfirst vertex of a tournament is an incoming vertex; it is
+either an exact second target or a far target. Consequently
+\[
+ N_T=A_T^T-A_T-F_T,\qquad
+ N_T^T\lambda=B_T\lambda-F_T^T\lambda.
+\]
+Since $F_T^T\lambda\ge0$, membership in $\mathcal P(T)$ implies
+$B_T\lambda\ge0$ and hence membership in $\mathcal L(T)$.
+Conversely Fisher's tournament Lemma~2 states that, for a losing density,
+the mass of exact second predecessors of each vertex is at least the
+mass of its first predecessors. This is $N_T^T\lambda\ge0$.
+\end{proof}
+
+The standard uniqueness theorem for a tournament game's equilibrium
+then implies that these two normalized sets are a singleton. Uniqueness
+is not needed for the obstruction proofs below. The equality itself,
+however, prevents an apparent ``optimize over a larger expansion
+polytope'' escape from a bad Fisher losing density. In an arbitrary
+oriented graph missing pairs contribute another matrix term, so the
+first implication is no longer available by the same argument.
+
+\begin{lemma}[Protected dominators carry no losing mass]
+\label{lem:transport-protection-support}
+If $y\triangleleft x$ is protected in a tournament and
+$\lambda\in\mathcal L(T)$, then $\lambda_y=0$. Consequently, in
+every protection-preserving completion of $D$, its losing density is
+supported on maximal elements of the original protection poset.
+\end{lemma}
+\begin{proof}
+Protection implies $y\to x$, and every outneighbor of $x$ is an
+outneighbor of $y$. Thus the $y$ row of $B_T$ dominates the $x$ row
+entrywise, with a difference of one in both the $x$ and $y$ columns.
+If $\lambda_y>0$, skew-symmetry and $B_T\lambda\ge0$ imply
+$(B_T\lambda)_y=0$: indeed all terms of
+$\lambda^TB_T\lambda=0$ are nonnegative. But then
+\[
+ 0=(B_T\lambda)_y\ge(B_T\lambda)_x+\lambda_x+\lambda_y>0,
+\]
+a contradiction. Original protected relations survive the admissible
+completion, so any original vertex below another in that poset has
+zero mass. This is a support reduction, not a conclusion that all
+remaining sources have unit budget.
+\end{proof}
+
+\paragraph{Primary source.}
+D.~C.~Fisher~\cite{Fisher1996}, \emph{Squaring a tournament: A proof of Dean's conjecture},
+Journal of Graph Theory 23 (1996), 43--48, Section~3, Lemma~2.
+An author-paper scan is available at
+\url{https://www.math.ru.nl/OpenGraphProblems/TimV/%5BDavid%20Fisher%5D%20Proof%20for%20tournaments.pdf}.
+Fisher's Section~2 also records the earlier uniqueness theorem for
+tournament winning densities, which applies to losing densities by
+reversing the tournament.
+
+\section{Exact duality and a weaker sufficient transfer threshold}
+\label{sec:weighted-transport-exact-dual}
+
+For a protection-preserving completion $T$ of $D$, put
+$\Delta_x=g_T(x)-g_D(x)=2|K_x|-c_x$, where $c_x$ is the exact
+new-head cost from the preceding draft. For fixed $T$ let
+\[
+ \mathsf B(D,T)=\max_{\lambda\in\mathcal P(T)}\lambda^T\Delta.
+\]
+The polytope is nonempty by Fisher's theorem and is compact. Ordinary
+finite-dimensional linear-programming duality gives the exact formula
+\begin{equation}
+ \mathsf B(D,T)=
+ \min_{w\ge0}\ \max_x\bigl(\Delta_x+(N_Tw)_x\bigr).
+ \label{eq:transport-dual-formula}
+\end{equation}
+Indeed a dual upper bound $a$ has $w\ge0$ and
+$\Delta+N_Tw\le a\mathbf1$. Multiplication by any feasible $\lambda$
+yields $\lambda^T\Delta\le a$ because
+$\lambda^TN_Tw\ge0$. The usual LP dual gives equality and attainment.
+Thus an exact obstruction can be certified using a single nonnegative
+\emph{head-weight vector}, without numerical trust in an LP solver.
+
+There is also a useful correction to the earlier target threshold.
+If $D$ is all-deficient, every integer gap is at least one. A normalized
+$\lambda\in\mathcal P(T)$ would already yield a contradiction from
+\begin{equation}
+ \lambda^T\Delta>-1,
+ \label{eq:transport-weaker-threshold}
+\end{equation}
+since $\lambda^Tg_T=\lambda^Tg_D+\lambda^T\Delta>0$, whereas
+$\lambda^Tg_T=-\mathbf1^TN_T^T\lambda\le0$.
+The old sufficient target $\lambda^T\Delta\ge0$ is strictly stronger
+than necessary. In the minimal class $g_D\in\{1,2\}$, writing
+$G_2=\{x:g_D(x)=2\}$ gives the still more accurate threshold
+\[
+ \lambda^T\bigl(\Delta+\mathbf1_{G_2}\bigr)>-1.
+\]
+These are sufficient contradiction criteria, not existence theorems.
+No unrestricted completion guarantee is supplied by LP duality alone.
+
+\section{An all-order obstruction to automatic reference-budget balance}
+\label{sec:weighted-transport-infinite-obstruction}
+
+Consider the six-vertex graph with out masks
+\[
+ (0,49,51,6,9,8).
+\]
+Equivalently its outgoing sets are
+\[
+ \varnothing,\quad\{0,4,5\},\quad\{0,1,4,5\},\quad
+ \{1,2\},\quad\{0,3\},\quad\{3\}.
+\]
+For any integer $k\ge1$, replace vertex $a$ by an independent clone
+class $C_a$ of size $k$, and replace each original arc by the complete
+bipartite orientation between its two classes. Call the resulting
+oriented graph $D_k$. Its pointwise gaps on $C_0,\ldots,C_5$ are
+\[
+ 0,\quad 2k,\quad 3k,\quad-k,\quad0,\quad-k.
+\]
+It has Seymour vertices and is \emph{not} all-deficient.
+
+Every within-class missing pair is convenient in both directions.
+Between distinct classes the only missing pairs are $C_0C_3$,
+$C_0C_5$, and $C_4C_5$. The first is uniquely conveniently oriented
+$C_0\to C_3$, the second $C_5\to C_0$, and the third is convenient
+in both directions. Hence there are no bad missing pairs at all.
+The original protection relations include $C_4\triangleleft C_0$
+and $C_2\triangleleft C_1$, with the notation interpreted pointwise.
+
+A canonical completion $T$ obtained from any linear extension of
+original protection therefore has transitive orders on each of
+$C_0,C_1,C_2,C_3$ and on the entire union $C_4\cup C_5$; the two
+uniquely convenient interclass directions are fixed. Conversely all
+of these internal orders can be realized by a protection reference.
+After clone relabeling, the only distinct choices are the
+$\binom{2k}{k}$ binary interleavings of $C_4$ and $C_5$.
+
+\begin{theorem}[Exact negative optimum for every reference completion]
+\label{thm:transport-clone-obstruction}
+For every $k\ge1$ and \emph{every} protection-reference canonical
+completion $T$ of $D_k$,
+\[
+ \mathsf B(D_k,T)=-\frac{k}{3}.
+\]
+This statement quantifies over every feasible expansion density, not
+only one arbitrarily selected density.
+\end{theorem}
+\begin{proof}
+Give every vertex of $C_0,\ldots,C_5$ the respective head weight
+\[
+ w=(4,13/3,0,11/3,0,0).
+\]
+For $x\in C_a$, $a\le3$, write $s_a(x)$ for the number of later
+vertices in its class. For $x\in C_4\cup C_5$ write $s_W(x)$ for
+the number of later vertices in the transitive order on that union.
+The ranges are $0\le s_a\le k-1$ and $0\le s_W\le2k-1$.
+Direct first- and exact-second-neighborhood calculations give
+\[
+\begin{array}{c|c|c}
+ \text{class of }x&\Delta_x&(N_Tw)_x\\\hline
+ C_0&s_0-k&2k/3-4s_0\\
+ C_1&s_1&-k/3-13s_1/3\\
+ C_2&s_2&-14k/3\\
+ C_3&s_3&-k/3-11s_3/3\\
+ C_4&s_W&-10k/3\\
+ C_5&k+s_W&-10k/3
+\end{array}
+\]
+For example the first targets of $C_5$ are all of $C_3,C_0$ plus
+the later vertices of $C_4\cup C_5$; its exact second targets are
+exactly $C_1\cup C_2$. Added arcs inside the union are all forward,
+so they do not create exact second targets earlier in its order.
+The other five rows follow in the same way.
+Each row of the table satisfies
+\[
+ \Delta_x+(N_Tw)_x\le-k/3.
+\]
+For $C_2,C_4,C_5$ the stronger upper bounds are respectively
+$-11k/3-1$, $-4k/3-1$, and $-k/3-1$. This common dual vector
+proves $\mathsf B(D_k,T)\le-k/3$.
+
+For the matching lower bound, let $v_0,v_1,v_3$ be the last vertices
+in $C_0,C_1,C_3$ respectively and put weight $1/3$ on each, zero
+elsewhere. Their exact signed-neighborhood rows sum to zero:
+\[
+ N_T(v_0,\cdot)+N_T(v_1,\cdot)+N_T(v_3,\cdot)=0.
+\]
+Indeed their interclass first sets are respectively $C_3$,
+$C_0\cup C_4\cup C_5$, and $C_1\cup C_2$, while their second
+sets are $C_1\cup C_2$, $C_3$, and $C_0\cup C_4\cup C_5$.
+They have no remaining within-class first vertices. Hence this density
+satisfies $N_T^T\lambda=0$. Its three correction values are $-k,0,0$,
+so its budget is exactly $-k/3$.
+\end{proof}
+
+In particular $k\ge4$ refutes even an unconditional existence claim
+with the weaker threshold $\lambda^T\Delta>-1$. These graphs are
+already covered by the good-missing-edge SNC theorem. Thus completion
+budget balance is a \emph{sufficient but not necessary} certificate
+for SNC on arbitrary graphs.
+
+\section{The negative budget survives strong dense amplification}
+\label{sec:weighted-transport-dense-obstruction}
+
+Apply the cyclic three-copy amplification from the companion draft
+$m\ge1$ times to $D_k$, obtaining $D_{k,m}$. Every missing pair
+still lies inside a base copy and is good, so every canonical reference
+completion independently chooses a completion of $D_k$ in each base
+copy. All original gaps and all completion corrections stay the same
+pointwise. Put the preceding $w$ in every base copy.
+For every vertex the added full next-copy first contribution to
+$N_Tw$ is canceled by the equally weighted full following-copy second
+contribution. The same cancellation applies at every amplification
+level. Thus $\Delta+N_Tw\le-(k/3)\mathbf1$ remains valid.
+
+Conversely put equal total density on every base copy and use the
+attaining three-point density inside each. Its external signed column
+contributions cancel and the internal contributions are zero. Therefore
+for every protection-reference completion $T$ of $D_{k,m}$,
+\[
+ \mathsf B(D_{k,m},T)=-k/3.
+\]
+These original graphs are strongly connected and have
+\[
+ n=6k3^m,\qquad \delta^+(D_{k,m})=\frac{n-6k}{2},\qquad
+ \frac{\delta^+}{n}\longrightarrow\frac12.
+\]
+No fixed dense threshold below $1/2$, strong connectivity, the absence
+of bad missing pairs, or optimization among maximal reference
+completions alone can force a nonnegative budget or the weaker $>-1$
+budget threshold on arbitrary SNC graphs. This does not refute a
+theorem \emph{under the all-deficient arc-minimal hypothesis}: the
+family violates all-deficiency and also the minimal-class gap bound
+$g_D\le2$ for most of its vertices when $k$ is large.
+
+\section{Median rigidity is not equilibrium-support rigidity}
+\label{sec:weighted-transport-median-support-control}
+
+One cannot combine maximal-reference median rigidity with the assertion
+that every arc between positive losing-density vertices becomes backward
+in some median order. The six-vertex tournament with out masks
+\[
+ (42,60,57,16,33,8)
+\]
+has losing density $(0,0,0,1,1,1)/3$: its skew residual, after
+multiplication by three, is $(1,3,3,0,0,0)$. Its unique global median
+order is
+\[
+ (1,2,4,0,5,3),
+\]
+with thirteen forward arcs. Thus $5\to3$ lies between two positive
+density vertices and is forward in every median order. This is only
+a control against that generic support shortcut, not an assertion
+that a maximal completion arising from a minimal counterexample can
+realize this particular configuration.
+
+\paragraph{Independent verification boundary.}
+The companion Node program
+\path{verify_transport_obstruction_family.js} uses exact integer
+arithmetic with the scaled head weights $(12,13,0,11,0,0)$.
+It checks all $98$ canonical quotient types for $k=1,2,3,4$, all $224$
+independently chosen three-copy types for $k=1,2$, nine iterated
+amplifications through order $216$, and all $720$ orders of the final
+median control. These checks confirm the supplied all-$k$ proof;
+they are not a search for an SNC counterexample or a proof that the
+counterexample-specific selection step is impossible.
+
+\paragraph{Remaining global step after these repairs.}
+The mathematically relevant remaining choice is the completion: in a
+tournament the normalized Fisher density itself is fixed. A successful
+transfer theorem may target the strict $>-1$ threshold (including
+the $g_D=2$ mass correction), but it must use the true all-deficient
+arc-minimal structure. Generic strong or asymptotically dense properties
+do not supply that theorem. The explicit common dual also identifies
+what must be ruled out: a nonnegative head-weight vector whose signed
+neighborhood gain simultaneously offsets every admissible completion's
+keeper gain by a negative constant.

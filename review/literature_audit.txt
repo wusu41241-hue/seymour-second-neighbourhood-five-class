@@ -1,0 +1,209 @@
+PRIMARY-LITERATURE AND CLAIM-SCOPE AUDIT
+Client-date cutoff: 2026-10-07 (Asia/Taipei)
+Purpose: editorial support for an unsubmitted SNC manuscript, not a certificate
+of originality, acceptance, or a complete worldwide literature search.
+
+RECOMMENDED MANUSCRIPT POSITION
+
+The manuscript proves structural restrictions on stipulated minimal
+counterexamples and gives a computer-assisted sufficient condition based on
+maximal incoming-neighborhood classes. It does not prove SNC in full. Its
+finite incoming-pattern certificates concern arbitrary total graph order,
+not merely graphs with at most five vertices. Universal pattern feasibility
+is an equivalent reformulation and must not be advertised as progress toward
+a solution without an independent method proving feasibility for new cores.
+
+Novelty is unresolved. The exact incoming-core statement, labelled dual
+construction, predecessor-containment row copy, and R >= 7 formula were not
+identified in the bounded primary sources inspected. Absence from this
+search is not evidence that no earlier equivalent result exists.
+
+CURRENT STATUS AND RECENT PRIMARY SOURCES
+
+1. Wang--Lu 2026 is a published article, not an arXiv claim:
+   Haozhe Wang and Mei Lu, Seymour's second neighborhood conjecture for some
+   oriented graphs, Graphs and Combinatorics 42, article 19 (2026).
+   DOI 10.1007/s00373-026-03014-y; published 8 February 2026.
+   Primary publisher: https://link.springer.com/article/10.1007/s00373-026-03014-y
+   The abstract gives D_{0,3} union D_{1,1}, where the vertex partition induces
+   s- and t-degenerate graphs, plus new proofs for missing matchings/stars.
+   Full publisher text was subscription-only. We verified the abstract and
+   metadata, not every proof. Do not claim detailed internal overlap was
+   ruled out. Citation position: dense/structural known cases in introduction.
+
+2. Yandong Bai, Binlong Li and Boram Park, Towards a strengthening of the
+   second neighborhood conjecture, arXiv:2607.18047v2 (24 July 2026).
+   https://arxiv.org/abs/2607.18047v2
+   https://arxiv.org/html/2607.18047v2
+   Latest inspected version is v2, not v1. Theorem 1.5 concerns a complete
+   directed matching from first to exact second neighbors for delta <= 5 or
+   5-anti-transitive graphs; Theorem 1.4 locates such a minimum-degree vertex
+   for delta <= 4. Its abstract still calls general SNC open. It does not
+   claim arbitrary-core pattern certificates or a solution of general SNC.
+   Citation position: recent special cases and distinction from our weights.
+
+3. Jake Brukhman, A dense-case theorem for Seymour's second neighborhood
+   conjecture, arXiv:2608.11530v1 (12 August 2026).
+   https://arxiv.org/abs/2608.11530v1
+   Latest inspected version v1. Claims SNC for n <= 2 delta + 2, via counting
+   for equality and Fisher for tournaments. A preprint, not a journal
+   theorem in this audit. It does not assert the R >= 7 minimal deletion
+   statement. Its unconditioned order bound uses established delta <= 6;
+   the stronger numerical order bound explicitly assumes Sadhukhan et al.
+   Citation position: separate dense-order comparison; no dependence needed.
+
+4. Arpan Sadhukhan, R. B. Sandeep and Sagnik Sen, A proof of Seymour's second
+   neighborhood conjecture for oriented graphs with minimum out-degree
+   equal to 7, arXiv:2606.30588v1 (29 June 2026).
+   https://arxiv.org/abs/2606.30588v1
+   Latest inspected version v1. Uses local reductions and OR-Tools CP-SAT.
+   No external computation replay was performed in this audit. State as
+   recent computer-assisted preprint result, not our certified premise.
+
+5. Charles N. Glover, A Minimum Counterexample Proof of the Seymour Second
+   Neighborhood Conjecture via the Graph Level Order,
+   arXiv:2501.00614v14 (30 May 2026).
+   https://arxiv.org/abs/2501.00614v14
+   A genuine publicly available full-proof claim. Inspection of its landing
+   page and portions of the text did not verify its proof or establish
+   acceptance. Other later primary preprints above continue to treat general
+   SNC as open. Record as an unverified claim if relevant, never as an
+   established solution or as a result proved incorrect by this audit.
+   No general accepted solution was established by this bounded review.
+
+FOUNDATIONAL ATTRIBUTIONS AND EXACT COMPARISONS
+
+6. Fisher 1996, Journal of Graph Theory 23(1), 43--48, supplies losing
+   tournament densities and the tournament theorem. The primary scan was
+   read at https://www.math.ru.nl/OpenGraphProblems/TimV/%5BDavid%20Fisher%5D%20Proof%20for%20tournaments.pdf
+   DOI verified at the Wiley publisher. Cite for existence/sign of losing
+   densities and their reverse-neighborhood inequality. Do not present
+   skew-game duality, averaging, or tournament SNC as new contributions.
+
+7. Havet--Thomasse 2000, Journal of Graph Theory 35(4), 244--256.
+   Primary author PDF: https://perso.ens-lyon.fr/stephan.thomasse/liste/median.pdf
+   Cite the strong feed bound and the equality-case sedimentation lemma
+   precisely where used. Journal title spells "neighborhood"; author draft
+   spells "neighbourhood". Either title variant is identifiable, but the bib
+   below follows the published title. Arbitrary chosen local median orders
+   must not silently replace global maximum-forward-arc orders.
+
+8. Fidler--Yuster 2007, Journal of Graph Theory 55(3), 208--220.
+   Primary author PDF: https://math.haifa.ac.il/raphy/papers/snp.pdf
+   Proposition 2.1 gives weighted tournament SNP; the paper also treats
+   several prescribed missing-edge classes. This is not by itself the
+   permitted-pattern inequality for every subset of an incoming set in an
+   arbitrary incomplete core. Cite the weighted background, and prove the
+   manuscript's columnwise transfer and permitted-subset inequalities.
+
+9. Ghazal 2012, JGT 71(1), 89--94, DOI 10.1002/jgt.20634, and Ghazal 2013,
+   Graphs and Combinatorics 29(5), 1365--1375, DOI 10.1007/s00373-012-1192-9,
+   are relevant to convenient directions/good missing edges and completion.
+   Cite original definitions, not just a generic SNC survey. Avoid claiming
+   that the original good-edge approach required our later protection
+   convention or that changing the convention enlarges the family as a set.
+
+10. Brantner--Brockman--Kay--Snively 2009, Involve 2(4), 387--395.
+    Primary publisher PDF: https://msp.org/involve/2009/2-4/involve-v2-n4-p02-s.pdf
+    DOI 10.2140/involve.2009.2.387. The actual publisher pagination is
+    387--395; some later references incorrectly print 385--393.
+    Definition 2.2 minimizes total arc count over counterexamples, then
+    vertex count. Theorem 4.1 supplies strong connectivity, gaps 1 or 2,
+    and gap-one predecessor/cycle restrictions. Our minimum-order-first,
+    then arc-count, then row/twin objectives are a different selection.
+    Reprove the properties for that selection; do not cite their definition
+    as if identical. The row-copy and class-cover conclusions need their
+    own arguments and cannot be credited as implicit consequences here.
+
+11. Tyler Seacrest, Seymour's Second Neighborhood Conjecture for Subsets of
+    Vertices, arXiv:1808.06293v3 (12 April 2019; first posted 2018).
+    https://arxiv.org/html/1808.06293v3
+    Lemma 4 gives a subset inequality in an edge-minimal lambda-counterexample.
+    Neighborhood conventions and minimality have to match. The manuscript's
+    external-boundary adaptation requires its explicit proof. This is NOT
+    arXiv:1212.1883, which is Seacrest's distinct arc-weighted paper published
+    in JGT 78(3), 219--228 (2015), DOI 10.1002/jgt.21800.
+
+12. Alberto Espuny Diaz, Antonio Girao, Bertille Granet and Gal Kronenberg,
+    Seymour's second neighbourhood conjecture: random graphs and reductions,
+    Random Structures & Algorithms 66(1), e21251 (2025).
+    DOI 10.1002/rsa.21251; arXiv:2403.02842v2 (9 August 2024).
+    Primary full paper: https://arxiv.org/html/2403.02842v2
+    Published record: https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21251
+    The new bibliography should use the journal record, not "to appear".
+    Relevant: minimum-order counterexamples have delta > sqrt(n), and
+    arbitrary-order counterexample reductions. Those hypotheses differ from
+    fixed-order subset-arc minimality; do not transfer bounds silently.
+
+13. Oleksiy Zelenskiy, Valentyna Darmosiuk and Illia Nalivayko,
+    A note on possible density and diameter of counterexamples to the
+    Seymour's second neighborhood conjecture, Opuscula Mathematica 41(4),
+    601--605 (2021), DOI 10.7494/OpMath.2021.41.4.601.
+    Their cyclic substitutions create strong counterexamples of arbitrarily
+    small or near-complete underlying density (if one exists). Hence the
+    general cyclic amplification must be attributed, and a minimal-only
+    missing-edge bound must not be stated for every counterexample.
+    Our specialized transport obstruction can remain a separate calculation.
+
+14. Stanislaw M. S. Halkiewicz, Seymour's Second Neighbourhood Conjecture for
+    Oriented Graphs of Order at Most Seven and Split-Twin Extensions,
+    arXiv:2601.21563v1 (29 January 2026).
+    https://arxiv.org/html/2601.21563v1
+    Definition 6 duplicates incoming neighbors and PARTITIONS outgoing
+    neighbors while increasing graph order. It differs from fixed-order
+    outgoing-row copying under incoming containment. Theorem 8's preservation
+    has an explicit condition involving an existing Seymour vertex. Do not
+    repeat the abstract as an unrestricted preservation theorem. Its finite
+    computation was not replayed; neither it nor order-seven ordinary SNC
+    supplies our stronger permitted-pattern tables automatically.
+
+SPECIFIC COVERAGE CHECK FOR THE FIVE-MAXIMAL-INCOMING-CLASS RESULT
+
+This class is not contained in the hypotheses of the recent Wang--Lu,
+Bai--Li--Park, or Brukhman results above. A transparent witness is the
+independent equal-m blow-up of the regular five-vertex tournament with
+i -> i+1 and i -> i+2 modulo 5, for m >= 4.
+
+There are exactly five distinct inclusion-maximal incoming sets. Its order
+is 5m and minimum outdegree is 2m, so it violates the small-outdegree and
+n <= 2 delta + 2 assumptions. Its underlying graph is K_{m,m,m,m,m}.
+Any independent set lies in one part; its complement contains four full
+parts inducing minimum degree 3m, and so is not 3-degenerate. Thus it is not
+D_{0,3}. Being in D_{1,1} would make it 4-colorable (each forest is
+2-colorable), whereas this graph contains K5. Finally the six distinct
+vertices in successive parts 0,1,2,3,4,1 form a directed path of length five
+whose endpoints have an arc; the graph is not 5-anti-transitive.
+
+This example itself is already covered by weighted tournament results.
+It establishes noncontainment in those SPECIFIC listed classes, not
+originality or independence from all previously known methods. Full
+comparison with weighted compositions, generalized tournament substitutions,
+and neighborhood-domination literature remains open.
+
+For the incoming-pattern/dual equivalence, finite LP duality is standard;
+the claimed contribution is the precise restricted pattern system and the
+labelled realization preserving exact second neighborhoods. Include that
+construction, the diagonal/no-digon checks, and a scope statement. Do not
+call an equivalent reformulation a proof of any infeasible core's existence.
+
+EDITORIAL EXCLUSIONS / ITEMS NOT RE-CERTIFIED
+
+The previous bibliography listed anonymous GitHub drafts, two Zhao Zenodo
+records, and a conditional Lean repository. Their existence, exact revisions,
+proofs and reported computations were not re-certified in this audit. Do
+not make them proof dependencies or foundational references merely because
+they appeared in the old integrated draft. Retain in an archival comparison
+appendix only if individually checked and actually discussed. They are not
+included in verified_references.bib below.
+
+Finite table counts in a manuscript must come from the actual verifier:
+59809 cores; 522213 permitted-pattern checks including empty patterns;
+462404 nonempty-pattern checks. The latter two are compatible because their
+difference is one empty pattern per core. Do not call them contradictory
+results or report them without saying which convention is used.
+
+The five-class theorem and the R >= 7 line use different inputs. Present
+the direct incoming-core theorem independently of the minimal-counterexample
+machinery. State every minimality hypothesis on R and its parity refinement.
+Do not promote internal multi-agent agreement or finite auxiliary controls
+to external peer review, proof-assistant certification, or confirmed novelty.

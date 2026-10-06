@@ -1,0 +1,319 @@
+\section{Definitions and the foundational inequality}
+
+All graphs are finite and nonempty. An oriented graph has no loops and
+no pair of oppositely directed arcs. Write $\Nout(x)$ and $\Nin(x)$ for
+its out- and inneighborhoods. The sets $\Ntwo(x)$ and $\Nback(x)$ consist,
+respectively, of vertices at directed distance exactly two from $x$ and
+to $x$. In particular, direct neighbors are excluded. Their cardinalities
+are denoted by $\dout(x),\din(x),\dtwo(x),\dback(x)$.
+
+A Seymour vertex satisfies $\dtwo(x)\ge\dout(x)$. Call a graph
+\emph{all-deficient} if it has no Seymour vertex, and set
+\[
+g(x)=\dout(x)-\dtwo(x)>0.
+\]
+An all-deficient graph is \emph{arc-minimal} here if deleting any nonempty
+set of arcs, with the vertex set fixed, destroys this property.
+This is stronger than merely assuming that each single arc is
+individually indispensable. Every all-deficient graph has an
+arc-minimal spanning subgraph.
+
+If a counterexample exists, take an arc-minimal spanning subgraph and
+then a sink strongly connected component. That component is still
+all-deficient and inherits arc-minimality: an arc deletion confined to it
+cannot improve any vertex outside it. Thus the strongly connected class
+considered here is nonempty whenever the conjecture is false.
+
+Let $\mathcal M(x)$ be the set of vertices distinct from and
+nonadjacent to $x$, let $\mu(x)=|\mathcal M(x)|$, and let $M$ be the
+total number of missing unordered pairs. Thus $\sum_x\mu(x)=2M$.
+
+\begin{theorem}\label{thm:main}
+Let $D$ be a strongly connected arc-minimal all-deficient oriented graph
+on $n$ vertices. Then, for every vertex $x$,
+\begin{equation}\label{eq:main}
+\dtwo(x)-\dback(x)\le\mu(x)-1.
+\end{equation}
+Consequently,
+\begin{equation}\label{eq:global}
+M\ge\left\lceil\frac n2\right\rceil,\qquad
+|A(D)|\le\left\lfloor\frac{n(n-2)}2\right\rfloor.
+\end{equation}
+\end{theorem}
+
+The restriction to arc-minimal graphs matters. Deleting arcs increases
+the number of missing pairs, so \eqref{eq:global} cannot be transferred
+backwards to an arbitrary denser counterexample. We do not claim that
+every oriented graph with fewer than $n/2$ missing pairs satisfies the
+conjecture.
+
+
+\section{An external-boundary deletion lemma}
+
+For $S\subseteq V(D)$, put
+\[
+\Gamma(S)=\bigcup_{v\in S}\Nout(v),\qquad
+\bd S=\Gamma(S)\setminus S,\qquad
+\bd^2S=\Gamma(\bd S)\setminus(S\cup\bd S).
+\]
+These are external neighborhoods. Seacrest's notation~\cite{SeacrestSubsets2019} permits
+intersection with the starting set, so the following adapted statement
+and proof are made explicit. The proof is included to make the external convention explicit.
+
+\begin{lemma}\label{lem:boundary}
+In an arc-minimal all-deficient graph, every $S$ with $\bd S\ne\varnothing$
+satisfies $|\bd^2S|<|\bd S|$.
+\end{lemma}
+\begin{proof}
+Choose an inclusion-maximal nonempty $T\subseteq\bd S$ with
+$|\bd T\setminus S|<|T|$, or $T=\varnothing$ if none exists.
+If $T=\bd S$, the assertion follows. Otherwise delete all arcs
+$S\to\bd S\setminus T$. Any resulting Seymour vertex $v$ lies in $S$.
+
+Partition its deleted outneighbors as $A\dot\cup B$, where $B$ becomes
+second neighbors and $A$ does not. Then $B\subseteq\bd T$. Put
+\[
+L=\bd(A\cup B)\setminus(S\cup T\cup\bd T).
+\]
+Every member of $L$ is a lost second neighbor of $v$: retained
+intermediates lie in $S\cup T$, and neither can reach $L$ after deletion.
+Thus the change in deficiency implies
+$|L|-|B|<|A|+|B|$.
+For $T'=T\cup A\cup B$,
+\[
+|\bd T'\setminus S|
+ \le|\bd T\setminus S|+|L|-|B|
+ <|T|+|A|+|B|=|T'|.
+\]
+The deleted outneighbor set is nonempty and disjoint from $T$.
+This contradicts maximality. The empty-$T$ case uses
+$|\bd T\setminus S|\le |T|=0$.
+\end{proof}
+
+In the proof, $L$ excludes $A\cup B$ through the definition of the
+external boundary. This exclusion prevents original first neighbors
+from being mistaken for lost second neighbors.
+
+\begin{lemma}[Single-arc consequence; cf.\ \cite{BrantnerEtAl2009}]\label{lem:gap}
+In an arc-minimal all-deficient graph, $g(x)\in\{1,2\}$ for every $x$.
+\end{lemma}
+\begin{proof}
+Delete one arc $x\to y$. All other vertices retain their outneighbors,
+and their second neighborhoods can only shrink, so the resulting
+Seymour vertex must be $x$. Its outdegree decreases by one and its second
+outdegree increases by at most one. Hence $g(x)\le2$.
+\end{proof}
+
+Lemma~\ref{lem:gap} is used for the refinements in
+Section~\ref{sec:structure}; it is not needed for the main inequality.
+
+\section{A target bundle and the local inequality}
+
+Fix $x$ and define
+\[
+W=\Nin(x),\quad T=V(D)\setminus(\{x\}\cup W),\quad
+P=\{v\ne x:x\notin\Nout(v)\cup\Ntwo(v)\}.
+\]
+The remaining part of $T$ is precisely $R=\Nback(x)$, so
+$T=P\dot\cup R$. Every arc leaving $P$ ends in $T$.
+Also
+\begin{equation}\label{eq:T}
+T=\Nout(x)\dot\cup\mathcal M(x).
+\end{equation}
+
+If $P=\varnothing$, then $\dback(x)=\dout(x)+\mu(x)$.
+Since $x$ is deficient,
+$\dtwo(x)-\dback(x)\le-\mu(x)-1\le\mu(x)-1$.
+
+Assume henceforth $P\ne\varnothing$. Strong connectivity implies
+$C:=\bd P\ne\varnothing$. Put
+\[
+c=|C|,\quad X=\bd^2P,\quad Z=R\setminus C,\quad
+j=|Z|,\quad s=|\Nout(x)\cap Z|.
+\]
+We have $C\subseteq R$, $c=\dback(x)-j$, and
+\begin{equation}\label{eq:X}
+|X|\le c-1
+\end{equation}
+by Lemma~\ref{lem:boundary}.
+
+Delete the $s$ arcs from $x$ to $Z$ and denote the resulting graph by
+$D'$. When $s=0$, let $D'=D$.
+The retained outneighbors of $x$ lie in $P\cup C$.
+Every arc leaving $P\cup C$ has its head in $X$, while inside $P\cup C$
+the vertices that are not retained outneighbors of $x$ are exactly its
+original nonneighbors there. By \eqref{eq:T}, the set $Z$ contains
+$j-s$ original nonneighbors. Consequently
+\begin{equation}\label{eq:envelope}
+d_{2,D'}^+(x)\le\mu(x)-(j-s)+|X|
+ \le \mu(x)+\dback(x)-1-2j+s.
+\end{equation}
+A deleted outneighbor in $Z$ may become a second neighbor, but in that
+case it already belongs to $X$. It must not be counted a second time.
+
+If $s=0$, \eqref{eq:envelope} immediately proves \eqref{eq:main}.
+If $s>0$, arc-minimality makes $x$ a Seymour vertex in $D'$:
+all other vertices retain their outneighbors and cannot gain second
+neighbors. Therefore
+\[
+\dout(x)-s\le d_{2,D'}^+(x)
+ \le\mu(x)+\dback(x)-1-2j+s,
+\]
+and hence
+\[
+\dout(x)\le\mu(x)+\dback(x)-1-2(j-s).
+\]
+Using $\dtwo(x)\le\dout(x)-1$ proves the slightly stronger inequality
+$\dtwo(x)-\dback(x)\le\mu(x)-2$ in this case.
+
+This proves the local assertion of Theorem~\ref{thm:main}.
+Finally, exact directed distance-two pairs are counted equally by
+their sources and targets:
+\[
+\sum_x\dtwo(x)=\sum_x\dback(x).
+\]
+Summing \eqref{eq:main} gives $0\le2M-n$, completing the proof.
+
+
+\section{Residuals, whole vertices, and near-equality}\label{sec:structure}
+
+Define the nonnegative integer residual
+\[
+\eta(x)=\mu(x)-1+\dback(x)-\dtwo(x).
+\]
+Equivalently, with $p(x)=|P|$,
+\[
+\eta(x)=2\mu(x)+g(x)-1-p(x).
+\]
+We have the exact identity
+\begin{equation}\label{eq:residual}
+{\sum_x\eta(x)=2M-n.}
+\end{equation}
+For $P\ne\varnothing$, the preceding proof supplies the refinements
+\[
+s=0\Longrightarrow\eta(x)\ge2j,\qquad
+s>0\Longrightarrow\eta(x)\ge g(x)+2(j-s).
+\]
+
+\begin{proposition}\label{prop:equality}
+If $\eta(x)=0$, every nonneighbor of $x$ belongs to $\Ntwo(x)$.
+Thus if $2M=n$, every missing pair is reachable in both directions by
+paths of length two. More generally, at most $2M-n$ vertices have
+positive residual.
+\end{proposition}
+\begin{proof}
+For $P=\varnothing$, $\eta(x)=2\mu(x)+g(x)-1$, so zero residual forces
+$\mu(x)=0$ and $g(x)=1$. Otherwise $s>0$ is impossible, and the
+$s=0$ bound forces $j=0$.
+Equality in \eqref{eq:envelope} and \eqref{eq:X} then gives
+$|\Ntwo(x)|=\mu(x)+|X|$.
+Here $\Ntwo(x)\subseteq\mathcal M(x)\dot\cup X$, since
+$T=P\dot\cup C$. Therefore all nonneighbors are second outneighbors.
+The final assertion follows from \eqref{eq:residual}.
+\end{proof}
+
+Call $x$ \emph{whole} when $\mu(x)=0$.
+
+\begin{proposition}\label{prop:whole}
+Every whole vertex of $D$ is reachable from every other vertex in at
+most two steps. Consequently, if $w_2$ counts whole vertices with
+$g(x)=2$, then $2M\ge n+w_2$.
+\end{proposition}
+\begin{proof}
+The local inequality and Lemma~\ref{lem:gap} give
+$p(x)\le g(x)-1\le1$.
+Suppose $p(x)=1$. Then $g(x)=2$, $\eta(x)=0$, and the preceding proof
+gives $P=\{u\}$, $j=s=0$ and
+$\Nout(x)=\{u\}\dot\cup C$.
+By definition $C=\Nout(u)$, so no vertex in $C$ points to $u$.
+Thus the arc $x\to u$ has no alternative two-step path from $x$ to $u$.
+Deleting it reduces the outdegree of $x$ by one but does not increase
+its second outdegree. Vertex $x$ remains deficient, as do all other
+vertices, contradicting arc-minimality.
+Hence $p(x)=0$. A whole vertex now contributes $\eta(x)=g(x)-1$ to
+\eqref{eq:residual}.
+\end{proof}
+
+
+\section{Sink components and the global missing-pair bound}\label{sec:sink}
+
+The global bound extends beyond strongly connected graphs, with a
+quantitative penalty for vertices outside a sink component. The local
+inequality \eqref{eq:main} is still asserted only in the strongly
+connected setting.
+
+\begin{theorem}\label{thm:sink}
+Let $D$ be any arc-minimal all-deficient oriented graph on $n$ vertices.
+Let $S$ be a sink strongly connected component, put $k=|S|$, and put
+$o=n-k$. Then
+\begin{equation}\label{eq:sink}
+M(D)\ge
+\left\lceil\frac{k}{2}\right\rceil+
+\left\lceil\frac{o(k-2)}2\right\rceil
+\ge\left\lceil\frac n2\right\rceil+o.
+\end{equation}
+In particular, every arc-minimal counterexample satisfies
+$M(D)\ge\lceil n/2\rceil$, without a connectivity assumption.
+If equality holds, $D$ is strongly connected.
+\end{theorem}
+\begin{proof}
+The graph $D[S]$ is all-deficient and arc-minimal. Indeed, deleting arcs
+inside $S$ leaves every outside outneighborhood unchanged and can only
+shrink its second neighborhood. A deletion preserving deficiency
+throughout $S$ would therefore preserve it throughout $D$.
+Theorem~\ref{thm:main} yields $M(D[S])\ge\lceil k/2\rceil$.
+
+Write $O=V(D)\setminus S$, and let $\mu_S(v)$ count the missing pairs
+from $v\in O$ to $S$. As $S$ is a sink, every adjacent pair from $O$ to
+$S$ is directed into $S$. A two-step path entering $S$ cannot leave.
+Consequently
+\[
+d_{1,D}^+(v)=d_{1,D[O]}^+(v)+k-\mu_S(v),\qquad
+d_{2,D}^+(v)\le d_{2,D[O]}^+(v)+\mu_S(v),
+\]
+and hence
+\[
+g_D(v)\ge g_{D[O]}(v)+k-2\mu_S(v).
+\]
+For any oriented graph $H$,
+$\sum_{v\in V(H)}g_H(v)\ge-2M(H)$: a present unordered pair supports at
+most one distance-two direction, and a missing pair at most two.
+Summing over $O$ and using $g_D(v)\le2$ gives
+\[
+2o\ge -2M(D[O])+ok-2M(O,S).
+\]
+Thus $M(D[O])+M(O,S)\ge\lceil o(k-2)/2\rceil$, proving the first bound.
+
+Every all-deficient oriented graph has minimum outdegree at least two.
+A sink is already a Seymour vertex; if $v$ has unique outneighbor $u$,
+then every outneighbor of $u$ is an exact second neighbor of $v$, so
+$v$ is again a Seymour vertex. The arc count on $D[S]$ therefore gives
+$k\ge5$. Now
+\[
+\left\lceil\frac{k}{2}\right\rceil+
+\left\lceil\frac{o(k-2)}2\right\rceil
+\ge
+\left\lceil\frac{k}{2}\right\rceil+
+\left\lceil\frac{3o}{2}\right\rceil
+\ge\left\lceil\frac n2\right\rceil+o.
+\]
+If $D$ is not strongly connected then $o\ge1$, proving the last assertion.
+\end{proof}
+
+
+\section{Uniform external out-neighbourhoods}
+\begin{lemma}\label{lem:uniform}
+Suppose $\varnothing\ne B\subsetneq V(D)$ and there is a set $C$ such
+that $\Nout(v)\setminus B=C$ for every $v\in B$.
+Then $D[B]$ has no arcs.
+\end{lemma}
+\begin{proof}
+Strong connectivity gives $C=\bd B\ne\varnothing$.
+Every vertex of $B$ points to every vertex of $C$, so no arc goes from
+$C$ to $B$. Delete all arcs inside $B$. Each vertex of $B$ then has
+first neighborhood $C$ and second neighborhood exactly $\bd^2B$.
+Lemma~\ref{lem:boundary} makes it deficient. All other vertices retain
+their outneighbors and cannot gain second neighbors. Thus a nonempty
+internal arc set could be deleted without destroying the counterexample,
+contrary to arc-minimality.
+\end{proof}

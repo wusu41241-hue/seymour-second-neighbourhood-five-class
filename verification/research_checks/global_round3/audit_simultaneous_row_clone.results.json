@@ -1,0 +1,255 @@
+{
+  "status": "PASS",
+  "seed": "0x5300c10e",
+  "counts": {
+    "allFourVertexGraphs": 729,
+    "randomGraphs": 5000,
+    "simultaneousMaps": 11122,
+    "multipleTailMaps": 6024,
+    "sharedHeadMaps": 3074,
+    "pathsThroughOtherModifiedTails": 678,
+    "gapComparisons": 63067,
+    "nonmodifiedSecondSetChecks": 44065,
+    "unitPredecessorDeletionChecks": 1439,
+    "fullDomainMaps": 13656,
+    "headInsideModifiedSetMaps": 6023
+  },
+  "controls": [
+    {
+      "out": [
+        0,
+        0,
+        10,
+        16,
+        0
+      ],
+      "tails": [
+        0,
+        1
+      ],
+      "heads": [
+        2,
+        3
+      ],
+      "next": [
+        10,
+        16,
+        10,
+        16,
+        0
+      ],
+      "originalGaps": [
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "newGaps": [
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "originalSecond": [
+        [],
+        [],
+        [
+          4
+        ],
+        [],
+        []
+      ],
+      "newSecond": [
+        [
+          4
+        ],
+        [],
+        [
+          4
+        ],
+        [],
+        []
+      ]
+    },
+    {
+      "out": [
+        0,
+        0,
+        24,
+        0,
+        0
+      ],
+      "tails": [
+        0,
+        1
+      ],
+      "heads": [
+        2,
+        2
+      ],
+      "next": [
+        24,
+        24,
+        24,
+        0,
+        0
+      ],
+      "originalGaps": [
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      "newGaps": [
+        2,
+        2,
+        2,
+        0,
+        0
+      ],
+      "originalSecond": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "newSecond": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "out": [
+        12,
+        0,
+        8,
+        0
+      ],
+      "tails": [
+        0
+      ],
+      "heads": [
+        2
+      ],
+      "next": [
+        8,
+        0,
+        8,
+        0
+      ],
+      "originalGaps": [
+        2,
+        0,
+        1,
+        0
+      ],
+      "newGaps": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "originalSecond": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "newSecond": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  ],
+  "fullMapControls": [
+    {
+      "out": [
+        8,
+        16,
+        0,
+        0,
+        0
+      ],
+      "rho": [
+        1,
+        0,
+        2,
+        3,
+        4
+      ],
+      "next": [
+        16,
+        8,
+        0,
+        0,
+        0
+      ],
+      "originalGaps": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "newGaps": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "out": [
+        16,
+        4,
+        16,
+        6,
+        0
+      ],
+      "rho": [
+        1,
+        2,
+        2,
+        3,
+        4
+      ],
+      "next": [
+        4,
+        16,
+        16,
+        6,
+        0
+      ],
+      "originalGaps": [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "newGaps": [
+        0,
+        1,
+        1,
+        1,
+        0
+      ]
+    }
+  ],
+  "limits": [
+    "Every check uses exact integer bit operations.",
+    "All four-vertex oriented graphs and their admissible subset and full-domain maps are tested; samples are independent arbitrary graphs, not conjecture counterexamples.",
+    "The cover-to-smaller-counter implication is mathematical and requires minimum order; these tests verify its local inequalities without fabricating all-deficient inputs.",
+    "Only original incoming predicates and original head outgoing rows are used; recomputed sequential surgery is not tested or assumed."
+  ]
+}

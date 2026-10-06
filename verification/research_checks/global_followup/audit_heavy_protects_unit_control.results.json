@@ -1,0 +1,107 @@
+{
+  "status": "PASS",
+  "outMasks": [
+    540,
+    541,
+    96,
+    96,
+    96,
+    1,
+    3,
+    28,
+    128,
+    256
+  ],
+  "unit": {
+    "vertex": 0,
+    "out": [
+      2,
+      3,
+      4,
+      9
+    ],
+    "second": [
+      5,
+      6,
+      8
+    ],
+    "far": [
+      1,
+      7
+    ],
+    "residual": 1,
+    "gap": 1,
+    "unprotectedCount": 1,
+    "farIn": [
+      7,
+      8,
+      9
+    ],
+    "boundary": [
+      2,
+      3,
+      4
+    ],
+    "secondIn": [
+      2,
+      3,
+      4
+    ]
+  },
+  "heavy": {
+    "vertex": 1,
+    "out": [
+      0,
+      2,
+      3,
+      4,
+      9
+    ],
+    "second": [
+      5,
+      6,
+      8
+    ],
+    "far": [
+      7
+    ],
+    "residual": 2,
+    "gap": 2,
+    "unprotectedCount": 1,
+    "incoming": [
+      6
+    ]
+  },
+  "unitIncoming": [
+    1,
+    5,
+    6
+  ],
+  "protection": "1 triangleleft 0",
+  "badPair": {
+    "endpoints": [
+      7,
+      9
+    ],
+    "failures9To7": [
+      0,
+      1
+    ],
+    "failures7To9": [
+      8
+    ]
+  },
+  "allGaps": [
+    1,
+    2,
+    0,
+    0,
+    0,
+    -3,
+    -2,
+    1,
+    -2,
+    0
+  ],
+  "scope": "Not an SNC counterexample; negative-gap vertices and no strong minimality claim. Refutes a purely local ban on heavy-protecting-unit relations."
+}

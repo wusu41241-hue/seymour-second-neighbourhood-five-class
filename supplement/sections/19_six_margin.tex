@@ -1,0 +1,70 @@
+\section{Excluding residual five and the uniform three-unit margin}
+\label{sec:residual-six-margin}
+
+\begin{theorem}\label{thm:residual-five-excluded}
+Let $D$ be a finite nonempty strongly connected all-deficient oriented
+graph minimal under deletion of arbitrary nonempty arc sets. Then
+\[
+ R=2M-n=\sum_x\eta(x)\ge6,
+ \qquad
+ {M\ge\left\lceil\frac n2\right\rceil+3.}
+\]
+At odd order $R\ge7$ by parity; at even order $R\ge6$.
+Equivalently,
+$|A(D)|\le\lfloor n(n-2)/2\rfloor-3$.
+\end{theorem}
+\begin{proof}
+The earlier parity-sensitive margin gives $R\ge5$.
+Every positive residual support has at least three vertices by
+Corollary~\ref{cor:three-positive-residual-support}.
+If $R=5$, its only possible positive integer partitions are
+\[
+ (3,1,1),\quad(2,2,1),\quad(2,1,1,1),\quad(1,1,1,1,1).
+\]
+They are excluded, respectively, by
+Theorem~\ref{thm:three-positive-two-units},
+Theorem~\ref{thm:no-two-two-one},
+Theorem~\ref{thm:no-two-one-one-one}, and
+Theorem~\ref{thm:no-five-unit-residuals}.
+Hence $R\ne5$ and $R\ge6$.
+Its parity agrees with that of $n$. Therefore integer rounding gives
+$M\ge\lceil(n+6)/2\rceil=\lceil n/2\rceil+3$ in both cases.
+\end{proof}
+
+\begin{corollary}[Extension to all arc-set-minimal counterexamples]
+\label{cor:residual-six-sink}
+Let $D$ be any finite nonempty all-deficient oriented graph minimal
+under deletion of arbitrary nonempty arc sets. If a sink strongly
+connected component has $k$ vertices and $o=n-k$ vertices lie outside
+it, then
+\[
+ M(D)\ge\left\lceil\frac{k}{2}\right\rceil+3
+       +\left\lceil\frac{o(k-2)}2\right\rceil
+ \ge\left\lceil\frac n2\right\rceil+o+3.
+\]
+In particular the uniform three-unit margin holds without strong
+connectivity, and equality forces strong connectivity.
+\end{corollary}
+\begin{proof}
+The sink component inherits deficiency and arc-set minimality.
+Apply Theorem~\ref{thm:residual-five-excluded} internally, and add the
+established outside-component estimate
+$M(D[V\setminus S])+M(S,V\setminus S)\ge\lceil o(k-2)/2\rceil$.
+Since every all-deficient graph has minimum outdegree at least two,
+$k\ge5$. Thus the outside term is at least $\lceil3o/2\rceil$.
+The old rounding inequality
+\[
+ \left\lceil\frac{k}{2}\right\rceil
+ +\left\lceil\frac{3o}{2}\right\rceil
+ \ge\left\lceil\frac{k+o}{2}\right\rceil+o
+\]
+proves the second bound. If $o>0$ it is strictly stronger than the
+uniform bound, giving the equality conclusion.
+\end{proof}
+
+At both $n=2\delta+3$ and $n=2\delta+4$, the new missing-pair bound
+gives $M\ge\delta+5$.
+The next unresolved residual values are six at even order and seven
+at odd order. The full conjecture is not settled by this result.
+The bound concerns the stated deletion-minimal class; it is not
+transferred backwards to an arbitrary denser counterexample.

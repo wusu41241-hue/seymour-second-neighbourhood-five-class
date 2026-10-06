@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-05",
+  "program": "audit_all_keeper_packet.js",
+  "command": "D:/node.exe audit_all_keeper_packet.js 5 2000",
+  "status": "PASS",
+  "seed": "0x31a11ce5",
+  "scope": "Every labeled oriented graph on at most five vertices and 2000 fixed-seed random graphs per order six through twelve; graph-level keeper/neighborhood envelopes and exact gap accounting only. No minimal-counterexample, residual-bound or full-SSNC theorem is computationally proved.",
+  "graphs_total": 73809,
+  "eligible_vertex_completions_total": 162326,
+  "nonempty_far_in_packets_total": 81749,
+  "completions_with_bad_incident_keepers_total": 8395,
+  "completions_with_multiple_keepers_total": 2121,
+  "results": [
+    {"n": 1, "mode": "exhaustive", "graphs": 1, "tested": 1, "nonemptyP": 0, "badKeepers": 0, "multipleKeepers": 0},
+    {"n": 2, "mode": "exhaustive", "graphs": 3, "tested": 4, "nonemptyP": 2, "badKeepers": 0, "multipleKeepers": 0},
+    {"n": 3, "mode": "exhaustive", "graphs": 27, "tested": 42, "nonemptyP": 21, "badKeepers": 0, "multipleKeepers": 0},
+    {"n": 4, "mode": "exhaustive", "graphs": 729, "tested": 1296, "nonemptyP": 684, "badKeepers": 24, "multipleKeepers": 0},
+    {"n": 5, "mode": "exhaustive", "graphs": 59049, "tested": 119400, "nonemptyP": 63915, "badKeepers": 5700, "multipleKeepers": 360},
+    {"n": 6, "mode": "fixed-seed-random", "graphs": 2000, "tested": 4112, "nonemptyP": 2061, "badKeepers": 134, "multipleKeepers": 22},
+    {"n": 7, "mode": "fixed-seed-random", "graphs": 2000, "tested": 4517, "nonemptyP": 2185, "badKeepers": 250, "multipleKeepers": 60},
+    {"n": 8, "mode": "fixed-seed-random", "graphs": 2000, "tested": 5121, "nonemptyP": 2265, "badKeepers": 276, "multipleKeepers": 129},
+    {"n": 9, "mode": "fixed-seed-random", "graphs": 2000, "tested": 5815, "nonemptyP": 2438, "badKeepers": 408, "multipleKeepers": 207},
+    {"n": 10, "mode": "fixed-seed-random", "graphs": 2000, "tested": 6690, "nonemptyP": 2674, "badKeepers": 520, "multipleKeepers": 348},
+    {"n": 11, "mode": "fixed-seed-random", "graphs": 2000, "tested": 7317, "nonemptyP": 2683, "badKeepers": 510, "multipleKeepers": 445},
+    {"n": 12, "mode": "fixed-seed-random", "graphs": 2000, "tested": 8011, "nonemptyP": 2821, "badKeepers": 573, "multipleKeepers": 550}
+  ]
+}

@@ -1,0 +1,80 @@
+\section{A near-whole feed exposes its unprotected heads in an original third layer}
+\label{sec:nearwhole-feed-global-boundary-budget}
+
+Let $D$ be strongly connected, all-deficient and minimal under arbitrary
+nonempty arc-set deletion. Let $Q$ be a terminal weak protection closure
+and $T_*$ a maximum reference completion, as previously defined. Fix a
+global median feed $f$ and suppose $\mu_D(f)=1$; write $r$ for its sole
+original missing partner. All sets below, except those explicitly indexed
+by $Q$ or $T_*$, are original sets in $D$.
+
+\begin{lemma}[A sole remaining partner is an old second target]
+\label{lem:weak-sole-partner-original-second}
+One has $\mathcal M_Q(f)=\{r\}$ and $r\in N_D^{++}(f)$.
+\end{lemma}
+\begin{proof}
+The original feed gap is positive. The closure theorem excludes
+a terminal whole feed, while $\mathcal M_Q(f)\subseteq\mathcal M_D(f)$.
+Thus $r$ is the sole remaining missing partner. The feed is maximal in
+terminal protection, so absence of the weak $r\to f$ step supplies
+$p\in N_Q^-(r)\setminus N_Q^-(f)$. The vertices $p,f,r$ are distinct.
+Every pair $pf$ is already adjacent in $Q$, because $r$ is the only missing
+partner; the direction cannot be $p\to f$, so $f\to p$ in $Q$.
+Its first neighborhood is original, so $f\to p$ is original.
+The retained path $f\to p\to r$ proves $r\in N_Q^{++}(f)$;
+exact original second equality at feeds gives $r\in N_D^{++}(f)$.
+\end{proof}
+
+\begin{proposition}[Global original boundary charges every unprotected head]
+\label{prop:nearwhole-feed-third-layer-budget}
+Assume additionally $P_D(f)=\varnothing$. Put
+$d=d_D^+(f)$, $g=g_D(f)$, $t=t_D(f)$ and $O=N_D^+(f)$.
+Then
+\[
+ \{f\}\,\dot\cup\,\mathcal F_D(f)\subseteq\partial_D^2O,
+ \qquad d\ge g+t+2,
+ \qquad n\ge g+3t+5.
+\]
+In particular at $(\eta_D(f),g)=(2,1)$ one has $t\ge2$ and
+$d\ge t+3$; at $(\eta_D(f),g)=(3,2)$ one has $t\ge3$ and
+$d\ge t+4$. These are original-global-minimality constraints, not
+conditions imposed on an altered closure graph.
+\end{proposition}
+\begin{proof}
+The sole missing partner is an original exact second target by the lemma.
+Every unprotected far head $y$ is therefore an original incoming neighbor
+of $f$. Failure of protection supplies a predecessor $p\to y$ which
+does not point to $f$. It is not $f$, and cannot be an original first
+neighbor of $f$, since that would reach $y$ in two steps. All other
+vertices except $r$ are adjacent to $f$, so this predecessor must be $r$.
+Thus $r\to y$ originally for every $y\in\mathcal F_D(f)$.
+
+Since $\partial_D O=N_D^{++}(f)$ contains $r$, and no far head is
+in $O\cup N_D^{++}(f)$, these heads lie in $\partial_D^2O$.
+Also choose any $a\in O$, which is nonempty. The hypothesis $P_D(f)$
+empty says $a$ reaches $f$ within two steps. It cannot point directly
+to $f$, because $f\to a$ is original. Hence some original
+$a\to w\to f$ exists. The vertex $w$ is an original exact second
+target of $f$ and points to $f$. Thus $f\in\partial_D^2O$ too.
+
+The original external-boundary minimality lemma now gives
+\[
+ t+1\le|\partial_D^2O|<|\partial_D O|=d-g,
+\]
+so integrality yields $d\ge g+t+2$. The total original far degree is
+$n-1-d-(d-g)=n-1-2d+g$, which is at least $t$.
+Therefore $n\ge1+2d-g+t\ge g+3t+5$.
+Finally $P_D(f)$ empty and $\mu_D(f)=1$ give
+$\eta_D(f)=2+g-1=g+1$, while strict original closure surplus gives
+$t\ge g+1$. The two numerical cases follow.
+\end{proof}
+
+\paragraph{Why the previous local control is insufficient.}
+The ten-vertex stable control has original first set
+$O=\{1,2,3,4\}$, original boundary $\{5,6,7\}$, and external second
+boundary $\{0,8,9\}$. Their sizes are equal. Hence it violates the
+strict original-global boundary inequality even though all outgoing-star
+deletions at its feed are locally critical. This pinpoints a concrete
+global constraint missing from that local model. The present degree
+bound still leaves arbitrarily large feasible parameter ranges; it is
+not an exclusion of the stable low-residual branch or a full SNC proof.

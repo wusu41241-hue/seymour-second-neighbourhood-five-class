@@ -1,0 +1,70 @@
+{
+  "status": "SHORTCUT_REFUTED",
+  "tested": 3142,
+  "control": {
+    "n": 4,
+    "out": [
+      6,
+      12,
+      8,
+      1
+    ],
+    "arcWeights": [
+      [
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        2,
+        0,
+        0,
+        0
+      ]
+    ],
+    "globalMedianScore": 5,
+    "globalMedianOrder": [
+      1,
+      2,
+      3,
+      0
+    ],
+    "feed": 0,
+    "feedArcNeighborhoods": {
+      "first": 2,
+      "second": 1,
+      "gap": 1,
+      "headContributions": [
+        {
+          "head": 3,
+          "beta": 1
+        }
+      ]
+    },
+    "allVertexArcGaps": [
+      1,
+      0,
+      -1,
+      0
+    ],
+    "numberOfGlobalMedianOrders": 4
+  },
+  "limits": [
+    "This is a counterexample to a claimed arc-weighted median-FEED statement, not to Seacrest's existential arc-weighted tournament theorem.",
+    "Arc second-neighborhood weights use max(w(a,y)-w(v,y),0) over actual two-step paths, including first targets as prescribed by the paper.",
+    "All median orders were enumerated exactly for the reported tournament; integer weights avoid tolerances."
+  ]
+}

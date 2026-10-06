@@ -1,0 +1,169 @@
+\section{Odd heavy-set capacity at arbitrary residual}
+\label{sec:general-odd-capacity}
+
+Let $D$ be a strongly connected all-deficient oriented graph, minimal
+under deletion of arbitrary nonempty sets of arcs, of order
+$n=2\delta+3$ and minimum outdegree $\delta$.  Let
+$e(v)=d_D^+(v)-\delta$ and $g(v)=d_D^+(v)-d_D^{++}(v)$.
+Single-arc minimality gives $g(v)\in\{1,2\}$; the nonnegativity of
+$|U_D(v)|=2-2e(v)+g(v)$ gives $e(v)\in\{0,1,2\}$, and excess two
+forces gap two.  Define target surpluses $\sigma(v)$ as before and
+call a vertex heavy when $\sigma(v)\ge2$.
+
+\begin{theorem}[Odd heavy-set capacity]\label{thm:general-odd-capacity}
+Let $S\subsetneq V(D)$ consist of $m=2t+1$ heavy vertices, where
+$t\ge1$.  Suppose $D'=D-S$ has minimum outdegree at least $\delta-t$.
+Let $A_S$ be the number of arcs inside $S$, and let $Q_S$ count the
+\emph{ordered} pairs $(u,v)$ in $S\times S$ with
+$v\in N_D^{++}(u)$, using distance exactly two.  Put
+\[
+ \gamma_S=\sum_{s\in S}\sigma(s)-2m\ge0,\qquad
+ B_{\rm out}=\sum_{v\notin S}(g(v)-1).
+\]
+Call a vertex of $D'$ perfect if it is adjacent to every other vertex
+and has outdegree $\delta-t$.  Let $a$ count the nonperfect vertices.
+Then
+\begin{equation}\label{eq:general-odd-a}
+ {a\le4t^2-1-2A_S-\gamma_S-B_{\rm out},}
+\end{equation}
+and
+\begin{equation}\label{eq:general-odd-degree}
+ {\delta-t+1\le(t+1)a+\min\{a,B_{\rm out}\}+\binom a2.}
+\end{equation}
+In particular,
+\begin{equation}\label{eq:general-odd-coarse}
+ \delta\le t-1+t(2t+1)(4t^2-1).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The oriented arc-count bound shows that the actual minimum outdegree
+of $D'$ is exactly $\delta'=\delta-t$, at order
+$n'=2\delta'+2$.  No counterexample or minimality assumption is made
+about $D'$.
+
+For each heavy $s$, the original fixed-target identity gives
+$\Phi(s)=d_D^{--}(s)-d_D^-(s)=\sigma(s)-1$.
+By Lemma~\ref{lem:odd-root-transfer}, the exact transfer is
+\[
+ z'=n'+B_{\rm out}+\Phi(S)
+       +\sum_{v\notin S}|E_S(v)|+\sum_x\sigma'(x),
+\]
+where $z'=n'-a$, the loss terms and the capacity surpluses
+$\sigma'$ are nonnegative, and
+\[
+ \Phi(S)=\sum_{s\in S}\Phi(s)+A_S-Q_S
+        =m+\gamma_S+A_S-Q_S.
+\]
+Each internal arc excludes its own ordered pair from exact distance
+two.  Hence $Q_S\le m(m-1)-A_S$, giving
+\[
+ a\le Q_S-A_S-m-\gamma_S-B_{\rm out}
+   \le m(m-2)-2A_S-\gamma_S-B_{\rm out}.
+\]
+As $m(m-2)=4t^2-1$, this proves \eqref{eq:general-odd-a}.
+
+All missing pairs of $D'$ are confined to its $a$ nonperfect
+vertices, so $M(D')\le\binom a2$.  The exact degree excess at its
+even order is
+\[
+ \sum_{v\in V(D')}\bigl(d_{D'}^+(v)-\delta'\bigr)
+                    =\delta-t+1-M(D').
+\]
+A surviving vertex of original excess at most one contributes at
+most $t+1$ to this sum.  Original excess-two vertices can contribute
+one additional unit, and their number is at most $B_{\rm out}$,
+since each has gap two.  Only nonperfect vertices contribute any
+excess.  The sum is therefore at most
+$(t+1)a+\min\{a,B_{\rm out}\}$, proving
+\eqref{eq:general-odd-degree}.
+
+For the coarse estimate put $L_0=4t^2-1$.  The first bound implies
+$a+B_{\rm out}\le L_0$.  Thus
+\[
+ (t+1)a+\min\{a,B_{\rm out}\}+\binom a2
+ \le ta+L_0+\binom a2
+ \le(t+1)L_0+\binom{L_0}{2}.
+\]
+Substitution and simplification give
+$\delta\le t-1+t(2t+1)(4t^2-1)$.
+\end{proof}
+
+\begin{corollary}[Heavy-triple obstruction]\label{cor:heavy-triple}
+If $\delta\ge10$, no set $S$ of three heavy vertices satisfies
+$\delta^+(D-S)\ge\delta-1$.
+Equivalently, for every three heavy vertices, there exists a surviving
+minimum-degree vertex pointing to at least two of them, or a surviving
+excess-one vertex pointing to all three.
+\end{corollary}
+\begin{proof}
+Set $t=1$ in \eqref{eq:general-odd-coarse}, which gives $\delta\le9$
+whenever the deletion condition holds.
+Its failure means that some $v\notin S$ has
+$|N_D^+(v)\cap S|\ge e(v)+2$.  Since $|S|=3$, excess two cannot
+cause this failure; the two remaining possibilities are exactly
+those stated.
+\end{proof}
+
+\begin{corollary}[Saturation of a valid heavy triple]
+\label{cor:heavy-triple-saturation}
+Suppose $\delta\ge7$ and a heavy triple $S$ satisfies
+$\delta^+(D-S)\ge\delta-1$.  Then $7\le\delta\le9$, every vertex
+outside $S$ has gap one, and all of the following equalities hold:
+\[
+ A_S=0,\qquad \sigma(s)=2\ (s\in S),\qquad Q_S=6,
+ \qquad z'=2\delta-3,
+\]
+\[
+ E_S(v)=\varnothing\ (v\notin S),\qquad
+ \sigma'(x)=0\ (x\in V(D-S)),\qquad B(D-S)=-3.
+\]
+In particular, $S$ is pairwise nonadjacent and every ordered pair
+of its distinct vertices is connected by an exact two-step path in $D$.
+\end{corollary}
+\begin{proof}
+For a triple, write $B=B_{\rm out}$ and
+$D_0=2A_S+\gamma_S$.  The capacity inequalities become
+\[
+ a\le3-B-D_0,\qquad
+ \delta\le2a+\min\{a,B\}+\binom a2.
+\]
+If $B=1$, the right side is at most six; if $B=2$, it is at most
+three; and if $B=3$, it is zero.  Larger $B$ is impossible.
+Thus $\delta\ge7$ forces $B=0$.  If $D_0\ge1$, then $a\le2$
+and the degree bound is at most five, again impossible.
+Consequently $A_S=\gamma_S=0$, and $a=3$ because $a\le2$ would
+still give $\delta\le5$.  The coarse estimate gives $\delta\le9$.
+
+Now $\Phi(S)=3-Q_S\ge-3$, and the exact perfect-vertex transfer
+with $a=3$ reads
+\[
+ -3=3-Q_S+\sum_{v\notin S}|E_S(v)|+\sum_x\sigma'(x).
+\]
+Its nonnegative terms force $Q_S=6$ and both sums to vanish.
+The remaining assertions follow from $B=0$, $\gamma_S=0$,
+and the exact transfer for $B(D-S)$.
+\end{proof}
+
+
+\begin{corollary}[Covering the heavy triples]\label{cor:cover-heavy-triples}
+Let $\delta\ge10$, let $\mathcal H$ be the set of heavy vertices,
+and put $H=|\mathcal H|$ and $a_v=|N_D^+(v)\cap\mathcal H|$.
+Then
+\[
+ \binom H3\le
+ \sum_{e(v)=0}\left[
+   \binom{a_v}{2}\bigl(H-a_v-[v\in\mathcal H]\bigr)
+       +\binom{a_v}{3}\right]
+       +\sum_{e(v)=1}\binom{a_v}{3}.
+\]
+\end{corollary}
+\begin{proof}
+Every heavy triple has a witness outside it by
+Corollary~\ref{cor:heavy-triple}.  For a minimum-degree vertex $v$,
+the number of triples avoiding $v$ with exactly two dominated
+vertices is $\binom{a_v}{2}(H-a_v-[v\in\mathcal H])$, and the number
+with three dominated vertices is $\binom{a_v}{3}$.
+For an excess-one vertex, only the latter triples qualify.
+The union bound over all possible witnesses gives the inequality.
+\end{proof}

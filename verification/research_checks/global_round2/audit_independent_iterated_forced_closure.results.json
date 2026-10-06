@@ -1,0 +1,117 @@
+{
+  "status": "PASS",
+  "counts": {
+    "graphs": 61010,
+    "closureStagesWithAdditions": 63721,
+    "closureAddedArcs": 97777,
+    "multistageGraphs": 15599,
+    "maxClosureStages": 4,
+    "completedClosures": 18671,
+    "partialMedianOrders": 317490,
+    "finalMedianOrders": 91044,
+    "originalFirstSecondFeedChecks": 91044,
+    "positiveOriginalFeeds": 1,
+    "strictSurplusChecks": 1,
+    "zeroGapRemainingMissingChecks": 1
+  },
+  "multistageControl": {
+    "out": [
+      8,
+      4,
+      1,
+      0
+    ],
+    "stages": [
+      [
+        8,
+        4,
+        1,
+        0
+      ],
+      [
+        8,
+        5,
+        1,
+        0
+      ],
+      [
+        8,
+        13,
+        9,
+        0
+      ]
+    ]
+  },
+  "positiveFeedControl": {
+    "out": [
+      6,
+      8,
+      8,
+      17,
+      65,
+      22,
+      33
+    ],
+    "Q": [
+      6,
+      8,
+      8,
+      17,
+      65,
+      30,
+      39
+    ],
+    "T": [
+      6,
+      28,
+      24,
+      17,
+      65,
+      31,
+      47
+    ],
+    "median": [
+      6,
+      5,
+      1,
+      2,
+      3,
+      4,
+      0
+    ],
+    "feed": 0,
+    "gOriginal": 1,
+    "gCompleted": 0,
+    "tOriginal": 2,
+    "newHeads": [
+      4
+    ],
+    "remainingMissing": [
+      5
+    ],
+    "finalFar": [
+      5,
+      6
+    ],
+    "sedimentation": [
+      6,
+      5,
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "originalGaps": [
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      -1
+    ],
+    "closureStages": 2
+  },
+  "scope": "All oriented graphs n=2..5 plus 1200 deterministic n=6/7 controls and a known positive-original-feed control. Exhaustive order enumeration; simultaneous iterative forcing; arbitrary graphs, no minimality assumed. Finite attacks do not prove SNC."
+}

@@ -1,0 +1,173 @@
+\section{Zero-residual protection and good missing edges}
+\label{sec:good-missing-residual}
+
+Throughout the main argument, $D$ is nonempty, strongly connected, all-deficient,
+and minimal under deletion of arbitrary nonempty sets of arcs.
+No assumption $n=2\delta+3$ is made.
+Write
+\[
+ g(x)=d_D^+(x)-d_D^{++}(x)>0,\qquad
+ \eta(x)=\mu(x)-1+d_D^{--}(x)-d_D^{++}(x).
+\]
+The established pointwise residual theorem gives
+\[
+ \eta(x)\ge0,\qquad \sum_x\eta(x)=2M-n,
+\]
+where $M$ is the number of missing unordered pairs.
+
+\subsection{A zero-residual source protects all of its far targets}
+
+\begin{lemma}\label{lem:zero-residual-source-protection}
+If $\eta(x)=0$ and $y\in U_D(x)$, then
+\[
+ y\to x,\qquad N_D^-(y)\subseteq N_D^-(x)\setminus\{y\}.
+\]
+\end{lemma}
+\begin{proof}
+Use the target-bundle sets
+\[
+ W=N_D^-(x),\quad T=V(D)\setminus(\{x\}\cup W),\quad
+ P=\{v:x\in U_D(v)\},\quad R=T\setminus P=N_D^{--}(x).
+\]
+If $P$ is empty, $\eta(x)=2\mu(x)+g(x)-1=0$ forces
+$\mu(x)=0$ and $g(x)=1$.
+A far target $y$ then points to $x$, since $x$ is whole.
+No outneighbor of $x$ points to $y$, so every predecessor of $y$
+belongs to $N_D^-(x)\setminus\{y\}$.
+
+Now let $P\ne\varnothing$ and put $C=\partial P$,
+$X=\partial^2P$, $j=|R\setminus C|$ and
+$s=|N_D^+(x)\cap(R\setminus C)|$.
+Strong connectivity gives $C\ne\varnothing$.
+The established sharpened target-bundle bounds are
+\[
+ s=0\Longrightarrow\eta(x)\ge2j,\qquad
+ s>0\Longrightarrow\eta(x)\ge g(x)+2(j-s).
+\]
+Since $j\ge s$ and $g(x)>0$, zero residual forces $j=s=0$.
+Thus $C=R$, $T=P\dot\cup C$, and
+$|X|\le |C|-1$ by the external-boundary lemma.
+Every second outneighbor of $x$ lies in
+$\mathcal M(x)\cup X$.
+Since $C\subseteq N_D^{--}(x)$, no vertex of $C$ points directly
+to $x$. Thus $X\subseteq W$ and $\mathcal M(x)\subseteq T$, so these
+sets are disjoint.  Zero residual gives
+\[
+ d_D^{++}(x)=\mu(x)+|C|-1.
+\]
+Equality of cardinalities therefore forces
+\[
+ N_D^{++}(x)=\mathcal M(x)\dot\cup X,\qquad |X|=|C|-1.
+\]
+Since $T=N_D^+(x)\dot\cup\mathcal M(x)$, this yields
+$U_D(x)=W\setminus X$.
+For $y\in U_D(x)$, there is no arc from $P$ to $y$ because
+all out-arcs of $P$ remain in $T$.
+There is no arc from $C$ to $y$, because such a head outside
+$P\cup C$ would belong to $X$.
+Also $x\not\to y$.  Hence $y\to x$ and all predecessors of $y$
+are in $W\setminus\{y\}$, as required.
+\end{proof}
+
+\subsection{The published good-missing-edge transfer}
+
+A missing pair $ab$ is \emph{good} in the sense of Ghazal if either
+\[
+ \forall w\notin\{a,b\}:\quad
+ w\to a\ \Longrightarrow\ b\in N_D^+(w)\cup N_D^{++}(w),
+\]
+or
+\[
+ \forall w\notin\{a,b\}:\quad
+ w\to b\ \Longrightarrow\ a\in N_D^+(w)\cup N_D^{++}(w).
+\]
+The respective convenient orientations are $a\to b$ and $b\to a$.
+The following published result has no generalized-star assumption
+on the missing graph.
+
+\begin{theorem}[Ghazal {\cite[Theorem~2]{Ghazal2012}}]
+\label{thm:all-missing-good}
+If all missing pairs of a nonempty oriented graph are good, that graph
+has a Seymour vertex.
+\end{theorem}
+\begin{proof}[Unweighted completion proof]
+Conveniently orient every missing pair to obtain a tournament $T$.
+Choose an order $L$ maximizing the number of forward arcs and let
+$f$ be its last vertex.
+Reverse the $r$ added arcs directed out of $f$, obtaining $T'$.
+The order $L$ gains $r$ forward arcs; any other order gains at most
+$r$.  Hence $L$ remains a median order.
+The published feed-vertex theorem
+\cite{HavetThomasse2000} gives the SNP for $f$ in $T'$.
+
+All added arcs incident to $f$ now point inward, so
+$N_{T'}^+(f)=N_D^+(f)$.
+For a path $f\to y\to z$ in $T'$, the first arc is original.
+The second arc is original or an untouched convenient orientation:
+it cannot involve $f$, as $z=f$ would make a digon.
+Consequently $z$ is reachable from $f$ within two steps in $D$.
+If $z\in N_{T'}^{++}(f)$, it is not a direct outneighbor in $D$,
+so $z\in N_D^{++}(f)$.
+The tournament SNP therefore transfers to $D$.
+\end{proof}
+
+\subsection{A bad missing edge has two positive-residual witnesses}
+
+\begin{lemma}\label{lem:bad-missing-positive-witnesses}
+If a missing pair $ab$ is not good, there are distinct vertices
+$u,v$ which are nonadjacent and satisfy
+\[
+ \eta(u)>0,\qquad \eta(v)>0.
+\]
+\end{lemma}
+\begin{proof}
+Failure of both convenient orientations supplies
+$u,v\in V(D)\setminus\{a,b\}$ with
+\[
+ u\to a,\quad b\in U_D(u),\qquad
+ v\to b,\quad a\in U_D(v).
+\]
+They are distinct, since $u=v$ would contradict $u\to a$ and
+$a\in U_D(v)$. An arc $u\to v$ would let $u$ reach $b$ in
+two steps, and an arc $v\to u$ would let $v$ reach $a$ in
+two steps.  Thus $uv$ is a missing pair.
+
+If $\eta(u)=0$, Lemma~\ref{lem:zero-residual-source-protection}
+at its far target $b$ gives
+$N_D^-(b)\subseteq N_D^-(u)\setminus\{b\}$.
+But $v\to b$ would imply $v\to u$, a contradiction.
+Symmetrically, $\eta(v)=0$ would imply $u\to v$.
+Nonnegativity and integrality of the residuals prove the claim.
+\end{proof}
+
+\begin{theorem}[Strict missing-pair margin at all orders]
+\label{thm:strict-missing-margin}
+The positive-residual set $Z=\{x:\eta(x)>0\}$ induces a missing pair.
+In particular,
+\[
+ {\sum_x\eta(x)\ge2,\qquad
+ M\ge\left\lceil\frac n2\right\rceil+1.}
+\]
+\end{theorem}
+\begin{proof}
+Since $D$ is all-deficient, Theorem~\ref{thm:all-missing-good}
+implies that some missing pair is not good.
+Lemma~\ref{lem:bad-missing-positive-witnesses} places both endpoints
+of a missing witness pair inside $Z$.
+Each contributes at least one, so $2M-n=\sum_x\eta(x)\ge2$.
+Integer rounding gives $M\ge\lceil(n+2)/2\rceil
+=\lceil n/2\rceil+1$.
+\end{proof}
+
+\begin{corollary}\label{cor:strict-first-dense-layer}
+At order $n=2\delta+3$,
+\[
+ {M\ge\delta+3}
+\]
+for every minimum outdegree $\delta$.
+The one-unit residual layer $2M-n=1$ is impossible at every odd order,
+and the zero-residual layer is impossible at every even order.
+\end{corollary}
+
+
+The strict margin above is an intermediate step; the parity-sensitive final bound is Theorem~\ref{thm:supp-residual-seven}.

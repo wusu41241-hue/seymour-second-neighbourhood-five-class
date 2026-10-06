@@ -1,0 +1,293 @@
+\section{A sharper lower bound on minimum-degree predecessors}
+\label{sec:predecessor-bound}
+
+Throughout this section, $D$ is an oriented graph with no Seymour vertex,
+minimum outdegree $\delta$, and order $n=2\delta+3$.  All second
+neighborhoods are defined by directed distance exactly two.  Put
+\[
+ a(v)=d^+(v)-\delta,\qquad
+ b(v)=d^+(v)-1-d^{++}(v),\qquad
+ L=\{v:a(v)=0\}.
+\]
+Thus $a(v),b(v)\ge0$.  A vertex is called \emph{perfect} here if it
+has outdegree $\delta$ and is adjacent to every other vertex; write
+$\mathcal P$ for the set of perfect vertices.  For $s\in V(D)$ define
+\[
+ c(s)=|N^-(s)\cap L|,\qquad
+ c_0(s)=|N^-(s)\cap\mathcal P|,\qquad
+ \Phi(s)=d^{--}(s)-d^-(s).
+\]
+The incoming second neighborhood defining $d^{--}(s)$ also uses exact
+directed distance two.
+
+\begin{theorem}\label{thm:predecessor-general}
+Every vertex $s$ of $D$ satisfies
+\begin{equation}\label{eq:predecessor-general-refined}
+ {9c(s)+6c_0(s)\ge\delta+1+3\Phi(s).}
+\end{equation}
+In particular, when $\delta\ge3$,
+\begin{equation}\label{eq:predecessor-general-coarse}
+ c(s)\ge
+ \max\left\{1,\left\lceil\frac{\delta-5}{15}\right\rceil\right\}.
+\end{equation}
+\end{theorem}
+
+The source-restricted deletion identity and the charging argument needed for
+this estimate are derived below.  In particular it does not assume that
+$D-s$ is a counterexample or that $D-s$ is arc-minimal.
+
+\subsection{The source-restricted budget}
+
+Fix $s$, abbreviate $c=c(s)$ and $c_0=c_0(s)$, and set
+\[
+ D'=D-s,\quad Z=N^-(s)\cap L,\quad W=V(D')\setminus Z.
+\]
+Write $d'$ for outdegree in $D'$, and put $a'(v)=d'(v)-\delta$.
+The vertices of $Z$ have $a'=-1$, while all vertices of $W$ have
+$a'\ge0$.  For a target $x\in V(D')$ define
+\[
+ T'(x)=V(D')\setminus\bigl(\{x\}\cup N^-_{D'}(x)\bigr),\quad
+ q'(x)=|T'(x)|-\delta,
+\]
+\[
+ P'_W(x)=\{v\in W:x\notin\{v\}\cup N^+_{D'}(v)
+                         \cup N^{++}_{D'}(v)\}.
+\]
+Let $\mathcal X=\{x:P'_W(x)\ne\varnothing\}$ be the set of targets,
+and for $x\in\mathcal X$ put
+\[
+ p_x=|P'_W(x)|,\qquad \Delta_x=2q'(x)-1-p_x.
+\]
+Every source in $P'_W(x)$ has outdegree at least $\delta$ and sends
+all its outgoing arcs into $T'(x)$.  The usual capacity count therefore
+gives $\Delta_x\ge0$ and the exact defect identity
+\begin{equation}\label{eq:restricted-local-defect}
+ \sum_{v\in P'_W(x)}\bigl(a'(v)+\ell_v\bigr)+M_{P'_W(x)}
+       =\frac{p_x\Delta_x}{2},
+\end{equation}
+where $\ell_v$ counts the vertices of $T'(x)\setminus P'_W(x)$ not
+dominated by $v$, and $M_{P'_W(x)}$ counts missing pairs inside the
+source set.  Denote
+\[
+ N=|\mathcal X|,\qquad \mathcal D=\sum_{x\in\mathcal X}\Delta_x.
+\]
+If $q'(x)=-1$, then $x\in Z\cap\mathcal P$ and $x$ is not a target.
+For a nontarget not in $Z\cap\mathcal P$, $q'(x)\ge0$.
+Define the following nonnegative budget terms:
+\[
+ t_2=2\!\sum_{x\notin\mathcal X,\ x\notin Z\cap\mathcal P}\!q'(x),
+ \qquad t_3=\sum_{v\in W}b(v),
+\]
+\[
+ E_s(v)=\bigl(N^{++}_D(v)\setminus\{s\}\bigr)
+                    \setminus N^{++}_{D'}(v),\qquad
+ t_4=\sum_{v\in W}|E_s(v)|.
+\]
+The source-restricted deletion identity states
+\begin{equation}\label{eq:predecessor-budget}
+ {N+\mathcal D+t_2+t_3+t_4
+                =\beta:=3c-\Phi(s)+2c_0.}
+\end{equation}
+For completeness, this follows by double counting
+$\sum_{v\in W}|U_{D'}(v)|=\sum_x|P'_W(x)|$, using
+$|U_{D'}(v)|=2-2a'(v)+b_{D'}(v)$, and substituting the exact transfer
+\[
+ b_{D'}(v)=b(v)-[v\to s]+[s\in N^{++}_D(v)]+|E_s(v)|.
+\]
+Here $[\cdot]$ is the indicator of the indicated event.
+Among minimum-degree vertices, precisely the $c$ vertices of $Z$
+point to $s$; each perfect member of $Z$ contributes the removed
+nontarget term $2q'=-2$.  These are the terms $3c$ and $2c_0$ in
+\eqref{eq:predecessor-budget}.
+
+Partition $W$ as
+\[
+ \Pi=\{v\in W:q'(v)=0\},\qquad Y=W\setminus\Pi,
+ \qquad y=|Y|.
+\]
+Every vertex of $\Pi$ has outdegree $\delta$ in $D'$ and is adjacent
+to all vertices of $D'$.  Thus every missing pair of $D'$ lies inside
+$Y\cup Z$.  Also each target in $Y$ contributes one to $N$, and each
+nontarget in $Y$ contributes at least two to $t_2$.  Consequently
+\begin{equation}\label{eq:y-target-count}
+ y\le N+\frac{t_2}{2}.
+\end{equation}
+Let $M'$ count missing pairs of $D'$ and let
+$A'_Y=\sum_{v\in Y}a'(v)$.  Since $|V(D')|=2\delta+2$, an exact arc
+count gives
+\begin{equation}\label{eq:deleted-missing-exact}
+ {M'=\delta+1+c-A'_Y.}
+\end{equation}
+
+\subsection{The integer improvement in the charging argument}
+
+Call a target $x$ heavy if
+$|P'_W(x)\cap\Pi|\ge p_x/2$, and light otherwise.
+For a light target put $r_x=|P'_W(x)\cap Y|$.  The strict inequality
+$r_x>p_x/2$ and integrality give $p_x\le2r_x-1$.  Hence
+\begin{equation}\label{eq:light-integer-improvement}
+ q'(x)=\frac{1+\Delta_x+p_x}{2}
+                  \le r_x+\left\lfloor\frac{\Delta_x}{2}\right\rfloor.
+\end{equation}
+The cancellation of the additional constant in this inequality is
+useful: a light target with zero defect needs no extra target charge.
+
+Assign each missing pair of $D'$ to the first applicable category below.
+Writing $\mu'(x)$ for the missing degree in $D'$, note that
+$\mu'(x)\le q'(x)+[x\in Z]$.
+\begin{enumerate}
+\item If an endpoint is not a target, charge the pair to such an
+endpoint.  This costs at most $t_2/2$, together with one possible
+additional unit for each such endpoint in $Z$.  A vertex in
+$Z\cap\mathcal P$ receives no charge, since its missing degree is zero.
+\item If both endpoints are targets and an endpoint is light, charge
+to a light endpoint.  By \eqref{eq:light-integer-improvement}, its
+charges can be paid by $r_x$ distinct source--target pairs $(v,x)$
+with $v\in Y$, at most $\lfloor\Delta_x/2\rfloor$ defect units, and
+one possible additional unit if $x\in Z$.
+\item Otherwise both endpoints are heavy targets.  If
+$u\in P'_W(x)$ dominates $x'$ and $v\in P'_W(x')$ dominates $x$,
+then $u,v$ are nonadjacent: neither can point to the other without
+creating a two-step path to its own far target.  Since vertices of
+$\Pi$ are adjacent to every vertex, such a mutual configuration cannot
+use a $\Pi$-source at both ends.  Orient the names of the endpoints
+so that no $\Pi$-source of $x$ dominates $x'$.
+If $x'\in P'_W(x)$, then $x'\in Y$ and charge the pair to $(x',x)$.
+Otherwise $x'\in T'(x)\setminus P'_W(x)$ is omitted by every
+$\Pi$-source of $x$.  Each such omitted endpoint uses at least
+$p_x/2$ units in the left side of
+\eqref{eq:restricted-local-defect}, so at most $\Delta_x$ such pairs
+can be charged to $x$.
+\end{enumerate}
+All source--target pairs charged in the second and third categories
+are distinct: in the second the target is light, while in the third
+it is heavy.  Their total number is at most
+$\sum_{v\in Y}|U_{D'}(v)|$.  Defect charges total at most
+$\mathcal D$, and the additional $Z$ units from the first and second
+categories total at most $c$.  We conclude that
+\begin{equation}\label{eq:improved-charge}
+ {M'\le\mathcal D+\frac{t_2}{2}
+                   +\sum_{v\in Y}|U_{D'}(v)|+c.}
+\end{equation}
+
+\subsection{Proof of the general bound}
+
+For $v\in Y$ put $j_v=[v\to s]$.  With
+$A_Y=\sum_{v\in Y}a(v)$ and $J_Y=\sum_{v\in Y}j_v$, one has
+$A'_Y=A_Y-J_Y$.  Deleting $s$ removes it from the old far set if
+it belonged to that set, and adds precisely the lost second neighbors
+$E_s(v)$.  Thus, writing $B_Y=\sum_{v\in Y}b(v)$ and
+$F_Y=\sum_{v\in Y}[s\in U_D(v)]$, the exact identity is
+\begin{equation}\label{eq:source-demand-exact}
+ \sum_{v\in Y}|U_{D'}(v)|
+       =3y-2A_Y+B_Y-F_Y+\sum_{v\in Y}|E_s(v)|.
+\end{equation}
+Since $A_Y\ge A'_Y$, $B_Y\le t_3$, and
+$\sum_Y|E_s(v)|\le t_4$, this yields
+\[
+ \sum_{v\in Y}|U_{D'}(v)|\le3y-2A'_Y+t_3+t_4.
+\]
+Substituting this into \eqref{eq:improved-charge} and using
+\eqref{eq:deleted-missing-exact}, we obtain
+\[
+ \delta+1+A'_Y\le\mathcal D+\frac{t_2}{2}+3y+t_3+t_4
+ \le3N+\mathcal D+2t_2+t_3+t_4\le3\beta.
+\]
+Dropping $A'_Y\ge0$ and using \eqref{eq:predecessor-budget} proves
+\eqref{eq:predecessor-general-refined}.
+
+For every target of the original graph, the capacity inequality gives
+$\Phi(s)\ge-2$: it equals $-2$ for a perfect vertex, and equals
+$\sigma(s)-1\ge-1$ when $q(s)>0$, where
+\[
+ q(s)=a(s)+\mu(s),\quad
+ p(s)=|\{v:s\in U_D(v)\}|,\quad
+ \sigma(s)=2q(s)-1-p(s).
+\]
+As $c_0\le c$, \eqref{eq:predecessor-general-refined} gives
+$15c\ge\delta-5$.  For $\delta\ge6$ this bound also forces $c\ge1$. The cases
+$3\le\delta\le5$ have no counterexample by the established
+minimum-outdegree-six theorem of Kaneko and Locke \cite{KanekoLocke2001}.  This completes the proof of
+Theorem~\ref{thm:predecessor-general}.
+
+\subsection{A density-sensitive refinement}
+
+Assume now that $D$ is strongly connected and minimal under deletion
+of arbitrary nonempty sets of arcs.  Let $M$ count its missing pairs.
+The pointwise second-neighborhood imbalance theorem proved earlier
+gives nonnegative integer residuals
+\[
+ \eta(v)=\mu(v)-1+d^{--}(v)-d^{++}(v),\qquad
+ \sum_v\eta(v)=R:=2M-n.
+\]
+
+\begin{theorem}\label{thm:predecessor-density}
+Under these additional assumptions every vertex $s$ satisfies
+\begin{equation}\label{eq:predecessor-density-refined}
+ {6c(s)+4c_0(s)\ge\delta+1-R+2\Phi(s).}
+\end{equation}
+Consequently
+\begin{equation}\label{eq:predecessor-density-coarse}
+ c(s)\ge\left\lceil\frac{3\delta-2M}{10}\right\rceil.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Let $m_Y=|Y\cap L|$, where $Y$ is defined above.  Every minimum-degree
+vertex of $Y$ is nonwhole in the original graph.  Indeed, a whole
+minimum-degree vertex pointing to $s$ belongs to $Z$; if it does not
+point to $s$, it remains whole of degree $\delta$ in $D'$ and belongs
+to $\Pi$.  For a nonwhole minimum-degree vertex $v$, the original
+capacity inequality gives
+\[
+ \eta(v)=\sigma(v)+g(v)\ge1,
+ \qquad g(v)=d^+(v)-d^{++}(v)\ge1.
+\]
+Hence $m_Y\le R$.
+
+Every original nonminimum-degree vertex of $Y$ has $a(v)\ge1$, so
+$A_Y\ge y-m_Y$.  Combining the exact identities
+\eqref{eq:deleted-missing-exact} and
+\eqref{eq:source-demand-exact} with \eqref{eq:improved-charge} gives
+\[
+ \delta+1
+ \le\mathcal D+\frac{t_2}{2}+3y-A_Y-J_Y+t_3+t_4
+ \le\mathcal D+\frac{t_2}{2}+2y+m_Y+t_3+t_4.
+\]
+Using \eqref{eq:y-target-count}, this is at most
+\[
+ 2N+\mathcal D+\frac{3t_2}{2}+t_3+t_4+m_Y
+ \le2\beta+R.
+\]
+Substitute \eqref{eq:predecessor-budget} to obtain
+\eqref{eq:predecessor-density-refined}.  Finally $c_0\le c$ and
+$\Phi(s)\ge-2$ imply
+\[
+ 10c\ge\delta-3-R=3\delta-2M,
+\]
+where the last equality uses $n=2\delta+3$.  This proves
+\eqref{eq:predecessor-density-coarse}.
+\end{proof}
+
+\subsection{Target refinements and examples}
+
+For $q(s)>0$, $\Phi(s)=\sigma(s)-1$, so the two refined estimates
+imply
+\[
+ c(s)\ge\left\lceil\frac{\delta+3\sigma(s)-2}{15}\right\rceil,
+ \qquad
+ c(s)\ge\left\lceil
+       \frac{3\delta+2-2M+2\sigma(s)}{10}\right\rceil
+\]
+under their respective hypotheses.  These may be combined with
+$c(s)\ge1$ and with the stronger inequalities retaining $c_0(s)$.
+
+For example, at $\delta=30$, the general bound forces at least two
+minimum-degree predecessors. No claim of a literature-wide optimal constant
+is made.
+
+
+As an updated numerical example, at $(n,\delta,M)=(21,9,14)$ the
+residual is seven. A heavy target has $\Phi\ge1$, and hence
+$9c+6c_0\ge13$. A single nonwhole minimum-degree predecessor is
+therefore impossible. This is a conditional structural calculation,
+not an assertion that a counterexample exists at that order.

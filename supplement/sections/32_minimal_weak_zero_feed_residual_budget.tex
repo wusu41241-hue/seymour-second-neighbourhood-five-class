@@ -1,0 +1,146 @@
+\section{A weak-closure zero-gap feed must have residual at least four}
+\label{sec:minimal-weak-zero-feed-residual-budget}
+
+Let $D$ be strongly connected, all-deficient, and minimal under deletion
+of arbitrary nonempty arc sets on its fixed vertices. All sets in this
+section are computed in the original $D$. For any vertex $v$ put
+\[
+ S_v=\mathcal M_D(v)\cap U_D(v),\qquad
+ g=g_D(v),\quad\mu=\mu_D(v),\quad p=|P_D(v)|.
+\]
+If $p>0$, use the packet with
+$J=N_D^{--}(v)\setminus\partial P_D(v)$,
+$B=J\cap\mathcal M_D(v)$, $k=|B|$,
+$s=|J\cap N_D^+(v)|$, and
+\[
+ E=(\mathcal M_D(v)\setminus B)\,\dot\cup\,\partial^2P_D(v),
+ \qquad L=E\setminus N_{\widehat D}^{++}(v),
+\]
+where $\widehat D$ deletes the $s$ original arcs from $v$ to $J$.
+The packet estimates are
+\[
+ |L|\le\eta_D(v)-2k-g\mathbf1_{s>0},\qquad
+ \bigcup_{r\in\mathcal M_D(v)\setminus B}
+       (N_D^+(r)\cap U_D(v))\subseteq L.
+\]
+
+\begin{lemma}[Original missing far heads and the nonexceptional budget]
+\label{lem:minimal-missing-far-packet-budget}
+If $p>0$, then
+\[
+ |S_v|\le k+|L|
+       \le\eta_D(v)-k-g\mathbf1_{s>0}.
+\]
+If $p=0$, the residual identity gives
+\[
+ \eta_D(v)=2\mu+g-1\ge2|S_v|.
+\]
+Moreover, when $p>0$ and $k=0$,
+\[
+ \mathcal F_D(v)\subseteq L,
+ \qquad t_D(v)\le\eta_D(v)-g\mathbf1_{s>0}.
+\]
+\end{lemma}
+\begin{proof}
+Every nonexceptional missing far vertex itself belongs to
+$\mathcal M_D(v)\setminus B\subseteq E$. An original far head cannot
+become reachable by deleting arcs, so it is not in
+$N_{\widehat D}^{++}(v)$ and belongs to $L$. At most $k$ original
+missing far vertices can be exceptional, proving the first bound.
+When $p=0$, use only the residual identity and $g\ge1$; no nonempty-
+$P$ packet is applied.
+
+Suppose $p>0$ and $k=0$. An unprotected far head $y$ is either
+originally missing from $v$, or an original incoming neighbor of $v$.
+The missing case was just proved. In the incoming case failure of
+protection supplies an original predecessor $r\to y$ which does not
+point to $v$. The witness is neither $v$ (that would contradict the
+far relation) nor $y$ (there are no loops). An original $v\to r$
+would give $v\to r\to y$, also impossible. Therefore $r$ is an
+original missing partner of $v$. Since $k=0$, it is nonexceptional;
+the shared head budget places $y$ in $L$. These cases exhaust
+$\mathcal F_D(v)$.
+\end{proof}
+
+\begin{theorem}[Residual-four lower bound at a zero completed gap]
+\label{thm:minimal-weak-zero-feed-residual-four}
+Let $f$ be a median feed of the maximum weak-closure completion
+with $g_D(f)>0$ and zero completed gap. Write
+$m=|\mathcal M_{Q^{\mathrm w}}(f)|\ge3$ for its remaining terminal
+missing degree. Then
+\[
+ \eta_D(f)\ge m+1\ge4.
+\]
+The more precise original-graph bounds are
+\[
+ \begin{array}{ll}
+ p=0:&\eta_D(f)\ge2m+g_D(f)-1,\\
+ p>0,\ k=0:&\eta_D(f)\ge g_D(f)+m+g_D(f)\mathbf1_{s>0},\\
+ p>0,\ k>0:&\eta_D(f)\ge m+k+g_D(f)\mathbf1_{s>0}.
+ \end{array}
+\]
+\end{theorem}
+\begin{proof}
+The weak-closure zero-gap theorem gives $m\ge3$,
+$\mathcal M_{Q^{\mathrm w}}(f)\subseteq S_f$, and
+$t_D(f)\ge g_D(f)+m$. Apply the preceding original-graph packet
+lemma. If $p=0$, $\mu_D(f)\ge|S_f|\ge m$ gives the first bound,
+which is at least six. If $p>0$ and $k=0$, use the far-head bound
+and $t_D(f)\ge g_D(f)+m$. If $k>0$, use the missing-far bound.
+Each expression is at least $m+1$: the first has $m\ge3$, the
+second has $g_D(f)\ge1$, and the third has $k\ge1$.
+Thus the unified bound is $\eta_D(f)\ge m+1\ge4$.
+No closure graph has been assumed minimal or all-deficient.
+\end{proof}
+
+\begin{corollary}[The residual-four equality shape]
+\label{cor:minimal-weak-zero-feed-residual-four-shapes}
+If such a feed has $\eta_D(f)=4$, necessarily
+$P_D(f)\ne\varnothing$, and
+\[
+ m=3,\qquad k=s=0,\qquad g_D(f)=1,\qquad t_D(f)=4.
+\]
+In this necessary equality shape, the original packet also satisfies
+\[
+ \begin{gathered}
+ \mu_D(f)\ge3,\qquad |P_D(f)|=2\mu_D(f)-4\ge2,\\
+ N_D^{--}(f)=\partial P_D(f),\qquad L=\mathcal F_D(f),\qquad |L|=4.
+ \end{gathered}
+\]
+and $|\partial^2P_D(f)|=|\partial P_D(f)|-1$.
+\end{corollary}
+\begin{proof}
+The previous bounds exclude $p=0$ and $s>0$ at residual four and force
+$m=3$ with $k\le1$. When $k=0$, $g+m\le t_D(f)\le4$ forces
+$g=1$ and $t_D(f)=4$. When $k=1$, the missing-far bound gives
+$3\le|S_f|\le4-1=3$, so $S_f$ is exactly the three terminal partners.
+The bound $|L|\le4-2=2$ forces the unique exceptional partner $b$
+to belong to $S_f$; the other two partners already belong to $L$.
+The original-cycle lifting conclusion of
+Theorem~\ref{thm:weak-closure-zero-feed-cycle} gives a directed cycle
+in $D[S_f]$. With only three vertices this is an original directed
+triangle. The predecessor $r\to b$ of $b$ on that triangle is a
+nonexceptional original missing partner. Since $b$ is an original
+far head, the shared partner-head budget places $b$ in $L$ as well.
+Thus $|L|\ge3$, contradicting $|L|\le2$. The $k=1$ case is impossible,
+leaving exactly the stated necessary shape.
+The residual identity gives the formula for $|P_D(f)|$, and
+$\mu_D(f)\ge m=3$. The original packet partition has
+$|N_D^{--}(f)\setminus\partial P_D(f)|=k+s=0$.
+Because $k=0$, the inclusion $\mathcal F_D(f)\subseteq L$ and its
+four-element size saturate $|L|\le\eta_D(f)=4$.
+Here $\widehat D=D$, the envelope is contained in
+$E=\mathcal M_D(f)\,\dot\cup\,\partial^2P_D(f)$, and
+$|E|=d_D^{++}(f)+4$. The residual identity now gives
+$|\partial^2P_D(f)|=d_D^{++}(f)+4-\mu_D(f)
+=|\partial P_D(f)|-1$.
+\end{proof}
+
+\paragraph{Scope.}
+This residual bound concerns zero completed gap, not all median feeds.
+Strictly negative completed gaps remain possible at residual two or
+three. The residual-four shape is a necessary condition, not a model
+known to exist. The original partner cycle is justified by the cited
+lifting theorem, not by assuming closure-added directions are original.
+Its vertices need not be actual BAD failure sources and cannot be
+counted as additional positive-residual vertices without a separate proof.

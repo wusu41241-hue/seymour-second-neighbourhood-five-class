@@ -1,0 +1,53 @@
+\section{Degree localization and an arbitrary-order low-far-budget class}
+\label{sec:closure-degree-low-budget-corollaries}
+
+Write $h_D(v)$ for the number of originally protected far heads of $v$,
+and $t_D(v)$ for its originally unprotected far heads. In every finite
+oriented graph of order $n$,
+\[
+ t_D(v)-g_D(v)=n-1-2d_D^+(v)-h_D(v).
+\]
+This follows by partitioning all other vertices into exact first,
+exact second and far targets, and splitting the far targets into
+protected and unprotected heads.
+
+\begin{corollary}[Adjusted-degree localization]
+\label{cor:closure-adjusted-degree-localization}
+At every median feed $f$ of the iterated closure maximizing completion
+with $g_D(f)>0$,
+\[
+ 2d_D^+(f)+h_D(f)\le n-2.
+\]
+If $\delta=\delta^+(D)$ and $q=n-2\delta$, then
+\[
+ 0\le d_D^+(f)-\delta
+     \le\left\lfloor\frac{q-2-h_D(f)}2\right\rfloor.
+\]
+In particular when $n=2\delta+3$, every such feed has
+$d_D^+(f)=\delta$ and $h_D(f)\le1$.
+\end{corollary}
+\begin{proof}
+The strict original surplus gives $t_D(f)-g_D(f)\ge1$.
+Substitute the identity and rearrange. The last assertion uses that
+the nonnegative integer $d_D^+(f)-\delta$ is at most
+$\lfloor(1-h_D(f))/2\rfloor$.
+\end{proof}
+
+\begin{corollary}[At most one unprotected far head at each vertex]
+\label{cor:closure-all-low-far-heads-snc}
+Every finite nonempty oriented graph with $t_D(v)\le1$ at every vertex
+has a Seymour vertex. No graph-order, minimality, missing-pair or
+cross-witness-flexibility hypothesis is required.
+\end{corollary}
+\begin{proof}
+If all vertices were deficient, any feed of the iterated-closure
+maximizing completion would have $t_D(f)\ge g_D(f)+1\ge2$.
+\end{proof}
+
+\paragraph{Scope.}
+These statements are consequences of the all-order closure proof, not
+finite enumeration. The degree localization is conditional on original
+positive gap at the chosen feed. It does not assert that every graph
+of order $2\delta+3$ has a minimum-outdegree Seymour vertex.
+Novelty relative to the extensive existing SNC literature remains to
+be assessed.

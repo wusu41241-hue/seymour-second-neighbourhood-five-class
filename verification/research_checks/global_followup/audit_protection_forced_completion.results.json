@@ -1,0 +1,226 @@
+{
+  "status": "PASS",
+  "counts": {
+    "graphsFive": 59049,
+    "randomGraphs": 20000,
+    "completions": 158098,
+    "protectedPairs": 529572,
+    "forcedArcs": 127764,
+    "releasedUniquelyConvenientArcs": 195408,
+    "vertexEnvelopes": 950484,
+    "exactBudgetIdentities": 950484,
+    "maximalCompletionTests": 300,
+    "medianFeedsWithoutAddedOutarcs": 11529
+  },
+  "deficientFeedControl": null,
+  "allMaxFeedControl": null,
+  "fourCycleCloneControl": {
+    "classSizes": [
+      3,
+      2,
+      4,
+      1
+    ],
+    "out": [
+      24,
+      24,
+      24,
+      480,
+      480,
+      512,
+      512,
+      512,
+      512,
+      7
+    ],
+    "originalGaps": [
+      -2,
+      -2,
+      -2,
+      3,
+      3,
+      -2,
+      -2,
+      -2,
+      -2,
+      1
+    ],
+    "completion": [
+      510,
+      508,
+      504,
+      1008,
+      992,
+      960,
+      896,
+      768,
+      512,
+      7
+    ],
+    "medianScoreD": 18,
+    "medianScoreT": 42,
+    "medianOrdersD": 288,
+    "allMaxFamilyFeeds": [
+      9
+    ],
+    "feed": 9,
+    "first": [
+      0,
+      1,
+      2
+    ],
+    "second": [
+      3,
+      4
+    ],
+    "newSecondHeads": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "feedResidual": 1,
+    "feedUnprotectedFarBudget": 4
+  },
+  "unitFeedForcedWitnessControl": {
+    "out": [
+      30,
+      224,
+      96,
+      96,
+      2,
+      320,
+      1,
+      1,
+      1
+    ],
+    "Q": [
+      30,
+      224,
+      96,
+      96,
+      226,
+      321,
+      1,
+      1,
+      1
+    ],
+    "completion": [
+      30,
+      492,
+      488,
+      480,
+      494,
+      449,
+      385,
+      257,
+      1
+    ],
+    "medianOrder": [
+      4,
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8,
+      0
+    ],
+    "medianScoreQ": 17,
+    "feed": 0,
+    "originalFirst": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "originalSecond": [
+      5,
+      6,
+      7
+    ],
+    "newSecondHeads": [
+      8
+    ],
+    "feedResidual": 1,
+    "feedUnprotectedFarBudget": 1,
+    "originalFeedGap": 1,
+    "completedFeedGap": 0,
+    "forcedIncomingWitness": [
+      5,
+      0
+    ],
+    "forcingProtectedPair": [
+      5,
+      6
+    ],
+    "otherSeymourVertices": [
+      2,
+      3,
+      4,
+      6,
+      7,
+      8
+    ]
+  },
+  "naiveControl": {
+    "out": [
+      4,
+      1,
+      0
+    ],
+    "protection": [
+      1,
+      0
+    ],
+    "naiveReferenceRank": [
+      2,
+      1,
+      0
+    ],
+    "badCompletion": [
+      4,
+      1,
+      2
+    ],
+    "forcedDirections": [
+      0,
+      4,
+      0
+    ]
+  },
+  "releasedCanonicalObstruction": {
+    "out": [
+      0,
+      49,
+      51,
+      6,
+      9,
+      8
+    ],
+    "referenceRank": [
+      5,
+      2,
+      1,
+      0,
+      3,
+      4
+    ],
+    "completion": [
+      0,
+      49,
+      51,
+      7,
+      41,
+      9
+    ],
+    "feedZero": 0,
+    "budget": 0
+  },
+  "limits": [
+    "Exact graph-level checks verify protection and local identities, not the all-deficient global completion-selection theorem.",
+    "The all-order lemma and maximal-completion proof are separate from finite checking.",
+    "Releasing a uniquely-convenient direction loses its convenience, so earlier direct-transfer feed theorems cannot be used without rechecking hypotheses."
+  ]
+}

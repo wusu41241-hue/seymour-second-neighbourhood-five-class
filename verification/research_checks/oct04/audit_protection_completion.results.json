@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-04",
+  "status": "PASS",
+  "counts": {
+    "graphs": 59049,
+    "partialProtectionTransfers": 295245,
+    "transfersWithNewSecondHeads": 13370,
+    "safeLocalCases": 3060,
+    "safeEtaOneGapTwoCases": 540,
+    "adaptivelyOrientableGraphs": 48815,
+    "adaptivelyOrientableBadEdgeGraphs": 0,
+    "constructiveSeymourTransfers": 48815
+  },
+  "nonAllGoodControl": {
+    "outBitmasks": [
+      50,
+      52,
+      56,
+      49,
+      32,
+      0
+    ],
+    "badMissingEdges": 2,
+    "gaps": [
+      2,
+      2,
+      2,
+      2,
+      1,
+      0
+    ],
+    "unprotectedFarCounts": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "feed": 5,
+    "note": "This control has a sink. Its numeric eta=0 at cycle vertices does not grant protected-source structure."
+  },
+  "scope": "Checks partial-protection accounting and adaptive completion, not the existence of a counterexample or the complete conjecture."
+}

@@ -1,0 +1,121 @@
+\section{A balanced minimal forced-family feed has no far-in source}
+\label{sec:balanced-forced-feed-minimal-refinement}
+
+Here $D$ is finite, nonempty, strongly connected, all-deficient and
+minimal under deletion of arbitrary nonempty arc sets on its fixed
+vertex set. Let $T_*$ be a maximum protection-forced reference completion.
+Fix any global median feed $f$ satisfying the \emph{balanced} condition
+$t_D(f)=g_D(f)$. Put $p=|P(f)|$, $\mu=\mu(f)$,
+$g=g_D(f)$, $Q=N_D^{--}(f)$, and $C=\partial P(f)$.
+
+\begin{proposition}[The balanced-feed empty far-in refinement]
+\label{prop:balanced-forced-feed-three-branches}
+\label{prop:balanced-forced-feed-far-in-empty}
+One has $\mu\ge1$ and $P(f)=\varnothing$. The only remaining
+numerical shapes are
+\[
+ (g,t_D(f),p,\eta(f))\in
+ \bigl\{(1,1,0,2\mu),\ (2,2,0,2\mu+1)\bigr\}.
+\]
+Thus every other original vertex reaches $f$ within at most two steps.
+This is an incoming-reachability statement, not an assertion that $f$
+has the original second-neighborhood property or is an actual BAD source.
+\end{proposition}
+\begin{proof}
+The general balanced-feed theorem
+\ref{thm:forced-balanced-feed-boundary} gives
+$\mu\ge1$ and $\mathcal M(f)\subseteq Q\setminus C$.
+The strong deletion consequence \ref{lem:gap} gives $g\in\{1,2\}$.
+The residual identity is
+\[
+ p=2\mu+g-1-\eta(f).
+\]
+If $P(f)=\varnothing$, use only this identity: it gives the first
+branch when $g=1$ and the second when $g=2$. The nonempty-$P$
+packet estimates below are \emph{not} applied in this case.
+
+Assume $P(f)\ne\varnothing$. In the established partner-packet notation
+let $J=Q\setminus C$, $B=J\cap\mathcal M(f)$,
+$k=|B|$, and $s=|J\cap N_D^+(f)|$. The containment above implies
+$B=\mathcal M(f)$ and $k=\mu$; the target-bundle partition gives
+$|J|=k+s=\mu+s$. Lemma~\ref{lem:partner-head-budget}, whose stated
+hypothesis includes $P(f)\ne\varnothing$, gives a genuine set $L$ with
+\[
+ 0\le|L|\le
+ \begin{cases}
+   \eta(f)-2\mu,&s=0,\\
+   \eta(f)-g-2\mu,&s>0.
+ \end{cases}
+\]
+Equivalently these two lower bounds on $\eta$ follow directly from
+the original target-bundle refinements
+$\eta\ge2|J|$ for $s=0$, and
+$\eta\ge g+2(|J|-s)$ for $s>0$.
+
+If $s>0$, substituting $\eta\ge g+2\mu$ into the residual identity
+gives $p\le-1$, impossible. Hence $s=0$ and $\eta\ge2\mu$,
+so $1\le p\le g-1$. Since $g\in\{1,2\}$, this forces
+$g=2$, $p=1$, and then $\eta=2\mu$. Also $|J|=\mu$ and
+$\mathcal M(f)\subseteq J$, so $J=\mathcal M(f)$.
+
+Let $P(f)=\{z\}$. A member of $P(f)$ cannot point to $f$,
+and $P(f)$ is disjoint from $Q$. As every missing partner is in $Q$,
+the vertex $z$ is not a missing partner either. Therefore the original
+direction is $f\to z$. Since $P(f)$ is a singleton,
+$C=N_D^+(z)$. No member of $C$ can point to $f$, for that would
+give $z$ a two-step path to $f$. Nor can a member of $C$ be missing
+from $f$, since $\mathcal M(f)=Q\setminus C$ is disjoint from $C$.
+Consequently $C\subseteq N_D^+(f)$. The target-bundle partition
+\[
+ V(D)=\{f\}\,\dot\cup\,N_D^-(f)\,\dot\cup\,P(f)
+       \,\dot\cup\,C\,\dot\cup\,(Q\setminus C)
+\]
+and $Q\setminus C=\mathcal M(f)$ exclude all other first neighbors,
+so
+\[
+ N_D^+(f)=\{z\}\,\dot\cup\,C
+          =\{z\}\,\dot\cup\,N_D^+(z).
+\]
+Each $z\to c$ with $c\in C$ is original, so no $c\in C$ points
+to $z$. Delete just the original arc $f\to z$, and call the result
+$D'$. The removed intermediate $z$ had only heads in $C$, still
+original first neighbors of $f$, so removing it destroys no old exact
+second target of $f$. The removed first target $z$ cannot become
+exact second, since no retained first intermediate $c\in C$ points
+to $z$. Thus
+\[
+ N_{D'}^{++}(f)=N_D^{++}(f),\qquad
+ g_{D'}(f)=g_D(f)-1=1.
+\]
+Every other vertex has unchanged first neighborhood and can only lose
+second targets. Hence $D'$ is still all-deficient, contradicting
+arc-set deletion minimality. This excludes the only possible
+nonempty-$P$ branch, so $P(f)=\varnothing$ and the two stated formulas
+follow.
+\end{proof}
+
+\begin{corollary}[Nonempty far-in forces strict head surplus]
+\label{cor:forced-minimal-far-in-head-surplus}
+In the same minimal-counterexample class, every global median feed $f$
+of $T_*$ with $P(f)\ne\varnothing$ satisfies
+\[
+ t_D(f)\ge g_D(f)+1.
+\]
+\end{corollary}
+\begin{proof}
+The general feed inequality gives $t_D(f)\ge g_D(f)>0$.
+Equality would imply $P(f)=\varnothing$ by the proposition.
+Integrality gives the strict-surplus bound.
+\end{proof}
+
+\paragraph{What remains unresolved.}
+The proposition does not exclude either of its two remaining branches.
+In the $g=1$ balanced branch, $\eta(f)=2\mu(f)\ge2$, but there may still be
+arbitrarily many forced incoming missing partners and reversed unique-GOOD
+second arcs. In the $g=2$ balanced branch, $\eta(f)=2\mu(f)+1\ge3$;
+this branch is also unresolved. Feeds with strict head surplus
+$t_D(f)>g_D(f)$ are outside this refinement, and their far-in sets
+need not be small. In particular this is not a universal claim
+$P(f)=\varnothing$ for every
+maximal forced-family feed, nor a reduction of the full SNC to finitely
+many graph orders or residual allocations.

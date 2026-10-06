@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "counts": {
+    "graphs5": 59049,
+    "sampledGraphs": 150000,
+    "saturatedExceptionalCases": 523,
+    "twoSourceCases": 7,
+    "multiKeeperCases": 3,
+    "retainedFirstNeighbours": 3,
+    "transfersWithNewFarHeads": 3
+  },
+  "control": {
+    "out": [
+      70,
+      192,
+      18,
+      224,
+      130,
+      83,
+      16,
+      33
+    ],
+    "x": 0,
+    "q": 3,
+    "R": 16,
+    "next": 160
+  },
+  "seed": "0x22402026",
+  "scope": "Conditional exact multi-retention set checks. Actual minimal all-deficient hypotheses are not presumed. Zero eligible cases, if any, must not be represented as a substantive test of multi-retention."
+}

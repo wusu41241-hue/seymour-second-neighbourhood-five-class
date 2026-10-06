@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "counts": {
+    "graphs": 61009,
+    "medianOrders": 87059,
+    "flexibleEdges": 63952,
+    "nonunitWitnessGraphs": 9377
+  },
+  "nonunitFeedControl": null,
+  "restrictedFamilyControl": {
+    "out": [
+      2,
+      4,
+      0,
+      1
+    ],
+    "originalProtection": [
+      [
+        3,
+        0
+      ]
+    ],
+    "onlyReference": [
+      1,
+      2,
+      3,
+      0
+    ],
+    "T0": [
+      2,
+      4,
+      1,
+      7
+    ],
+    "median": [
+      3,
+      0,
+      1,
+      2
+    ],
+    "backwardFlex": [
+      2,
+      0
+    ],
+    "medianScore": 5
+  },
+  "scope": "Every oriented graph n=2..5 plus 1200 fixed-seed six/seven-vertex graphs. Independently enumerates every order, every median of one maximizing completion, and all flexible directions. Not a proof of SNC."
+}

@@ -1,0 +1,298 @@
+\section{A protection-preserving completion at arbitrary residual}
+\label{sec:global-reference-completion}
+
+All graphs are finite, nonempty and oriented. Put
+$g_D(x)=d_D^+(x)-d_D^{++}(x)$, let $U_D(x)$ be the targets not reached
+within two steps, and let $\mathcal F(x)$ be its unprotected far targets,
+with $t(x)=|\mathcal F(x)|$. Protection $y\triangleleft x$ means
+$y\to x$ and $N_D^-(y)\subseteq N_D^-(x)\setminus\{y\}$.
+This is a strict partial order. A missing direction $a\to b$ is
+convenient when every original predecessor of $a$ reaches $b$ within
+two steps. A bad pair has nonempty failure sets in both directions.
+
+\begin{lemma}[A universal reference completion]
+\label{lem:global-priority-envelope}
+Choose any linear extension $\prec$ of protection. Orient good pairs
+canonically, using their unique convenient direction or $\prec$ if
+both directions are convenient. Orient \emph{every bad pair} forward
+in $\prec$. In the resulting tournament $T$, for every vertex $x$,
+\[
+ N_T^{++}(x)\subseteq
+ (N_D^{++}(x)\setminus K_x)\cup
+ (\mathcal F(x)\setminus K_x),\qquad
+ g_T(x)\ge g_D(x)+2|K_x|-t(x),
+\]
+where $K_x=N_T^+(x)\setminus N_D^+(x)$. Every original protected far
+target stays protected and far in $T$. No bound on $t$, residual,
+source support, or the cross-witness graph is required.
+\end{lemma}
+\begin{proof}
+Fix $y\triangleleft x$. A two-step path through an original first
+neighbor cannot newly reach $y$: original or convenient second arcs
+already reach an original first or second target, while a bad directional
+failure head is unprotected. A path through a canonically added good
+first arc is excluded by canonical protection compatibility.
+
+For an added bad first arc $x\to q$, choose an opposite failure
+witness $r$, so $r\to q$ and $x\in U_D(r)$. Protection gives
+$y\in U_D(r)$. An original $q\to y$ would force $q\to x$, contrary
+to missing $xq$. If $qy$ is good, $q\to y$ fails at $r$ and cannot
+be conveniently chosen. If $qy$ is bad, $x\prec q$ and
+$y\prec x$ force its reference direction $y\to q$. Thus no protected
+far head becomes a second neighbor.
+
+All added first neighbors were missing partners. Each lies in exactly
+one of $N_D^{++}(x)$ and $\mathcal F(x)$, and all of $K_x$ is removed
+from their union because distance two is exact. The count follows.
+In a tournament a far target is automatically protected, so every
+original protected pair remains protected in $T$ too.
+\end{proof}
+
+\begin{lemma}[Avoiding all nonunit failure sources]
+\label{lem:global-unit-selected-envelope}
+Alternatively, orient good pairs canonically and choose bad directions
+whose actual failures all have $t\le1$. The same simultaneous envelope
+holds at every vertex, including vertices with arbitrarily large $t$.
+Such a choice exists exactly when the cross-witness graph induced by
+$\{x:t(x)>1\}$ has no edge.
+\end{lemma}
+\begin{proof}
+Only a path using a bad added first arc $x\to q$ needs a new argument.
+Use the opposite witness $r$ as above. If $t(r)>1$, an added bad second
+arc $q\to y$ failing at $r$ is excluded by the orientation hypothesis.
+If $t(r)\le1$, badness of $qy$ would give $r$ both unprotected heads
+$x,y$, impossible. A good second pair again points $y\to q$.
+The feasibility equivalence follows because the two directional failure
+sets of each bad pair span a complete bipartite cross-witness graph.
+They cannot both meet a cross-witness-independent set, and a witness
+edge inside that set obstructs both directions of its defining bad pair.
+\end{proof}
+
+\section{A maximal completion and its rigid median orders}
+\label{sec:global-maximal-completion}
+
+Call an added pair \emph{flexible} if it is bad or good in both directions.
+All remaining added pairs have a fixed, uniquely convenient direction.
+
+\begin{lemma}[A globally maximal reference completion]
+\label{lem:global-max-reference-median}
+Among the reference completions in the first lemma, there is one $T_*$
+such that \emph{every} global median order of $T_*$ puts every flexible
+added arc forward. Every such order extends original protection.
+\end{lemma}
+\begin{proof}
+A protected pair $y\triangleleft x$ in a tournament has the usual
+domination property: $y\to x$, every predecessor of $y$ points to $x$,
+and every outneighbor of $x$ receives an arc from $y$. If a median order
+put $x$ before $y$, swapping these two positions would gain their mutual
+arc and lose none of the intervening pair contributions. Thus every
+median order of a protection-preserving completion extends original
+protection.
+
+Over all pairs consisting of an admissible reference completion and
+an order, maximize the number of forward arcs. Choose a maximizing
+completion $T_*$ and a median order $L$. If a flexible added edge were
+backward in $L$, re-complete the graph using $L$ itself as reference.
+This is admissible because $L$ extends protection. All changed edges
+are precisely flexible backward edges made forward; uniquely convenient
+directions are unchanged. The forward score strictly increases, a
+contradiction. The same argument applies to every median order of the
+fixed $T_*$, since all have the maximizing score.
+\end{proof}
+
+\begin{theorem}[Unit failure budgets with flexible witness closure]
+\label{thm:global-unit-flexible-witness-closure}
+Let $D$ be any finite nonempty oriented graph. Suppose every actual
+directional failure source of a bad pair has $t\le1$, and every
+cross-witness missing pair is either bad or convenient in both directions.
+Then $D$ has a Seymour vertex. There is no bound on source count and
+no budget condition on vertices which never witness a bad pair.
+\end{theorem}
+\begin{proof}
+Suppose $D$ is all-deficient. Use $T_*$ above and take its median feed $f$.
+If $f$ is not an actual bad failure source, reverse all its added outgoing
+arcs. The same order stays median; its original first neighborhood and
+the absence of bad failures make its SNP transfer directly to $D$.
+Thus $f$ is an actual source and has $t(f)\le1$.
+An added outgoing arc at $f$ cannot be flexible, so is a canonical good
+direction. Retaining one and reversing the other added out-arcs leaves
+the order median and gives gap at least $g_D(f)+2-t(f)>0$, contradicting
+the feed theorem. Hence $K_f=\varnothing$.
+The unit envelope and feed SNP force $g_D(f)=t(f)=1$ and $g_T(f)=0$.
+There is a new far head $y$ on a path $f\to a\to y$ with the second
+arc added bad. Choose its opposite witness $r$. The cross-witness pair
+$fr$ is missing and flexible by hypothesis. The source $r$ is not $y$
+and cannot be a second unprotected
+far target of $f$, so $r\in N_D^{++}(f)\subseteq N_T^{++}(f)$.
+The strong feed theorem and equality give $G_L=N_T^{++}(f)$.
+Thus $r\in G_L$. Global sedimentation moves $f$ before $r$ and preserves
+the median score. The flexible added arc $r\to f$, incoming because
+$K_f=\varnothing$, is now backward in another median order of the same
+$T_*$. This contradicts the preceding lemma.
+\end{proof}
+
+\begin{corollary}[A nonunit actual failure source is unavoidable]
+\label{cor:global-nonunit-actual-source}
+Every strongly connected all-deficient oriented graph minimal under
+arbitrary nonempty arc-set deletion has an \emph{actual} bad directional
+failure source $x$ with $\eta(x)\ge2$. Inactive positive-residual vertices
+alone cannot supply all the nonunit residuals.
+\end{corollary}
+\begin{proof}
+If every actual source had residual one, the unit budget would give
+$t\le1$ at those sources, regardless of the residuals elsewhere.
+Every cross-witness pair would be bad by the unit-unit tail
+lemma, which imposes no residual condition on other vertices.
+The theorem would give a Seymour vertex. Zero-residual vertices cannot
+be actual bad failure sources because all their far targets are protected.
+Thus some actual source has residual at least two.
+\end{proof}
+
+In particular this gives an alternative short proof of the entire
+pure-unit residual exclusion. It does not yet handle a nonunit actual
+feed with multiple new heads or nonflexible cross-witness pairs.
+
+\section{Packets with a nonempty missing far-in overlap}
+\label{sec:global-overlap-packet}
+
+Now $D$ is strongly connected, all-deficient and minimal under deletion
+of arbitrary nonempty arc sets. Fix $u$, put $p=|P(u)|$, and let
+$\ell=|\mathcal M(u)\cap P(u)|$. Assume the chosen bad directions avoid
+all failures in $P(u)\cup\{u\}$, and use a reference putting all good
+missing partners of $u$ before $u$.
+
+\begin{lemma}[The keeper-loss form of the packet]
+\label{lem:global-overlap-keeper-budget}
+With the established packet $B_u,k,s,E,L$, let $K$ be the actual added
+first set and put $\beta=\mu(u)-k-|K|$. Then
+\[
+ 0\le\beta\le\ell,\qquad
+ N_T^{++}(u)\subseteq(N_D^{++}(u)\cup L)\setminus K,
+ \qquad K\subseteq N_D^{++}(u)\cup L.
+\]
+For $P(u)\ne\varnothing$,
+\[
+ g_T(u)\ge
+ \begin{cases}p+1-2\beta,&s=0,\\p+g_D(u)+1-2\beta,&s>0.\end{cases}
+\]
+In particular $p\ge2\ell$ suffices to keep $u$ strictly deficient,
+without any bound on $\eta(u)$, $t(u)$, or the number of sources.
+The exact all-keeper criterion is the case $\ell=0$.
+\end{lemma}
+\begin{proof}
+An incoming bad incident direction would fail at a predecessor in $P(u)$,
+so cannot be chosen. Every outgoing good incident direction has a
+nonconvenient reverse direction by the reference rule, and every outgoing
+bad direction also has a nonconvenient reverse. Each actual keeper
+therefore has an original predecessor in $P(u)$ pointing to it.
+Exceptional partners have a convenient incoming direction and are good,
+so none is a keeper. Every nonexceptional missing partner outside $P(u)$
+belongs to $\partial P(u)$ and is uniquely directed outward. Only the
+$\ell$ missing partners inside $P(u)$ can be lost keepers.
+
+The packet predecessor blocks every good or chosen bad second arc to a
+far head outside $L$, exactly as in the all-keeper proof. Original first
+intermediates have no selected failure at $u$. This proves the envelope.
+Then $|K|=\mu-k-\beta$ and the packet bound
+$|L|\le\eta-2k$ for $s=0$, or $\eta-g_D-2k$ for $s>0$, give
+the displayed inequalities using $p=2\mu+g_D-1-\eta$.
+No assumption is made that the deletion graph remains all-deficient.
+\end{proof}
+
+\paragraph{Why simultaneous use is still an open step.}
+For a collection $H$ of heavy targets, avoiding all their far-in failure
+sources requires a compatible choice on every bad pair, and their
+inward reference priorities must be acyclic. Neither follows from
+single-target feasibility. The explicit six-vertex control below shows
+that even three originally adjacent targets can have incompatible
+priority families. These issues are not removed by cancelling the
+numerical residual inside each separate packet.
+
+\section{A precise unbounded certificate and its unresolved existence}
+\label{sec:global-heavy-cover-certificate}
+
+\begin{theorem}[A conditional global heavy-cover certificate]
+\label{thm:global-heavy-cover-certificate}
+Suppose, in the minimal all-deficient class, $H=\{x:t(x)>1\}$ and
+$I=H\cup\bigcup_{u\in H}P(u)$ satisfy the following conditions.
+The cross-witness graph induced by $I$ is independent; the protection
+order plus inward priorities for all good partners of all targets in
+$H$ is acyclic; and $|P(u)|\ge2|\mathcal M(u)\cap P(u)|$ for every
+$u\in H$. Choose the resulting canonical good completion and bad
+directions avoiding $I$. Define
+\[
+ Q=\{x\notin H:g_D(x)=t(x)=1,\ K_x=\varnothing,
+              \ x\text{ fails a selected bad direction}\}.
+\]
+If $Q$ is empty or its original induced tournament has a sink, then
+$D$ cannot be all-deficient. There is no support-size or residual bound
+in this sufficient criterion.
+\end{theorem}
+\begin{proof}
+Independence permits the bad choices. Every chosen failure source has
+$t\le1$, so the second global envelope lemma applies. Every target in
+$H$ has positive completed gap by the overlap packet lemma (the empty
+$P$ case has unchanged neighborhoods). All other gaps are nonnegative.
+The zero-gap set is exactly $Q$: when $K_x$ is empty, original second
+paths persist, and a selected bad failure introduces its sole unprotected
+head; conversely, with no such failure the gap is unchanged. An added
+first neighbor or original gap at least two makes the gap positive.
+Two vertices of $Q$ cannot be missing partners, because their supplemental
+arc would give one a first neighbor. Thus $D[Q]=T[Q]$ is a tournament.
+The completed tournament has no sink. The nonnegative-gap
+zero-set theorem forbids both an empty zero set and a zero set with a
+sink. This yields the contradiction.
+\end{proof}
+
+This is a sufficient certificate, not a proof that every minimal
+counterexample admits such a certificate. Its independence, acyclic
+priority and final zero-core requirements are the remaining global
+selection problem. The maximal reference completion provides a different
+always-feasible construction, but does not by itself supply the necessary
+heavy packet budgets.
+
+\section{Rejected global shortcuts, with exact controls}
+\label{sec:global-shortcut-controls}
+
+\paragraph{Three inward target priorities.}
+The six-vertex out masks $[26,52,41,0,0,0]$ use targets $0,1,2$.
+Protection contains $0\triangleleft3,1\triangleleft4,2\triangleleft5$.
+The missing partner priorities require $3\prec1,4\prec2,5\prec0$,
+creating a directed cycle. All target gaps equal one, but the other
+vertices are sinks, so the control is not a Seymour counterexample.
+The strong nine-vertex control $[26,52,41,64,128,256,18,36,9]$ preserves
+the same priority conflict and has gap minus one at every vertex.
+
+\paragraph{Skew-equilibrium weights.}
+For out masks $[2,4,24,17,3]$ and positive weights $(1,2,2,1,1)$,
+weighted incoming and outgoing neighborhoods balance at every vertex.
+The weighted first-minus-second gaps are nevertheless $(0,0,-1,0,1)$.
+This control is an incomplete oriented graph, not a tournament.
+An equilibrium of the skew adjacency game of an arbitrary oriented
+graph is therefore not automatically an expansion weighting for the
+second-neighborhood matrix. For tournaments Fisher's losing-density
+lemma does provide reverse second-neighborhood expansion; the two
+normalized feasible density sets actually coincide, as proved in the
+follow-up fragment. The present control does not contradict that lemma.
+Seacrest's Farkas alternative remains a legitimate equivalent formulation,
+not a proof of the required expansion weighting.
+
+\paragraph{Arc-weighted median feeds.}
+The existential arc-weighted tournament theorem must not be upgraded to
+``every weighted median feed has arc-SNP.'' The independent exact control
+\texttt{audit\_canonical\_arc\_weighted\_feed.results.json} already
+refutes this even for canonical completions with original and uniquely
+convenient arcs weighted $37$, flexible arcs weighted $1$, and all added
+outgoing feed arcs reversed inward. Its six-vertex original graph is
+$[0,36,17,34,2,4]$, its median feed is $2$, and its first and second
+arc-weights are $74$ and $38$. Other vertices have SNP; neither the
+ordinary conjecture nor the published existential theorem is refuted.
+
+\paragraph{Verification boundary.}
+The global graph-level program checked all $59049$ five-vertex oriented
+graphs and $30000$ fixed-seed samples of orders six through twelve.
+It checked $1130480$ priority-completion vertex envelopes, including
+$53430$ multiple bad-first cases; $400791$ unit-selected envelopes;
+and $464674$ overlap-packet completions, $249930$ with positive overlap.
+These finite checks attack local identities, not the missing global
+certificate-existence theorem or the full SNC.

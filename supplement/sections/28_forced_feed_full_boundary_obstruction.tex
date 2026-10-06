@@ -1,0 +1,125 @@
+\section{Balanced forced-family feeds must expose a boundary defect}
+\label{sec:forced-feed-boundary-obstruction}
+
+All original predicates refer to a finite nonempty oriented graph $D$.
+For a vertex $f$, let $\mathcal M(f)$ be its missing partners,
+$\mu(f)=|\mathcal M(f)|$, let $P(f)=\{p:f\in U_D(p)\}$,
+and put
+\[
+ C_f=\partial P(f),\qquad Q_f=N_D^{--}(f).
+\]
+Let $T_*$ be a score-maximizing protection-forced reference completion,
+as in the preceding theorem. Every global median of $T_*$
+extends original protection, places every released added arc forward,
+and has an original first neighborhood at its feed.
+
+\begin{lemma}[A forced incoming partner lies outside the far-in boundary]
+\label{lem:forced-incoming-boundary-defect}
+If a direction $r\to f$ on an original missing pair is
+protection-forced, then
+\[
+ r\in (Q_f\setminus C_f)\cap\mathcal M(f).
+\]
+This assertion needs neither minimality nor all-deficiency.
+\end{lemma}
+\begin{proof}
+Choose a forcing witness $w$ with $r\triangleleft w$ and original
+$w\to f$. Original protection includes $r\to w$, so
+$r\to w\to f$ is an original two-step path. Since $rf$ is missing,
+it is exact and $r\in Q_f$. If $r\in C_f$, some $p\in P(f)$
+points originally to $r$. But $f$ is far from $p$, so this predecessor
+witnesses nonconvenience of $r\to f$, contradicting convenience of
+every forced direction. Thus $r\notin C_f$.
+\end{proof}
+
+\begin{theorem}[The exact balanced-feed obstruction]
+\label{thm:forced-balanced-feed-boundary}
+Let $f$ be any global median feed of $T_*$ with $g_D(f)>0$.
+Then $t_D(f)\ge g_D(f)$. If equality holds, every original missing
+pair incident to $f$ is completed by a protection-forced direction
+into $f$, and
+\[
+ \varnothing\ne\mathcal M(f)\subseteq Q_f\setminus C_f.
+\]
+In particular
+\[
+ C_f=Q_f\quad\Longrightarrow\quad t_D(f)\ge g_D(f)+1.
+\]
+There is no residual, source-support, or minimality assumption.
+\end{theorem}
+\begin{proof}
+The maximum theorem gives $K_f=\varnothing$. Let $A_f$
+be the genuinely new original-far exact second heads. Protection
+preservation puts $A_f\subseteq\mathcal F_D(f)$, and old exact
+second paths persist, so
+\[
+ N_{T_*}^{++}(f)=N_D^{++}(f)\,\dot\cup\,A_f,
+ \qquad g_{T_*}(f)=g_D(f)-|A_f|.
+\]
+Feed SNP gives $g_D(f)\le|A_f|\le t_D(f)$.
+
+Suppose equality $t_D(f)=g_D(f)>0$ holds. Then
+$A_f=\mathcal F_D(f)$ and $g_{T_*}(f)=0$. For any global median
+$L$ ending at $f$, the strong feed inequalities give
+\[
+ |N_{T_*}^{+}(f)|\le|G_L|\le|N_{T_*}^{++}(f)|
+   =|N_{T_*}^{+}(f)|,
+\]
+hence
+\[
+ G_L=N_{T_*}^{++}(f)
+     =N_D^{++}(f)\,\dot\cup\,\mathcal F_D(f).
+\]
+Every missing partner belongs to this union: it is neither an original
+first neighbor nor a protected far target, because original protection
+requires adjacency. Thus $\mathcal M(f)\subseteq G_L$.
+
+Also $\mu(f)>0$. Indeed a whole vertex is adjacent to every other
+vertex and all its far targets are protected: if $y$ is far from it,
+then $y\to f$; any original $z\to y$ must have $z\to f$, since
+the alternative $f\to z$ would reach $y$ in two steps. Therefore
+a whole vertex has $t_D(f)=0$, contrary to the positive equality.
+
+Every missing partner is completed inward since $K_f=\varnothing$.
+If any such incoming arc $r\to f$ were released, global sedimentation
+of $L$ would place $f$ before $r\in G_L$ while remaining a global
+median of the same $T_*$. The released arc would become backward,
+contradicting all-median rigidity. Every incoming missing direction
+is therefore forced. Apply Lemma~\ref{lem:forced-incoming-boundary-defect}
+to obtain the stated nonempty containment. If $C_f=Q_f$, equality is
+impossible; since both budgets are integral and $t_D(f)\ge g_D(f)$,
+the strict-surplus conclusion follows.
+\end{proof}
+
+\begin{corollary}[Every minimal-counterexample forced feed has nonunit residual]
+\label{cor:forced-feed-residual-at-least-two}
+Suppose $D$ is strongly connected, all-deficient, and minimal under
+deletion of arbitrary nonempty arc sets on its fixed vertex set.
+Every global median feed $f$ of $T_*$ has
+\[
+ \eta(f)\ge2.
+\]
+This conclusion does not assert that $f$ is an actual bad-direction
+failure source.
+\end{corollary}
+\begin{proof}
+All original gaps are positive. If $\eta(f)=0$, the reviewed
+zero-residual protection theorem gives $t_D(f)=0$, contradicting
+$t_D(f)\ge g_D(f)>0$.
+If $\eta(f)=1$, the unit budget gives $t_D(f)\le1$, so the same
+inequality forces $g_D(f)=t_D(f)=1$. The full-boundary
+lemma has precisely the hypotheses $\eta(f)=1,t_D(f)=1$;
+it does not require actual BAD-source status. It gives $C_f=Q_f$,
+contradicting Theorem~\ref{thm:forced-balanced-feed-boundary}.
+Equivalently, the residual identity directly gives
+$|P(f)|=2\mu(f)-1$, hence $\mu(f)\ge1$ and $P(f)\ne\varnothing$
+before applying the unit packet bounds. Residual nonnegativity leaves
+only $\eta(f)\ge2$.
+\end{proof}
+
+\paragraph{Scope.}
+The full-boundary strict-surplus theorem is an arbitrary-graph result;
+only its residual corollary uses the minimal-counterexample
+foundation. A forced-family feed may acquire its far heads through
+released reversals of unique convenient GOOD directions. It need not
+be an actual BAD source, and no complete SNC proof follows here.

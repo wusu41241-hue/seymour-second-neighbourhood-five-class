@@ -1,0 +1,146 @@
+\subsection{Unprotected targets and a four-unit residual margin}
+
+Continue with a finite nonempty, strongly connected, arc-minimal
+all-deficient oriented graph. Here arc-minimal means minimal under
+deletion of arbitrary nonempty sets of arcs on the fixed vertex set,
+not merely under single-arc deletion.
+Write $\mathcal F(x)$ for the vertices $y\in U(x)$ which are not
+protected, and put $t(x)=|\mathcal F(x)|$. Protection means
+\[
+ y\to x,\qquad \Nin(y)\subseteq\Nin(x)\setminus\{y\}.
+\]
+All neighbourhoods, convenient orientations, and protected pairs below
+refer to the original graph.
+
+\begin{lemma}[The unprotected-target envelope]
+\label{lem:unprotected-envelope}
+Fix a vertex $x$ with $P=P(x)\ne\varnothing$, and put
+\[
+ \begin{gathered}
+ Q=\Nback(x),\quad W=\Nin(x),\quad C=\bd P,\quad H=Q\setminus C,\\
+ X=\bd^2P,\quad j=|H|,\quad s=|\Nout(x)\cap H|.
+ \end{gathered}
+\]
+Then
+\[
+ j=s=0\Longrightarrow t(x)\le\eta(x),\qquad
+ j=s>0\Longrightarrow t(x)\le\eta(x)-g(x).
+\]
+\end{lemma}
+\begin{proof}
+When $j=s$, every vertex of $H$ is an original outneighbour of $x$.
+Delete all arcs $x\to H$, and call the resulting graph $\widehat D$;
+if $H=\varnothing$, set $\widehat D=D$. Its retained first neighbours
+lie in $P\cup C$. Also
+$\mathcal M(x)\subseteq P\cup C$, whereas $X$ is disjoint from $P\cup C$.
+The target-deletion envelope, including deleted first neighbours that
+may become exact second neighbours, gives
+\[
+ \Ntwo_{\widehat D}(x)\subseteq
+ E:=\mathcal M(x)\,\dot\cup\,X,
+ \qquad
+ |E|\le\mu(x)+|Q|-s-1
+       =\dtwo_D(x)+\eta(x)-s.
+\]
+For completeness, if a retained intermediate is in $P$, its outgoing
+arcs stay in $P\cup C$; if it is in $C$, an outgoing head outside that
+set is in $X$. Inside $P\cup C$, a head which is not a retained first
+neighbour is an original nonneighbour of $x$. A deleted head in $H$
+which becomes second belongs to $X$ and is counted only once.
+The size bound uses $|X|\le|C|-1=|Q|-s-1$.
+
+We claim
+\[
+ \mathcal F(x)\subseteq E\setminus\Ntwo_{\widehat D}(x).
+\]
+For a missing far target this follows from its membership in
+$\mathcal M(x)$. Otherwise a far target $y$ lies in $W$ and points to
+$x$. Being unprotected, it has a predecessor $z\notin W$.
+The vertex $z$ cannot be $x$; it cannot be in $P$, because no arc from
+$P$ points into $W$; and it cannot be in $H\subseteq\Nout(x)$, because
+that would give $x\to z\to y$. Thus $z\in C$ and $y\in X$.
+Finally, deleting arcs cannot create a path of length at most two to
+an originally unreachable target, so $y\notin\Ntwo_{\widehat D}(x)$.
+
+If $s=0$, subtracting the original second neighbourhood from $E$
+gives $t(x)\le\eta(x)$. If $s>0$, every other vertex has unchanged
+first neighbourhood and cannot gain second neighbours. Arc-minimality
+therefore makes $x$ a Seymour vertex in $\widehat D$, so
+$\dtwo_{\widehat D}(x)\ge\dout_D(x)-s$. Consequently
+\[
+ t(x)\le|E|-\dtwo_{\widehat D}(x)
+ \le\dtwo_D(x)+\eta(x)-s-(\dout_D(x)-s)
+ =\eta(x)-g(x).
+\]
+No minimality or counterexample property is assumed for $\widehat D$.
+\end{proof}
+
+\begin{corollary}[One unit of residual]\label{cor:eta-one-budget}
+If $\eta(x)=1$, then $t(x)\le1$.
+\end{corollary}
+\begin{proof}
+If $P(x)=\varnothing$, the identity
+$1=2\mu(x)+g(x)-1$ and $g(x)\in\{1,2\}$ force
+$\mu(x)=0$ and $g(x)=2$. For a whole vertex every far target is
+protected: it points to $x$, and each of its predecessors must also
+point to $x$, because the opposite orientation would give a two-step
+path from $x$ to that target. Thus $t(x)=0$.
+
+If $P(x)\ne\varnothing$, the existing local bounds are
+\[
+ s=0\Longrightarrow\eta(x)\ge2j,\qquad
+ s>0\Longrightarrow\eta(x)\ge g(x)+2(j-s).
+\]
+For residual one, the first case forces $j=s=0$. The second forces
+$g(x)=1$ and $j=s>0$. Apply
+Lemma~\ref{lem:unprotected-envelope}; in the second case it even gives
+$t(x)=0$.
+\end{proof}
+
+\begin{lemma}[A two-unit dichotomy]\label{lem:eta-two-dichotomy}
+Suppose $\eta(x)=2$ and $r$ is a missing partner of $x$ with
+$\Nout(r)\cap U(x)\ne\varnothing$. Then either $t(x)\le2$, or
+$r\to x$ is a convenient orientation of the missing edge $rx$.
+\end{lemma}
+\begin{proof}
+If $P(x)=\varnothing$, every other vertex reaches $x$ within two steps,
+which proves convenience of $r\to x$ immediately.
+Otherwise use the notation of Lemma~\ref{lem:unprotected-envelope}.
+If $s>0$, the bound
+$2\ge g(x)+2(j-s)$ forces $j=s$, and that lemma gives
+$t(x)\le2-g(x)\le1$. If $s=j=0$, it gives $t(x)\le2$.
+The only remaining case is $s=0,j=1$. Write $H=\{q\}$.
+Since $q\in Q$ but $q\notin\Nout(x)$, it is an original missing
+partner of $x$.
+
+The retained original first neighbours lie in $P\cup C$, and the
+same envelope argument gives
+\[
+ \Ntwo_D(x)\subseteq
+ E_0:=\bigl(\mathcal M(x)\setminus\{q\}\bigr)\,\dot\cup\,X.
+\]
+The boundary inequality gives $|X|\le|Q|-2$, hence
+\[
+ |E_0|\le\mu(x)-1+|Q|-2
+          =\dtwo_D(x),
+\]
+where the last equality uses $\eta(x)=2$. Thus the envelope is
+saturated:
+\[
+ \Ntwo_D(x)=E_0.
+\]
+Every vertex in $P\cup C$ is reachable from $x$ within at most two
+steps: it is either an original first neighbour, or a missing partner
+other than $q$ and hence an exact second neighbour by saturation.
+This assertion is about reachability within two steps, not about
+membership of all these vertices in the exact second neighbourhood.
+Every arc leaving $P\cup C$ has its head in $X$, also an exact second
+neighbour of $x$. A missing partner $r\ne q$ lies in $P\cup C$,
+so none of its outneighbours can lie in $U(x)$. The hypothesis on $r$
+therefore forces $r=q$.
+
+Finally $q\notin P$ and $q\notin C=\bd P$, so no vertex of $P(x)$
+points to $q$. Every predecessor of $q$ is thus outside $P(x)$ and
+reaches $x$ within two steps. This is precisely convenience of
+$q\to x$.
+\end{proof}

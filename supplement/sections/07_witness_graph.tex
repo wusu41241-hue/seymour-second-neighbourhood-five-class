@@ -1,0 +1,119 @@
+\subsection{Using only cross-witness pairs as the source graph}
+\label{sec:witness-graph-refinement}
+
+Let $D$ be an arbitrary finite nonempty oriented graph, with the
+failure sets, protection relation, unprotected-target count $t$, and
+canonical convenient orientations defined in
+Section~\ref{sec:small-failure-sources}. Let $Z$ contain all directional
+failure sources of every bad missing pair. No bound on $|Z|$ is imposed.
+Define the undirected \emph{cross-witness graph} $\mathcal B_Z$ on $Z$
+by putting an edge $xy$ whenever some bad missing pair $ab$ has
+$x\in F_{ab}$ and $y\in F_{ba}$, or the reverse assignment.
+Every such edge is an original missing pair. Assume that all edges
+of $\mathcal B_Z$ are good. This is automatic when $|Z|\le3$, since
+an internal bad pair of $Z$ would require four distinct vertices of $Z$.
+
+Orient $\mathcal B_Z$ by the canonical convenient orientations of
+its edges, and put
+\[
+ S_{\mathcal B}=\{z\in Z:d^+_{\mathcal B_Z}(z)=0\}.
+\]
+This graph contains only cross-witness pairs, not every missing pair
+inside $Z$, and not the original arcs of $D[Z]$.
+
+\begin{lemma}[Cross-witness source transfer]
+\label{lem:cross-witness-source-transfer}
+If the chosen protection-compatible reference order gives
+\[
+ t(z)\le g(z)+1\qquad(z\in Z\setminus S_{\mathcal B}),
+\]
+then $D$ has a Seymour vertex.
+\end{lemma}
+
+\begin{proof}
+We check the two uses of the source graph in the proof of
+Lemma~\ref{lem:small-failure-sources}. Although $S_{\mathcal B}$ may
+contain an original missing pair not belonging to $\mathcal B_Z$,
+no bad pair can have failures from $S_{\mathcal B}$ in both directions.
+Such opposite sources would form a cross-witness edge, and its
+orientation would give one of them positive out-degree in
+$\mathcal B_Z$. Thus every bad pair can still be oriented so as to
+avoid failure sources in $S_{\mathcal B}$.
+
+Complete with these bad directions and all canonical good directions,
+and choose a median feed $f$. If $f\notin Z\setminus S_{\mathcal B}$,
+reverse all its added outgoing arcs. The original first neighbourhood
+is retained, and no added second arc produces a failure from $f$.
+The feed SNP therefore transfers back to $D$.
+
+If $f\in Z\setminus S_{\mathcal B}$, retain one added cross-witness
+arc $f\to q$ and reverse its other added outgoing arcs. This retained
+arc is a canonical convenient orientation of a good missing pair,
+with $f,q\in Z$. For a protected far head $y\triangleleft f$, each
+predecessor of $y$ is a predecessor of $f$. Hence convenience of
+$f\to q$ directly implies convenience of $y\to q$ whenever $qy$
+is missing. Thus $qy$ is automatically good, independent of $|Z|$.
+Canonical compatibility then orients it $y\to q$. An original arc
+$q\to y$ would force $q\to f$ by protection, contrary to the
+missing pair $fq$. Consequently the same exact envelope holds:
+\[
+ N_{T'}^{++}(f)\subseteq
+ \bigl(N_D^{++}(f)\setminus\{q\}\bigr)
+ \cup\bigl(\mathcal F(f)\setminus\{q\}\bigr).
+\]
+The first neighbourhood has gained exactly $q$, and $q$ removes one
+element from the disjoint second/far envelope. Thus
+$d_{T'}^+(f)-d_{T'}^{++}(f)\ge g(f)+2-t(f)\ge1$,
+contradicting the feed-vertex theorem. The same backward-arc reversal
+argument preserves the median order throughout.
+\end{proof}
+
+In terms of the dependency digraph, the hypothesis says that every
+missing pair with positive out-degree has in-degree zero: each tail
+of a losing relation is good. It excludes every directed walk of two
+arcs, including a two-cycle. Merely excluding simple directed paths
+on three distinct vertices would not be the same condition.
+
+\begin{proposition}[One two-unit source among at most three sources]
+\label{prop:one-two-unit-source}
+Let $D$ be a strongly connected all-deficient oriented graph minimal
+under deletion of arbitrary nonempty arc sets. Suppose its positive
+residual support has at most three vertices, at most one of which
+has residual two, with every other positive residual equal to one.
+Then $D$ cannot exist. In particular, residual four cannot have
+distribution $(2,1,1)$.
+\end{proposition}
+
+\begin{proof}
+Put $Z=\{x:\eta(x)>0\}$. Zero-residual protection guarantees that every
+bad-edge directional failure source belongs to $Z$. For every
+residual-one vertex, Corollary~\ref{cor:eta-one-budget} gives
+$t(x)\le1\le g(x)+1$.
+
+If there is no residual-two vertex, any canonical reference order
+meets the cross-witness transfer threshold. If there is such a
+vertex $u$ and $t(u)\le2$, the same is true, since $g(u)\ge1$.
+In either case Lemma~\ref{lem:cross-witness-source-transfer} gives
+a Seymour vertex, a contradiction.
+
+It remains that $\eta(u)=2$ and $t(u)>2$. Each cross-witness neighbour
+$r$ of $u$ has $N_D^+(r)\cap U_D(u)\ne\varnothing$. The two-unit
+dichotomy, Lemma~\ref{lem:eta-two-dichotomy}, therefore makes $r\to u$
+a convenient direction. Since $ru$ is missing, $r,u$ are incomparable
+in the protection partial order. We may choose a linear extension
+placing every such $r$ before $u$ simultaneously. Indeed, adding
+these precedence constraints would create a cycle only if the
+original protection order already had a path from $u$ to some $r$,
+which would make the missing pair comparable.
+
+Every cross-witness edge incident to $u$ is now canonically directed
+into $u$: a unique convenient direction is already inward, and a
+double-convenient edge is directed inward by the chosen order.
+Thus $u\in S_{\mathcal B}$. Only residual-one vertices require a
+budget, and they have it. Applying the cross-witness transfer gives
+the required contradiction. This proof includes $P(u)=\varnothing$;
+no bound on $t(u)$ was inferred from that case.
+\end{proof}
+
+
+The later support theorem excludes every two-positive allocation; no such allocation remains a frontier problem.

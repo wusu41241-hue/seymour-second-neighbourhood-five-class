@@ -1,0 +1,235 @@
+\section{Excluding the positive residual allocation $(2,2,1,1)$}
+\label{sec:exclude-two-two-one-one}
+
+Let $D$ be a finite nonempty strongly connected all-deficient oriented
+graph minimal under deletion of arbitrary nonempty arc sets on its
+fixed vertex set. Suppose the positive residual support is
+\[
+ Z=\{u,v,a,b\},\qquad
+ \eta(u)=\eta(v)=2,\qquad \eta(a)=\eta(b)=1.
+\]
+All definitions and all reachability assertions refer to the original
+graph $D$. Let $\mathcal B$ be its actual cross-witness graph, with
+isolated positive vertices included when convenient. Every directional
+failure source belongs to $Z$, every edge of $\mathcal B$ is an
+original missing pair, and an actual source is a nonisolated vertex
+of $\mathcal B$. Every other vertex has $t=0$, and $t(a),t(b)\le1$.
+
+Call a residual-two vertex \emph{large} when $t>2$; this does not
+mean that it is necessarily an actual directional failure source.
+The large-two-unit witness-degree lemma gives, for a large actual
+source $x$, a unique cross-witness partner $c$, and a convenient
+orientation $c\to x$. Consequently a cross-witness edge incident
+to a large residual-two source is good. If $P(x)\ne\varnothing$,
+its unique exceptional missing partner is precisely $c$, and
+the saturated packet has
+\[
+ s=0,\quad B_x=\{c\},\quad
+ E_x=(\mathcal M(x)\setminus\{c\})\,\dot\cup\,
+          \partial^2P(x)=N_D^{++}(x).
+ \tag{2211-1}\label{eq:2211-large-packet}
+\]
+In particular $c\in N_D^{--}(x)$ and $c\notin P(x)$.
+When $P(x)=\varnothing$, the residual identity instead gives
+$\mu(x)=1$, so $c$ is its only missing partner.
+
+\begin{lemma}[Large sources with distinct unit partners are adjacent]
+\label{lem:2211-large-active-adjacency}
+Suppose $ab\notin E(\mathcal B)$ and both $u,v$ are large actual
+sources, but $uv\notin E(\mathcal B)$. Then $uv$ is originally adjacent.
+\end{lemma}
+\begin{proof}
+Each large source has exactly one cross-witness partner, necessarily
+a unit vertex. If either far-in set is empty, that vertex has only
+one missing partner, so $uv$ is adjacent. Otherwise its exceptional
+partner is a unit, not the other residual-two vertex.
+If $uv$ were missing, saturation puts
+$v\in N_D^{++}(u)$ and $u\in N_D^{++}(v)$.
+Thus $v\notin P(u)$ and
+$v\in N_D^{--}(u)\setminus B_u=\partial P(u)$, and likewise
+$u\in\partial P(v)$. A predecessor in $P(u)$ pointing to $v$
+makes $v\to u$ nonconvenient, and a predecessor in $P(v)$
+pointing to $u$ makes $u\to v$ nonconvenient. The pair $uv$
+would be bad. Its opposite directional witnesses must be the two
+remaining positive vertices $a,b$, which would put
+$ab\in E(\mathcal B)$, a contradiction.
+\end{proof}
+
+\begin{lemma}[A unit--unit witness edge is impossible]
+\label{lem:2211-no-unit-unit-witness}
+Under the displayed allocation, $ab\notin E(\mathcal B)$.
+\end{lemma}
+\begin{proof}
+Suppose $ab\in E(\mathcal B)$. The unit--unit witness-tail lemma
+makes the missing pair $ab$ itself bad. Its two opposite sources
+must be $u,v$. Relabel the units, if necessary, so that
+\[
+ u\to a,\qquad v\to b,\qquad
+ b\in\mathcal F(u),\qquad a\in\mathcal F(v).
+ \tag{2211-2}\label{eq:2211-unit-unit-original}
+\]
+In particular $uv\in E(\mathcal B)$.
+The original arcs exclude $ua$ and $vb$ from $\mathcal B$;
+therefore
+\[
+ E(\mathcal B)\subseteq\{ab,uv,ub,va\}.
+\]
+This graph is bipartite with
+$L=\{u,a\}$ and $R=\{v,b\}$.
+Complete every bad pair with its directional failure sources in $L$,
+and the good pairs canonically. The direction selected on the bad
+pair $ab$ is $a\to b$, failing at $u$.
+Hence the selected unit $a$ gains a first neighbor and is strictly
+deficient by
+$g_T(a)\ge g_D(a)+2|K_a|-t(a)>0$.
+The nonselected unit $b$ is also strictly deficient: if $K_b$ is
+empty its neighborhoods are unchanged, and otherwise the same
+budget is positive. Every zero-residual vertex is strictly deficient.
+
+It remains to keep the nonselected residual-two vertex $v$ deficient;
+the selected vertex $u$ need not be controlled. If $t(v)\le2$,
+the nonselected-source budget does this, with the exact assertion
+when $K_v=\varnothing$.
+
+Assume $t(v)>2$. Its sole cross-witness partner is $u$.
+Choose the canonical reference extension putting every good missing
+partner of $v$ before $v$. The convenience of $u\to v$ then
+selects this direction inward, so $u\notin K_v$.
+If $P(v)=\varnothing$, all missing directions into $v$ are
+convenient, no bad pair is incident to $v$, and every missing
+incident pair is directed inward. Its gap is unchanged and positive.
+
+Otherwise use the saturated packet \eqref{eq:2211-large-packet}.
+Every $r\in K_v$ is nonexceptional, and its incoming direction
+$r\to v$ is nonconvenient. For a good pair this follows from
+the reference priority; for a bad pair it follows from badness.
+Thus there is an original predecessor $p\in P(v)$ with $p\to r$.
+This argument deliberately allows bad added first arcs at $v$.
+
+Fix $y\in U_D(v)$. An original $r\to y$ is excluded by the
+zero remaining partner-head budget. The saturated cone
+$P(v)\cup\partial P(v)\cup\partial^2P(v)$ consists entirely
+of vertices originally reachable from $v$ within two steps;
+therefore $y$ is far from every such predecessor $p$.
+An added good direction $r\to y$ is nonconvenient at $p$ and
+cannot be selected. An added bad direction would also fail at $p$,
+forcing $p\in L=\{u,a\}$.
+
+But $u\notin P(v)$, because $u\in N_D^{--}(v)$.
+If $p=a$, then $v\in U_D(a)$. By
+\eqref{eq:2211-unit-unit-original}, also $a\in U_D(v)$,
+so $v\to a$ is not an original arc and $v$ cannot be protected
+from $a$. The unit's unique unprotected head must therefore be
+$v$. A bad direction failing at $a$ can have only the head $v$,
+whereas the proposed second head $y$ is distinct from $v$.
+This is impossible too.
+
+Original first intermediates of $v$ create no new far heads,
+since selected bad directions avoid $v$.
+All added first neighbors are in the saturated original second set.
+Consequently
+\[
+ N_T^{++}(v)=N_D^{++}(v)\setminus K_v,
+ \qquad g_T(v)=g_D(v)+2|K_v|>0.
+\]
+In this one fixed completed tournament every vertex except possibly
+$u$ is strictly deficient. It has no sink because the original
+outdegrees were positive. Havet--Thomasse's two-Seymour-vertex
+theorem for sink-free tournaments gives a contradiction.
+\end{proof}
+
+\begin{lemma}[No cross-witness edge can itself be bad]
+\label{lem:2211-all-witness-edges-good}
+Under the displayed allocation, every edge of $\mathcal B$ is good.
+\end{lemma}
+\begin{proof}
+By Lemma~\ref{lem:2211-no-unit-unit-witness}, $ab$ is not a
+cross-witness edge. If the heavy--heavy edge $uv$ were bad,
+its two remaining opposite sources $a,b$ would put $ab$ into
+$\mathcal B$. Thus a bad cross-witness edge, if any, must join a
+residual-two vertex and a unit; label it $ua$.
+Its opposite directional sources are the remaining heavy $v$
+and unit $b$, so $vb\in E(\mathcal B)$.
+Because $ua$ is itself bad, $u$ is not large: a large residual-two
+source has a convenient incoming direction from every cross-witness
+partner. Hence $t(u)\le2$.
+
+There are two possible original witness configurations.
+If $v\to u$ and $b\to a$, then $a\in\mathcal F(v)$ and
+the unit's unique head is $h(b)=u$.
+The original arcs exclude $uv,ab$ as cross-witness edges,
+and $ub$ cannot be a cross-witness edge because a partner of the
+unit $b$ would have to point to $h(b)=u$, impossible for $u$ itself.
+Thus $E(\mathcal B)\subseteq\{ua,vb,va\}$.
+Use the bipartition $L=\{u,v\}$, $R=\{a,b\}$.
+The selected direction on the bad pair $ua$ is $u\to a$,
+failing at $v$, so $K_u\ne\varnothing$ and
+$g_T(u)\ge g_D(u)+2-t(u)>0$.
+Both nonselected units stay strictly deficient, as do all
+zero-residual vertices. Only $v$ could be Seymour.
+
+In the other configuration, $v\to a$ and $b\to u$,
+we have $u\in\mathcal F(v)$ and $h(b)=a$.
+The original arcs exclude $va,ub$ from $\mathcal B$, and
+$ab\notin E(\mathcal B)$ by the preceding lemma.
+Thus $E(\mathcal B)\subseteq\{ua,vb,uv\}$.
+Use $L=\{v,a\}$, $R=\{u,b\}$.
+The selected direction on $ua$ is $a\to u$, failing at $v$,
+so the selected unit $a$ has a new first neighbor and stays
+strictly deficient. The nonselected residual-two vertex $u$,
+with $t(u)\le2$, stays strictly deficient, as does the nonselected
+unit $b$ and every zero-residual vertex.
+Once more only $v$ could be Seymour.
+
+Each construction contradicts the two-Seymour-vertex theorem for
+its one fixed sink-free completed tournament. These two configurations
+exhaust the possible witness orientations of the bad pair $ua$.
+\end{proof}
+
+\begin{theorem}[Exclusion of $(2,2,1,1)$]
+\label{thm:no-two-two-one-one}
+A strongly connected all-deficient oriented graph minimal under
+arbitrary nonempty arc-set deletion cannot have positive residual
+allocation $(2,2,1,1)$.
+\end{theorem}
+\begin{proof}
+The cross-witness graph is nonempty, and all of its edges are good
+by Lemma~\ref{lem:2211-all-witness-edges-good}.
+We may take its source set to be the actual directional failure
+sources, not all positive-residual vertices. An inactive positive
+vertex has no threshold requirement in cross-witness source transfer.
+
+If no residual-two actual source is large, the thresholds
+$t\le2\le g_D+1$ hold at both residual-two actual sources, and
+$t\le1\le g_D+1$ at both units. Apply cross-witness source transfer.
+
+If exactly one residual-two actual source is large, put its unique
+cross-witness partner before it in the canonical reference extension.
+Its incident cross-witness edge is conveniently directed inward,
+making it a sink in the oriented cross-witness graph.
+All remaining actual sources satisfy the transfer thresholds.
+The same criterion gives a contradiction. This case includes a
+second large positive vertex which is not an actual failure source.
+
+Suppose both $u,v$ are large actual sources.
+If $uv\in E(\mathcal B)$, their degree-one property forces
+$\mathcal B$ to have only the edge $uv$, because $ab$ is absent.
+Select every bad direction with its sole failure source $u$.
+The residual-two leaf-completion lemma, with reference
+priorities at $v$, keeps $v$ strictly deficient.
+Both nonselected units and every zero-residual vertex also stay
+strictly deficient in this same tournament. Only $u$ could be
+Seymour, contradicting the two-Seymour-vertex theorem.
+
+Finally $uv\notin E(\mathcal B)$.
+By Lemma~\ref{lem:2211-large-active-adjacency}, $uv$ is originally
+adjacent. The two-inward-priority lemma therefore gives
+one protected-order extension putting every missing partner of
+$u$ before $u$, and every missing partner of $v$ before $v$,
+simultaneously. Each large source's sole cross-witness edge is
+conveniently oriented inward under this extension.
+Both large vertices are consequently cross-witness sinks,
+and only unit vertices need the transfer thresholds. They satisfy
+those thresholds, so cross-witness source transfer again gives
+the contradiction. All cases are excluded.
+\end{proof}

@@ -1,0 +1,168 @@
+{
+  "status": "PASS",
+  "counts": {
+    "graphs": 61009,
+    "enlargedReferenceCompletions": 122018,
+    "forcedDirections": 71947,
+    "releasedUniqueGoodReversals": 83872,
+    "vertexEnvelopes": 612108,
+    "maximalMedianOrders": 84234,
+    "feedNoAddedFirstChecks": 84234,
+    "forcedIncomingBoundaryChecks": 71947,
+    "fullBoundaryVertices": 174622,
+    "nonemptyFullBoundaryVertices": 170827,
+    "positiveOriginalMaxFeeds": 1
+  },
+  "noncontainmentControl": {
+    "out": [
+      22,
+      12,
+      64,
+      0,
+      4,
+      19,
+      33
+    ],
+    "canonicalReference": [
+      6,
+      5,
+      4,
+      3,
+      2,
+      1,
+      0
+    ],
+    "canonicalT": [
+      22,
+      12,
+      64,
+      69,
+      14,
+      31,
+      51
+    ],
+    "originalProtection": [
+      [
+        5,
+        0
+      ]
+    ],
+    "releasedDirections": [
+      [
+        3,
+        0
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        6,
+        4
+      ]
+    ],
+    "cyclicVertices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6
+    ]
+  },
+  "positiveOriginalFeedControl": {
+    "out": [
+      32,
+      17,
+      96,
+      64,
+      1,
+      74,
+      2
+    ],
+    "T": [
+      104,
+      17,
+      123,
+      66,
+      105,
+      74,
+      2
+    ],
+    "median": [
+      2,
+      4,
+      0,
+      5,
+      3,
+      6,
+      1
+    ],
+    "feed": 1,
+    "reference": [
+      2,
+      4,
+      0,
+      5,
+      3,
+      6,
+      1
+    ],
+    "originalGaps": [
+      -2,
+      1,
+      0,
+      0,
+      0,
+      1,
+      -1
+    ],
+    "completedGap": -1,
+    "unprotectedFarHeads": [
+      2,
+      3,
+      6
+    ],
+    "newFarSecondHeads": [
+      3,
+      6
+    ],
+    "missingPartners": [
+      2,
+      3
+    ],
+    "P": [
+      4
+    ],
+    "C": [
+      0
+    ],
+    "Q": [
+      0,
+      2,
+      3
+    ],
+    "actualBadSource": true
+  },
+  "scope": "All oriented graphs n=2..5 plus 1200 deterministic n=6/7 controls and the canonical-only budget obstruction. Fresh predicates, all orders enumerated, first/last protection extensions attacked. No all-deficient assumption or proof of SNC."
+}

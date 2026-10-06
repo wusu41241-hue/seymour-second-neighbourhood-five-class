@@ -1,0 +1,23 @@
+{
+  "title": "Five Maximal Incoming Classes Suffice: Exact Certificates and Structural Constraints for Seymour's Second-Neighbourhood Conjecture",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "version": "1.0.0",
+  "publication_date": "2026-10-07",
+  "creators": [{"name": "Yu, Guanze"}],
+  "language": "eng",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "keywords": [
+    "Seymour's second-neighbourhood conjecture",
+    "oriented graphs",
+    "incoming-neighbourhood classes",
+    "computer-assisted proof",
+    "exact integer certificates",
+    "median orders",
+    "protection closure",
+    "extremal graph theory"
+  ],
+  "description": "<p>This research preprint develops exact incoming-core certificates and structural restrictions related to Seymour's second-neighbourhood conjecture. Its principal computer-assisted theorem proves that every finite nonempty oriented graph with at most five inclusion-maximal incoming-neighbourhood equivalence classes has a whole maximal class of Seymour vertices, with no bound on the total order of the graph.</p><p>The paper gives an incoming-pattern formulation whose universal feasibility is equivalent to the conjecture. Exact integer certificates cover all 59,809 labelled oriented cores of orders one through five, with 462,404 nonempty pattern inequalities checked by independent verifiers. Further results concern simultaneous outgoing-row copying, extremal independent-twin structure, protection-preserving tournament completions, and residual restrictions. In the stated arc-set-minimal counterexample setting, the necessary bound is 2M-n >= 7 (at least 8 at even order), where M counts missing unordered vertex pairs.</p><p>The accompanying material contains the technical supplement, editable LaTeX sources, bibliography, certificate tables, and independent verification programs. These partial results do not prove or refute the full conjecture. AI assistance is disclosed in the manuscript; internal review and exact replay are not external peer review.</p>",
+  "notes": "Paper, supplement and non-code materials: CC BY 4.0. Original verification and build programs: MIT; see LICENSE-CODE.txt. No journal acceptance, external peer review or complete solution is claimed."
+}

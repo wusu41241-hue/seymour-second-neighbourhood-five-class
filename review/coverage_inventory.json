@@ -1,0 +1,339 @@
+{
+  "date": "2026-10-07",
+  "author_of_inventory": "manuscript_residual_inventory subagent",
+  "purpose": "Coverage and dependency inventory for a complete manuscript; this is not a new exhaustive proof audit or certificate replay.",
+  "source_roots": {
+    "old": "historical-research/seymour-2026-10-04",
+    "integrated": "historical-research/seymour-2026-10-04/integrated_paper/chapters",
+    "oct5": "historical-research/seymour-2026-10-05",
+    "followup": "historical-research/seymour-2026-10-05/global_followup",
+    "round2": "historical-research/seymour-2026-10-05/global_round2",
+    "round3": "historical-research/seymour-2026-10-05/global_round3",
+    "work": "historical-workspace/work"
+  },
+  "scope_codes": {
+    "G": "arbitrary finite nonempty oriented graph; exact directed distance two",
+    "AD": "all-deficient: every d+ minus d++ is positive",
+    "MIN": "strongly connected AD, minimal under deletion of every nonempty arc set on its fixed vertex set",
+    "AM": "AD and arbitrary-nonempty-arc-set deletion minimal, not necessarily strong",
+    "DENSE": "MIN and n=2delta+3, delta the actual minimum outdegree",
+    "VM": "globally minimum-order counterexample, not only an arc-minimal graph",
+    "LEX": "minimum order, then global minimum arc count, then maximum total gap, then maximum squared outgoing-class sizes"
+  },
+  "checked_this_inventory": {
+    "read_in_full": [
+      "oct5/research_frontier.json", "old/research_frontier.json", "integrated/../content.tex",
+      "integrated/foundation.tex", "integrated/local_budget.tex", "integrated/partner_budget.tex",
+      "oct5/residual_seven_margin.tex", "followup/single_heavy_actual_exclusion_short.tex", "followup/protected_heavy_cover_criterion.tex",
+      "round2/minimal_weak_zero_feed_residual_budget.tex", "round3/weak_equality_original_partner_paths.tex",
+      "round2/iterated_protection_closure_strict_surplus.tex", "round2/weak_protection_closure_zero_feed_cycle.tex",
+      "round3/convenient_nonmax_tail_safe_step.tex", "round2/weak_closure_zero_gap_cycle_obstruction.tex",
+      "round2/round2_proof_audit.json", "round3/round3_proof_audit.json",
+      "integrated/core_basis.tex", "integrated/core_six.tex", "integrated/even_budget.tex", "integrated/heavy_capacity.tex", "integrated/odd_capacity.tex"
+    ],
+    "partially_read_or_statement_dependency_review": [
+      "old/eta_three_two_one_exclusion.tex", "old/eta_two_two_two_path_reduction.tex", "oct5/eta_two_two_one_one_exclusion.tex",
+      "integrated/predecessor.tex", "integrated/restricted_capacity.tex", "integrated/basins.tex", "integrated/odd_transfer.tex", "round3/nearwhole_feed_global_boundary_budget.tex"
+    ],
+    "fresh_reasoning": [
+      "The partition reduction proving R>=7 from at least three positive vertices, at least two actual heavy sources, and three mixed-partition exclusion theorems was independently reconstructed.",
+      "The one-exception proof and its fixed-heavy-cover dependency were checked for circularity and family-closure quantifiers.",
+      "The zero-gap eta>=m+1 bound and eta=4 equality shape were rechecked against the original packet, including the P-empty branch.",
+      "The iterated original-feed neighborhood induction and original partner-cycle lift were freshly reconstructed: FORCED internal additions shortcut old internal paths; single WEAK additions cannot create a first cycle; no minimality is applied to closure stages.",
+      "The corrected eta=2/3 strong-Good-equality seed/far classification was checked for use of the remainder L rather than the withdrawn exceptional-head exclusion.",
+      "Old dense-order core counts and the distinction between sigma-heavy targets and eta-heavy actual sources were checked."
+    ],
+    "not_done": "No finite certificate program was rerun in this inventory task; not every historical mixed-partition case was independently re-proved; source attribution/novelty requires the separate literature review."
+  },
+  "recommended_main_dependency_chain_for_R_bound": {
+    "premises": ["MIN residual/packet foundation", "at least three positive residual vertices", "at least two actual eta>=2 sources"],
+    "partitions_at_R_at_most_6_after_premises": ["(2,2,1)", "(3,2,1)", "(2,2,2)", "(2,2,1,1)"],
+    "minimal_additional_partition_proofs": ["old/eta_three_two_one_exclusion.tex: all (m,2,1)", "old/eta_two_two_two_path_reduction.tex: (2,2,2)", "oct5/eta_two_two_one_one_exclusion.tex: (2,2,1,1)"],
+    "conclusion": "R=2M-n>=7, even n implies R>=8; M>=ceil(n/2)+3+1_{n even}.",
+    "R7_remaining": ["(3,3,1)", "(3,2,2)", "(3,2,1,1)", "(2,2,2,1)", "(2,2,1,1,1)"],
+    "note": "This organization avoids using superseded finite-unit classifications as main proof steps, while preserving their independent local tools in the supplement."
+  },
+  "coverage": [
+    {
+      "id": "F01", "placement": "main", "scope": "MIN (boundary lemma itself AM)",
+      "sources": ["integrated/foundation.tex"],
+      "results": ["strict external boundary |boundary2 S|<|boundary S| for nonempty boundary", "g in {1,2}", "d++-d--<=mu-1", "eta=mu-1+d---d++=2mu+g-1-p>=0 and sum eta=2M-n", "whole vertex has p=0", "uniform external out-neighborhood subset has no internal arcs"],
+      "dependencies": ["arbitrary arc-set minimality; elementary deletion counting"],
+      "status": "Source retains full proofs; local and global status reviewed previously. Base local proof re-read in this inventory.",
+      "caution": "Arc minimality means arbitrary nonempty arc sets, not merely one-arc criticality. The main local inequality is only asserted under strong connectivity."
+    },
+    {
+      "id": "F02", "placement": "main", "scope": "MIN",
+      "sources": ["integrated/good_missing.tex", "integrated/local_budget.tex", "integrated/partner_budget.tex", "integrated/three_two_units.tex"],
+      "results": ["eta=0 implies every far head protected", "eta=1 implies t<=1", "eta=1 and t=1 imply P nonempty and full boundary C=N--", "exceptional-partner set B has convenient incoming directions", "all nonexceptional missing partners share distinct far-head budget |L|<=eta-2k-g*1_{s>0}", "eta=2 dichotomy and unique witness partner for a large source"],
+      "dependencies": ["F01"],
+      "status": "Retain reusable lemmas, not the old R=2/R=3 frontier narrative.",
+      "caution": "No universal t<=eta or eta=2=>t<=2 assertion; the active-unit-full-boundary lemma needs eta=t=1, not actual BAD-source status. Exceptional far heads can occur in L."
+    },
+    {
+      "id": "F03", "placement": "main", "scope": "G; residual consequences MIN",
+      "sources": ["integrated/small_sources.tex", "integrated/dangerous_witnesses.tex", "integrated/witness_graph.tex", "integrated/uniform_two.tex", "integrated/unit_sources.tex", "integrated/bipartite.tex"],
+      "results": ["canonical convenient completion compatibility", "opposite witnesses are distinct original missing sources", "actual cross-witness graph and transfer through good cross-witness tails", "safe retention of canonical good first arcs and unit-witness bad first arcs", "bipartition-selected simultaneous envelope", "sink-free tournament with all gaps nonnegative has at least three zero-gap vertices"],
+      "dependencies": ["tournament feed, strong feed and global sedimentation theorems", "F01-F02 for residual applications"],
+      "status": "Dependency toolkit for mixed-partition proofs and the one-exception theorem.",
+      "caution": "Do not replace a global median by a merely local median in sedimentation; do not equate two Seymour vertices with two distinct median feeds."
+    },
+    {
+      "id": "F04", "placement": "main statement plus complete supplement proof", "scope": "MIN",
+      "sources": ["old/two_positive_support_exclusion.tex", "integrated/two_support.tex"],
+      "results": ["at least three vertices have t>0", "at least three positive eta vertices; excludes every two-point positive residual support"],
+      "dependencies": ["F01-F03"],
+      "status": "Essential distinct input for the short R>=7 partition derivation.",
+      "caution": "Does not by itself assert at least three actual BAD failure sources."
+    },
+    {
+      "id": "F05", "placement": "main", "scope": "G for general theorem, MIN for corollary",
+      "sources": ["followup/protected_heavy_cover_criterion.tex", "followup/single_heavy_actual_exclusion_short.tex"],
+      "results": ["independent heavy cover with no heavy protecting an outside unit actual source implies SNP", "at most one unrestricted actual source, with outside t<=1 and FLEX cross-witness pairs, implies SNP", "MIN has at least TWO ACTUAL eta>=2 sources", "all residual allocations (m,1^k) excluded for arbitrary m>=2 and finite k", "heavy-heavy cross-witness edge OR heavy protecting an actual eta=1 source is necessary"],
+      "dependencies": ["F03", "oct5/global_completion_framework.tex", "unit-unit witness tail BAD lemma"],
+      "status": "The concise proof is preferred over the earlier long variant. Independently re-read for logical dependencies in this inventory.",
+      "caution": "Global family must include ALL protection extensions. The two proof phases use different completions without transferring gap values between them."
+    },
+    {
+      "id": "F06", "placement": "main statement plus complete supplement case proofs", "scope": "MIN",
+      "sources": ["old/eta_three_two_one_exclusion.tex", "old/eta_two_two_two_path_reduction.tex", "oct5/eta_two_two_one_one_exclusion.tex"],
+      "results": ["all precisely-three-support (m,2,1), m>=1, excluded", "(2,2,2) excluded", "(2,2,1,1) excluded", "multiple retained cross-witness criterion t<=g+2d_out-1", "simultaneous inward priorities for TWO originally adjacent chosen vertices"],
+      "dependencies": ["F01-F04 and local eta-two leaf/witness lemmas", "fixed-completion two-Seymour theorem", "nonnegative zero-set theorem"],
+      "status": "Previously independently reviewed; statements, dependency structure and substantial proof portions checked here, not a fresh full case replay.",
+      "caution": "Inactive positive vertices must be controlled separately from actual sources. Three inward priority families need not be acyclic."
+    },
+    {
+      "id": "F07", "placement": "main", "scope": "MIN and sink extension AM",
+      "sources": ["oct5/residual_seven_margin.tex", "integrated/foundation.tex: sink component estimate"],
+      "results": ["R>=7, and R>=8 at even order", "M>=ceil(n/2)+3+1_{n even}", "outside sink SCC penalty M>=ceil(n/2)+o+3+1_{n even}", "uniform-bound equality forces strong connectivity", "n=2delta+3 gives M>=delta+5; n=2delta+4 gives M>=delta+6"],
+      "dependencies": ["F04-F06", "F01 sink estimate"],
+      "status": "Latest numeric frontier; proof may be shortened with the dependency chain recorded above.",
+      "caution": "Deleting arcs increases missing pairs. The theorem does not prove SNP for every arbitrary graph below this missing-pair threshold."
+    },
+    {
+      "id": "F08", "placement": "main toolkit or supplement", "scope": "MIN with explicit packet hypotheses",
+      "sources": ["oct5/all_keeper_packet_criterion.tex", "oct5/global_completion_framework.tex: overlap packet"],
+      "results": ["all-keeper criterion under M(u) intersect P(u)=empty and selected failures avoiding P(u) union {u}", "shared keeper envelope with no eta or t magnitude bound", "with overlap, keeper loss beta<=|M intersect P| and gap lower bounds p+1-2beta or p+g+1-2beta"],
+      "dependencies": ["F02-F03"],
+      "status": "Valid local completion tools not superseded by the global incoming-core theorem.",
+      "caution": "Hypotheses coordinate one chosen vertex; no universal simultaneous realization is proved."
+    },
+    {
+      "id": "G01", "placement": "main", "scope": "G",
+      "sources": ["oct5/global_completion_framework.tex"],
+      "results": ["all BAD directions forward in a protection extension preserve every original protected far head", "simultaneous gap envelope g_T>=g_D+2|K|-t", "all selected actual sources with t<=1 give a second safe envelope", "all-reference maximum makes every FLEX added arc forward in EVERY median", "unit actual sources with FLEX cross-witness pairs satisfy SNP"],
+      "dependencies": ["canonical good compatibility and tournament domination swap", "global median sedimentation"],
+      "status": "Unbounded global toolkit; unit-only SNP result is subsumed by the one-exception theorem but supports it.",
+      "caution": "An arbitrary finite subfamily of reference orders does not suffice for maximal-reference rigidity."
+    },
+    {
+      "id": "G02", "placement": "supplement (one-round antecedent) or concise main construction", "scope": "G",
+      "sources": ["followup/protection_forced_completion_framework.tex", "followup/forced_feed_full_boundary_obstruction.tex", "followup/balanced_forced_feed_minimal_refinement.tex"],
+      "results": ["fix protection-forced directions and release all other pairs; every original protection survives", "all medians of maximum family have no added outgoing feed arc", "fixed partial Q has original feed first and second neighborhoods", "maximum median-score equals maximum over protection-preserving completions", "balanced t=g forces all missing partners protection-forced in Q minus boundary(P)", "MIN one-round feeds have eta>=2; if t=g then original P empty"],
+      "dependencies": ["G01 normalization idea", "F02 for MIN corollaries"],
+      "status": "Correct one-round statements, but later closure changes both family and feeds and gives stronger analogous surplus conclusions.",
+      "caution": "The new family is NOT a set-theoretic superset of the canonical family. Only optimal forward-score dominance is proved, not weighted-budget dominance. One-round feed statements cannot be silently replaced by closure-feed statements."
+    },
+    {
+      "id": "G03", "placement": "main", "scope": "G",
+      "sources": ["round2/iterated_protection_closure_strict_surplus.tex", "round2/weak_protection_closure_zero_feed_cycle.tex"],
+      "results": ["iterated CURRENT protection-forcing terminates preserving all acquired protection", "positive-original-gap maximum-completion feed retains original first and partial-closure second neighborhoods", "terminal missing set nonempty and t_D>=g_D+1", "safe SINGLE weak step with current incoming containment and protection-maximal head", "zero-gap weak feed has terminal partner minimum indegree one, m>=3 and t_D>=g_D+m", "an ORIGINAL directed cycle exists on terminal partners at zero completed gap"],
+      "dependencies": ["G02 elementary forcing", "strong feed and global sedimentation"],
+      "status": "Strong arbitrary-order closure results. Prefer weak_protection_closure_zero_feed_cycle.tex to the earlier weak_closure_zero_gap_cycle_obstruction.tex.",
+      "caution": "No intermediate closure graph is assumed all-deficient or minimal. +3 and original partner cycle require zero completed gap; original minimum indegree one is not claimed."
+    },
+    {
+      "id": "G04", "placement": "main", "scope": "MIN original graph, weak-closure feed with zero completed gap",
+      "sources": ["round2/minimal_weak_zero_feed_residual_budget.tex"],
+      "results": ["eta_D(f)>=m+1>=4", "eta=4 necessary shape: p>0,m=3,k=s=0,g=1,t=4,mu>=3,p=2mu-4,C=N--,L=F,|boundary2 P|=|C|-1"],
+      "dependencies": ["F02 original packet", "G03 original triangle lift"],
+      "status": "Proof and empty/nonempty P routing rechecked in this inventory.",
+      "caution": "Not an eta>=4 bound at all feeds. Consequently all five R=7 classes only force strictly NEGATIVE completed gap, not a contradiction."
+    },
+    {
+      "id": "G05", "placement": "main", "scope": "G with positive-original-gap closure feed",
+      "sources": ["round2/closure_degree_and_low_budget_corollaries.tex", "round2/closure_good_equality_missing_degree_budget.tex"],
+      "results": ["2d_D_plus+h_D<=n-2 where h_D counts protected far heads", "at n=2delta+3 feed has original minimum degree and h_D<=1", "t_D<=1 at every vertex implies SNP at every order", "every newly reached original far head is Good", "exact strong-Good slack and equality bound mu_Q<=t_D-g_D even at negative completed gap"],
+      "dependencies": ["G03"],
+      "status": "Unbounded theorems; no small-support or FLEX hypothesis for the t<=1 class.",
+      "caution": "No claim that every median has strong Good equality; no claim every boundary-order graph has a minimum-degree Seymour vertex."
+    },
+    {
+      "id": "G06", "placement": "main or supplement", "scope": "G for paths; MIN for eta=2/3 specializations",
+      "sources": ["round3/weak_equality_original_partner_paths.tex"],
+      "results": ["at strong Good equality, original nongood-second partner seeds R2 and unpaid far partners Rinf partition R", "weak closure does not add R2-to-Rinf reachability inside R", "far partners unreachable from seeds contain an ORIGINAL directed cycle", "eta=2: all terminal partners are original nongood-second", "eta=3: at most one far partner with an ORIGINAL seed-to-far arc", "nonexceptional eta=3 shape g=1,t=3,s=0,|R|=2,|A|=2,gT=-1", "k=1 eta=3 far partner may be exceptional, s=0 and L={r}"],
+      "dependencies": ["G03-G05", "F02"],
+      "status": "Corrected saved version re-read; no forbidden exceptional-head assumption used.",
+      "caution": "The earlier statement boundary2(P) subset incoming(f), and the resulting exclusion of exceptional far heads from L, is FALSE and withdrawn. The all-second negative-gap trap and strict-Good-surplus branch remain open."
+    },
+    {
+      "id": "G07", "placement": "supplement", "scope": "MIN; weak feed with mu_D=1, additionally p_D=0 for degree bound",
+      "sources": ["round3/nearwhole_feed_global_boundary_budget.tex"],
+      "results": ["sole terminal missing partner is an original second target", "when p_D=0, {f} union F_D(f) lies in external boundary2 of original first neighborhood", "d_plus>=g+t+2 and n>=g+3t+5"],
+      "dependencies": ["F01 global boundary", "G03"],
+      "status": "A genuine original-global constraint, excludes a previous local model without eliminating all negative-gap feeds.",
+      "caution": "Not a universal order lower bound for every counterexample."
+    },
+    {
+      "id": "G08", "placement": "supplement", "scope": "G current closure; exact stated safe-step hypotheses",
+      "sources": ["round3/convenient_nonmax_tail_safe_step.tex"],
+      "results": ["convenient a->b can be safely added if a already has a protection successor and b has none", "original feed first/second invariants and strict surplus survive enlarged closure"],
+      "dependencies": ["G02-G03 feed invariants"],
+      "status": "Additional valid operator omitted from the main frontier summary; include for complete coverage.",
+      "caution": "Original partner cycle/path lifting and eta=4 equality shape do NOT automatically extend to this larger closure."
+    },
+    {
+      "id": "G09", "placement": "supplement", "scope": "G for exact identities, AM for criticality",
+      "sources": ["round2/outstar_deletion_criticality.tex"],
+      "results": ["exact arbitrary outgoing-star deletion loss/retargeting formula", "proper retained-first-set external expansion under original minimality", "gap two forces every first vertex to have a first-set predecessor and every old second head to have at least two first witnesses"],
+      "dependencies": ["elementary exact-distance-two deletion"],
+      "status": "Reusable independent local theorem, not superseded by incoming-core certificates."
+    },
+    {
+      "id": "G10", "placement": "supplement", "scope": "G canonical maximum completions with outside unit sources",
+      "sources": ["round2/two_heavy_flexible_tail_reduction.tex", "round2/flexible_exception_clique_feed_reduction.tex"],
+      "results": ["a selected inward terminal vertex of a FLEX exception clique can be a canonical maximum-completion feed with no original protection successor"],
+      "dependencies": ["F05/G01 sedimentation position argument"],
+      "status": "Arbitrary-clique result subsumes the two-exception formulation.",
+      "caution": "Not an exclusion of all two-heavy distributions; remains a CANONICAL-family statement."
+    },
+    {
+      "id": "G11", "placement": "main method limitation or supplement", "scope": "G and tournament densities",
+      "sources": ["oct5/global_amplification_and_obstructions.tex", "followup/weighted_transport_duality_and_obstruction.tex"],
+      "results": ["C3 amplification preserves g,mu,eta,P,F and q=n-2delta while tripling n,M,R", "near-half uniform degree or bounded-order theorem for every fixed q would imply full SNP", "exact gT-gD=2|K|-exposure cost identity", "tournament reverse-expansion densities equal Fisher losing densities, normalized unique", "fixed-completion exact LP dual", "six-class clone control has canonical budget optimum -k/3 for every reference completion, preserved under amplification"],
+      "dependencies": ["Fisher tournament density theorem", "elementary blowup and LP duality"],
+      "status": "Valid method and no-go results; all controls have Seymour vertices.",
+      "caution": "Amplification does not preserve arc-minimality. Density is not an independent free choice at fixed tournament. No universal weighted-budget existence theorem is proved."
+    },
+    {
+      "id": "C01", "placement": "main", "scope": "G; no MIN assumptions",
+      "sources": ["round3/weighted_max_incoming_tournament_core.tex", "round3/iterated_incoming_core_certificate_reduction.tex"],
+      "results": ["at most five maximal incoming-neighborhood classes imply one whole class consists of Seymour vertices", "arbitrary-size tournament representative core admits analytic pattern certificate", "pattern certificates lift by zero extension through iterated incoming-core reduction", "universal pattern-LP feasibility is equivalent to SNC; infeasible core yields rational dual counterexample construction"],
+      "dependencies": ["Fisher losing density for analytic tournament case", "exact finite core certificates for size<=5"],
+      "status": "Main independent family theorem, audited by separate core agent. Certificate audit metadata reports 59809 labelled cores and 462404 nonempty constraints.",
+      "caution": "No universal feasibility or infeasible core found. An induced representative core need not itself be an unweighted counterexample. One successful reduction chain does not automatically identify an entire original class."
+    },
+    {
+      "id": "C02", "placement": "main or supplement", "scope": "G row map; VM covering; LEX normal form",
+      "sources": ["round3/simultaneous_row_clone_unit_predecessor_core.tex", "round3/predecessor_clone_extremal_normal_form.tex"],
+      "results": ["full-domain simultaneous original-snapshot row cloning under incoming containment preserves orientation and gap lower bound", "VM counterexample: every vertex receives an entire maximal incoming class all with gap one; at least three such classes form a complete-arc cycle", "LEX: incoming containment orders outdegrees; protection strictly reduces missing degree; equal incoming sets are independent true-twin modules"],
+      "dependencies": ["exact clone transfer; specified extremal selection"],
+      "status": "Separate minimality notions must be kept explicit. Gap-one predecessor/cycle alone is already in BBKS; claim novelty only for justified strengthening after literature audit.",
+      "caution": "Gap one is not residual one. Do not apply VM/LEX conclusions to every MIN graph or to closure stages."
+    },
+    {
+      "id": "D01", "placement": "supplement, complete proof", "scope": "DENSE",
+      "sources": ["integrated/core_basis.tex", "integrated/even_budget.tex", "integrated/core_six.tex"],
+      "results": ["outdegree excess e in {0,1,2}; r0=M+r2", "capacity sigma nonnegative and sum sigma=z-h", "zero-sigma structure and protected parent chains", "positive sigma core k>=6 and z>=h+8", "even-order identity B+n=z-sum sigma without counterexample hypothesis on deleted graph"],
+      "dependencies": ["F01-F02; fixed-target capacity"],
+      "status": "Valid independent dense-boundary tools, not superseded by the general residual bound.",
+      "caution": "sigma-heavy targets differ from eta-heavy actual failure sources; use separate notation. z>=h+7 is superseded by z>=h+8."
+    },
+    {
+      "id": "D02", "placement": "supplement, complete proof", "scope": "AD and n=2delta+3 for first theorem; DENSE for density refinement",
+      "sources": ["integrated/predecessor.tex", "old/predecessor_bound.tex"],
+      "results": ["9c+6c0>=delta+1+3Phi", "for delta>=3, c>=max(1,ceil((delta-5)/15))", "6c+4c0>=delta+1-R+2Phi under MIN", "c>=ceil((3delta-2M)/10)"],
+      "dependencies": ["source-restricted vertex-deletion identity", "F01 for density refinement"],
+      "status": "Not covered by R>=7; include in complete-results supplement.",
+      "caution": "The source cites Anonymous2026 Lemma 5.3; bibliographic identity must be resolved, or reproduce that base identity self-contained. Deleted graph is not assumed counterexample or minimal."
+    },
+    {
+      "id": "D03", "placement": "supplement, complete proof", "scope": "G at n=2delta+3 for transfer; DENSE for heavy-capacity applications",
+      "sources": ["integrated/odd_transfer.tex", "integrated/odd_capacity.tex", "integrated/three_disjoint.tex", "old/odd_root_deletion.tex", "old/general_odd_capacity.tex"],
+      "results": ["exact odd-set vertex-deletion B-transfer with retained degree hypothesis", "odd heavy set S of size 2t+1: a<=4t^2-1-2A_S-gamma-B_out", "delta-t+1<=(t+1)a+min(a,B_out)+binom(a,2)", "delta<=t-1+t(2t+1)(4t^2-1)", "delta>=10 heavy-triple obstruction", "7<=delta<=9 heavy-triple saturation classification", "covering inequality for every heavy triple"],
+      "dependencies": ["D01-D02", "actual retained minimum-degree hypothesis"],
+      "status": "General odd transfer and capacity survive beyond old R=1 exclusions.",
+      "caution": "No theorem guarantees an admissible odd deletion set exists in all counterexamples."
+    },
+    {
+      "id": "D04", "placement": "supplement, complete proof", "scope": "DENSE and stated thresholds",
+      "sources": ["integrated/basins.tex", "integrated/heavy_capacity.tex", "integrated/restricted_capacity.tex"],
+      "results": ["certified basins outside inactive minimum unit-sigma set", "if each heavy root has >m+2L minimum predecessors or >L whole ones, sum basin weights squared<=k'^2-6k', H>=3,k'>=7", "sufficient delta>10(m+2L)+R-3 or delta>21R-3", "for delta>=6 every vertex has at most H-2 outgoing heavy roots, so H>=3", "for delta>=10, H>=4 and z>=h+10", "H=4 forces pair covering, delta<=20(m+2L)+12<=40R+12", "H=4 implies M>=ceil((81delta+108)/80)", "if delta>40R+12 and delta>=10 then H>=5,z>=h+11"],
+      "dependencies": ["D01-D03"],
+      "status": "Additional valid conditional results at first dense odd boundary.",
+      "caution": "Do not state z>=h+10 or +11 without the degree/residual hypotheses, and do not call sigma-heavy vertices eta-heavy."
+    },
+    {
+      "id": "S01", "placement": "supplement historical theorem/coverage table; no duplicate main proofs", "scope": "MIN or own local scope",
+      "sources": ["old/equality_poset.tex", "old/near_boundary.tex", "old/degree_eleven.tex", "old/degree_twelve.tex", "old/far_incidence.tex", "old/root_deficit_capacity.tex", "old/eta_saturation.tex", "old/residual_two_local.tex", "old/two_two_remaining.tex", "old/residual_four_margin.tex", "old/parity_five_margin.tex", "old/residual_six_margin.tex"],
+      "results": ["successive R=0 through R=5 exclusions and special boundary classifications"],
+      "superseded_by": ["F04-F07"],
+      "retain_local_tools": ["eta-zero protection", "general feed localization", "target incidence identities only with original hypotheses", "general odd-transfer identity"],
+      "caution": "Old open R=2/R=4 sections and n>=24/n>=34 restrictions are historical, not current frontiers."
+    },
+    {
+      "id": "S02", "placement": "supplement historical coverage / archived alternate proofs", "scope": "MIN",
+      "sources": ["old/unit_support_twelve.tex", "old/unit_support_twelve_boundary_exclusion.tex", "old/unit_support_eighteen.tex", "old/unit_reciprocal_four_module_exclusion.tex", "old/unit_tree_orbit_orientation.tex", "oct5/unit_support_twenty_four.tex", "oct5/unit_all_support_generalization_audit.tex", "oct5/all_unit_residual_exclusion.tex", "oct5/eta_m_three_units_exclusion.tex", "oct5/eta_two_four_units_exclusion.tex", "integrated/unit_five.tex", "integrated/two_one_one_one.tex", "integrated/three_two_units.tex: old (m,1,1) theorem"],
+      "results": ["finite and all-order pure-unit support exclusions", "(m,1,1)", "(m,1,1,1)", "(2,1,1,1,1)"],
+      "superseded_by": ["F05 all (m,1^k) and two actual heavy theorem"],
+      "retain_local_tools": ["unit-unit cross-witness tail BAD", "full unit boundary", "matching module deletion/orientation identities if used elsewhere"],
+      "caution": "The all-unit theorem itself is valid but no longer needed as a separate main contribution. Avoid claiming its historical finite thresholds as current limits."
+    },
+    {
+      "id": "S03", "placement": "supplement corrected/failed approaches table", "scope": "explicit controls only",
+      "sources": ["oct5/global_amplification_and_obstructions.tex", "followup/weighted_transport_duality_and_obstruction.tex", "round2/round2_proof_audit.json", "round3/weak_equality_original_partner_paths.tex"],
+      "results": ["three inward priority families can cycle", "incomplete skew equilibrium need not expand exact-second neighborhoods", "arc-weighted median feed shortcut false", "generic t>=g+1 sharp at negative gap", "generic t>=g+3 sharp at zero gap", "exceptional far target can lie in boundary2(P) and packet remainder", "median rigidity does not force density support free-arc acyclic or feed-supported"],
+      "status": "Retain controls to document precise scope, but none is an SNC counterexample.",
+      "caution": "Withdrawn statements must not survive in abstracts, theorem summaries or copied old narrative."
+    },
+    {
+      "id": "A01", "placement": "appendix research archive / related work with attribution", "scope": "local delta=7 branches only",
+      "sources": ["work/delta7_source/A7B6A1_1/FINAL_JOURNAL_READY_AUDIT_REPORT_A1_1.md", "work/delta7_source/A7B6A1_2/seymour_A7B6A1_2_consistent_C_full_package/FINAL_JOURNAL_READY_AUDIT_REPORT_A1_2.md"],
+      "results": ["root A size7,B size6, minimum internal outdegree1 local branch: 30 CP-SAT leaves", "minimum internal outdegree2 local branch: 610 leaves (566 r6,44 r5)", "C=N+(B) minus (A union B) may include the root", "independent bookkeeping positive controls and model validation"],
+      "status": "Existing logs report all leaves infeasible; no fresh solver rerun in this inventory. Authorship/provenance is not established by presence in workspace.",
+      "caution": "CP-SAT/log validation, not solver-independent formal unsatisfiability proofs. These two branch archives do not alone prove the whole delta=7 theorem. Treat published/preprint attribution separately."
+    },
+    {
+      "id": "A02", "placement": "related work / external-data provenance only", "scope": "external authored work",
+      "sources": ["work/tahara_seymour_excess/note/measuring-the-moat.tex", "work/tahara_seymour_excess/note/note_draft_v1.tex"],
+      "results": ["Daiki Tahara's excess bounds and capped tournament blowup study", "explicit attained small excess, not counterexamples", "external version2.1 distinguishes graph vs strong minima and withdraws prior optimum reading"],
+      "status": "The LaTeX identifies author Daiki Tahara and GitHub/Zenodo provenance. It is not automatically this project's original contribution.",
+      "caution": "Do not merge external authored manuscript as our theorem section. Cite if verified. Solver infeasibility and heuristic attainment have different evidence levels."
+    },
+    {
+      "id": "A03", "placement": "computational appendix / artifact index", "scope": "tested families and logged search limits only",
+      "sources": ["work/research_round3/proof_audit.md", "work/research_round3/m6_boundary_proof.md", "work/research_round3/audit_delta8_claims.py", "work/research_round3/audit_five_missing_edges_stdlib.py", "work/root_search", "work/structured_search", "work/tahara_G24_radius3", "work/tahara_G24_tournament_radius3", "work/tahara_G24_focused_r4", "work/tahara_G24_focused_r5"],
+      "results": ["earlier exact/structured/local search and literature countermodel auditing", "n=19,delta=8 MIN M=5 and M=6 analytic exclusions, formerly M>=7, are now covered by M>=delta+5=13", "Tahara G24 minimal and tournament variants each had 27881153 pair-state radius<=3 checks with no counterexample", "G24 complete radius<=4 reported Z3 UNSAT; radius<=5 UNKNOWN at 240 seconds", "bounded weighted independent blowup base orders3..6 with weights1..12 reported INFEASIBLE; order7 UNKNOWN", "retaining a complete balanced C3 between three eight-vertex layers makes each vertex gap equal its internal-layer gap, so internal-only repairs cannot produce a counterexample"],
+      "status": "Archive-level attribution and log-scope table required; records were inspected but programs were not rerun here. The old n19 M>=7 result is superseded by the current M>=13 under MIN; the local repair and bounded solver outcomes remain historical scoped evidence.",
+      "caution": "Do not equate timeout/unknown with UNSAT. Preserve raw witnesses with independent exact-distance-two validator."
+    }
+  ],
+  "editorial_decision": {
+    "language": "English throughout, as selected by the user",
+    "main_paper": "International-journal-style main paper with incoming-pattern certificate theorem, clone reductions, closure results, and a precise minimal-counterexample overview with proof references (planned roughly 35-45 pages, not an enforced limit).",
+    "supplement": "A separate complete supplementary proof volume preserves all valid older residual cases, dense-boundary delta tools, reusable local lemmas and a table explaining which historical claims are superseded.",
+    "external_archives": "Tahara's manuscript is related work only. The local delta=7 logs are archived branch audits, not a claim that this manuscript proves the whole delta=7 result."
+  },
+  "compact_complete_residual_input_order": [
+    {"file": "historical-research/seymour-2026-10-04/integrated_paper/chapters/foundation.tex", "key_labels": ["lem:boundary", "lem:gap", "thm:main", "eq:residual", "prop:whole", "thm:sink", "lem:uniform"]},
+    {"file": "historical-research/seymour-2026-10-04/integrated_paper/chapters/good_missing.tex", "key_labels": ["lem:zero-residual-source-protection", "thm:all-missing-good", "lem:bad-missing-positive-witnesses"], "editorial_fix": "Its historical final corollary refers to thm:residual-five-excluded; omit/rewrite that superseded numerical corollary or supply correct main-paper cross-reference."},
+    {"file": "historical-research/seymour-2026-10-04/integrated_paper/chapters/local_budget.tex", "key_labels": ["lem:unprotected-envelope", "cor:eta-one-budget", "lem:eta-two-dichotomy"]},
+    {"file": "historical-research/seymour-2026-10-04/integrated_paper/chapters/partner_budget.tex", "key_labels": ["lem:partner-head-budget"]},
+    {"file": "historical-research/seymour-2026-10-04/integrated_paper/chapters/small_sources.tex", "key_labels": ["lem:canonical-convenient-compatibility", "lem:small-failure-sources"]},
+    {"file": "historical-research/seymour-2026-10-04/integrated_paper/chapters/dangerous_witnesses.tex", "key_labels": ["lem:dangerous-completion", "lem:safe-residual-unprotected", "prop:dangerous-residual-witnesses"]},
+    {"file": "historical-research/seymour-2026-10-04/integrated_paper/chapters/witness_graph.tex", "key_labels": ["lem:cross-witness-source-transfer", "prop:one-two-unit-source"]},
+    {"file": "historical-research/seymour-2026-10-04/integrated_paper/chapters/single_failure.tex", "key_labels": ["lem:single-failure-source", "thm:two-sources-one-unit"]},
+    {"file": "historical-research/seymour-2026-10-04/integrated_paper/chapters/uniform_two.tex", "key_labels": ["lem:two-source-bipartite-bad", "lem:uniform-zero-protected-completion"]},
+    {"file": "historical-research/seymour-2026-10-04/integrated_paper/chapters/two_support.tex", "key_labels": ["thm:three-unprotected-vertices", "cor:three-positive-residual-support"]},
+    {"file": "historical-research/seymour-2026-10-04/integrated_paper/chapters/unit_sources.tex", "key_labels": ["lem:unit-safe-retained", "prop:four-unit-cycle-reduction", "thm:four-unit-failure-sources"], "editorial_fix": "Historical reference to ch:layers must be removed or remapped. The four-unit theorem is retained as a historical valid result, not needed by the short new R bound."},
+    {"file": "historical-research/seymour-2026-10-04/integrated_paper/chapters/bipartite.tex", "key_labels": ["lem:bipartite-selected-source-completion", "lem:single-selected-source-completion", "lem:nonnegative-tournament-three-zeros"]},
+    {"file": "historical-research/seymour-2026-10-04/integrated_paper/chapters/three_two_units.tex", "key_labels": ["lem:single-blame-unprotected-transfer", "lem:active-unit-full-boundary", "lem:unit-unit-witness-tail-bad"]},
+    {"file": "historical-research/seymour-2026-10-04/integrated_paper/chapters/two_two_one.tex", "key_labels": ["lem:eta-two-witness-degree", "lem:eta-two-leaf-completion", "thm:no-two-two-one"]},
+    {"file": "historical-research/seymour-2026-10-05/global_completion_framework.tex", "key_labels": ["lem:global-priority-envelope", "lem:global-unit-selected-envelope", "lem:global-max-reference-median", "thm:global-unit-flexible-witness-closure"]},
+    {"file": "historical-research/seymour-2026-10-05/global_followup/protected_heavy_cover_criterion.tex", "key_labels": ["thm:protected-independent-heavy-cover", "cor:heavy-heavy-edge-or-protected-unit"]},
+    {"file": "historical-research/seymour-2026-10-05/global_followup/single_heavy_actual_exclusion_short.tex", "key_labels": ["thm:one-exception-short-general", "cor:one-exception-short-two-heavy"]},
+    {"file": "historical-research/seymour-2026-10-04/eta_three_two_one_exclusion.tex", "key_labels": ["lem:multiple-retained-source-criterion", "thm:no-three-two-one"]},
+    {"file": "historical-research/seymour-2026-10-04/eta_two_two_two_path_reduction.tex", "key_labels": ["lem:eta222-two-inward-priorities", "lem:eta222-large-nonselected", "thm:eta222-excluded"]},
+    {"file": "historical-research/seymour-2026-10-05/eta_two_two_one_one_exclusion.tex", "key_labels": ["lem:2211-no-unit-unit-witness", "lem:2211-all-witness-edges-good", "thm:no-two-two-one-one"]},
+    {"file": "historical-research/seymour-2026-10-05/residual_seven_margin.tex", "key_labels": ["thm:residual-six-excluded", "cor:residual-seven-all-minimal"], "editorial_fix": "Rewrite its historical seven-partition proof to the four-partition derivation in this inventory; no change in theorem statement."}
+  ],
+  "mandatory_global_cautions": [
+    "No full SNC proof or actual finite all-deficient example is known from this project.",
+    "The numeric residual frontier remains R>=7, even order R>=8. No new R7 partition was excluded in global rounds two or three.",
+    "Every theorem must carry its own minimality/strong-connectivity/closure/equality hypotheses.",
+    "Complete publication novelty is not implied by internal adversarial reviews.",
+    "Reports of previous independent reviews are inherited provenance, not a claim this inventory repeated all checks.",
+    "External manuscripts and imported solver packages require correct authorship attribution.",
+    "An all-results manuscript can preserve superseded results through a coverage table and supplementary proofs without repeating them as independent headline contributions."
+  ]
+}

@@ -1,0 +1,107 @@
+\section{Exact outgoing-star deletion constraints in the original graph}
+\label{sec:outstar-deletion-criticality}
+
+For an original oriented graph $D$ and a vertex $f$, put
+$O=N_D^+(f)$, $B=N_D^{++}(f)$, and $g=g_D(f)$.
+For every $b\in B$ let
+\[
+ I_b=N_D^-(b)\cap O
+\]
+be its nonempty set of original first-neighborhood witnesses.
+For $\varnothing\ne S\subseteq O$, delete precisely the original
+arcs $f\to S$, obtaining $D_S$, and define
+\[
+ L(S)=\{b\in B:I_b\subseteq S\},\qquad
+ R(S)=S\cap\Gamma_D(O\setminus S).
+\]
+Thus $L(S)$ is the set of lost old second targets, while $R(S)$ is
+the set of removed first targets which become exact second targets.
+
+\begin{lemma}[Exact loss and retargeting formula]
+\label{lem:outstar-exact-loss-retargeting}
+For every original oriented $D$,
+\[
+ N_{D_S}^{++}(f)=(B\setminus L(S))\,\dot\cup\,R(S),
+\]
+and hence
+\[
+ g_{D_S}(f)=g-|S|+|L(S)|-|R(S)|.
+\]
+If $D$ is all-deficient and minimal under deletion of arbitrary
+nonempty arc sets on its fixed vertex set, then
+\[
+ |L(S)|\le |S|+|R(S)|-g
+ \quad\text{for every }\varnothing\ne S\subseteq O.
+ \tag{OD1}\label{eq:outstar-minimal-budget}
+\]
+\end{lemma}
+\begin{proof}
+The retained first set is $O\setminus S$. An old second target
+$b$ remains reached exactly when $I_b$ meets that retained set.
+No originally far target can become reached when arcs are deleted.
+The only possible new exact second targets are removed first targets
+in $S$, and precisely those reached from a retained intermediate form
+$R(S)$. These two classes are disjoint, proving the exact identity.
+
+Every vertex other than $f$ has unchanged first neighborhood and can
+only lose second targets. Thus any Seymour vertex forced by minimality
+of the nonempty deletion must be $f$, giving $g_{D_S}(f)\le0$.
+Substitute the exact gap formula.
+\end{proof}
+
+\begin{corollary}[Every proper retained set is externally expanding]
+\label{cor:outstar-proper-retained-expansion}
+In the same minimal class, every proper subset $X\subsetneq O$ satisfies
+\[
+ |\Gamma_D(X)\setminus X|\ge|X|,
+ \qquad |\Gamma_D(O)\setminus O|=|O|-g<|O|.
+\]
+Thus $O$ is inclusion-minimal among its subsets that fail this
+external expansion inequality.
+\end{corollary}
+\begin{proof}
+For $S=O\setminus X$, the retained first set is $X$. No member of $X$
+points to $f$, because each original $f\to x$ excludes its reverse.
+Therefore $N_{D_S}^{++}(f)=\Gamma_D(X)\setminus X$.
+Minimality gives the first inequality. With $X=O$, the same external
+boundary is precisely $B$, giving the strict deficit. The empty
+retained set has both sides zero and causes no exception.
+\end{proof}
+
+\begin{corollary}[Gap two has no private old second heads]
+\label{cor:outstar-gap-two-multiple-witnesses}
+If $g_D(f)=2$ in the original minimal class, then for every $a\in O$:
+\begin{enumerate}
+\item Some other original first vertex points to $a$.
+\item No old second target has $a$ as its unique original first witness.
+\item Deleting just $f\to a$ preserves all old exact second targets and
+adds precisely $a$ as an exact second target. The new gap at $f$ is zero.
+\end{enumerate}
+Consequently
+\[
+ \delta^-(D[O])\ge1,\qquad
+ |I_b|\ge2\quad(b\in B).
+\]
+The induced original first-neighborhood graph contains a directed cycle
+of length at least three. For $g_D(f)=1$, the singleton constraint is
+instead $|L(\{a\})|\le|R(\{a\})|\le1$; it does not force a cycle.
+\end{corollary}
+\begin{proof}
+For $S=\{a\}$, the retargeting set has size zero or one and the loss
+set has nonnegative size. At gap two, \eqref{eq:outstar-minimal-budget}
+gives $0\le|L(S)|\le|R(S)|-1\le0$. Thus $|R(S)|=1$ and $L(S)$
+is empty. The exact identities prove all three assertions. A head with
+a unique first witness would belong to that singleton loss set, so every
+$I_b$ has at least two vertices. Following predecessors in $D[O]$ produces
+a cycle; orientedness excludes lengths one and two. The gap-one bound
+is the same formula with $g=1$.
+\end{proof}
+
+\paragraph{Use at closure feeds.}
+These inequalities apply to the original first set of every final
+closure feed, since that set has been proved unchanged. They constrain
+original two-step witnesses, not new second heads added by closure or
+completion. No intermediate closure graph is assumed arc-minimal, and
+deleting its newly added arcs is not justified by original minimality.
+The conditions are necessary, not sufficient to construct a graph with
+all vertices deficient.

@@ -1,0 +1,234 @@
+\section{Canonical convenient orientations and small failure-source sets}
+\label{sec:small-failure-sources}
+
+\noindent\emph{Draft status: this argument has undergone internal
+adversarial review; it has not undergone external peer review.}
+
+In this section $D$ is an arbitrary finite, nonempty oriented graph.
+No strong-connectivity, minimality, or residual hypothesis is imposed.
+All neighbourhoods and directed distances in the definitions below
+refer to the original $D$. Put
+\[
+ U_D(x)=V(D)\setminus\bigl(\{x\}\cup N_D^+(x)\cup N_D^{++}(x)\bigr),
+ \qquad g(x)=d_D^+(x)-d_D^{++}(x).
+\]
+In particular, a target in $U_D(x)$ is neither a first nor an exact
+second neighbour of $x$.
+
+Following Ghazal~\cite[Definition~1]{Ghazal2012}, a missing pair $ab$
+is good if at least one of its orientations is convenient. We write
+$G(a\to b)$ for the statement
+\[
+ \forall x\in V(D)\setminus\{a,b\}:\quad
+ x\to a\Longrightarrow b\in N_D^+(x)\cup N_D^{++}(x).
+\]
+For any missing pair define its directional failure sets by
+\[
+ \begin{aligned}
+ F_{ab}&=\{x\in V(D)\setminus\{a,b\}:x\to a,\ b\in U_D(x)\},\\
+ F_{ba}&=\{x\in V(D)\setminus\{a,b\}:x\to b,\ a\in U_D(x)\}.
+ \end{aligned}
+\]
+It is bad precisely when both sets are nonempty.
+
+Define the protection relation by
+\[
+ y\triangleleft p
+ \quad\Longleftrightarrow\quad
+ y\to p\ \text{ and }
+ N_D^-(y)\subseteq N_D^-(p)\setminus\{y\}.
+\]
+It implies $y\in U_D(p)$: a path $p\to z\to y$ would require
+$z\to p$, contradicting $p\to z$. Let
+\[
+ \mathcal F(x)=\{y\in U_D(x):y\not\triangleleft x\},
+ \qquad t(x)=|\mathcal F(x)|.
+\]
+The relation $\triangleleft$ is a strict partial order. Indeed,
+$y\triangleleft p$ gives $d_D^-(y)<d_D^-(p)$, and if
+$y\triangleleft p\triangleleft r$, then
+$y\in N_D^-(p)\subseteq N_D^-(r)$ gives $y\to r$, and the
+two containments compose to
+$N_D^-(y)\subseteq N_D^-(r)\setminus\{y\}$.
+
+Choose a linear order $\prec_0$ extending $\triangleleft$. Orient each
+good missing pair by its unique convenient direction if only one
+exists; if both exist, orient it from earlier to later in $\prec_0$.
+We call these the canonical convenient orientations associated with
+$\prec_0$.
+
+\begin{lemma}[Compatibility of canonical convenient orientations]
+\label{lem:canonical-convenient-compatibility}
+Suppose $y\triangleleft p$ and both $pq$ and $qy$ are good missing
+pairs. If the canonical orientation of $pq$ is $p\to q$, then the
+canonical orientation of $qy$ is $y\to q$.
+\end{lemma}
+\begin{proof}
+There are two convenient-direction implications:
+\[
+ G(p\to q)\Longrightarrow G(y\to q),
+ \qquad
+ G(q\to y)\Longrightarrow G(q\to p).
+\]
+For the first, every predecessor of $y$ is a predecessor of $p$.
+For the second, every vertex reaching $y$ within two steps also
+reaches $p$ within two steps: replace the last arc into $y$ by an arc
+into $p$ using the protected in-neighbourhood containment. The relevant
+sources are distinct from the missing-pair endpoints, as required
+by convenience.
+
+If the chosen directions were $p\to q$ and $q\to y$, these implications
+would make both pairs convenient in both directions. The canonical
+tie-breaking rule would force $p\prec_0 q\prec_0 y$, contrary to
+$y\triangleleft p$ and hence $y\prec_0 p$.
+\end{proof}
+
+\begin{lemma}[At most three failure sources]
+\label{lem:small-failure-sources}
+Let $Z\subseteq V(D)$ satisfy $|Z|\le3$ and
+\[
+ F_{ab}\cup F_{ba}\subseteq Z
+ \quad\text{for every bad missing pair }ab.
+\]
+Choose canonical convenient orientations using some linear extension
+$\prec_0$ of protection. Let $K$ be the oriented graph on $Z$ whose
+arcs are \emph{only} these added orientations of missing pairs inside
+$Z$, and put
+\[
+ S=\{z\in Z:d_K^+(z)=0\}.
+\]
+If
+\[
+ t(z)\le g(z)+1\qquad(z\in Z\setminus S),
+ \tag{SF1}\label{eq:small-source-budget}
+\]
+then $D$ has a Seymour vertex.
+\end{lemma}
+
+\begin{proof}
+First, every missing pair inside $Z$ is good, so the definition of
+$K$ accounts for every such pair. Otherwise its two endpoints and
+two opposite failure sources would be four distinct vertices of $Z$.
+Opposite sources are distinct, and are themselves non-adjacent: if
+$u\in F_{ab}$ and $v\in F_{ba}$, either arc between them would create
+one of the forbidden two-step paths.
+
+No two vertices of $S$ form a missing pair, since its orientation in
+$K$ would give one of them positive out-degree. For every bad pair,
+at least one direction consequently has no failure source in $S$.
+Indeed, if both directions had an $S$-source, those two opposite
+sources would form a missing pair inside $S$. Orient each bad pair
+in a direction avoiding failures from $S$, and complete the graph
+to a tournament $T$ using these orientations and the canonical
+orientations of all good pairs.
+
+We record two path facts in the original graph. Every failure head
+of a bad edge is unprotected: if $x\in F_{ab}$, an opposite witness
+$v\in F_{ba}$ would, under $b\triangleleft x$, give $v\to x\to a$.
+Thus
+\[
+ x\in F_{ab},\ ab\text{ bad}\quad\Longrightarrow\quad
+ b\in\mathcal F(x).
+ \tag{SF2}\label{eq:bad-failure-unprotected}
+\]
+Second, if the canonical convenient direction is $p\to q$ and
+$y\triangleleft p$, then $G(p\to q)$ directly implies $G(y\to q)$.
+Thus a missing pair $qy$ is automatically good, regardless of the
+number of failure sources. Compatibility gives
+\[
+ y\triangleleft p,\quad qy\text{ missing}
+ \quad\Longrightarrow\quad y\to q\text{ in }T.
+ \tag{SF3}\label{eq:small-source-protected-direction}
+\]
+
+Choose an order $L$ maximizing the forward arcs of $T$, with feed
+vertex $f$. When any $r$ added arcs leaving $f$ are reversed towards
+$f$, all were backward in $L$. The forward-arc count of $L$ increases
+by $r$, while that of every other order increases by at most $r$.
+Thus $L$ remains a median order after either reversal used below.
+The feed-vertex theorem~\cite{HavetThomasse2000} gives the SNP for
+$f$ in the resulting tournament.
+
+\emph{Case A: $f\notin Z\setminus S$.}
+Reverse every added arc leaving $f$, obtaining $T'$. Then
+$N_{T'}^+(f)=N_D^+(f)$. An exact two-step head is reached first
+through an original out-neighbour. An original second arc or a
+convenient added second arc reaches an original first or second
+neighbour. A bad added second arc producing a genuinely new head
+would be a failure from $f$. This is excluded if $f\notin Z$ by
+the source-cover hypothesis, and if $f\in S$ by the bad-edge choices.
+An added arc incident to $f$ cannot be the second arc of a two-step
+path starting at $f$, because a tournament has no two-cycle.
+Therefore
+\[
+ N_{T'}^{++}(f)\subseteq N_D^{++}(f).
+\]
+The SNP in $T'$ transfers to $D$, proving the conclusion.
+
+\emph{Case B: $f\in Z\setminus S$.}
+Choose an arc $f\to q$ of $K$. Reverse all other added arcs leaving
+$f$, but retain this one. Then
+\[
+ N_{T'}^+(f)=N_D^+(f)\,\dot\cup\,\{q\}.
+ \tag{SF4}\label{eq:small-source-retained-first}
+\]
+We claim the following exact-neighbourhood containment:
+\[
+ N_{T'}^{++}(f)
+ \subseteq
+ \bigl(N_D^{++}(f)\setminus\{q\}\bigr)
+ \cup\bigl(\mathcal F(f)\setminus\{q\}\bigr).
+ \tag{SF5}\label{eq:small-source-retained-envelope}
+\]
+
+Take an exact two-step head $y$ and a path $f\to a\to y$ in $T'$.
+It is neither an original first neighbour nor $q$. If
+$a\in N_D^+(f)$, an original or convenient second arc makes $y$
+an original second neighbour. A bad added second arc with a new
+head makes $y$ an unprotected original far target by
+\eqref{eq:bad-failure-unprotected}. These added second arcs are not
+incident to $f$, so their chosen orientations have not been reversed.
+
+It remains to check the new intermediate $a=q$. The only issue is
+a head $y\in U_D(f)$ protected from $f$. An original arc $q\to y$
+would force $q\to f$ by protection, contrary to the original missing
+pair $fq$. If $qy$ was missing, \eqref{eq:small-source-protected-direction}
+forces its canonical direction to be $y\to q$. Neither endpoint
+is $f$, so that arc is unchanged in $T'$. If $y\to q$ was original,
+it too is unchanged. In all cases $q\to y$ is impossible. Thus every
+new far head through $q$ is unprotected. Since $q$ is now first,
+it must be removed from both parts of the envelope. This proves
+\eqref{eq:small-source-retained-envelope}; it explicitly accounts
+for all paths through the retained added first neighbour.
+
+The original missing partner $q$ is either in $N_D^{++}(f)$ or in
+$U_D(f)$. In the latter case it is unprotected, since it does not
+point to $f$. Hence $q$ belongs to exactly one of the disjoint sets
+$N_D^{++}(f)$ and $\mathcal F(f)$. Removing it in
+\eqref{eq:small-source-retained-envelope} gives
+\[
+ d_{T'}^{++}(f)\le d_D^{++}(f)+t(f)-1,
+ \qquad d_{T'}^+(f)=d_D^+(f)+1.
+\]
+The count is of distinct second-neighbourhood heads, not paths or
+added arcs. By \eqref{eq:small-source-budget},
+\[
+ d_{T'}^+(f)-d_{T'}^{++}(f)
+ \ge g(f)+2-t(f)\ge1,
+\]
+contradicting the feed-vertex theorem for the same median feed $f$.
+Case B is impossible, while Case A gives the required Seymour vertex.
+\end{proof}
+
+The cardinality bound ensures that every internal missing pair of $Z$ is good. The protected-head compatibility itself has no source-cardinality restriction. All convenience and protection statements remain properties of the
+original graph; no such property is transferred to an augmented graph
+without the explicit path checks above.
+
+\par\medskip\noindent\textbf{Relation to earlier completion arguments.}\quad 
+Retaining one added out-arc at the feed vertex already appears in
+Ghazal's proof of \cite[Theorem~3]{Ghazal2013}. That theorem
+imposes a specific hypothesis on the entire missing graph. It does
+not directly assert Lemma~\ref{lem:small-failure-sources} for a small
+set of failure sources. The canonical-orientation compatibility and
+the protected-head path check above are supplied explicitly here.
+No comprehensive novelty or priority claim is made.

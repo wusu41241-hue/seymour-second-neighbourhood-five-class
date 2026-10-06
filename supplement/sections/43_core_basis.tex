@@ -1,0 +1,214 @@
+\section{Whole minimum-degree vertices at order \texorpdfstring{$2\delta+3$}{2delta+3}}
+\label{sec:wholecore}
+
+Throughout this section, $D$ is strongly connected, arc-minimal and
+all-deficient,
+$n=2\delta+3$, and $\delta=\delta^+(D)$. Let $z$ count whole
+minimum-outdegree vertices, and let $h$ count vertices with $g(x)=2$.
+We will prove
+\begin{equation}\label{eq:wholecore}
+z\ge h+7.
+\end{equation}
+
+
+\subsection{Degree balance at the first odd boundary}
+\begin{corollary}\label{cor:near}
+At $n=2\delta+3$, let $r_i$ count vertices with outdegree $\delta+i$.
+Then $i\in\{0,1,2\}$ and
+\[
+ r_0=M+r_2\ge\delta+5+r_2.
+\]
+Thus a strict majority of the vertices have minimum outdegree.
+\end{corollary}
+\begin{proof}
+The gap bound gives $2d^+(x)-g(x)\le n-1$ and $g(x)\le2$, so all
+outdegrees are at most $\delta+2$. Counting arcs gives $M=r_0-r_2$.
+Use the uniform margin in Theorem~\ref{thm:residual-five-excluded}.
+\end{proof}
+
+For each target $x$, use $T_x,P_x$ from the foundational target-packet section and write
+\[
+e_x=\dout(x)-\delta,\quad q_x=|T_x|-\delta=e_x+\mu(x),\quad
+p_x=|P_x|.
+\]
+Counting outgoing arcs from $P_x$ gives, whenever $p_x>0$,
+\begin{equation}\label{eq:capacity}
+\delta p_x+\sum_{v\in P_x}e_v
+\le \binom{p_x}{2}+p_x(\delta+q_x-p_x).
+\end{equation}
+In particular, $q_x=0$ implies $p_x=0$, and $q_x>0$ implies
+$p_x\le2q_x-1$. Define
+\[
+\sigma_x=
+\begin{cases}
+2q_x-1-p_x,&q_x>0,\\
+0,&q_x=0.
+\end{cases}
+\]
+Let $K=\{x:\sigma_x>0\}$, $k=|K|$, and
+$\Sigma=\sum_x\sigma_x$. A target in $K$ with $\sigma_x=1$ is called
+a \emph{unit-slack target}; a target with $\sigma_x\ge2$ is called
+a \emph{higher-slack target}.
+
+Put $U(v)=V(D)\setminus(\{v\}\cup\Nout(v)\cup\Ntwo(v))$.
+Lemma~\ref{lem:gap} gives
+\begin{equation}\label{eq:excess}
+|U(v)|=2-2e_v+g(v),\qquad e_v\in\{0,1,2\},
+\end{equation}
+and $e_v=2$ forces $g(v)=2$ and $U(v)=\varnothing$.
+If $r_i$ counts excess-$i$ vertices, then $M=r_0-r_2$.
+Counting far source-target pairs and total degrees gives
+\[
+\sum_xp_x=2M+n+h,\qquad \sum_xq_x=n+M.
+\]
+Since the $q_x=0$ targets are precisely the $z$ whole minimum-degree
+vertices,
+\begin{equation}\label{eq:slacksum}
+{\Sigma=z-h.}
+\end{equation}
+
+\begin{lemma}\label{lem:zeroslack}
+A zero-slack target has exactly one of the following forms:
+\[
+q_x=0,\quad e_x=\mu(x)=p_x=0;
+\qquad\text{or}\qquad
+q_x=1,\quad e_x=0,\quad \mu(x)=p_x=1.
+\]
+In the second case, the unique vertex of $P_x$ has minimum outdegree.
+Every source is far from at most one zero-slack target.
+\end{lemma}
+\begin{proof}
+Suppose $q_x>0$ and $\sigma_x=0$. Equality holds throughout
+\eqref{eq:capacity}: all vertices of $P_x$ have outdegree $\delta$,
+$D[P_x]$ is a regular tournament, and $P_x$ completely dominates
+$R_x=T_x\setminus P_x$.
+If $q_x\ge2$, then $|P_x|=2q_x-1\ge3$ and $P_x$ has an internal arc,
+contradicting Lemma~\ref{lem:uniform}.
+Hence $q_x=p_x=1$. The alternative $e_x=1,\mu(x)=0$ contradicts
+Proposition~\ref{prop:whole}, so $e_x=0,\mu(x)=1$.
+
+If $P_x=\{v\}$, capacity equality gives
+$T_x=\{v\}\dot\cup\Nout(v)$.
+For any other target $y\in U(v)$, we have $y\notin T_x$, so $y\to x$.
+Two zero-slack far targets of the same source would thus form a digon.
+\end{proof}
+
+It follows that every nonminimum-degree vertex belongs to $K$.
+Every minimum-degree vertex has three or four far targets by
+\eqref{eq:excess}; at most one is outside $K$, so at least two lie in $K$.
+In particular, $K$ is nonempty.
+
+\subsection{Protected predecessors and higher-slack targets}
+
+\begin{lemma}\label{lem:parent}
+Every unit-slack target $x$ has $e_x\le1$. If $p_x>0$, it has a
+vertex $y\in K$ such that
+\[
+y\to x,\qquad q_y>q_x,\qquad P_x\cup\{x\}\subseteq P_y.
+\]
+\end{lemma}
+\begin{proof}
+For $q_x>0$, the residual identity reads
+$\eta(x)=\sigma_x+g(x)-2e_x$.
+Thus $\sigma_x=1$ and $\eta(x)\ge0$ imply $2e_x\le3$.
+
+If $p_x>0$, then $q_x\ge2$, $p_x=2q_x-2$, and
+$|R_x|=\delta-q_x+2$. Omitting even one vertex of $R_x$ from
+$\bd P_x$ would bound the total outdegree of $P_x$ by
+$(\delta-\tfrac12)p_x<\delta p_x$. Hence $\bd P_x=R_x$.
+Now $|W_x|=|R_x|$ for $W_x=\Nin(x)$, and
+$X_x=\bd^2P_x\subseteq W_x$ has size less than $|R_x|$.
+Choose $y\in W_x\setminus X_x$. No arc from $T_x=P_x\cup R_x$
+points to $y$, so
+\[
+\Nin(y)\subseteq\Nin(x)\setminus\{y\}.
+\]
+Consequently $q_y>q_x$, and $x$ cannot reach $y$ in at most two steps.
+Nor can any vertex of $P_x$ reach $y$: an arc to $y$ would give a
+two-step path to $x$, and a two-step path to $y$ would pass through
+$\Nin(y)\subseteq\Nin(x)$.
+This proves the inclusion. Since $q_y>q_x\ge2$,
+Lemma~\ref{lem:zeroslack} also gives $y\in K$.
+\end{proof}
+
+\begin{lemma}\label{lem:twoheavy}
+There are at least two higher-slack targets.
+\end{lemma}
+\begin{proof}
+Call a target active when $p_x>0$.
+Starting from a unit-slack target with $p_x>0$, iterate
+Lemma~\ref{lem:parent}. The strictly increasing $q$ values force
+termination at a higher-slack target.
+Such a starting target exists unless the required higher-slack targets
+already exist, because minimum-degree sources have far targets in $K$.
+
+Suppose that the only higher-slack target is $c$. Every active
+unit-slack target $x$ then satisfies
+$P_x\cup\{x\}\subseteq P_c$.
+A minimum-degree source has at least two far targets in $K$,
+so one differs from $c$; it follows that the source lies in $P_c$.
+Every nonminimum-degree vertex $v\ne c$ is unit-slack and has $e_v=1$,
+hence $|U(v)|=g(v)\ge1$.
+It cannot be far from a zero-slack target, whose far sources have
+minimum degree. Its far target is therefore either $c$ or an active
+unit-slack target; in both cases $v\in P_c$.
+Thus $P_c=V(D)\setminus\{c\}$, which makes the indegree of $c$ zero,
+contradicting strong connectivity.
+The case of no higher-slack target is already excluded by the
+strictly increasing chains.
+\end{proof}
+
+Every unit-slack vertex has an incoming arc from $K$.
+For $p_x>0$ this is Lemma~\ref{lem:parent}. If $p_x=0$, then $q_x=1$.
+When $e_x=1,\mu(x)=0$, a far target in $K$ exists and is adjacent to $x$,
+so points to $x$. When $e_x=0,\mu(x)=1$, at least two far targets lie
+in $K$, at most one is missing from $x$, and an adjacent one again
+points to $x$. Distinct unit-slack vertices give arcs with distinct
+heads.
+
+\subsection{The missing-pair balance inside $K$}
+
+\begin{theorem}\label{thm:wholecore}
+In the setting of this section,
+\[
+{z\ge h+7.}
+\]
+Moreover $k\ge5$ and
+$k\le\lfloor(n-h-2)/2\rfloor$.
+\end{theorem}
+\begin{proof}
+Let $\ell$ be the number of unit-slack targets and $H=k-\ell$ the
+number of higher-slack targets. Let $A_K$ count arcs inside $K$,
+let $m$ count minimum-degree vertices in $K$, let $t$ count
+gap-two vertices with excess at most one, and let $M_{\rm out}$
+count missing pairs with both endpoints outside $K$.
+Thus $h=r_2+t$.
+
+By Lemma~\ref{lem:zeroslack}, outside $K$ there are $z$ whole
+minimum-degree vertices and $L=n-k-z$ minimum-degree vertices of
+missing degree one. Their missing-degree sum is
+$L=M(K,V\setminus K)+2M_{\rm out}$.
+As $r_0=n-k+m$ and $M=r_0-r_2$, the number of missing pairs
+inside $K$ equals
+\[
+M_K=M-L+M_{\rm out}
+=m-r_2+z+M_{\rm out}
+=\Sigma+m+t+M_{\rm out}.
+\]
+Therefore
+\begin{equation}\label{eq:corebalance}
+{\binom{k}{2}=\Sigma+m+t+A_K+M_{\rm out}.}
+\end{equation}
+The preceding incoming-arc argument gives $A_K\ge\ell$, while
+$\Sigma+\ell\ge2k$.
+Hence $\binom{k}{2}\ge2k$, and $k\ge5$ since $k>0$.
+Lemma~\ref{lem:twoheavy} gives $H\ge2$, so
+$\Sigma\ge k+H\ge7$. Equation~\eqref{eq:slacksum} proves $z\ge h+7$.
+Finally, $z\le n-k$ and $\Sigma\ge k+2$ give
+$n\ge 2k+h+2$, proving the upper bound on $k$.
+\end{proof}
+
+In particular, at least seven minimum-degree vertices are adjacent to
+every other vertex. This does not exclude the order $2\delta+3$ itself;
+it supplies additional structure that any such minimal counterexample
+must possess.

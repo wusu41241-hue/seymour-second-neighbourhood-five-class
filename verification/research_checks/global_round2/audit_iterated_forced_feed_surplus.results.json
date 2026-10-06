@@ -1,0 +1,163 @@
+{
+  "status": "PASS",
+  "counts": {
+    "allFiveVertexGraphs": 59049,
+    "randomGraphs": 20000,
+    "explicitControlGraphs": 2,
+    "totalStages": 97702,
+    "closureAddedArcs": 204487,
+    "maximumRounds": 10,
+    "medianFeeds": 154918,
+    "positiveOriginalGapFeeds": 9,
+    "strictOriginalFarSurpluses": 9,
+    "feedStageNeighborhoodEqualities": 351298,
+    "originalBalancedFeedsRemoved": 1,
+    "stableMissingMatchingGraphs": 35746,
+    "stableMatchingMedianFeeds": 56110,
+    "stableMatchingPositiveFeedCount": 0
+  },
+  "stableMatchingPositiveFeedControl": null,
+  "stableMatchingAllPositiveFeedsControl": null,
+  "controls": [
+    {
+      "out": [
+        30,
+        224,
+        96,
+        96,
+        2,
+        320,
+        1,
+        1,
+        1
+      ],
+      "originalGaps": [
+        1,
+        1,
+        0,
+        0,
+        -2,
+        1,
+        -3,
+        -3,
+        -3
+      ],
+      "originalFarBudgets": [
+        1,
+        2,
+        4,
+        4,
+        4,
+        5,
+        2,
+        3,
+        3
+      ],
+      "closureRounds": 2,
+      "closureStages": [
+        [
+          30,
+          224,
+          96,
+          96,
+          2,
+          320,
+          1,
+          1,
+          1
+        ],
+        [
+          30,
+          224,
+          96,
+          96,
+          226,
+          321,
+          1,
+          1,
+          1
+        ],
+        [
+          30,
+          224,
+          96,
+          96,
+          226,
+          321,
+          1,
+          1,
+          31
+        ]
+      ],
+      "finalPartialFeeds": [
+        6,
+        7
+      ],
+      "finalMedianScore": 21
+    },
+    {
+      "out": [
+        24,
+        24,
+        24,
+        480,
+        480,
+        512,
+        512,
+        512,
+        512,
+        7
+      ],
+      "originalGaps": [
+        -2,
+        -2,
+        -2,
+        3,
+        3,
+        -2,
+        -2,
+        -2,
+        -2,
+        1
+      ],
+      "originalFarBudgets": [
+        3,
+        3,
+        3,
+        4,
+        4,
+        5,
+        5,
+        5,
+        5,
+        4
+      ],
+      "closureRounds": 0,
+      "closureStages": [
+        [
+          24,
+          24,
+          24,
+          480,
+          480,
+          512,
+          512,
+          512,
+          512,
+          7
+        ]
+      ],
+      "finalPartialFeeds": [
+        9
+      ],
+      "finalMedianScore": 18
+    }
+  ],
+  "limits": [
+    "All arithmetic is exact integer arithmetic.",
+    "Graphs are arbitrary and not assumed all-deficient, strongly connected, or minimal.",
+    "The check verifies the all-order theorem's strict ORIGINAL surplus, not existence of any conjecture counterexample.",
+    "The ten-vertex four-cycle clone has empty closure and still a positive original-gap median feed: the remaining strict-surplus obstacle is real.",
+    "Absence of a deficient stable-matching feed in this sample is not a proof of that stronger candidate."
+  ]
+}

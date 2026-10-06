@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "counts": {
+    "graphs5": 59049,
+    "sampledGraphs": 100000,
+    "unitHeadMissingPartnerChecks": 281253,
+    "protectedAncestorExclusions": 281253,
+    "unitHeadPropagationChecks": 8477,
+    "fiveDerangements": 44,
+    "invariantActiveGraphs": 172,
+    "disjointInvariantGraphs": 44,
+    "graphsCompatibleWithRequiredArcs": 0
+  },
+  "seed": "0x55102026",
+  "limits": [
+    "Graph checks test the pure unit-head and protection implication, not numerical eta claims on arbitrary graphs.",
+    "The derangement scan validates a finite skeleton used in the proof; the local minimal-counterexample reduction into that skeleton must be proved separately.",
+    "No full SNC proof or counterexample is claimed by this verifier."
+  ]
+}

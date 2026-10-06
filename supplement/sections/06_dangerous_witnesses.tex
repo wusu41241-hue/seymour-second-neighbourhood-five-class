@@ -1,0 +1,161 @@
+\section{Dangerous witnesses of a bad missing edge}
+\label{sec:dangerous-witnesses}
+
+For a vertex $v$, a far target $y\in U(v)$ is called protected from
+$v$ if
+\[
+ y\to v,\qquad N^-(y)\subseteq N^-(v)\setminus\{y\}.
+\]
+Let $t(v)$ be the number of far targets not protected from $v$.
+We first prove a completion statement for an arbitrary oriented
+graph whose vertices all fail the second-neighbourhood inequality.
+In this statement $g(v)=d^+(v)-d^{++}(v)$ is any positive integer.
+
+A missing edge $ab$ is good in Ghazal's sense \cite{Ghazal2012} if at least one of
+\[
+ \forall x\notin\{a,b\},\quad
+ x\to a\Longrightarrow b\in N^+(x)\cup N^{++}(x),
+\]
+\[
+ \forall x\notin\{a,b\},\quad
+ x\to b\Longrightarrow a\in N^+(x)\cup N^{++}(x)
+\]
+holds. Such an implication specifies its convenient orientation.
+A failure for the orientation $a\to b$ is a source $x$ with
+$x\to a$ and $b\in U(x)$.
+
+\begin{lemma}[A localized completion obstruction]
+\label{lem:dangerous-completion}
+Let $D$ be any nonempty oriented graph with $g(v)>0$ for every vertex. Then
+there is a bad missing edge $ab$ and distinct witnesses $u,v$ such that
+\[
+ u\to a,\quad b\in U(u),\qquad
+ v\to b,\quad a\in U(v),
+ \qquad t(u)\ge g(u),\quad t(v)\ge g(v).
+\]
+The witnesses $u,v$ are non-adjacent.
+\end{lemma}
+
+\begin{proof}
+Put $B_t=\{x:t(x)\ge g(x)\}$. Suppose the conclusion fails. Every bad
+missing edge then has at least one orientation with no failure whose
+source belongs to $B_t$. Give it such an orientation. Give every good
+missing edge a \emph{fully convenient} orientation, as in Ghazal's
+completion proof. For good edges we do not merely choose an orientation
+avoiding failures from $B_t$.
+
+The completed graph is a tournament $T$. Choose a median order and let
+$f$ be its last, or feed, vertex. Reverse every added arc leaving $f$
+so that all added arcs incident to $f$ point towards it; call the
+result $T'$. The order remains a local median order: interval feedback
+conditions not involving $f$ do not change, and feedback conditions
+involving its last position only improve. By the feed-vertex theorem
+\cite{HavetThomasse2000},
+$f$ has the second-neighbourhood property in $T'$. Its first
+out-neighbourhood is exactly the original $N_D^+(f)$.
+
+Let $E=N_{T'}^{++}(f)\setminus N_D^{++}(f)$ be the set of new second
+\emph{heads}. For $z\in E$, choose a two-step path $f\to a\to z$
+in $T'$. The first arc is original. The second must be an added arc;
+otherwise $z$ would already be an original second neighbour. Neither
+$a$ nor $z$ equals $f$, since a tournament has no two-cycle. Thus the
+second arc was not among those reversed at the feed vertex, and still
+has its chosen completion orientation. The equality of the first
+neighbourhoods ensures that $z\in U_D(f)$.
+
+This added edge cannot be good, since its convenient orientation
+allows no such failure. It is therefore a bad edge $az$ with a failure
+from $f$. Any failure head of a bad edge is unprotected: an opposite
+failure witness $w\to z$, $a\in U(w)$ would, if $z$ were protected
+from $f$, imply $w\to f\to a$, a contradiction.
+
+If $f\in B_t$, our choice of orientations excludes the failure, so
+$E$ is empty. If $f\notin B_t$, we have
+\[
+ E\subseteq\{y\in U_D(f):y\text{ is unprotected from }f\},
+ \qquad |E|\le t(f)<g(f).
+\]
+The count is of distinct heads, not arcs or two-step paths.
+In either case,
+\[
+ |N_{T'}^{++}(f)|\le d_D^{++}(f)+|E|<d_D^+(f)
+                         =|N_{T'}^+(f)|,
+\]
+contradicting the feed-vertex theorem. Hence some bad edge has failures
+from $B_t$ in both directions.
+
+The two witnesses are distinct and outside $\{a,b\}$. An arc $u\to v$
+would yield $u\to v\to b$, and an arc $v\to u$ would yield
+$v\to u\to a$. Both are forbidden. Thus $u,v$ are non-adjacent.
+\end{proof}
+
+\begin{lemma}[The safe residual budget]
+\label{lem:safe-residual-unprotected}
+Let $D$ be a strongly connected counterexample minimal under deletion
+of any nonempty set of arcs. If $\eta(v)<g(v)$, then
+\[
+ {t(v)\le\eta(v)<g(v).}
+\]
+\end{lemma}
+
+\begin{proof}
+The established gap and residual theorems give $g(v)\in\{1,2\}$ and
+$\eta(v)\ge0$. Put $P=P(v)$, $R=N^{--}(v)$, and $W=N^-(v)$.
+If $P$ is empty, the identity
+$\eta(v)=2\mu(v)+g(v)-1$ and $\eta(v)<g(v)$ force $\mu(v)=0$.
+Every far target $y$ then points to $v$, and every $x\to y$ must
+point to $v$, since otherwise $v\to x\to y$. Thus all far targets
+are protected and $t(v)=0$.
+
+Suppose $P\ne\varnothing$, and write $C=\partial P\subseteq R$,
+$j=|R\setminus C|$, and $s=|N^+(v)\cap(R\setminus C)|$.
+The previously proved outgoing-bundle refinement gives
+\[
+ s>0\Longrightarrow\eta(v)\ge g(v)+2(j-s),
+ \qquad
+ s=0\Longrightarrow\eta(v)\ge2j.
+\]
+Since $s\le j$, the safe inequality excludes $s>0$. Also
+$\eta(v)<g(v)\le2$ gives $\eta(v)\le1$, and hence $j=0$.
+Thus $C=R$.
+
+Let $X=\partial^2P$. Then $X\subseteq W$, and the external-boundary
+lemma gives $|X|\le|R|-1$. Every vertex of $Y=W\setminus X$ is a
+protected far target of $v$: no vertex of $P$ or $R$ points to it,
+and its in-neighbours therefore lie in $W\setminus\{y\}$.
+Using $\eta(v)=\mu(v)-1+|R|-d^{++}(v)$, we obtain
+\[
+ |Y|\ge|W|-|R|+1=|U(v)|-\eta(v).
+\]
+Consequently at most $\eta(v)$ far targets can be unprotected.
+\end{proof}
+
+\begin{proposition}[Dangerous residual witnesses]
+\label{prop:dangerous-residual-witnesses}
+Every strongly connected counterexample minimal under deletion of any
+nonempty set of arcs has a bad missing edge with opposite failure
+witnesses $u,v$ such that $u,v$ are non-adjacent and
+\[
+ {\eta(u)\ge g(u),\qquad\eta(v)\ge g(v).}
+\]
+In particular,
+\[
+ 2M-n=\sum_x\eta(x)\ge g(u)+g(v).
+\]
+\end{proposition}
+
+\begin{proof}
+Apply Lemma~\ref{lem:dangerous-completion}. The contrapositive of
+Lemma~\ref{lem:safe-residual-unprotected} says that
+$t(x)\ge g(x)$ implies $\eta(x)\ge g(x)$. Non-negativity of all
+residuals proves the sum bound.
+\end{proof}
+
+This strengthens the strict missing-pair theorem established earlier.
+If every vertex has gap two, then $2M-n\ge4$, and parity yields
+\[
+ {M\ge\lceil n/2\rceil+2.}
+\]
+If instead $2M-n=2$, then the two dangerous witnesses are exactly the
+two positive-residual vertices; each has residual one and gap one,
+and they are non-adjacent.

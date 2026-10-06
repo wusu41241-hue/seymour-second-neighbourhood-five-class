@@ -1,0 +1,27 @@
+\section{The final residual margin and its dependency chain}
+\label{sec:supp-final-residual-margin}
+\begin{theorem}\label{thm:supp-residual-seven}
+Every MIN graph satisfies $R=2M-n\ge7$, with $R\ge8$ at even order.
+Every arc-set-minimal all-deficient graph satisfies
+\[
+ M\ge\left\lceil n/2\right\rceil+3+\mathbf1_{\{n\text{ even}\}}.
+\]
+If $o$ vertices are outside a sink strong component, add $o$ to the right side.
+\end{theorem}
+\begin{proof}
+Corollary~\ref{cor:three-positive-residual-support} requires three positive
+residuals. Corollary~\ref{cor:one-exception-short-two-heavy} requires two
+actual sources of residual at least two. Thus total residual at most six
+leaves only $(2,2,1),(3,2,1),(2,2,2),(2,2,1,1)$.
+The first two are excluded by Theorem~\ref{thm:no-three-two-one}, valid for
+all $(m,2,1)$; the last two by Theorems~\ref{thm:eta222-excluded} and
+\ref{thm:no-two-two-one-one}. Hence $R\ge7$, and parity gives eight at
+even order. The outside-component estimate in Theorem~\ref{thm:sink} adds
+$\lceil o(k-2)/2\rceil$ for a sink component of order $k\ge5$.
+Using $k-2\ge3$ and the two parities gives the asserted outside penalty.
+\end{proof}
+This proof uses four mixed partitions after the unbounded source theorem.
+Earlier pure-unit and one-heavy finite classifications remain valid but
+are no longer needed for the final margin. The five allocations still
+unresolved at $R=7$ are $(3,3,1),(3,2,2),(3,2,1,1),(2,2,2,1)$ and
+$(2,2,1,1,1)$. No assertion that these allocations are realizable is made.

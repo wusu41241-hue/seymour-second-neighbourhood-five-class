@@ -1,0 +1,95 @@
+{
+  "date": "2026-10-05",
+  "full_conjecture_status": "Not solved; no infeasible core or actual all-deficient oriented graph found.",
+  "main_unconditional_result": {
+    "fragment": "weighted_max_incoming_tournament_core.tex",
+    "statement": "Every finite nonempty oriented graph with at most five distinct inclusion-maximal incoming-neighborhood sets has at least one corresponding maximal equivalence class all of whose vertices have SNP. Total order is unrestricted.",
+    "proof": "Select deficient representatives if every maximal class has one. Every target's pattern of core predecessors is contained in a core incoming set. A certified nonnegative core vector gives columnwise exact-second predecessor mass at least first predecessor mass, contradicting positive gap at every selected representative.",
+    "mathematical_review": "Root and two separate agents independently reconstructed the pattern transfer, source exclusion, tournament cut argument and whole-class representative argument, PASS.",
+    "dependency_scope": "No minimal-counterexample packet, protection closure, arc minimality, true-twin normal form or random-graph hypothesis is used.",
+    "computer_assisted_component": {
+      "cores_by_order": [1,3,27,729,59049],
+      "cores_total": 59809,
+      "nonempty_pattern_inequalities": 462404,
+      "including_empty_patterns": 522213,
+      "nonuniform_order_five_certificates": 40,
+      "maximum_integer_entry": 3,
+      "maximum_integer_weight_sum": 9,
+      "generator": "search_small_core_certificates.py; exact existing Z3 used for forty witnesses only",
+      "independent_verifiers": ["verify_small_core_certificates.js", "verify_core_pattern_certificates_independent.js", "verify_incoming_pattern_tables_integer.js"],
+      "verification": "All three exact integer implementations PASS; none relies on LP solver correctness or floating-point tolerances to validate the witnesses.",
+      "n5_certificate_sha256": "c9fe139b76a3866a7bf17e408d12f344823fa1a54fca306fd656139e601bfd5a",
+      "n4_certificate_sha256": "b34056dbc1947c1149a6a12ac8a2f31fd579b89494908dc53a92f6bfcb5c7e18"
+    }
+  },
+  "other_accepted_results": [
+    {
+      "fragment": "weighted_max_incoming_tournament_core.tex",
+      "result": "A tournament representative core of any size supplies the certificate analytically via Fisher losing density. Universal feasibility of the pattern system for all cores is equivalent to full SNC: strict dual multiplicities produce a labelled finite counterexample after adding full-pattern representatives.",
+      "review": "Root and two independent reviews PASS. No assertion of universal feasibility is made."
+    },
+    {
+      "fragment": "iterated_incoming_core_certificate_reduction.tex",
+      "result": "Pattern certificates lift from maximal-incoming representative induced cores. An iterated core of at most five vertices, or a tournament of any size, gives an original SNP vertex in that core. It suffices to study terminal cores with pairwise distinct incomparable incoming sets.",
+      "review": "Root proof and independent framework reconstruction PASS.",
+      "scope": "This is a certificate-system reduction, not an assertion that an actual counterexample's smaller induced core is itself an unweighted counterexample. One successful representative chain does not imply an entire original class is SNP."
+    },
+    {
+      "fragment": "simultaneous_row_clone_unit_predecessor_core.tex",
+      "result": "Any original-snapshot row map rho with incoming(v) subset incoming(rho(v)) gives an oriented graph with new gap(v)>=old gap(rho(v)). In a GLOBALLY minimum-order counterexample every vertex receives an entire maximal incoming class whose gaps all equal one; at least three such classes form a complete-arc directed cycle.",
+      "review": "Root and two independent reconstructions PASS. Arbitrary full-domain maps and changed-head intermediates are included.",
+      "checks": "11122 subset maps, 13656 full-domain maps, 6023 maps with a head inside the modified set; all exact checks PASS.",
+      "scope": "Gap one is not residual one. The covering theorem needs globally smallest counterexample order, not merely induced-deletion or arc-subset minimality."
+    },
+    {
+      "fragment": "predecessor_clone_extremal_normal_form.tex",
+      "result": "Choose a counterexample lexicographically by minimum order, minimum total arcs, maximum total gap, and maximum squared outgoing-class sizes. Incoming containment then orders outdegrees; protection strictly decreases missing degree. Equal incoming sets have equal outgoing sets and form independent true-twin modules.",
+      "review": "Root and separate-agent algebra and cloning reviews PASS.",
+      "scope": "A conditional representative normal form; not a property asserted for every earlier arc-minimal graph or an altered closure graph."
+    },
+    {
+      "fragment": "weak_equality_original_partner_paths.tex",
+      "result": "At strong Good equality, closure creates no reachability from original nongood-second remaining partners into unpaid far partners. Any far partners not reachable from these original seeds contain an ORIGINAL directed cycle. At residual two all partners are original nongood-second; at residual three there is at most one far partner and an original seed-to-far arc.",
+      "review": "General path/cycle proof and corrected low-residual arguments independently reconstructed, PASS.",
+      "finite_scope": "61011 graph checks support the invariants but did not cover all difficult positive-gap mixed branches. They are not the proof of the low-residual corollaries.",
+      "remaining": "The all-second and strictly Good-surplus negative-gap cases are not eliminated."
+    }
+  ],
+  "additional_negative_gap_global_constraint": {
+    "fragment": "nearwhole_feed_global_boundary_budget.tex",
+    "statement": "In the original strong arc-set-minimal class, a weak-closure feed with one original missing partner has that partner in its original exact second set. If original P(f) is empty, every unprotected Far head and f itself lie in the original external second boundary of its first set, giving d_plus>=g+t+2 and n>=g+3t+5.",
+    "review": "Author proof and root independent reconstruction PASS.",
+    "scope": "This excludes the earlier ten-point local model through its failure of the GLOBAL boundary inequality, but leaves unbounded parameter ranges and does not improve the universal residual bound."
+  },
+  "adversarial_correction": {
+    "rejected_statement": "The external second boundary of P is always contained in the incoming neighborhood of the target, so an exceptional missing Far head cannot lie in the remainder.",
+    "finding": "False as a geometric statement. Root identified the unsupported containment, confirmed by the independent framework reviewer. Six-vertex control [34,4,24,16,1,2] has an exceptional missing Far head in the external second layer and remainder.",
+    "repair": "Residual-two exclusion uses the empty remainder directly. Residual-three permits a unique exceptional Far partner; if two Far partners existed they would consume two elements of a one-element remainder. All saved accepted claims use the repaired proof.",
+    "scope": "The control has Seymour vertices and is not a conjecture counterexample. No prior accepted result depended on the rejected claim."
+  },
+  "primary_literature_comparison": [
+    {
+      "url": "https://arxiv.org/pdf/0808.0946",
+      "note": "Brantner--Brockman--Kay--Snively already establish gap-one predecessors and a gap-one directed cycle in their minimal-criminal framework. These facts alone are not claimed as new; the current coupled-cover argument specifies entire maximal incoming classes. Their extremal ordering differs, so scope is stated explicitly."
+    },
+    {
+      "url": "https://www.math.ru.nl/OpenGraphProblems/TimV/%5BDavid%20Fisher%5D%20Proof%20for%20tournaments.pdf",
+      "note": "Fisher's tournament losing-density existence supplies the analytic tournament-core certificate. The general pattern inequalities and finite core tables are separately proved and verified."
+    },
+    {
+      "url": "https://arxiv.org/html/2403.02842v2",
+      "note": "Comparison with vertex-minimal counterexample and blow-up reductions; no assertion that the current maximum-incoming-class criterion follows automatically from their minimum-degree result."
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.18047",
+      "note": "The July 2026 preprint studies a matching strengthening in specified graph classes; it is not a reported general solution. A full novelty or coverage audit of the current results remains outstanding."
+    }
+  ],
+  "frontier": {
+    "new_universal_structural_restriction": "Every hypothetical counterexample has at least SIX distinct inclusion-maximal incoming-neighborhood sets. A certificate can be sought on an iterated incoming core with pairwise incomparable incoming sets.",
+    "residual_bound": "Previous R>=7 (even order R>=8) is unchanged; remaining R=7 allocations are not excluded.",
+    "open_step": "Prove pattern feasibility for all remaining cores, or establish another global contradiction tying the unit-gap maximal-class cover to the remaining negative-gap completion behavior."
+  },
+  "assurance_limits": "Internal adversarial mathematical review and exact finite verification passed. No external peer review, proof-assistant verification or complete novelty/priority assessment is claimed.",
+  "artifacts": "New files are on F:. Previous PDF/desktop copy is preserved. No external submission or publication occurred."
+}

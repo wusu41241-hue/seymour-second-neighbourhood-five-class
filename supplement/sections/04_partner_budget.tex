@@ -1,0 +1,73 @@
+\subsection{Exceptional partners and a shared failure-head budget}
+\label{sec:partner-budget}
+
+Let $D$ be a finite nonempty, strongly connected, all-deficient oriented
+graph minimal under deletion of arbitrary nonempty arc sets. Fix $x$
+with $P(x)\ne\varnothing$, and write
+\[
+ Q=N^{--}(x),\quad W=N^-(x),\quad C=\partial P(x),
+ \quad X=\partial^2P(x),\quad H=Q\setminus C.
+\]
+Let $B=H\cap\mathcal M(x)$, $k=|B|$, and
+$s=|H\cap N^+(x)|$, so $|H|=k+s$. Delete the $s$ arcs from $x$
+into $H$, obtaining $\widehat D$; if $s=0$, it is the original graph.
+Put
+\[
+ E=(\mathcal M(x)\setminus B)\,\dot\cup\,X,
+ \qquad L=E\setminus N^{++}_{\widehat D}(x).
+\]
+
+\begin{lemma}[Shared head budget outside exceptional partners]
+\label{lem:partner-head-budget}
+Every $r\in B$ admits the convenient orientation $r\to x$.
+Moreover
+\[
+ \bigcup_{r\in\mathcal M(x)\setminus B}
+       \bigl(N^+(r)\cap U(x)\bigr)\subseteq L,
+\]
+and
+\[
+ |L|\le
+ \begin{cases}
+   \eta(x)-2k,&s=0,\\
+   \eta(x)-g(x)-2k,&s>0.
+ \end{cases}
+\]
+The bound concerns the union of distinct far heads, not the sum of
+the sizes of the individual partner contributions.
+\end{lemma}
+\begin{proof}
+The partition $V(D)=\{x\}\sqcup W\sqcup P(x)\sqcup C\sqcup H$
+implies $\mathcal M(x)\setminus B\subseteq P(x)\cup C$.
+All retained outneighbours of $x$ lie in $P(x)\cup C$.
+Every arc leaving this union has its head in $X$, whereas a head
+inside the union that is not an original outneighbour of $x$ is in
+$\mathcal M(x)\setminus B$. Therefore the target envelope gives
+$N^{++}_{\widehat D}(x)\subseteq E$, with the displayed union disjoint.
+For $r\in\mathcal M(x)\setminus B$, any head of $r$ in $U(x)$ is
+likewise in $E$. An original far head cannot become reachable after
+deleting arcs, so it belongs to $L$.
+
+The strict external-boundary inequality gives
+$|X|\le |C|-1=|Q|-s-k-1$. Hence
+\[
+ |E|\le\mu(x)-k+|Q|-s-k-1
+       =d_D^{++}(x)+\eta(x)-s-2k.
+\]
+If $s=0$, subtract $d_D^{++}(x)$. If $s>0$, the nonempty deletion
+can create a Seymour vertex only at $x$, since all other first
+neighbourhoods are unchanged and their second neighbourhoods cannot
+grow. Minimality therefore gives
+$d^{++}_{\widehat D}(x)\ge d_D^+(x)-s$; subtracting proves the second
+bound. Finally every $r\in B$ lies outside both $P(x)$ and
+$C=\partial P(x)$, so no member of $P(x)$ points to $r$.
+All predecessors of $r$ thus reach $x$ within two steps, which is
+exactly convenience of $r\to x$.
+\end{proof}
+
+For instance, if $\eta(x)=3$, $s=0$, and $k=1$, all nonexceptional
+missing partners together contribute at most one far head. If
+$\eta(x)=3$, $s>0$, and $k=1$, the bound forces $g(x)=1$ and $L$ empty;
+every missing partner with an outneighbour in $U(x)$ must then be the
+unique exceptional partner, directed conveniently into $x$.
+Neither statement supplies a universal upper bound on $t(x)$.

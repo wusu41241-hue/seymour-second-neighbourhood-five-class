@@ -1,0 +1,78 @@
+\section{A convenient step from an already nonmaximal protected tail}
+\label{sec:convenient-nonmax-tail-step}
+
+All predicates in this section refer to the \emph{current} graph $H$.
+Recall that $a\triangleleft_H w$ means $a\to w$ and
+$N_H^-(a)\subseteq N_H^-(w)\setminus\{a\}$.
+
+\begin{lemma}[A larger safe single-step operator]
+\label{lem:convenient-nonmax-tail-safe-step}
+Suppose $ab$ is missing, $b$ has no current protection successor,
+$a$ has some current protection successor $w$, and the direction
+$a\to b$ is convenient in $H$. Adding only $a\to b$ preserves every
+current protection. Its tail still has a protection successor, and
+the new arc is convenient relative to the graph before its addition.
+\end{lemma}
+\begin{proof}
+Only the incoming neighborhood of $b$ changes. A protected relation
+whose protected head is $b$ cannot exist, by its maximality. A relation
+whose target is $b$ becomes easier to satisfy because the target's
+incoming set increases. Every other incoming-neighborhood comparison
+is unchanged. Thus every old protection survives, including
+$a\triangleleft_H w$. Convenience before addition is an explicit
+assumption, not inferred from protection or from the original graph.
+The graph remains oriented because the pair was missing.
+\end{proof}
+
+One may add these steps to the previously FORCED/WEAK closure,
+performing them singly and recomputing protection after each step.
+At most the original missing-pair count many nonterminal additions
+are possible. Every added arc has a tail with a protection successor
+which survives to termination. If all FORCED operations are also
+exhausted, terminal protection has both incoming and outgoing nesting.
+
+\begin{corollary}[The exact original feed invariants survive]
+\label{cor:convenient-nonmax-tail-feed-invariants}
+Complete the terminal partial graph $Q$ by all remaining directions
+forward in a protection extension and maximize global median score
+over \emph{all} such extensions. At every feed $f$,
+\[
+ N_T^+(f)=N_Q^+(f)=N_D^+(f),\qquad
+ N_Q^{++}(f)=N_D^{++}(f).
+\]
+Every original protected far target stays protected and far. Every new
+original-far second head in $T$ is good in every median order ending
+at $f$. In particular the previously strict-original-surplus
+and strong-equality missing-degree proofs continue to apply.
+\end{corollary}
+\begin{proof}
+Original protections survive every safe step and the final completion.
+Every added arc's tail has a surviving protection successor and cannot
+be last in a median order. The feed consequently has no added first
+arc at any stage. A new second direction at that feed uses an original
+first step and an arc convenient in its preceding graph, so it cannot
+create an exact second head not previously present. Induction gives
+the exact original second set in $Q$. At the final maximizing
+completion all remaining free arcs are forward in every median,
+by the all-reference closure argument. A newly reached original-far
+head therefore has a forward free second arc from an original first
+neighbor, making it good. The earlier surplus and equality-degree
+arguments use exactly these invariants and free-arc rigidity.
+\end{proof}
+
+\paragraph{Terminal obstruction.}
+At a terminal feed $f$, if $r$ is still missing from $f$ and has a
+current protection successor, the reverse direction $r\to f$ must
+be \emph{currently} nonconvenient; otherwise the new safe operator
+could add it. Original convenience is insufficient for this claim,
+because closure may have added new predecessors of $r$.
+
+\paragraph{Important scope limit.}
+The FORCED/WEAK original-partner cycle and seed-path lifting proofs
+do not automatically apply to this enlarged operator. A convenient
+direction need not shortcut an old two-step path \emph{inside} the
+fixed partner set, and no such shortcut is asserted here. In particular
+the residual-four zero-gap equality shape which used an original
+partner triangle cannot be transferred without a separate lifting
+proof. The operator preserves the stated feed invariants; it has not
+been shown to settle any remaining multiple-heavy counterexample class.

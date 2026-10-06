@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "scope": "Auxiliary finite check of global sedimentation and its exact position identity",
+  "fixedSeed": "0x05c0de26",
+  "allTournamentsOrders": "3 through 5",
+  "samplesPerOrder6Through9": 1000,
+  "maximumEnumeratedOptimalOrdersPerTournament": 2000,
+  "tournaments": 5096,
+  "medianOrders": 16559,
+  "equalityFeeds": 3538,
+  "positionalChecks": 10790,
+  "singletonMedianEndControl": {
+    "outMasks": [
+      8,
+      1,
+      3,
+      6
+    ],
+    "optimumScore": 5,
+    "medianEndSet": [
+      0
+    ],
+    "meaning": "Sink-free tournament can have a unique global median end; this is not an SNC counterexample."
+  }
+}

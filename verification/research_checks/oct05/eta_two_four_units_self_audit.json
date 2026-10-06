@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-05",
+  "claim": "Exclusion of positive residual allocation (2,1,1,1,1)",
+  "scope": "Strongly connected all-deficient oriented graphs minimal under every nonempty arc-set deletion",
+  "status": "candidate_after_self_adversarial_review_awaiting_independent_root_review",
+  "proof_file": "eta_two_four_units_exclusion.tex",
+  "dependencies": [
+    "eta>=0, zero-eta protection, unit t<=1 and active-unit full packet",
+    "unit-unit cross-witness missing pair is BAD",
+    "residual-two witness degree bound and exceptional saturation",
+    "partner head budget and exact-distance-two envelope",
+    "canonical-good/bipartite bad-direction completion",
+    "all_keeper_packet_criterion.tex",
+    "nonnegative tournament zero set has no sink",
+    "at most four unit actual failure sources implies SNP",
+    "Havet-Thomasse sink-free tournament has two SNP vertices"
+  ],
+  "finite_checks": {
+    "script": "audit_two_four_units_skeleton.js",
+    "results": "audit_two_four_units_skeleton.results.json",
+    "all_64_unit_graphs_checked": true,
+    "eligible_graph_counts": {"empty":1,"single_edge":6,"unit_path":12,"triangle":4,"two_disjoint_edges":3},
+    "forced_nonreciprocal_matching_heads": "ha=d,hb=c,hc=a,hd=b-or-external",
+    "proves_entire_graph_hypotheses": false
+  },
+  "rejected_or_repaired_routes": [
+    "Rejected claim that a unit P3 automatically requires a third heavy unprotected head: dependency tails may terminate at external BAD pairs.",
+    "Repaired P3 by a bipartite completion with zero candidates {a,c,d}; original d->a,d->c forces a sink in every nonempty subset.",
+    "Rejected inference eta=2 and t=2 alone forces no exceptional partner. The matching proof additionally uses heavy degree>=2 and saturation.",
+    "Single-edge case does not assume every active outside unit has the same head a: only a witness to the original BAD edge does.",
+    "Single-edge case counts one possibly inactive unit missing/Far-in partner instead of incorrectly applying all-keeper exactly."
+  ],
+  "does_not_solve_full_conjecture": true,
+  "external_peer_review": false,
+  "proof_assistant_checked": false
+}

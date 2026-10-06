@@ -1,0 +1,127 @@
+\subsection{Relation to previous work}
+\label{subsec:related-work}
+
+The tournament case of Seymour's second neighborhood conjecture was proved
+by Fisher~\cite{Fisher1996} using a probability distribution obtained from
+a skew-symmetric game. Havet and Thomass\'e~\cite{HavetThomasse2000}
+subsequently gave a proof using median orders, including a stronger bound
+involving the good vertices of an order. Both methods enter the present
+work. The incoming-core argument uses the existence of a losing density
+on a tournament; the completion arguments use the strong feed bound and
+the equality case of sedimentation. These are established inputs. Our
+arguments specify the additional conditions needed to transfer information
+from a tournament completion to the exact second neighborhoods of the
+original graph. In particular, the existence of a Seymour vertex in a
+completion alone does not provide such a transfer.
+
+Fidler and Yuster~\cite{FidlerYuster2007} proved the vertex-weighted
+tournament statement and established further cases obtained by deleting
+prescribed edge sets from tournaments. Ghazal's work on generalized stars
+and other missing graphs~\cite{Ghazal2012,Ghazal2013} develops the convenient
+orientation and good-missing-edge approach underlying several of our
+completion definitions. Dara, Francis, Jacob and
+Narayanan~\cite{DaraEtAl2022} extended the matching case to a missing graph
+whose edges can be partitioned into a matching and a star, and also
+considered partitions into an independent set and a $2$-degenerate graph.
+Our protection-preserving completions require additional compatibility
+conditions beyond convenience of individual added arcs. The proof of each
+transfer inequality therefore accounts for paths using added arcs and for
+original second neighbors that become first neighbors. None of these
+inequalities is inferred simply by applying a known tournament theorem to
+an arbitrary completion.
+
+Minimal-counterexample methods provide another starting point.
+Brantner, Brockman, Kay and Snively~\cite{BrantnerEtAl2009} established
+strong connectivity, gaps in $\{1,2\}$, and restrictions involving
+gap-one predecessors and directed cycles for their minimal counterexamples.
+Their extremal selection first minimizes the number of arcs over all
+counterexamples and then minimizes the order. The selections used here
+must be distinguished from that convention: fixed-order minimality under
+deletion of a nonempty arc set, and minimum order followed by arc count
+and further finite objectives, serve different arguments. We give the
+required deletion and copying arguments for the stated selection in each
+case. In particular, the predecessor-containment row operation and the
+resulting normal form are not treated as consequences of the earlier
+extremal definition.
+
+Seacrest's subset formulation~\cite{SeacrestSubsets2019} supplies a closely
+related boundary perspective. Its edge-minimal subset inequality motivates
+the boundary budgets used in the residual analysis. Because the sets and
+minimality assumptions have to agree exactly, the external-boundary form
+needed here is proved explicitly. This paper is distinct from Seacrest's
+arc-weighted extension~\cite{Seacrest2015}; an arc-weighted result is not
+substituted for the unweighted feed or boundary statements. The residual
+bound $R\geq 7$ in this manuscript concerns the specified minimal
+all-deficient graphs. It must not be read as an assertion about the
+missing-edge count of every counterexample before a minimizing deletion.
+
+There are further reasons to keep extremal assumptions visible.
+Espuny D\'iaz, Gir\~ao, Granet and
+Kronenberg~\cite{EspunyDiazEtAl2025} prove that a vertex-minimal
+counterexample has minimum outdegree greater than the square root of its
+order, while also constructing arbitrarily large strongly connected
+counterexamples with bounded minimum outdegree, conditional on the
+existence of any counterexample. Zelenskiy, Darmosiuk and
+Nalivayko~\cite{ZelenskiyEtAl2021} obtain conditional counterexample
+constructions with widely differing densities and diameters. Thus
+counterexample amplification, and cyclic substitution in particular,
+already have a literature. The calculations here involving such
+constructions are used to delimit particular completion or weighted
+transfer claims, rather than to assert a new general amplification
+principle.
+
+Theorem~\ref{thm:core-five} has a different parameter from these density
+and degree results: the number of distinct inclusion-maximal incoming
+neighborhoods. There is no restriction on the order of the original graph
+or on the size of an incoming-neighborhood class. The certificate on a
+chosen core is checked against every permitted subset of an incoming set,
+so that it controls all original target patterns simultaneously. An
+ordinary verification of Seymour's conjecture for small graphs does not
+automatically supply these stronger certificates. The finite tables are
+therefore accompanied by explicit integer checks and a proof of their
+transfer to arbitrary-order graphs. The labelled construction from an
+infeasible pattern system establishes a converse at the universal level.
+Finite linear-programming duality is standard; the graph realization and
+its exact-distance calculation are the substantive steps that must be
+verified for this particular reformulation. Universal feasibility remains
+unproved.
+
+Recent special cases provide useful comparisons. Wang and
+Lu~\cite{WangLu2026} prove the conjecture for
+$\mathcal D_{0,3}\cup\mathcal D_{1,1}$, where $\mathcal D_{s,t}$ consists
+of oriented graphs admitting a vertex partition whose induced underlying
+graphs are respectively $s$- and $t$-degenerate. Bai, Li and
+Park~\cite{BaiLiPark2026} study the stronger requirement of a complete
+directed matching from the first to the exact second neighborhood, proving
+it when the minimum outdegree is at most five or the graph is
+$5$-anti-transitive. Kaneko and Locke~\cite{KanekoLocke2001} established
+ordinary Seymour vertices when the minimum outdegree is at most six.
+The preprint of Sadhukhan, Sandeep and Sen~\cite{SadhukhanEtAl2026}
+treats minimum outdegree seven using computer-assisted local reductions.
+Brukhman's preprint~\cite{Brukhman2026} treats the dense range
+$n\leq 2\delta^++2$. The incoming-core theorem uses none of these
+recent preprints as a premise.
+
+The five-class hypothesis does not imply the hypotheses of those
+particular recent results. For example, replace each vertex of the regular
+five-vertex tournament, with arcs $i\to i+1,i+2$ modulo five, by an
+independent set of size $m\geq4$. The resulting graph has five maximal
+incoming classes, order $5m$, and minimum outdegree $2m$. Its underlying
+complete five-partite graph belongs to neither
+$\mathcal D_{0,3}$ nor $\mathcal D_{1,1}$, and a path through parts
+$0,1,2,3,4,1$ excludes $5$-anti-transitivity. It also lies outside the
+stated dense range. This example itself is already covered by the weighted
+tournament theorem. It demonstrates noncontainment in specific hypotheses,
+not novelty relative to every known weighted or substitution argument.
+
+Halkiewicz's split-twin operation~\cite{Halkiewicz2026} duplicates incoming
+neighbors and partitions outgoing neighbors while increasing the order;
+its stated preservation theorem has a condition involving an existing
+Seymour vertex. This differs from the fixed-order row copying used here.
+Nevertheless, this distinction and the preceding comparisons do not settle
+priority for equivalent formulations under other terminology. The present
+paper makes no claim to an exhaustive classification of earlier reductions.
+The literature comparison is current to 7 October 2026. Public full-proof
+claims, including~\cite{GloverClaim2026}, are not assumed correct or used
+as premises. The conclusions proved here remain partial results and
+reformulations of the conjecture.

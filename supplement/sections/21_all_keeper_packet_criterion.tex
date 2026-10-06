@@ -1,0 +1,115 @@
+\subsection{An all-keeper packet criterion}
+\label{sec:all-keeper-packet-criterion}
+
+Let $D$ be a finite nonempty strongly connected all-deficient oriented
+graph minimal under deletion of arbitrary nonempty arc sets. All
+failure, convenience, protection, and reachability predicates refer
+to $D$. Fix $u$ and suppose
+\[
+ \mathcal M(u)\cap P(u)=\varnothing.
+ \tag{AK1}\label{eq:all-keeper-no-missing-far-in}
+\]
+Choose one canonical reference placing all good missing partners of
+$u$ before $u$. This is possible because original missing pairs are
+incomparable in the protection partial order.
+
+\begin{lemma}[All-keeper packet completion]
+\label{lem:all-keeper-packet-completion}
+If every chosen bad direction has all its failure sources outside
+$P(u)\cup\{u\}$, then $u$ is strictly deficient in the completed
+tournament $T$. No bound on $\eta(u)$ or $t(u)$ is needed.
+
+If $P(u)=\varnothing$, its neighborhoods are unchanged. Otherwise,
+with the usual packet notation $B_u,k,s,E,L$, one has exactly
+\[
+ J=N_T^+(u)\setminus N_D^+(u)=\mathcal M(u)\setminus B_u
+ \tag{AK2}
+\]
+and the simultaneous envelope
+\[
+ N_T^{++}(u)\subseteq (N_D^{++}(u)\cup L)\setminus J,
+ \qquad J\subseteq N_D^{++}(u)\cup L.
+ \tag{AK3}
+\]
+Consequently
+\[
+ g_T(u)\ge
+ \begin{cases}|P(u)|+1,&s=0,\\|P(u)|+g_D(u)+1,&s>0.\end{cases}
+ \tag{AK4}
+\]
+\end{lemma}
+
+\begin{proof}
+If a bad incident pair $ur$ were completed by $r\to u$, its
+nonempty failure set would contain some $q$ with $q\to r$ and
+$u\in U_D(q)$. Thus $q\in P(u)$, forbidden by the direction
+selection. Every incident bad pair is therefore directed $u\to r$.
+Its opposite-direction witness $q$ satisfies $q\in P(u)$ and
+$q\to r$. If $P(u)$ is empty there are no bad incident pairs.
+Every incoming good direction into $u$ is then convenient and is
+selected by the reference, so $J=\varnothing$. No chosen direction
+fails at $u$, hence its exact second neighborhood is unchanged.
+
+Assume $P=P(u)\ne\varnothing$. Write
+\[
+ \begin{gathered}
+ Q=N_D^{--}(u),\quad C=\partial P,\quad X=\partial^2P,\quad H=Q\setminus C,\\
+ B_u=H\cap\mathcal M(u),\quad k=|B_u|,\quad s=|H\cap N_D^+(u)|.
+ \end{gathered}
+\]
+The partner packet gives
+\[
+ E=(\mathcal M(u)\setminus B_u)\,\dot\cup\,X,
+ \quad L=E\setminus N_{\widehat D}^{++}(u),
+ \quad |L|\le
+ \begin{cases}\eta(u)-2k,&s=0,\\\eta(u)-g_D(u)-2k,&s>0.\end{cases}
+\]
+All nonexceptional missing partners lie in $P\cup C$, and (AK1)
+puts them in $C$. Every such good partner $r$ has a predecessor
+$q\in P$ pointing to it, so $r\to u$ is nonconvenient and the
+chosen good direction is $u\to r$. Every good exceptional partner
+admits the convenient incoming direction, selected by the reference.
+A bad exceptional partner is impossible: every incident bad pair
+has the original predecessor $q\in P$ identified above; (AK1)
+then makes its missing endpoint a member of $C$, not $H$.
+This proves (AK2). Each $r\in J$ has an original predecessor
+$q_r\in P$ pointing to $r$, whether its chosen first arc is good
+or bad.
+
+Through an original first intermediate of $u$, an originally far
+second head would require a chosen direction failing at $u$,
+which is excluded. Through an added first intermediate $r\in J$,
+original far second heads lie in $L$ by the partner-head budget.
+Suppose an originally far head $y\notin L$ receives an added
+direction $r\to y$. Every vertex reachable from $P$ within two
+steps is in $P\cup C\cup X$, and every vertex of this union far
+from $u$ belongs to $L$. Thus $y\in U_D(q_r)$. The direction
+$r\to y$ fails at $q_r\in P$. It cannot be a chosen good
+direction, because it is nonconvenient; and it cannot be a chosen
+bad direction, because such failures were excluded. The first
+inclusion in (AK3) follows, with $J$ removed since distance two
+is exact. The second follows because $J\subseteq E$, and a
+missing endpoint reached in $\widehat D$ was already an original
+exact second neighbor.
+
+Now $h=|J|=\mu(u)-k$, so the envelope gives
+$g_T(u)\ge g_D(u)+2h-|L|$. Substituting the packet bound and
+the identity $|P(u)|=2\mu(u)+g_D(u)-1-\eta(u)$ gives (AK4).
+No comparison between different completions is involved.
+\end{proof}
+
+\begin{corollary}[A sufficient condition for the bad directions]
+\label{cor:all-keeper-independent-far-in}
+If (AK1) holds and the cross-witness graph induced by $P(u)$ has
+no edge, then bad pairs can all be directed as required by the lemma.
+\end{corollary}
+
+\begin{proof}
+Every cross-witness edge is an original missing pair. By (AK1)
+there is no cross-witness edge from $u$ to $P(u)$; by hypothesis
+there is none inside $P(u)$. Thus $P(u)\cup\{u\}$ is independent
+in the cross-witness graph. If both directional failure sets of a
+bad pair intersected this set, their opposite sources would form
+an edge inside it. Therefore at least one direction avoids the
+whole set. Select that direction independently for each bad pair.
+\end{proof}

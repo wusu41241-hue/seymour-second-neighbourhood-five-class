@@ -1,0 +1,50 @@
+\begin{lemma}\label{lem:odd-root-transfer}
+Let $D$ be any oriented graph of order $2\delta+3$ with minimum
+outdegree $\delta$.  Suppose $S\subsetneq V(D)$ has cardinality $2t+1$
+and $D'=D-S$ has minimum outdegree at least $\delta-t$.  Then this
+minimum outdegree is exactly $\delta'=\delta-t$, and the order of
+$D'$ is $n'=2\delta'+2$.
+For $v\notin S$ put
+\[
+ j_S(v)=|N_D^+(v)\cap S|,\qquad
+ E_S(v)=(N_D^{++}(v)\setminus S)\setminus N_{D'}^{++}(v),
+\]
+and put
+\[
+ \Phi(S)=\sum_{v\notin S}
+       \bigl(|N_D^{++}(v)\cap S|-j_S(v)\bigr).
+\]
+If $B_{\rm out}=\sum_{v\notin S}b_D(v)$, then
+\begin{equation}\label{eq:odd-root-B-transfer}
+ B(D')=B_{\rm out}+\Phi(S)+\sum_{v\notin S}|E_S(v)|.
+\end{equation}
+Let $z'$ be the number of vertices of $D'$ adjacent to every other
+vertex and having outdegree $\delta'$.  With $\sigma'$ denoting its
+nonnegative fixed-target capacity surpluses relative to $\delta'$, one has
+\begin{equation}\label{eq:odd-root-perfect-transfer}
+ z'=n'+B_{\rm out}+\Phi(S)
+            +\sum_{v\notin S}|E_S(v)|+\sum_x\sigma'(x).
+\end{equation}
+Furthermore, writing $A_S$ for the number of arcs inside $S$ and
+$Q_S$ for the number of ordered pairs $(u,v)$ of vertices in $S$
+with $v\in N_D^{++}(u)$, one has
+\begin{equation}\label{eq:odd-root-Phi-inside}
+ \Phi(S)=\sum_{s\in S}\bigl(d_D^{--}(s)-d_D^-(s)\bigr)+A_S-Q_S.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The oriented arc-count bound at order $2(\delta-t)+2$ makes the
+minimum outdegree at most $\delta-t$, proving equality.
+Deletion of vertices does not change an old direct adjacency between
+two surviving vertices.  Consequently
+\[
+ b_{D'}(v)=b_D(v)-j_S(v)+|N_D^{++}(v)\cap S|+|E_S(v)|.
+\]
+Summation gives \eqref{eq:odd-root-B-transfer}.  The fixed-target
+budget identity at order $2\delta'+2$ is
+$B(D')+n'=z'-\sum_x\sigma'(x)$; this gives
+\eqref{eq:odd-root-perfect-transfer}.  Finally, summing
+$d_D^{--}(s)-d_D^-(s)$ over $S$ counts the same incoming terms as
+$\Phi(S)$, together with the internal contribution $Q_S-A_S$.
+This proves \eqref{eq:odd-root-Phi-inside}.
+\end{proof}

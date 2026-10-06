@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "counts": {
+    "allFiveVertexGraphs": 59049,
+    "sampledGraphs": 100000,
+    "targetCases": 519399,
+    "exceptionalPartnerConvenience": 279832,
+    "sharedHeadInclusions": 519399,
+    "nonemptySharedHeads": 289131,
+    "strictBoundaryCases": 111144,
+    "nonemptyDeletedBundleSnpCases": 10638,
+    "etaThreeOneExceptionCases": 867,
+    "etaThreeNonemptyOneExceptionCases": 45
+  },
+  "examples": {
+    "eta3": {
+      "out": [
+        0,
+        140,
+        17,
+        96,
+        416,
+        836,
+        128,
+        9,
+        517,
+        16
+      ],
+      "x": 5,
+      "B": 2,
+      "shared": 8,
+      "L": 8,
+      "g": 1
+    }
+  },
+  "seed": "0x4042026",
+  "scope": "Tests actual local inclusions, and numeric bounds only when strict boundary and deleted-source SNP prerequisites are checked. Does not test existence of all-deficient minimal counterexamples."
+}

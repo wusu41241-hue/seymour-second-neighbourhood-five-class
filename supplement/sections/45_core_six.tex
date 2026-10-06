@@ -1,0 +1,177 @@
+\subsection{Excluding a five-vertex positive-surplus core}
+
+Throughout this subsection, $D$ is a strongly connected counterexample
+which is minimal under deletion of nonempty sets of arcs, and
+$n=2\delta+3$. Write
+\[
+ e(v)=d^+(v)-\delta,\qquad
+ g(v)=d^+(v)-d^{++}(v),\qquad b(v)=g(v)-1.
+\]
+Thus $b(v)\ge0$. For a target $x$, put
+\[
+ T(x)=V\setminus N^-[x],\quad
+ P(x)=\{u:x\in U(u)\},\quad p(x)=|P(x)|,
+ \quad q(x)=e(x)+\mu(x).
+\]
+For $q(x)>0$ define $\sigma(x)=2q(x)-1-p(x)$, and put
+$\sigma(x)=0$ when $q(x)=0$. Let
+\[
+ K=\{x:\sigma(x)>0\},\quad k=|K|,\qquad
+ S=\sum_x\sigma(x).
+\]
+Call $\sigma=1$ targets light and $\sigma\ge2$ targets heavy.
+We use the previously established core identity
+\begin{equation}\label{eq:core-count-six}
+ \binom{k}{2}=S+m+t+A_K+M_{\rm out},
+\end{equation}
+where $m$ is the number of minimum-degree vertices in $K$,
+$t$ counts gap-two vertices of excess at most one,
+$A_K$ is the number of arcs induced by $K$, and $M_{\rm out}$
+is the number of missing pairs with both endpoints in $V\setminus K$.
+
+\begin{lemma}[Minimum predecessors of heavy targets]\label{lem:heavy-minimum-predecessor}
+Every target $s$ with $\sigma(s)\ge2$ has an in-neighbour of
+out-degree $\delta$.
+\end{lemma}
+\begin{proof}
+Suppose otherwise. Then $D'=D-s$ has order $n'=2\delta+2$
+and all its out-degrees are at least $\delta$: minimum-degree vertices
+lose no outgoing arc, and every other vertex loses at most one.
+The oriented arc-count bound gives minimum out-degree at most
+$\lfloor(n'-1)/2\rfloor=\delta$, so it is exactly $\delta$.
+The fixed-target
+budget identity in $D'$ gives
+\[
+ B'+n'=z'-\sum_x\sigma'(x)\le n',\qquad
+ B'=\sum_{v\in V(D')}b_{D'}(v),
+\]
+since the capacity bound gives $\sigma'(x)\ge0$ and $z'\le n'$.
+Thus $B'\le0$.
+
+Deleting $s$ can only remove exact second neighbours of the other
+vertices. If $E_s(v)$ denotes those lost second neighbours other
+than $s$, the exact transfer identity is
+\[
+ B'=B-b(s)+\bigl(d^{--}(s)-d^-(s)\bigr)
+       +\sum_{v\ne s}|E_s(v)|.
+\]
+The first term $B-b(s)$ and the final sum are nonnegative.
+Furthermore
+\[
+ d^{--}(s)-d^-(s)=2q(s)-2-p(s)=\sigma(s)-1\ge1.
+\]
+Consequently $B'\ge1$, a contradiction.
+\end{proof}
+
+\begin{lemma}[A weighted five-vertex relation]
+Let $R$ be an oriented graph with positive integer vertex weights
+$w_1,\ldots,w_H$ whose sum is five. If
+\[
+ \sum_{j\in N_R^+(i)}w_j\ge2\quad\text{for every }i,
+\]
+then $H=5$, all weights equal one, and $R$ is a regular tournament.
+\end{lemma}
+\begin{proof}
+There is no possibility with $H=1$ or $H=2$. With $H=3$, positive
+out-degree at every vertex forces a directed triangle. Each
+successor weight would then be at least two, exceeding the total
+weight five. With $H=4$, the weights are $2,1,1,1$. The weight-two
+vertex must point to two singleton vertices. Neither can point
+back to it; each must therefore point to both remaining singleton
+vertices, giving a digon. Finally, with $H=5$ every weight is one.
+The minimum out-degree two uses all ten possible arcs, and every
+out-degree is two.
+\end{proof}
+
+\begin{theorem}\label{thm:core-six}
+The positive-surplus core satisfies $k\ge6$. In particular,
+\[
+ {z\ge h+8}.
+\]
+\end{theorem}
+\begin{proof}
+An all-deficient graph has minimum outdegree at least two, so the outside tournament used below is nonempty. The preceding core bound gives $k\ge5$. Suppose $k=5$.
+The established light-target incidence bound $A_K\ge L$, where
+$L$ is the number of light targets, and $S\ge k+H$, where $H$
+is the number of heavy targets, make every inequality in
+\eqref{eq:core-count-six} an equality. In particular,
+\[
+ m=t=M_{\rm out}=0,\qquad
+ \sigma(x)\in\{1,2\}\ (x\in K),\qquad A_K=L.
+\]
+Thus every core vertex is nonminimum-degree; every outside vertex
+has degree $\delta$ and is a zero-surplus target; and the outside
+graph is a tournament on $2\delta-2$ vertices.
+
+ Every light target is nonminimum-degree and, by the previously
+ established degree--surplus bounds, has $e=1$, $g=1$, and
+ $|U(x)|=1$. A light target with $q=1$, $p=0$ would therefore
+ have $\mu=0$ and be adjacent to all four other core vertices.
+ This would give $A_K\ge4$, whereas $A_K=L=5-H\le3$ by $H\ge2$.
+ Hence every light target is active, with $p>0$.
+
+ The active-light protected-source lemma supplies, for each
+ light target $x$, a parent $y\in K$ satisfying
+ \[
+ y\to x,\qquad N^-(y)\subseteq N^-(x)\setminus\{y\}.
+ \]
+ Since $q(y)>q(x)$, the chosen parent edges form a forest.
+ They have distinct heads and number $L$, so they are all the
+ core arcs. A parent $y$ cannot itself be light: its own parent
+ $z$ would also satisfy $N^-(z)\subseteq N^-(x)$ and $z\to x$.
+ The protected containments would make both $y$ and $z$
+ unreachable from $x$ within two steps, contradicting $|U(x)|=1$.
+ Thus the forest consists of stars rooted at the heavy targets.
+ Let $C_1,\ldots,C_H$ be these star basins, with roots
+ $r_1,\ldots,r_H$.
+ Put $w_i=|C_i|$, so $\sum_iw_i=5$.
+
+Every minimum-degree vertex has at least two unreachable core
+vertices, by the tight-target demand lemma. Protected containment
+has two consequences. First, a minimum vertex $u$ with $u\to r_i$
+points to every vertex of $C_i$. Second, if $u$ reaches $r_j$
+within two steps, it reaches every vertex of $C_j$ within two
+steps. Both statements follow by iterating the containment along
+a protected tree.
+
+Define a directed relation on the heavy roots by
+\[
+ i\to j\quad\Longleftrightarrow\quad
+ \text{there exists a degree-$\delta$ vertex $u$ with}
+ \ u\to r_i\text{ and }r_j\in U(u).
+\]
+Every heavy root has such a minimum predecessor by the preceding
+lemma. The predecessor lies outside $K$, and its at least two
+unreachable core vertices lie in basins other than its own.
+Therefore
+\[
+ \sum_{j\in N_R^+(i)}w_j\ge2.
+\]
+The relation has no digon. Indeed, witnesses $u\to r_i$,
+$r_j\in U(u)$ and $v\to r_j$, $r_i\in U(v)$ forbid both
+$u\to v$ and $v\to u$, since either arc would give a forbidden
+two-step path. But $u$ and $v$ are distinct vertices of the
+outside tournament.
+
+The weighted-relation lemma now forces $H=5$, all $C_i$ to be
+singletons, and the relation to be a regular tournament. If an
+outside vertex $u$ points to $r_i$, its unreachable core set
+contains at least two vertices and is contained in $N_R^+(i)$,
+which has exactly two vertices. It must equal $N_R^+(i)$.
+If $u$ pointed to two roots, their relation out-neighbourhoods
+would therefore be equal. Distinct vertices of a tournament
+cannot have equal out-neighbourhoods: their mutual arc
+distinguishes them. Hence every outside vertex has at most one
+out-neighbour in $K$.
+
+Every outside vertex consequently has out-degree at least
+$\delta-1$ in the outside tournament. Its average out-degree,
+however, is $(2\delta-3)/2=\delta-3/2$, a contradiction.
+This excludes $k=5$.
+
+Finally, the established $H\ge2$ gives
+\[
+ z-h=S\ge k+H\ge8,
+\]
+as claimed.
+\end{proof}

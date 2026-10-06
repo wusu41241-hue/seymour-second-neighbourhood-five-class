@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-05",
+  "reviewer": "/root/oct05_m_three_units",
+  "target": "unit_support_twenty_four.tex",
+  "verdict": "PASS_INTERNAL_ADVERSARIAL_REVIEW",
+  "external_peer_review": false,
+  "machine_checked_infinite_proof": false,
+  "checks": [
+    "For an h-three-cycle, missing xh(x) cannot be an edge of B because its image overlaps its tail; therefore the missing pair is good.",
+    "If all three head pairs are adjacent, the far-head restrictions force a reverse directed triangle, which gives a forbidden two-step path to the head.",
+    "A B-neighbor z of h(x) yields h(x)->h(z)->h^3(x)=x. The active packet boundary of x supplies a predecessor witnessing nonconvenience of h(x)->x, forcing the good direction x->h(x).",
+    "A six-vertex tree orbit has only factorizations two components of size three or three components of size two. The first has a forbidden h-two-cycle of tree centers.",
+    "For an h-six-cycle on three matching edges, orient even endpoints toward odd endpoints; no sink has its h-image with positive indegree.",
+    "For two h-three-cycles, any specified forced-good source can be the unique obstructive matching root; the other roots have h-images with indegree zero.",
+    "The forced good orientation is unique, hence compatible with one global canonical reference and unaffected by independently oriented other component orbits.",
+    "All completion-envelope predicates h and Far are defined in the original graph, so an added good first arc need not preserve the old far relation in the completed tournament.",
+    "Only tree-component orbits of at least eight vertices can contribute remaining zero gaps; the zero-set theorem requires at least three, giving twenty-four actual sources."
+  ],
+  "finite_orientation_check": {
+    "program": "audit_unit_six_matching.js",
+    "command": "D:/node.exe audit_unit_six_matching.js",
+    "status": "PASS",
+    "perfect_matchings_enumerated": 15,
+    "permutations_per_matching": 720,
+    "eligible_h_six_cycle_configurations": 120,
+    "eligible_h_three_plus_three_configurations": 120,
+    "arbitrary_forced_root_certificates": 720,
+    "scope": "Abstract matching orientation certificates only, not SSNC graph construction or verification."
+  }
+}

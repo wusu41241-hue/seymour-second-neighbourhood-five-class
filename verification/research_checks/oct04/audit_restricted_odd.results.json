@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "seed": 984172,
+  "graphs_generated": 4000,
+  "graphs_with_minimum_outdegree_two": 777,
+  "deletion_instances": 20113,
+  "instances_with_nonempty_Z": 7890,
+  "instances_with_negative_q": 5425,
+  "instances_with_negative_original_t3": 17703,
+  "all_deficient_instances": 0,
+  "minimum_original_t3": -12,
+  "nonempty_source_capacity_checks": 26599,
+  "light_target_integer_checks": 6274,
+  "missing_pair_charge_bound_checks": 20113,
+  "counter_only_degree_conclusion_tested": false,
+  "note": "Original negative t3 is recorded, not replaced by zero; the counterexample-only degree conclusion is not asserted."
+}

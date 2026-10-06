@@ -1,0 +1,203 @@
+\section{A source-restricted odd deletion with exceptional minima}
+\label{sec:restricted-odd-capacity}
+
+Let $D$ be strongly connected, all-deficient and minimal under deletion
+of arbitrary nonempty sets of arcs, with $n=2\delta+3$.
+Use $e(v)=d_D^+(v)-\delta$, $b(v)=g(v)-1\ge0$, and the heavy-target
+notation established earlier.
+
+\begin{lemma}[A three-vertex deletion with $d$ exceptional sources]
+\label{lem:restricted-odd-degree}
+Let $S$ consist of three heavy targets.  Suppose every surviving
+minimum-degree vertex sends at most two arcs into $S$, and every
+surviving nonminimum-degree vertex has outdegree at least $\delta-1$
+after deletion of $S$.  Let
+\[
+ Z=\{v\notin S:e(v)=0,\ |N_D^+(v)\cap S|=2\},\qquad d=|Z|.
+\]
+Then
+\begin{equation}\label{eq:restricted-odd-degree-bound}
+ {\delta\le20d+12.}
+\end{equation}
+If $\delta\ge10$, then $d\ge1$.
+\end{lemma}
+
+\begin{proof}
+Put $D'=D-S$, $n'=2\delta$, and fix the counting baseline
+$\alpha=\delta-1$.  Set $W=V(D')\setminus Z$.
+The vertices of $Z$ have outdegree $\alpha-1$, while every vertex
+of $W$ has outdegree at least $\alpha$.
+When $d>0$, the actual minimum outdegree of $D'$ is $\delta-2$;
+we do not apply a full-graph minimum-degree theorem at baseline
+$\alpha$.  All capacity arguments below use only the source set $W$.
+
+Write $a'(v)=d_{D'}^+(v)-\alpha$, let $\mu'(v)$ be the missing
+degree in $D'$, and define
+\[
+ T'(x)=V(D')\setminus N^-_{D'}[x],\qquad
+ q'(x)=|T'(x)|-\alpha=a'(x)+\mu'(x),
+\]
+\[
+ P'_W(x)=\{v\in W:x\in U_{D'}(v)\},\quad
+ \mathcal X=\{x:P'_W(x)\ne\varnothing\},\quad N=|\mathcal X|.
+\]
+For $x\in\mathcal X$ put
+$p_x=|P'_W(x)|$ and $\Delta_x=2q'(x)-1-p_x$.
+The source-restricted capacity count gives $\Delta_x\ge0$.
+Let $\mathcal D=\sum_{x\in\mathcal X}\Delta_x$.
+The only negative $q'$ values are $q'=-1$ at
+\[
+ Z_0=\{z\in Z:\mu'(z)=0\},\qquad z_0=|Z_0|,
+\]
+and these vertices are never targets.
+Define the nonnegative quantities
+\[
+ t_2=2\!\sum_{x\notin\mathcal X,\ x\notin Z_0}\!q'(x),
+ \qquad t_3=\sum_{v\in W}b(v),
+\]
+\[
+ E_S(v)=(N_D^{++}(v)\setminus S)\setminus N_{D'}^{++}(v),
+ \qquad t_4=\sum_{v\in W}|E_S(v)|.
+\]
+Let $\Phi(S)$ be the exact deletion imbalance of
+Lemma~\ref{lem:odd-root-transfer}, and put
+$Q_Z=\sum_{v\in Z}|S\cap N_D^{++}(v)|$.
+Each vertex of $Z$ directly dominates two of the three deleted
+vertices, so $0\le Q_Z\le d$.
+
+The exact restricted budget is
+\begin{equation}\label{eq:restricted-odd-budget}
+ {N+\mathcal D+t_2+t_3+t_4
+                =\beta:=2d-\Phi(S)+2z_0+Q_Z.}
+\end{equation}
+To derive it, put $A'=\sum_{v\in V(D')}a'(v)$ and
+$B'_W=\sum_{v\in W}b_{D'}(v)$.
+The even-order arc count gives $\sum_xq'(x)=n'-A'$.
+Since $a'=-1$ on $Z$, double counting the far source--target pairs
+with sources in $W$ gives
+\[
+ N+\mathcal D+2\sum_{x\notin\mathcal X}q'(x)+B'_W=4d.
+\]
+The exact transfer on $W$ is
+\[
+ B'_W=t_3+\Phi(S)-Q_Z+2d+t_4.
+\]
+Move the $-2z_0$ nontarget contribution to the other side to obtain
+\eqref{eq:restricted-odd-budget}.
+For the heavy triple, $\Phi(S)\ge-3$ by its exact internal-pair
+formula.  Hence
+\begin{equation}\label{eq:restricted-odd-beta-coarse}
+ \beta\le5d+3.
+\end{equation}
+
+Partition the nonexceptional sources into
+\[
+ \Pi=\{v\in W:q'(v)=0\},\qquad Y=W\setminus\Pi,
+ \qquad y=|Y|.
+\]
+Vertices of $\Pi$ are whole of outdegree $\alpha$ in $D'$;
+all missing pairs of $D'$ lie inside $Y\cup Z$.
+Moreover $y\le N+t_2/2$.
+The integer light-target charging argument of
+Section~\ref{sec:predecessor-bound}, applied with sources $W$ and
+baseline $\alpha$, gives
+\begin{equation}\label{eq:restricted-odd-charge}
+ M(D')\le\mathcal D+\frac{t_2}{2}
+                   +\sum_{v\in Y}|U_{D'}(v)|+d.
+\end{equation}
+The additional $d$ accounts for the term $[x\in Z]$ in
+$\mu'(x)\le q'(x)+[x\in Z]$.
+The vertices of $Z_0$ have missing degree zero and incur no
+missing-pair charge.
+No full-graph capacity assertion is used in this charging step.
+
+Write
+\[
+ A_Y=\sum_{v\in Y}e(v),\quad
+ J_Y=\sum_{v\in Y}|N_D^+(v)\cap S|,\quad
+ A'_Y=\sum_{v\in Y}a'(v).
+\]
+Then $A'_Y=A_Y+y-J_Y$.
+The exact degree count in $D'$ gives
+\[
+ M(D')=\delta+d-A'_Y.
+\]
+The far-set transfer, retaining the original excess, gives
+\[
+ \sum_{v\in Y}|U_{D'}(v)|
+ =3y-2A_Y+\sum_Yb(v)-\sum_Y|S\cap U_D(v)|
+                       +\sum_Y|E_S(v)|
+ \le3y-2A_Y+t_3+t_4.
+\]
+Substitution into \eqref{eq:restricted-odd-charge} yields
+\[
+ \delta+A_Y+J_Y
+ \le\mathcal D+\frac{t_2}{2}+4y+t_3+t_4
+ \le4N+\mathcal D+\frac{5t_2}{2}+t_3+t_4
+ \le4\beta.
+\]
+In fact the retained version is
+\[
+ \delta+A_Y+J_Y
+ \le4\beta-3\mathcal D-\frac{3t_2}{2}-3t_3-3t_4.
+\]
+Dropping the nonnegative terms and using
+\eqref{eq:restricted-odd-beta-coarse} proves
+\eqref{eq:restricted-odd-degree-bound}.
+If $d=0$, the deletion is admissible for the heavy-triple
+obstruction, which rules out $\delta\ge10$.
+\end{proof}
+
+\begin{theorem}[A residual-dependent restriction on four heavy roots]
+\label{thm:four-heavy-residual}
+Assume $\delta\ge10$ and $H=4$.
+Let $m$ count minimum-degree vertices in $K$, let $L$ count
+nonwhole vertices outside $K$, and put $E=m+2L$.
+Then $E\ge1$ and
+\begin{equation}\label{eq:four-heavy-degree-residual}
+ {\delta\le20(m+2L)+12\le40R+12.}
+\end{equation}
+Consequently
+\[
+ M\ge\left\lceil\frac{81\delta+108}{80}\right\rceil
+ \qquad\text{when }H=4.
+\]
+\end{theorem}
+
+\begin{proof}
+For a heavy root, the general predecessor bound gives
+$15c\ge\delta+4$.
+If some heavy root has $c\le E$, then
+$\delta\le15E-4\le20E+12$.
+
+Otherwise every heavy root has more than $E$ minimum-degree
+predecessors.  Excluding the at most $E$ bad witnesses described
+in Theorem~\ref{thm:general-good-witnesses} leaves good whole
+minimum-degree predecessors at every root.
+Use the \emph{full} oriented relation witnessed by all such good
+sources: $i\to j$ if a good source points to $r_i$ and is far
+from $r_j$.  It has positive weighted outdegree at every root
+and no digon, since both witnesses of a putative digon would
+be whole.
+
+By Lemma~\ref{lem:odd-root-three-disjoint}, choose three roots $S$
+whose outneighborhoods in this relation are pairwise disjoint.
+A good minimum-degree source cannot point to two chosen roots:
+its nonempty far certified core set would place some far root
+in both outneighborhoods.  Thus only bad minimum sources can
+lose two arcs into $S$, and their number $d$ is at most $E$.
+The universal heavy-capacity bound at $H=4$ limits every vertex
+to two outgoing arcs into the full heavy set.  All other
+minimum sources lose at most one arc, and nonminimum sources
+retain outdegree at least $\delta-1$.
+Lemma~\ref{lem:restricted-odd-degree} therefore gives
+$\delta\le20d+12\le20E+12$.
+For $\delta\ge10$ that lemma also gives $d\ge1$.
+If $E=0$, the first case is impossible and the second would have
+$d=0$, so $E\ge1$.
+
+Finally $2m+L\le R$ implies $m+2L\le2R$.
+This proves \eqref{eq:four-heavy-degree-residual}.
+Substitute $R=2M-(2\delta+3)$ and rearrange to obtain
+$80M\ge81\delta+108$, giving the stated integer bound.
+\end{proof}

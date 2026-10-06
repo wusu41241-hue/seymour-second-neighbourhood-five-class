@@ -1,0 +1,250 @@
+Independent scientific audit of closure.tex and extremal.tex
+Date: 2026-10-07 (Asia/Taipei)
+Reviewer: manuscript_math_audit
+
+Disposition
+===========
+PASS after three wording/notation corrections communicated to the main author
+and independently observed in the revised files. No defect requiring withdrawal
+of a main mathematical theorem was found. All minimality-dependent conclusions
+retain the MIN, minimum-order, or other explicit hypotheses stated in the text.
+The audit treats correctly resolved supplementary mathematical results as
+references; unresolved cross-reference typesetting is not a logical objection.
+
+Files and supporting material read
+=================================
+- paper/closure.tex, full text, including the revised final subsection.
+- paper/extremal.tex, full text.
+- paper/notation.tex, full text.
+- The original near-whole-feed boundary-budget source.
+- The original weak-zero-feed residual-budget source, full text.
+- The original general-equality partner-path source, full text.
+- Supplement sections 01_foundation (external-boundary, gap, packet, and sink
+  proofs), 03_local_budget, and 04_partner_budget.
+- The precise assumptions, statements, and relevant proof portions of the
+  two-support, (m,2,1), (2,2,2), and (2,2,1,1) results used for R>=7.
+The source audit addresses the synthesis and applicability of those results;
+it does not claim to freshly reprove every theorem in the entire supplement.
+
+Issues found and corrected by the main author
+=============================================
+1. Conflicting P_D(v) notation across chapters.
+   notation.tex uses P_D(v) for the reverse-far set, while the originally
+   supplied core.tex used it for N_D^-(v) intersect C. The core pattern is
+   now denoted Pi_C(v), leaving reverse-far notation unchanged. This removes
+   a genuine ambiguity in the hypotheses used by the residual chapter.
+
+2. Overstatement of the partner-path theorem.
+   The first version said that "any unpaid subset" not reached from the
+   seeds contains an original cycle. The source theorem only asserts this
+   for the entire set U=R_infinity minus Reach_{D[R_f]}(R_2). It does not
+   apply to arbitrary subsets of U. The revised text explicitly defines
+   this full U and correctly states that if U is nonempty, D[U] contains
+   a cycle. I verified the revised wording in the saved file.
+
+3. Positive Good-slack terminology.
+   The statement that the s_L>0 branch is "stable under equality
+   sedimentation" could suggest an unproved invariance of slack across
+   median orders. The revised text says the cited equality move is
+   unavailable and expressly disclaims equal slack in all medians.
+
+Closure construction and rigidity
+==================================
+A. Simultaneous forced rounds: PASS.
+   A forced a->b has a witness a triangleleft w and w->b in the preceding
+   graph. Each predecessor of a points to w, proving convenience. The
+   reverse direction fails at w because a is a protected far head of w.
+   Thus opposite forced directions are inconsistent. For an old y
+   triangleleft x, a new predecessor a->y with witness w already has
+   w->x. A missing ax is forced a->x in the same batch; an old x->a
+   would create a digon at w. Hence a whole forced batch preserves old
+   incoming nesting. The proof does not accidentally apply sequential
+   reasoning to independently chosen simultaneous weak additions.
+
+B. Sequential weak steps: PASS.
+   Only N^-(b) changes when missing a->b is added. Relations with b as
+   the protected tail are excluded by the assumption that b has no
+   protection successor; relations ending at b become easier. Old
+   incoming containment gives the new a triangleleft b. All predicates
+   are evaluated before this one step and recomputed afterwards.
+
+C. Terminal partial domination and all-reference optimization: PASS.
+   At the terminal Q, incoming nesting for y triangleleft x also gives
+   outgoing nesting: x->z and missing yz would still force y->z. This
+   justifies the two-position median swap even for the partial graph Q.
+   Completing ALL remaining pairs forward in ANY protection extension
+   preserves the same protections. The family includes all extensions,
+   which is necessary for the rereferencing maximum-score argument.
+   Every median of a maximizing completion has every free arc forward;
+   this is a statement about all its global medians, not one chosen order.
+
+D. Original first and second neighborhoods at the feed: PASS.
+   A free outgoing arc at the feed would be backward. A closure-added
+   outgoing arc would make the feed the tail of a persistent protection,
+   contradicting the fact that a protection successor must occur later.
+   Thus the feed's first neighborhood is unchanged at every stage.
+   A new two-step path can only use an old first arc and a newly added
+   second arc. Convenience in that arc's preceding graph makes its head
+   already reachable within two steps. The unchanging first set prevents
+   promotion or demotion between first and second classes. This reasoning
+   also works for a simultaneous forced batch because the feed has no
+   new first arc in the batch. Original second paths persist.
+   Therefore N_T^+(f)=N_Q^+(f)=N_D^+(f) and N_Q^{++}(f)=N_D^{++}(f)
+   have the scopes stated in the theorem; no equality of N_T^{++} with
+   the original second set is asserted.
+
+E. Median-score identity and feed characterization: PASS.
+   For any order, the Q contribution is at most med(Q) and the r free
+   pairs contribute at most r. Every Q median extends protection and
+   produces a completion attaining med(Q)+r. Equality in the separate
+   upper bounds characterizes the median feeds across maximizing
+   completions. This does not identify their feeds with every losing-
+   density support vertex or with all original actual failure sources.
+
+Strict surplus, cycles, and equality branches
+=============================================
+F. Strict surplus and the zero-gap partner budget: PASS.
+   A whole feed in Q would have all its Q-far heads protected and could
+   acquire no second target in the completion. Together with the feed
+   invariance this would leave a positive tournament gap, impossible.
+   Thus a positive original-gap feed has at least one terminal missing
+   partner. At zero completed gap the strong feed inequality is equality
+   and G_L equals the entire completed second neighborhood. A remaining
+   partner in that set would have its free incoming arc reversed relative
+   to the sedimented median, contradicting free-arc rigidity. Partners
+   are therefore original unprotected far vertices not paid as new heads.
+   This proves t_D(f)>=g_D(f)+m. A strictly negative completed gap instead
+   gives |A_f|>=g_D(f)+1 by integrality. The two cases together prove
+   strict surplus without assuming all-deficiency elsewhere.
+
+G. Original partner-cycle lifting: PASS.
+   The absence of a weak r->f step gives a current predecessor p of r
+   not pointing to f. Far-ness of r in T forces p->f in T; hence pf is
+   missing in Q and p is another terminal partner. This gives positive
+   minimum indegree in Q[R_f].
+   For a forced internal addition a->b, far-ness of b and terminality
+   force its witness w to lie in the same fixed final partner set R_f.
+   Each new arc is thus a shortcut of a preceding internal path a->w->b.
+   A simultaneous family of such shortcuts preserves acyclicity.
+   A weak internal addition creating a first cycle would close an old
+   path b leadsto p->a; old predecessor containment also gives p->b,
+   so an old cycle would already exist. Thus closure cannot turn an
+   acyclic D[R_f] into a cyclic Q[R_f]. This proves existence of an
+   original cycle without asserting an edge-by-edge lift of every cycle.
+
+H. Degree localization and low-far sufficient conditions: PASS.
+   The partition identity is t-g=n-1-2d^+-h, with h the number of
+   protected original far heads. Strict surplus gives 2d^++h<=n-2.
+   At n=2 delta^++3, integrality forces d_D^+(f)=delta^+ and h<=1.
+   The result only locates a feed whose original gap is positive; it
+   does not prove it is already Seymour in the original graph.
+
+I. Strong Good equality with negative completed gap: PASS.
+   Every newly reached original far head belongs to G_L because the
+   second arc of its feed path must be free and forward. Hence
+   s_L=|A_f|-g_D(f)-b_L. Under s_L=0, equality sedimentation excludes
+   remaining partners from G_L. Their completed-second part consists
+   of old nongood second vertices and has size at most |A_f|-g_D(f);
+   their far part has size at most t_D(f)-|A_f|. Thus |R_f|<=t_D(f)-g_D(f).
+   The source theorem proves seed-reachability preservation and the
+   original cycle on the ENTIRE unreachable set U. Its low-residual
+   consequences used in extremal.tex retain strong Good equality and
+   correctly permit an exceptional residual-three far partner.
+
+Residual synthesis
+==================
+J. Original packet use: PASS.
+   The packet is computed in the original MIN graph, not in Q or T.
+   Its nonempty-P prerequisite is retained. The k=0 argument that every
+   unprotected far head belongs to L handles missing heads directly and
+   incoming heads through a missing predecessor. The latter cannot be
+   an outneighbor of the source without creating a forbidden two-step
+   path. No exclusion of exceptional heads from the external second
+   boundary is used. The separately stated p=0 identity is essential.
+
+K. Residual-four lower bound and equality: PASS.
+   The zero-gap partner-cycle theorem gives m>=3, terminal partners in
+   the original missing-far set S_f, and t>=g+m. For p=0, eta>=2m+g-1;
+   for p>0,k>0, eta>=m+k+g*1_{s>0}; for p>0,k=0,
+   eta>=g+m+g*1_{s>0}. Every branch gives eta>=m+1>=4.
+   At eta=4, p=0 is excluded; m=3, s=0 and k<=1 follow. If k=1,
+   the three original missing-far heads are exactly the terminal partners.
+   Their directed cycle is an original triangle. Its unique exceptional
+   vertex must receive an original arc from a nonexceptional partner,
+   placing it in the shared remainder L in addition to the other two
+   partners. This contradicts |L|<=2. Thus k=0 and g=1,t=4 follow.
+   The packet partition now has J empty, so N^{--}=partial P; the
+   residual identity gives |P|=2 mu-4; saturation gives L=F and the
+   stated boundary equality. These are necessary shapes, not existing
+   counterexample constructions.
+
+L. The actual-source theorem: PASS as a synthesis.
+   The general theorem is quoted with its actual-source and flexible
+   cross-witness assumptions. The MIN corollary uses the original
+   unit-residual budget and the unit--unit witness-pair property.
+   It requires at least two ACTUAL sources of residual at least two;
+   it does not require every positive-residual vertex to be actual.
+
+M. R>=7 partition chain: PASS.
+   At least three positive residuals and at least two residuals >=2
+   leave, for R<=6, exactly (2,2,1), (3,2,1), (2,2,2), (2,2,1,1).
+   The supplementary (m,2,1) theorem explicitly covers every positive
+   integer m, including 2 and 3; its MIN hypotheses match the main text.
+   The other two cited exclusions have the same MIN hypotheses.
+   Thus the chain exhausts all possibilities and yields R>=7. Since
+   R=2M-n, even n requires R>=8. The five residual-seven partitions
+   printed in the main text are the exact survivors of these filters.
+   Their largest residual is three, so the eta>=4 zero-gap theorem
+   forces every such closure feed to have strictly negative completed
+   gap; this does not exclude those partitions.
+
+N. Sink inheritance and parity rounding: PASS.
+   A sink component inherits all-deficiency and arc-set minimality:
+   deleting internal arcs changes no outside first set and cannot grow
+   an outside second set. The separate outside count uses only g_D<=2
+   and sum_v g_H(v)>=-2M(H), so it also applies outside the strongly
+   connected setting. An all-deficient graph has minimum outdegree >=2,
+   hence a sink component has order k>=5.
+   Let epsilon(q)=1 for even q and 0 otherwise. The required rounding is
+   ceil(k/2)+epsilon(k)+ceil(3o/2)
+      >=ceil((k+o)/2)+o+epsilon(k+o).
+   The difference is respectively 0,1,0,0 for
+   (k even,o even), (k even,o odd), (k odd,o even), (k odd,o odd).
+   Therefore the additional o penalty and the equality-implies-strong
+   conclusion follow. No bound is transferred backwards to a denser
+   nonminimal original graph after arc deletion.
+
+O. Near-whole feed: PASS.
+   Its sole original missing partner remains missing in Q by whole-feed
+   exclusion. A weak-step obstruction gives a Q path f->p->r, and feed
+   second-set invariance puts r in the ORIGINAL second neighborhood.
+   With reverse-far P_D(f) empty, every unprotected far head receives
+   an original arc from r. Thus these heads lie in partial_D^2 O.
+   A vertex a in O reaches f in exactly two original steps; the final
+   intermediate cannot belong to O, which would create a digon at f.
+   Hence f itself also lies in partial_D^2 O. The nonempty original
+   boundary inequality gives d>=g+t+2, and the total far-vertex count
+   then gives n>=g+3t+5. All minimality applications remain in D.
+
+Additional exact arithmetic checks
+==================================
+An independent in-memory integer program enumerated all positive partitions
+up to residual seven with the stated necessary support/heavy constraints.
+It returned exactly the four low-residual partitions and five residual-seven
+partitions printed in the main text. It also checked the complete sink
+rounding inequality for 5<=k<=100 and 0<=o<=100: all 9,696 pairs passed.
+The four symbolic parity cases above establish the general arithmetic claim;
+the finite check is supplementary and not the proof.
+
+Residual limitations preserved by the manuscript
+===============================================
+- A closure feed need not be an actual bad-direction source.
+- Original partner cycles at zero completed gap cannot be imported without
+  modification into negative completed-gap cases.
+- Exceptional far heads may lie in the external second boundary and in L.
+- The eta>=4 threshold concerns zero completed gap only.
+- Neither strict negative completed gaps nor positive Good slack are ruled out.
+- All R and M bounds concern the specified minimal-counterexample classes.
+
+No main text was modified by this reviewer. The author applied the three
+reported corrections, and the saved revised core/closure wording was checked.

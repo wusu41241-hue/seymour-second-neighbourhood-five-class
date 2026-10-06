@@ -1,0 +1,33 @@
+\section{Reproducibility and evidence inventory}
+The certificate tables for cores of orders one through five are supplied
+in the common verification directory. Run the two independent Node.js
+verifiers there to check all $59\,809$ cores and all $462\,404$ nonempty
+pattern inequalities. Including the empty pattern gives $522\,213$.
+The checker uses exact integer arithmetic and does not require the solver
+used to find forty of the weights. The complete primary verifier is printed
+below; the second implementation and table hashes are included in the
+source archive.
+\lstinputlisting[language=JavaScript,caption={Complete integer certificate checker.}]{../verification/verify_small_core_certificates.js}
+
+\section{Historical computations and source attribution}
+The formal claims of this manuscript are the proved statements in the
+article and this supplement. Earlier bounded searches, solver timeouts,
+and local branch logs are indexed in the accompanying coverage inventory.
+The archived minimum-degree-seven work contains two specified branches,
+with 30 and 610 leaf records respectively; these counts do not imply a
+proof of the entire minimum-degree-seven case. Solver logs and reproducible
+source are not automatically formal unsatisfiability proof objects.
+
+An imported excess-measurement manuscript attributed to Daiki Tahara is
+external related material. Its definitions and search reports are not
+presented as original theorems of this article. Likewise, unverified
+repository and preprint claims from the exploratory notes are not used as
+unproved premises in the present proof chain. The source-restricted
+deletion identity needed for the dense-boundary predecessor estimates is
+derived explicitly in its own section.
+
+The whole conjecture remains unresolved by this work. In particular,
+strictly negative completed gaps, universal pattern-certificate existence,
+and arbitrary compatible heavy-source choices are open steps in these
+arguments. Exact control graphs verify failures of stronger shortcuts;
+each such graph has Seymour vertices elsewhere and is not a counterexample.

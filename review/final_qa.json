@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-07",
+  "language": "English throughout both PDFs; zero CJK characters in extracted text",
+  "manuscript_pages": 27,
+  "supplement_pages": 119,
+  "format": "A4, Latin Modern/Computer Modern, black-and-white article layout",
+  "source_lint": "PASS: no prohibited boxes, colour panels or embedded source pages",
+  "compilation": "XeLaTeX, stabilized multiple passes after BibTeX; both documents compile successfully and rebuild from a separate portable source directory",
+  "references": "No undefined references or citations, no multiply-defined labels; article links target the supplied supplement filename",
+  "layout_logs": "No overfull boxes, missing characters or undefined font shapes in final logs",
+  "pdf_structure": "Unencrypted A4 PDFs, expected fonts embedded, no replacement characters extracted",
+  "visual_review": {
+    "paper_pages": [1,2,4,14,22,24,27],
+    "supplement_pages": [1,2,4,59,63,79,118,119],
+    "coverage": "Title/abstract, contents, first body page, dense proofs, equations, result table, code listing, bibliography and final page"
+  },
+  "mathematical_review": "Independent review of core transfer, integer certificates, copying, closure invariants, original-cycle lifting, residual-four refinement, four-partition R>=7 argument and parity rounding. Detailed coverage limits are in the separate review records.",
+  "revisions_during_review": [
+    "Renamed the incoming core pattern to Pi_C(v) to avoid collision with reverse-far P_D(v)",
+    "Corrected the cycle statement to the entire unreachable set U, not arbitrary subsets",
+    "Specified that the equality-sedimentation move is unavailable at positive Good slack, without asserting invariance across other medians",
+    "Normalized bibliographic keys and added explicit arXiv version identifiers",
+    "Resolved display and filename line-breaking issues",
+    "Replaced the overview longtable with ordinary paragraphs after the clean build revealed an infinite-glue compatibility error; final logs contain no such error"
+  ],
+  "exact_replay": "59,809 cores and 462,404 nonempty inequalities PASS in the delivered verification directory",
+  "scope": "No external peer review, proof-assistant certification, complete novelty assessment, full SNC proof or actual counterexample is claimed",
+  "authorship": "Unfilled; the manuscript records AI assistance and requires responsible human approval before submission",
+  "editor_interface": "Native open/compile interface unavailable; source preserved and existing XeLaTeX used without new installation"
+}

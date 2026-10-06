@@ -1,0 +1,237 @@
+\section{Original partner paths at general strong-feed equality}
+\label{sec:weak-equality-original-partner-paths}
+
+Let $Q$ be a terminal weak protection closure of a finite nonempty
+oriented graph $D$, using current FORCED rounds and safe single WEAK
+steps. Let $T$ be a maximum-score reference completion of $Q$, and
+let $L$ be a global median order of $T$ with feed $f$.
+Suppose $g_D(f)>0$ and the strong feed inequality is an equality:
+\[
+ |G_L|=|N_T^+(f)|.
+\]
+All terminal remaining directions are free and forward in every median.
+The original first set $O=N_D^+(f)$ and exact second set at every
+closure stage are unchanged. Write
+\[
+ R=\mathcal M_Q(f),\quad
+ R_2=R\cap N_D^{++}(f),\quad
+ R_\infty=R\cap U_T(f).
+\]
+Equality sedimentation and free-arc rigidity exclude $R\cap G_L$.
+Every newly reached original-far head belongs to $G_L$, since its
+second arc is free and forward. Consequently
+\[
+ R=R_2\,\dot\cup\,R_\infty,
+ \qquad R_2\subseteq N_D^{++}(f)\setminus G_L,
+ \qquad R_\infty\subseteq\mathcal M_D(f)\cap U_D(f).
+ \tag{WP1}\label{eq:weak-equality-partner-partition}
+\]
+
+\begin{theorem}[An original seed-path or unpaid-partner cycle]
+\label{thm:weak-equality-original-partner-path-cycle}
+Let $X$ consist of the vertices reachable from $R_2$ in the original
+induced graph $D[R]$, including the seed vertices themselves, and put
+$U=R_\infty\setminus X$. Then either $U=\varnothing$, or the original
+graph $D[U]$ contains a directed cycle of length at least three.
+Moreover, weak closure creates no new reachability from $R_2$ into
+$R_\infty$ within the fixed partner set $R$:
+\[
+ \operatorname{Reach}_{Q[R]}(R_2)
+   =\operatorname{Reach}_{D[R]}(R_2).
+ \tag{WP2}\label{eq:weak-equality-original-seed-reachability}
+\]
+This statement needs no minimality or residual hypothesis.
+\end{theorem}
+\begin{proof}
+Hold the final set $R$ and its partition fixed throughout the earlier
+closure stages. Consider a FORCED step adding an internal arc
+$a\to b$ with $b\in R_\infty$, and let
+$a\triangleleft_H w$, $w\to b$ be its preceding-graph witness.
+Since $b$ is far from $f$ in the final tournament, $w\to b$ forces
+$w\to f$ there. If $wf$ were adjacent in $Q$, its direction would
+already be $w\to f$. The retained relation $a\triangleleft w$
+would then force the still-missing $a\to f$ at termination.
+Thus $w\in R$.
+
+Suppose $a$ was already reachable from the seeds in $H[R]$.
+If $a\notin R_2$, a seed path has a final old arc $p\to a$ in $R$;
+incoming protection nesting gives $p\to w$ in $H$, so $b$ was already
+reached by the old path ending $p\to w\to b$.
+If $a\in R_2$, choose an original first intermediate $o\in O$ with
+$o\to a$. Nesting gives $o\to w$ in $H$. As $wf$ stays missing,
+$w$ is an exact second neighbor of $f$ in this stage and hence an
+original exact second neighbor. Thus $w\in R_2$ and its old arc
+$w\to b$ already reaches $b$ from a seed.
+
+For a WEAK step adding internal $a\to b$ with $b\in R_\infty$,
+the old containment is $N_H^-(a)\subseteq N_H^-(b)$.
+If a seed path to $a$ has positive length and last predecessor $p$,
+the old arc $p\to b$ already reaches $b$. If $a\in R_2$, its original
+first predecessor $o\to a$ would force $o\to b$ before the step,
+contradicting that $b$ is far from $f$ in the retained final tournament.
+So this case cannot occur. An added arc into $R_2$ cannot add seed
+reachability because its head is already a seed. Steps outside $R$
+do not alter the induced graph. Induction proves
+\eqref{eq:weak-equality-original-seed-reachability}; simultaneous
+FORCED additions use their common preceding graph and obey the same
+argument.
+
+For $r\in U$, the feed is maximal in terminal protection and $rf$
+remains missing. Absence of the eligible WEAK direction $r\to f$
+provides $p\in N_Q^-(r)\setminus N_Q^-(f)$. Since $r$ is far in $T$,
+$f\to p$ in $T$ would produce a two-step path to $r$. Thus $p\to f$
+in $T$, but not in $Q$, so $p\in R$. It cannot be reached from
+$R_2$ in $Q[R]$, or its arc $p\to r$ would reach $r$ too.
+By \eqref{eq:weak-equality-original-seed-reachability}, $p\in U$.
+Therefore every vertex of $Q[U]$ has an incoming arc inside $U$,
+and if $U$ is nonempty the finite oriented graph $Q[U]$ has a cycle.
+
+To lift it to $D[U]$, consider an internal FORCED arc $a\to b$ of
+$U$. The argument above supplies a witness $w\in R$.
+If $w\in X$, the old arc $w\to b$ reaches $b$ from the seeds,
+contrary to $b\in U$. Hence $w\in U$: the new arc shortcuts an
+old internal path $a\to w\to b$ and cannot make an acyclic induced
+graph cyclic. For a single WEAK internal addition, a new cycle would
+have an old path $b\leadsto p\to a$. Old predecessor containment
+gives $p\to b$ as well, so the old graph already had a cycle.
+Steps outside $U$ do not alter its induced arcs. An acyclic $D[U]$
+would therefore remain acyclic, contradicting the terminal cycle.
+Loops and directed two-cycles are absent, so its length is at least
+three.
+\end{proof}
+
+\subsection{Residual two and three localize the nongood obstruction}
+
+Now assume the original $D$ is strongly connected, all-deficient and
+minimal under arbitrary nonempty arc-set deletion. All packet variables
+in what follows are computed in $D$. Write $\eta=\eta_D(f)$,
+$g=g_D(f)$, $t=t_D(f)$ and $p=|P_D(f)|$.
+For $p>0$ use the original partner packet with exceptional missing set
+$B$, count $k$, deleted-outgoing count $s$, and remainder $L_D$:
+\[
+ |L_D|\le\eta-2k-g\mathbf1_{s>0},\qquad
+ \mathcal M_D(f)\cap U_D(f)\subseteq B\cup L_D,
+\]
+and the original shared far-head budget for every nonexceptional
+missing partner. An exceptional far partner may belong to the packet
+remainder through $\partial^2P_D(f)$. No general exclusion of that
+possibility is assumed: a nonexceptional missing predecessor pointing
+to an exceptional far partner merely places that head in $L_D$ and
+charges one unit of the actual remainder budget.
+
+\begin{corollary}[Low residual forces an original nongood-second seed]
+\label{cor:weak-equality-low-residual-seed}
+Under strong feed equality, if $\eta\in\{2,3\}$, then
+\[
+ R_2\ne\varnothing,
+ \qquad R_\infty\subseteq\operatorname{Reach}_{D[R]}(R_2).
+\]
+More specifically, at residual two $R_\infty=\varnothing$.
+At residual three $|R_\infty|\le1$; if it consists of a vertex $r$,
+some $q\in R_2$ has the original arc $q\to r$.
+At residual three the sole far partner is not asserted nonexceptional.
+\end{corollary}
+\begin{proof}
+If $p=0$, the residual identity
+$\eta=2\mu_D(f)+g-1$, with $g\in\{1,2\}$ and
+$\eta\in\{2,3\}$, gives $\mu_D(f)=1$. Hence $|R|\le1$.
+If $p>0$, nonnegativity of the packet remainder gives $k\le1$.
+When $k=0$, the original far-head packet gives $t\le\eta\le3$,
+and the strong-equality missing-degree bound gives
+$|R|\le t-g\le2$. When $k=1$, the original missing-far budget gives
+$|R_\infty|\le\eta-k\le2$. Thus in every branch the unreachable
+set $U$ of the theorem has at most two vertices; it cannot contain
+the forced original cycle. Therefore $U$ is empty. Since $R$ is
+nonempty, $R_2$ must be nonempty as well.
+
+At residual two, the $p=0$ or $k=0$ bounds give $|R|\le1$,
+so the nonempty seed set consumes $R$ and $R_\infty$ is empty.
+For $k=1$, $L_D=\varnothing$. Every originally missing far vertex
+is consequently the sole exceptional partner $b$, if one exists.
+If $b\in R_\infty$, its original seed path has a final arc
+$q\to b$ from another partner, necessarily nonexceptional.
+The original shared head budget would place $b$ in
+$L_D=\varnothing$, a contradiction.
+So $R_\infty$ is empty in this branch too.
+
+At residual three, the $p=0$ branch gives no far partner and the
+$k=0$ bound $|R|\le2$ gives at most one, because there is a seed.
+If $k=1$ and there were two far partners, at least one is a
+nonexceptional missing far head and itself belongs to $L_D$, whose
+size is at most $3-2=1$. The other must therefore be the unique
+exceptional partner $b$. Its original seed path has a last predecessor
+distinct from $b$, hence nonexceptional. The shared head budget places
+$b$ in $L_D$ too, giving two distinct heads in a one-element budget,
+a contradiction. Thus there is at most one far partner in this branch
+as well; that partner may be exceptional. With only one far partner $r$, a
+simple original path from the seeds to $r$ has its last predecessor
+in $R_2$, giving the claimed original arc $q\to r$.
+\end{proof}
+
+\begin{corollary}[The nonexceptional residual-three far-partner shape]
+\label{cor:weak-equality-eta-three-nonexception-shape}
+If $\eta=3$, $p>0$, $k=0$ and $R_\infty\ne\varnothing$, then
+\[
+ g=1,\quad t=3,\quad s=0,\quad |R|=2,\quad
+ |R_2|=|R_\infty|=1,\quad |A_f|=2,\quad g_T(f)=-1.
+\]
+Writing $R_2=\{q\}$ and $R_\infty=\{r\}$, the original arc
+$q\to r$ exists. The full original packet also satisfies
+$N_D^{--}(f)=\partial P_D(f)$ and
+$L_D=\mathcal F_D(f)$ with $|L_D|=3$.
+\end{corollary}
+\begin{proof}
+There is a seed and a far partner, so $|R|\ge2$.
+The bounds $|R|\le t-g\le3-g$ force $g=1$, $t=3$, $|R|=2$,
+and also $s=0$ in the stronger packet bound $t\le3-g\mathbf1_{s>0}$.
+The far partner is not a new head, so $|A_f|\le t-1=2$.
+The old nongood seed consumes one nongood old second head; strong
+equality gives $|A_f|-g\ge1$, so $|A_f|=2$ and completed gap is
+$g-|A_f|=-1$. The preceding corollary gives $q\to r$.
+The partition has exceptional/outgoing defect $k+s=0$, so the incoming
+packet is full. The inclusion $\mathcal F_D(f)\subseteq L_D$ and
+the three-element far budget saturate $|L_D|\le3$.
+\end{proof}
+
+\begin{corollary}[The exceptional-count-one far-partner shape]
+\label{cor:weak-equality-eta-three-one-exception-remainder}
+If $\eta=3$, $p>0$, $k=1$ and $R_\infty\ne\varnothing$, then
+$s=0$, $|L_D|=1$ and the sole terminal far partner $r$ belongs to
+$L_D$. It may be exceptional or nonexceptional, and some original
+nongood-second terminal partner $q$ has $q\to r$ in $D$.
+\end{corollary}
+\begin{proof}
+The preceding classification gives the original arc $q\to r$.
+If $r$ is nonexceptional, its original missing-far status puts it in
+$L_D$ directly. If $r$ is exceptional, it is the unique exceptional
+partner and $q\ne r$ is nonexceptional; the shared head budget again
+puts $r$ in $L_D$. Hence $|L_D|\ge1$, while the packet estimate gives
+$|L_D|\le1-g\mathbf1_{s>0}$. It follows that $s=0$ and
+$L_D=\{r\}$.
+\end{proof}
+
+\paragraph{Scope and remaining obstruction.}
+The seed vertices are original nongood \emph{second} targets, not
+original far targets and not necessarily actual BAD sources. These
+results do not eliminate the residual-two all-second trap or the
+residual-three second-to-far path. In particular they do not assert
+an original cycle on all remaining partners at negative completed gap.
+They isolate the precise original path that replaces the zero-gap
+unpaid-partner cycle, without applying minimality to an altered graph.
+
+\paragraph{A corrected packet-layer assumption.}
+An earlier draft incorrectly excluded exceptional far heads from
+$\partial^2P_D(f)$ and hence from $E$. That exclusion is not used
+in this corrected proof. The strong six-vertex geometry control
+$[34,4,24,16,1,2]$ at $f=0$ has
+\[
+ P=\{1,5\},\ C=\{2\},\ B=\{3\},\quad
+ \partial^2P=\{3,4\},\quad E=\{2,3,4\},\quad L=\{3,4\}.
+\]
+The exceptional missing far head $3$ therefore does belong to the
+external second layer and to $L$. Other vertices have nonpositive gaps,
+so this control does not meet MIN and its numerical packet budget is
+not applied. It verifies the geometric scope limit only; it is not
+an SNC counterexample. The corrected residual-three conclusion allows
+its sole terminal far partner to be exceptional and charges it to the
+one-element remainder rather than forbidding it.

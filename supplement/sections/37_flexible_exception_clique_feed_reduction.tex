@@ -1,0 +1,71 @@
+\section{A flexible exception clique has a selected terminal heavy feed}
+\label{sec:flexible-exception-clique-feed}
+
+Let $D$ be a finite nonempty oriented graph, $A$ its original actual
+bad-direction failure sources, and let $H\ne\varnothing$ be an
+exception set. Suppose every source in $A\setminus H$ has at most
+one unprotected far head, and every cross-witness pair between two
+such sources is flexible. Inactive budgets are unrestricted.
+Use the complete family of all canonical protection-reference
+completions, fixing uniquely convenient good directions and orienting
+all other missing pairs forward in the reference. Let $T$ be a member
+of maximum median score. All its global medians extend original
+protection and put all flexible added arcs forward.
+
+\begin{proposition}[An inward flexible exception star]
+\label{prop:inward-flexible-exception-star-feed}
+Suppose some $h\in H$ receives a flexible added arc $r\to h$ from
+every $r\in H\setminus\{h\}$. If $D$ is all-deficient, a median of
+the fixed tournament $T$ maximizing the position of $h$ has feed $h$.
+In particular $h$ has no original protection successor.
+\end{proposition}
+\begin{proof}
+An inactive feed transfers its tournament SNP to $D$ after reversing
+all added outgoing feed arcs inward, a contradiction. A feed
+$r\in H\setminus\{h\}$ would have its flexible outgoing arc
+$r\to h$ backward, contrary to all-median rigidity.
+
+For a remaining feed $f\in A\setminus H$, its low budget and the
+simultaneous envelope force no added first neighbor, original gap
+and far budget one, completed gap zero, and
+$G_L=N_D^{++}(f)\cup\{y\}$ for its sole unprotected far head $y$.
+Choose an opposite witness $r$ for a bad second direction introducing
+$y$. The witnesses are missing, $r\ne y$, so $r\in G_L$.
+If $r\notin H$, the assumed flexible cross-witness pair $fr$ is
+incoming at $f$ and becomes backward after global sedimentation,
+contradicting rigidity.
+
+If $r\in H$, first suppose $h$ is not an originally protected far
+target of $f$. It is then an original first target, an original second
+target, or $y$, and hence belongs to $N_T^+(f)\cup G_L$.
+Sedimentation strictly increases its position, a contradiction.
+Otherwise $h\triangleleft f$, so $h$ is a bad median vertex and
+$r\ne h$ is good. Sedimentation puts $h$ before $r$, making the
+flexible direction $r\to h$ backward in another median of $T$.
+This contradicts rigidity. Only feed $h$ remains, and the last
+position forbids an original protection successor at $h$.
+\end{proof}
+
+\begin{corollary}[Arbitrary-size flexible missing cliques]
+\label{cor:flexible-exception-clique-terminal-feed}
+If every pair of distinct exception vertices in $H$ is an original
+flexible missing pair, their directions in every maximum-reference
+completion form a transitive tournament. Its terminal vertex can be
+chosen as a median feed and has no original protection successor.
+Consequently, if each exception vertex has an original protection
+successor, $D$ has a Seymour vertex.
+\end{corollary}
+\begin{proof}
+All flexible pairs follow one reference order, so their restriction
+to $H$ is transitive. Its terminal vertex receives a flexible added
+arc from every other exception. Apply the proposition.
+\end{proof}
+
+\paragraph{Scope.}
+This extends the two-exception head theorem without a bound on
+$|H|$, but does not force the terminal vertex's completed gap to be
+zero or bound its multiple new far heads. The assertion is about a
+selected median of the fixed maximizing completion, not every median.
+The clique hypothesis concerns original missing pairs with flexible
+directions, not merely edges of the cross-witness graph. It must not
+be inferred solely from the definition of heavy failure sources.

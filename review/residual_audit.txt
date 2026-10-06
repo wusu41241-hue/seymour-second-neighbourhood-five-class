@@ -1,0 +1,86 @@
+Residual / closure / dense-boundary coverage review — 2026-10-07
+
+Scope of this review
+-------------------
+I inspected the October 4 integrated content map, its foundational/local/packet proofs, the October 4 and 5 research-frontier registries, the concise one-exception and fixed-heavy-cover proofs, the zero-gap residual proof, the corrected low-residual partner-path proof, the dense-boundary core/capacity chapters, and the earlier local delta7/excess archive. I did not rerun all finite programs and did not independently re-prove every historical case classification. The accompanying coverage_inventory.json identifies statement scopes, full source paths via root aliases, dependencies, current disposition and limitations.
+
+1. Recommended short proof organization for the numeric theorem
+---------------------------------------------------------------
+The final numerical theorem is R=2M-n>=7 for a strongly connected all-deficient graph minimal under deletion of arbitrary nonempty arc sets. Its parity refinement is R>=8 for even n, equivalently
+  M>=ceil(n/2)+3+1_{n even}.
+
+The newest one-exception theorem says at least TWO actual bad-direction failure sources have eta>=2. The older arbitrary two-positive-support exclusion says at least THREE vertices have positive eta. Combining only these facts, every positive partition of R<=6 is one of
+  (2,2,1), (3,2,1), (2,2,2), (2,2,1,1).
+The first two are covered by the general (m,2,1) theorem (October 4 eta_three_two_one_exclusion.tex); the third by eta_two_two_two_path_reduction.tex; the fourth by October 5 eta_two_two_one_one_exclusion.tex. This is a complete partition argument and was rederived in this inventory. It avoids a long replay of all finite pure-unit cases, (m,1,1), (m,1,1,1), and (2,1,1,1,1).
+
+The three mixed-partition proofs still need complete readable placement, either in the main paper or a bound supplementary proof volume. Merely citing an internal filename is insufficient for a self-contained submission. The one-exception proof itself needs the unit-unit cross-witness tail BAD lemma, full unit packet and maximum-over-ALL-reference-orders normalization. Do not omit these dependencies while shortening historical chapters.
+
+The sink-SCC extension is valid for all arbitrary-arc-set-minimal all-deficient graphs, with an additive outside-vertex penalty o. This yields strong connectivity at equality in the uniform bound. It does not turn the statement into an SNP theorem for arbitrary graphs with fewer missing pairs: arc deletion increases M.
+
+At R=7, the remaining partitions are exactly
+  (3,3,1), (3,2,2), (3,2,1,1), (2,2,2,1), (2,2,1,1,1).
+The general (m,2,1) exclusion removes (4,2,1); the one-exception result removes all one-heavy shapes. No result in round2/round3 removes one of the five displayed partitions. Their weak-closure median feeds must have negative completed gap because eta<=3, but that is not a contradiction.
+
+2. One-exception theorem and all (m,1^k)
+----------------------------------------
+Preferred source: global_followup/single_heavy_actual_exclusion_short.tex, with protected_heavy_cover_criterion.tex. The short proof has no circular reliance on its MIN corollary. Phase one chooses a canonical completion and global median maximizing forward score then the position of the exceptional vertex. Closure under EVERY original-protection extension is essential: an arbitrary finite chosen collection fails the normalization argument. Sedimentation excludes each outside unit source; the selected feed is the exceptional vertex and therefore has no protection successor. Phase two applies a separately proved fixed-heavy-cover criterion to a DIFFERENT fixed completion avoiding the exceptional source. No gap or score transfer is asserted between the two completions.
+
+The correct MIN statement concerns at least two ACTUAL failure sources with eta>=2. It is stronger than merely requiring two positive residual vertices. Inactive vertices may have arbitrarily large residual without violating the general one-exception hypothesis. The result excludes all (m,1^k), every finite k and m>=2. Pure-unit finite thresholds (12,18,24) and the standalone all-unit proof are now subsumed. Preserve their useful local lemmas or archive them in a historical coverage appendix, but do not present old finite thresholds as the current frontier.
+
+3. Closure statements and equality branches
+-------------------------------------------
+Three constructions must not be conflated:
+  (i) canonical GOOD/BAD reference completions;
+  (ii) one-round protection-forced completion;
+  (iii) iterated FORCED plus safe SINGLE WEAK closure, then maximizing reference completion.
+The families and their median feeds differ. The one-round family does not set-theoretically contain the canonical family. Only maximum forward-score comparison is proved. Original BAD-source transfer does not automatically survive released reversals of uniquely convenient pairs.
+
+For construction (iii), every positive-original-gap feed has original first neighborhood, original exact second neighborhood in the terminal partial graph, nonempty remaining partner set and t_D>=g_D+1. At ZERO completed gap, terminal partner induced graph has minimum indegree one, partner size m>=3, and t_D>=g_D+m. An original directed cycle exists on the partner set; only cycle existence, not original minimum indegree, is lifted to D.
+
+The MIN zero-gap refinement eta_D>=m+1>=4 uses the packet only if original P is nonempty. For P empty it correctly uses eta=2mu+g-1 instead. For k>0, missing-far count gives eta>=m+k+g*1_{s>0}; for k=0, all unprotected far heads lie in L and eta>=g+m+g*1_{s>0}. At eta=4, m=3 and the potential k=1 case is killed by the ORIGINAL partner triangle, which charges its exceptional vertex to L through a nonexceptional predecessor. Therefore only p>0,m=3,k=s=0,g=1,t=4 remains, with the recorded full-boundary saturation. This reasoning was independently rechecked here.
+
+These bounds apply only at zero completed gap. A negative completed gap can still occur at eta=2 or 3. The generic +1 surplus is already sharp outside MIN. Therefore no manuscript summary may say all closure feeds have eta>=4.
+
+The additional convenient-nonmax-tail operator in round3/convenient_nonmax_tail_safe_step.tex is valid for feed invariants and strict surplus but is NOT covered by the original partner-cycle/path lifting proof. Its extra steps need not be shortcuts inside the fixed partner set. Do not apply the eta=4 original-triangle equality shape to the enlarged closure without another theorem.
+
+Fresh full-text closure check completed after the initial inventory: iterated_protection_closure_strict_surplus.tex and weak_protection_closure_zero_feed_cycle.tex were read entirely. The original-cycle lift is sound under its stated construction. Hold final partner set R fixed. An internal FORCED arc a->b has old witness a triangleleft w, w->b; final f cannot reach b, hence w->f in T. If wf were terminal-adjacent then retained protection would force the still-missing af, impossible, so w belongs to R and the arc shortcuts an old R-internal two-path. Simultaneous shortcuts of old paths preserve any old acyclic topological order. For a SINGLE WEAK addition a->b, any new cycle supplies an old b-to-a path whose final predecessor p also points to b by old incoming containment, contradicting old acyclicity. Thus terminal cyclicity implies original cyclicity. This proof asserts no original minimum indegree. Its use of the original triangle in the eta=4, k=1 exclusion was checked again and is valid. The feed second-neighborhood induction uses current convenience and absence of ALL added first arcs, not original convenience of each added arc. No proof defect was found in these checked chains.
+
+4. Corrected eta=2/3 strong-Good-equality proof
+---------------------------------------------
+Use only the saved corrected global_round3/weak_equality_original_partner_paths.tex. At strong Good equality, terminal partners split into original nongood-second seeds R2 and unpaid far partners Rinf. Added FORCED/WEAK arcs do not create new seed reachability in the fixed partner set. Any far partners unreachable from the seeds contain an ORIGINAL directed cycle. The low-residual packet bounds then force R2 nonempty, all Rinf reachable, Rinf empty at eta=2, and at most one far partner at eta=3 with an ORIGINAL seed-to-far arc.
+
+The withdrawn geometric assertion was that external boundary2(P) always lies in the target incoming neighborhood; it is false. The strong six-vertex control [34,4,24,16,1,2] has an exceptional missing far head in boundary2(P) and L. The corrected eta=3 proof permits the sole far partner to be exceptional and charges it to the one-element remainder. At eta=2 it uses L empty directly. These corrected claims were checked against the packet in this inventory. No theorem eliminates the all-second negative-gap trap or the strict-Good-surplus branch.
+
+The mu_D=1, P_D empty near-whole feed theorem is an additional genuine GLOBAL constraint: sole partner is an old second head; f and all unprotected far heads lie in boundary2 of original N+; d+>=g+t+2 and n>=g+3t+5. It does not eliminate all low-residual feeds and is not a universal graph-order bound.
+
+5. Dense-boundary results that should not be lost
+------------------------------------------------
+The integrated October 4 appendices remain mathematically distinct from the general residual and incoming-core developments. Their common setting is n=2delta+3. They use sigma=target capacity surplus, not eta=local residual. Heavy sigma targets must have different notation from heavy eta actual sources in the final paper.
+
+Keep the full core tools: e in {0,1,2}, r0=M+r2; sum sigma=z-h; zero-surplus classification and protected parent chains; positive-surplus core k>=6 and z>=h+8; even-order fixed-target identity on vertex-deleted graphs. The weaker z>=h+7 is superseded.
+
+Keep predecessor bounds: for every counterexample of order 2delta+3 (no MIN needed for the first inequality), 9c+6c0>=delta+1+3Phi; under MIN, 6c+4c0>=delta+1-R+2Phi. The citations to Anonymous2026 need a real bibliographic identity or the original source-restricted identity reproduced self-contained.
+
+Keep odd deletion transfer and capacity at arbitrary residual, with retained-degree hypothesis explicitly stated. The three-heavy obstruction at delta>=10 does not assert that every heavy triple has admissible deletion; it characterizes why deletion fails. The saturation case delta in [7,9] is separate.
+
+Keep all-heavy capacity: at delta>=6 each vertex has at most H-2 outgoing heavy roots, giving H>=3. At delta>=10, H>=4 and z>=h+10. For H=4, delta<=20(m+2L)+12<=40R+12 and the refined missing-pair bound hold; delta>40R+12 implies H>=5 and z>=h+11. These thresholds are essential. Basin-square and predecessor density bounds provide additional conditional results and should be in the complete-results supplement.
+
+Older R=1-only degree-eleven/degree-twelve, far-incidence and root-deficit exclusions are superseded by R>=7; keep only reusable identities with their own hypotheses. A concise coverage table can account for them without repeating full historical narratives.
+
+6. Earlier computation and authorship boundaries
+------------------------------------------------
+work/delta7_source includes two local imported packages. A1=1 reports 30 CP-SAT leaves; A1=2 reports 610 (566 r6 +44 r5), all INFEASIBLE in existing logs. The correct outside layer C=N+(B) minus (A union B) may include the root. The files explicitly state CP-SAT/log validation, not DRAT/LRAT/VeriPB/Lean proof objects. I did not rerun those solvers. These two local branches alone do not establish the whole delta=7 theorem, and authorship of the imported package is not established by its location in our workspace. Include as attributed comparison/validation archives if appropriate, not anonymous original proof claims.
+
+work/tahara_seymour_excess/note/measuring-the-moat.tex explicitly names Daiki Tahara and identifies an external GitHub repository and Zenodo DOIs. It is external authored work, not automatically ours. Do not paste it as an original-results chapter. Related work may cite its correctly verified claims; our own local witness/solver rechecks can be reported as replication with precise scope. Its later version distinguishes excess graph minima from strong minima and says attained examples are not established global optima.
+
+Old hill-climbing, radius searches, structured blowups and exact-search attempts belong in a computational appendix with graph families, bounds and outcomes. Unknown/timeouts are not infeasibility. A near miss is not a counterexample. Finite auxiliary local checks are not exhaustive proofs of an all-order theorem.
+
+The August research_round3 proof_audit.md and m6_boundary_proof.md contain an actual analytic n=19,delta=8 MIN exclusion of M=5 and M=6, reaching M>=7. It is now superseded by the current M>=delta+5=13 and should be accounted for in the coverage table, not presented as an additional main theorem. The older special q=2,p=3 zero-surplus structure is likewise dominated by the later arbitrary-arc-set uniform-neighborhood deletion lemma. The computational report records two 27,881,153-case radius-three enumerations, G24 radius-four Z3 UNSAT and radius-five UNKNOWN, and finite weighted blowup bounds; preserve their exact limits if summarized. Its useful internal-only-repair obstruction is elementary: with three balanced complete cyclic layers, the whole-graph gap at a vertex equals its internal-layer gap, so three eight-vertex layers each retain a Seymour vertex. This is a structural limitation of that repair family, not an all-graph lower bound.
+
+7. Editorial coverage recommendation
+------------------------------------
+The user selected English throughout for an international journal. The adopted main manuscript centers on incoming-pattern certificates, clone reductions, closure results and the MIN overview with exact supplementary proof references. The full dense-boundary capacities, mixed-partition cases, all-keeper variants, outgoing-star identities, exception-clique reduction, weighted-transport controls and historical coverage table belong in a separate complete proof supplement. This preserves all valid results while distinguishing the three mathematical routes and their hypotheses. External Tahara material is related work only; the delta7 logs are archived local branches, without a whole-delta7 claim.
+
+The compact_complete_residual_input_order array in coverage_inventory.json supplies 21 exact source paths and their key LaTeX labels. It is complete for the short numerical derivation if the parent document supplies the explicit definitions and cited tournament feed, two-Seymour and sedimentation theorems. Two stale historical references need editing in copied material: good_missing.tex cites thm:residual-five-excluded in its last corollary, and unit_sources.tex cites ch:layers. No edits to the originals were made.
+
+No full solution, genuine counterexample, external peer review or full novelty clearance is claimed by the current source record. The theorem proofs are internally reviewed; the size<=5 incoming-core certificates have a different, exact integer-verification evidence chain. The final manuscript should state those evidence levels explicitly and should not relabel inherited audit reports as newly repeated checks.

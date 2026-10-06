@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "coresByOrder": {
+    "1": 1,
+    "2": 3,
+    "3": 27,
+    "4": 729
+  },
+  "totalCores": 760,
+  "totalPatternChecks": 3894,
+  "largestWeight": 1,
+  "largestDenominator": 4,
+  "infeasibleCore": null
+}
