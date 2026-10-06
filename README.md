@@ -89,8 +89,15 @@ Certificates and Structural Constraints for Seymour's Second-Neighbourhood
 Conjecture*. Year: 2026. Resource type: research preprint.
 
 [Zenodo metadata](.zenodo.json) is provided for GitHub release archiving.
-No Zenodo DOI has been verified at this repository's initial publication.
-A GitHub repository by itself is not evidence of a successful Zenodo deposit.
+Version 1.0.0 is publicly archived on Zenodo:
+
+- [Version DOI: 10.5281/zenodo.23196207](https://doi.org/10.5281/zenodo.23196207)
+- [All-versions DOI: 10.5281/zenodo.23196206](https://doi.org/10.5281/zenodo.23196206)
+- [GitHub release and individual PDF downloads](https://github.com/wusu41241-hue/seymour-second-neighbourhood-five-class/releases/tag/v1.0.0)
+
+The Zenodo repository archive contains both PDFs, sources, certificate data and
+verification programs. Use the version DOI when citing this specific release.
+See [CITATION.bib](CITATION.bib) for a BibTeX reference.
 
 ## Licenses
 
